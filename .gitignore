@@ -1,0 +1,71 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# MemoryCaptures can get excessive in size.
+# They also could contain extremely sensitive data
+/[Mm]emoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+!/[Aa]ssets/**/*.mat
+!/[Aa]ssets/**/*.png
+!/[Aa]ssets/**/*.jpg
+!/[Aa]ssets/**/*.jpeg
+!/[Aa]ssets/**/*.tga
+!/[Aa]ssets/**/*.psd
+!/[Aa]ssets/**/*.gif
+!/[Aa]ssets/**/*.bmp
+!/[Aa]ssets/**/*.tif
+!/[Aa]ssets/**/*.tiff
+!/[Aa]ssets/**/*.fbx
+!/[Aa]ssets/**/*.obj
+!/[Aa]ssets/**/*.wav
+!/[Aa]ssets/**/*.mp3
+!/[Aa]ssets/**/*.ogg
+!/[Aa]ssets/**/*.ttf
+!/[Aa]ssets/**/*.otf
+!/[Aa]ssets/**/*.anim
+!/[Aa]ssets/**/*.controller
+!/[Aa]ssets/**/*.asset
+!/[Aa]ssets/**/*.prefab
+!/[Aa]ssets/**/*.unity
+!/[Aa]ssets/**/*.physicMaterial
+!/[Aa]ssets/**/*.shader
+!/[Aa]ssets/**/*.compute
+!/[Aa]ssets/**/*.cginc
+!/[Aa]ssets/**/*.hlsl
+!/[Aa]ssets/**/*.asmdef
+!/[Aa]ssets/**/*.mask
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Crash reports
+sysinfo.txt
+
+# Addressables cache (optional)
+**/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Gradle cache (Android)
+.gradle/
