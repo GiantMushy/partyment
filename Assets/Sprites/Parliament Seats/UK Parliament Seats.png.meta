@@ -1,0 +1,1222 @@
+fileFormatVersion: 2
+guid: 9d012f8e381fe5348a060874a6cebb05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 825037347082093103
+    second: UK Parliament Seats_0
+  - first:
+      213: -4268922168592434638
+    second: UK Parliament Seats_1
+  - first:
+      213: -5266917415625376303
+    second: UK Parliament Seats_2
+  - first:
+      213: 3470733384704495019
+    second: UK Parliament Seats_3
+  - first:
+      213: 6893757545395116279
+    second: UK Parliament Seats_4
+  - first:
+      213: 5592892413980900961
+    second: UK Parliament Seats_5
+  - first:
+      213: -7313603686632776201
+    second: UK Parliament Seats_6
+  - first:
+      213: -1791585344214732636
+    second: UK Parliament Seats_7
+  - first:
+      213: 4044215763810368814
+    second: UK Parliament Seats_8
+  - first:
+      213: -4736919034363505749
+    second: UK Parliament Seats_9
+  - first:
+      213: -374563170422754933
+    second: UK Parliament Seats_10
+  - first:
+      213: 1430897773095817121
+    second: UK Parliament Seats_11
+  - first:
+      213: 2930872005686993260
+    second: UK Parliament Seats_12
+  - first:
+      213: 6627239794206309223
+    second: UK Parliament Seats_13
+  - first:
+      213: -6588944357200856652
+    second: UK Parliament Seats_14
+  - first:
+      213: -5282094560118615869
+    second: UK Parliament Seats_15
+  - first:
+      213: -3571250412594659062
+    second: UK Parliament Seats_16
+  - first:
+      213: 5283681745916232716
+    second: UK Parliament Seats_17
+  - first:
+      213: 6669374573627766726
+    second: UK Parliament Seats_18
+  - first:
+      213: 1696228992927341767
+    second: UK Parliament Seats_19
+  - first:
+      213: -5698689228423711409
+    second: UK Parliament Seats_20
+  - first:
+      213: -538835171608420227
+    second: UK Parliament Seats_21
+  - first:
+      213: -4100061171464938140
+    second: UK Parliament Seats_22
+  - first:
+      213: 7302721843706596534
+    second: UK Parliament Seats_23
+  - first:
+      213: -7625593881960287940
+    second: UK Parliament Seats_24
+  - first:
+      213: 1420906866546758273
+    second: UK Parliament Seats_25
+  - first:
+      213: 6877414903854388176
+    second: UK Parliament Seats_26
+  - first:
+      213: 66590926139935324
+    second: UK Parliament Seats_27
+  - first:
+      213: 2319706906411727782
+    second: UK Parliament Seats_28
+  - first:
+      213: 7408412743323010445
+    second: UK Parliament Seats_29
+  - first:
+      213: 5830677859980709281
+    second: UK Parliament Seats_30
+  - first:
+      213: 2136512505872498272
+    second: UK Parliament Seats_31
+  - first:
+      213: -3090789497229063636
+    second: UK Parliament Seats_32
+  - first:
+      213: -2947565342333071754
+    second: UK Parliament Seats_33
+  - first:
+      213: -3094902952878084406
+    second: UK Parliament Seats_34
+  - first:
+      213: 9216590676718553073
+    second: UK Parliament Seats_35
+  - first:
+      213: 2063593943146676530
+    second: UK Parliament Seats_36
+  - first:
+      213: 3755809140100506499
+    second: UK Parliament Seats_37
+  - first:
+      213: 7374289133451763228
+    second: UK Parliament Seats_38
+  - first:
+      213: 8072940565621271635
+    second: UK Parliament Seats_39
+  - first:
+      213: 5170039106409237865
+    second: UK Parliament Seats_40
+  - first:
+      213: 6202585184083439956
+    second: UK Parliament Seats_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UK Parliament Seats_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 6
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22424f881f137b00800000000000000
+      internalID: 825037347082093103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23af147c7edb1c4c0800000000000000
+      internalID: -4268922168592434638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ddb45c048628e6b0800000000000000
+      internalID: -5266917415625376303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad8669ef958a2030800000000000000
+      internalID: 3470733384704495019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8d1fc76fb8baf50800000000000000
+      internalID: 6893757545395116279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16efe42a402fd9d40800000000000000
+      internalID: 5592892413980900961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd1446323cd08a90800000000000000
+      internalID: -7313603686632776201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_7
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 233
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0f8452f920327e0800000000000000
+      internalID: -1791585344214732636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_8
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 240
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2db3fc5fc0ff1830800000000000000
+      internalID: 4044215763810368814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_9
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 240
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba31afa4c35134eb0800000000000000
+      internalID: -4736919034363505749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_10
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 233
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81f101f7c84dcaf0800000000000000
+      internalID: -374563170422754933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_11
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 240
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af064381f19bd310800000000000000
+      internalID: 1430897773095817121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 240
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c612c1d8f8c8ca820800000000000000
+      internalID: 2930872005686993260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 233
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bfffeea7fa8fb50800000000000000
+      internalID: 6627239794206309223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b97a30540e5f84a0800000000000000
+      internalID: -6588944357200856652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_15
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c05b1abbfa32b6b0800000000000000
+      internalID: -5282094560118615869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_16
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a010459cbae507ec0800000000000000
+      internalID: -3571250412594659062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_17
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c048d83cd88635940800000000000000
+      internalID: 5283681745916232716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_18
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7fa1fb6d06e8c50800000000000000
+      internalID: 6669374573627766726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_19
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 127
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc172538473a8710800000000000000
+      internalID: 1696228992927341767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_20
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 127
+        width: 6
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45b576f6503ae0b0800000000000000
+      internalID: -5698689228423711409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 6
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d702bcb244ca588f0800000000000000
+      internalID: -538835171608420227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46dd57d6618a917c0800000000000000
+      internalID: -4100061171464938140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_23
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc0e9b43da785560800000000000000
+      internalID: 7302721843706596534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_24
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c317d5834c27c2690800000000000000
+      internalID: -7625593881960287940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_25
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182de6f444318b310800000000000000
+      internalID: 1420906866546758273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_26
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3d73dba6c717f50800000000000000
+      internalID: 6877414903854388176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_27
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ac5d138149ce000800000000000000
+      internalID: 66590926139935324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_28
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abf0bb1421413020800000000000000
+      internalID: 2319706906411727782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_29
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 7
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85ce3b7328ffc660800000000000000
+      internalID: 7408412743323010445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_30
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 7
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad82e31f9abae050800000000000000
+      internalID: 5830677859980709281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_31
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 7
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06eb5baedca66ad10800000000000000
+      internalID: 2136512505872498272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_32
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 7
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a4726f35f4b15d0800000000000000
+      internalID: -3090789497229063636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_33
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 7
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e0cf120f42817d0800000000000000
+      internalID: -2947565342333071754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_34
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acee46f6922bc05d0800000000000000
+      internalID: -3094902952878084406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_35
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f78cfd8368e7ef70800000000000000
+      internalID: 9216590676718553073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_36
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231c7e502cb53ac10800000000000000
+      internalID: 2063593943146676530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_37
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3832bd783805f1430800000000000000
+      internalID: 3755809140100506499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_38
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e5a6e65ecb65660800000000000000
+      internalID: 7374289133451763228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_39
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c62b21ca8d80070800000000000000
+      internalID: 8072940565621271635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_40
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d866cdc2bafb740800000000000000
+      internalID: 5170039106409237865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UK Parliament Seats_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 6
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 451f46abc52041650800000000000000
+      internalID: 6202585184083439956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UK Parliament Seats_0: 825037347082093103
+      UK Parliament Seats_1: -4268922168592434638
+      UK Parliament Seats_10: -374563170422754933
+      UK Parliament Seats_11: 1430897773095817121
+      UK Parliament Seats_12: 2930872005686993260
+      UK Parliament Seats_13: 6627239794206309223
+      UK Parliament Seats_14: -6588944357200856652
+      UK Parliament Seats_15: -5282094560118615869
+      UK Parliament Seats_16: -3571250412594659062
+      UK Parliament Seats_17: 5283681745916232716
+      UK Parliament Seats_18: 6669374573627766726
+      UK Parliament Seats_19: 1696228992927341767
+      UK Parliament Seats_2: -5266917415625376303
+      UK Parliament Seats_20: -5698689228423711409
+      UK Parliament Seats_21: -538835171608420227
+      UK Parliament Seats_22: -4100061171464938140
+      UK Parliament Seats_23: 7302721843706596534
+      UK Parliament Seats_24: -7625593881960287940
+      UK Parliament Seats_25: 1420906866546758273
+      UK Parliament Seats_26: 6877414903854388176
+      UK Parliament Seats_27: 66590926139935324
+      UK Parliament Seats_28: 2319706906411727782
+      UK Parliament Seats_29: 7408412743323010445
+      UK Parliament Seats_3: 3470733384704495019
+      UK Parliament Seats_30: 5830677859980709281
+      UK Parliament Seats_31: 2136512505872498272
+      UK Parliament Seats_32: -3090789497229063636
+      UK Parliament Seats_33: -2947565342333071754
+      UK Parliament Seats_34: -3094902952878084406
+      UK Parliament Seats_35: 9216590676718553073
+      UK Parliament Seats_36: 2063593943146676530
+      UK Parliament Seats_37: 3755809140100506499
+      UK Parliament Seats_38: 7374289133451763228
+      UK Parliament Seats_39: 8072940565621271635
+      UK Parliament Seats_4: 6893757545395116279
+      UK Parliament Seats_40: 5170039106409237865
+      UK Parliament Seats_41: 6202585184083439956
+      UK Parliament Seats_5: 5592892413980900961
+      UK Parliament Seats_6: -7313603686632776201
+      UK Parliament Seats_7: -1791585344214732636
+      UK Parliament Seats_8: 4044215763810368814
+      UK Parliament Seats_9: -4736919034363505749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
