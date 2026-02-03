@@ -11,19 +11,20 @@ public class GameManager : MonoBehaviour
     [Header("Dev Values")]
     public bool developmentMode = true;
     [SerializeField] private GameState startingState = GameState.LoadingScreen;
-    private enum GameState
+    public enum GameState
     {
         // Global States
         LoadingScreen,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups,
         // Online Game States
-        HostVsJoin
+        HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
     private Dictionary<GameState, GameObject> stateDictionary;
 
     public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
     public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
+    public GameState currentState;
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     // Online Game States
     public GameObject hostVsJoin;
+    public GameObject hostOnlineGame;
+    public GameObject joinOnlineGame;
 
     void Start()
     {
@@ -54,13 +57,15 @@ public class GameManager : MonoBehaviour
         {
             { GameState.LoadingScreen, loadingScreen },
             { GameState.LocalVsOnline, localVsOnline },
-            { GameState.AssignGroups, assignGroups },
 
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
+            { GameState.AssignGroups, assignGroups },
 
             // Online Game States
-            { GameState.HostVsJoin, hostVsJoin }
+            { GameState.HostVsJoin, hostVsJoin },
+            { GameState.HostOnlineGame, hostOnlineGame },
+            { GameState.JoinOnlineGame, joinOnlineGame }
         };
         
         if (developmentMode)
@@ -127,11 +132,30 @@ public class GameManager : MonoBehaviour
     public void HostButton()
     {
         Debug.Log("Host Button Pressed");
+        SetState(GameState.HostOnlineGame);
     }
 
     public void JoinButton()
     {
         Debug.Log("Join Button Pressed");
+        SetState(GameState.JoinOnlineGame);
+    }
+
+    /// <summary>
+    /// The Start button for the host of a server to initiate the game
+    /// </summary>
+    public void StartHostedGame()
+    {
+        Debug.Log("Host has pressed the Start Button");
+    }
+
+    /// <summary>
+    /// The Join button that is in GameState.JoinOnlineGame, sends the player to
+    /// the correct hosted game with the given room number
+    /// </summary>
+    public void JoinGameButton()
+    {
+        Debug.Log("Second Join Button Pressed");
     }
 
     // ------------------------------ Helper Functions ------------------------------
@@ -147,6 +171,7 @@ public class GameManager : MonoBehaviour
         if (stateDictionary.ContainsKey(newState))
         {
             stateDictionary[newState].SetActive(true);
+            currentState = newState;
             Debug.Log($"Switched to state: {newState}");
         }
         else
