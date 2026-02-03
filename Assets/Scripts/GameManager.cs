@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Development Mode: OFF");
-            SetState(GameState.LoadingScreen);
+            StartCoroutine(LoadingSequence());
         }
     } 
 
@@ -85,5 +86,17 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError($"State {newState} not found in the dictionary!");
         }
+    }
+    
+    private IEnumerator LoadingSequence()
+    {
+        // Start in the LoadingScreen state
+        SetState(GameState.LoadingScreen);
+
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(3f);
+
+        // Switch to the LocalVsOnline state
+        SetState(GameState.LocalVsOnline);
     }
 }
