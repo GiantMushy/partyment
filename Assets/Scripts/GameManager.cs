@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
     [Header("Dev Values")]
     public bool developmentMode = true;
     [SerializeField] private GameState startingState = GameState.LoadingScreen;
-    private enum GameState { LoadingScreen, LocalVsOnline, StartLocalGame, HostVsJoin }
-    private Dictionary<GameState, GameObject> stateDictionary;
 
     [Header("State References")]
     public GameObject loadingScreen;
     public GameObject localVsOnline;
     public GameObject startLocalGame;
     public GameObject hostVsJoin;
+
+    [Header("General Variables")]
+    private Dictionary<GameState, GameObject> stateDictionary;
+    private enum GameState { LoadingScreen, LocalVsOnline, StartLocalGame, HostVsJoin }
 
     void Start()
     {
