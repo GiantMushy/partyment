@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
     // ------------------------------ Helper Functions ------------------------------
     public void SetState(GameState newState)
     {
+        if (menuOpen) return;
+
         // Disable all states
         foreach (var state in stateDictionary.Values)
         {
