@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class HostVsJoinController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GameManager gameManager;
+
+    // Awake is called when the script instance is being loaded
     void Start()
     {
-        
+        gameManager = GameManager.Instance;
+    }
+    public void Host()
+    {
+        Debug.Log("Host Button Pressed");
+        gameManager.SetState(GameManager.GameState.HostOnlineGame);
+    }
+    public void Join()
+    {
+        Debug.Log("Join Button Pressed");
+        gameManager.SetState(GameManager.GameState.JoinOnlineGame);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Back()
     {
-        
+        Debug.Log("Back Button Pressed");
+        gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 }

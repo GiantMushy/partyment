@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PackSelectionController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -10,9 +10,9 @@ public class PackSelectionController : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    public void OnPackSelectionButton()
+    public void ToggleMenu()
     {
-        Debug.Log("Pack Selection Button Pressed");
-        gameManager.SetState(GameManager.GameState.LocalVsOnline);
+        Debug.Log("Assign Groups Next Button Pressed");
+        gameManager.ToggleMenu();
     }
 }

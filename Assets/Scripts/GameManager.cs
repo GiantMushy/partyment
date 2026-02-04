@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     // State Management
     private Dictionary<GameState, GameObject> stateDictionary;
     [HideInInspector] public GameState currentState;
+    [HideInInspector] public bool menuOpen;
 
     // Player Management
     public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     [Header("State References")]
     public GameObject loadingScreen;
+    public GameObject menuPopup;
     public GameObject packSelection;
     public GameObject localVsOnline;
 
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
     public GameObject hostOnlineGame;
     public GameObject joinOnlineGame;
 
-    void Start()
+    void Awake()
     {
         // Singleton initialization
         if (Instance == null)
@@ -62,7 +64,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
 
+    void Start()
+    {
         stateDictionary = new Dictionary<GameState, GameObject>
         {
             { GameState.LoadingScreen, loadingScreen },
@@ -89,93 +94,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Development Mode: OFF");
             StartCoroutine(LoadingSequence());
         }
-    } 
-
-    // ------------------------------ Button Functions ------------------------------
-    public void PackSelectionButton()
-    {
-        Debug.Log("Pack Selection Button Pressed");
-        SetState(GameState.LocalVsOnline);
-    }
-    public void LocalButton()
-    {
-        Debug.Log("Local Button Pressed");
-        SetState(GameState.StartLocalGame);
-    }
-
-    public void OnlineButton()
-    {
-        Debug.Log("Online Button Pressed");
-        SetState(GameState.HostVsJoin);
-    }
-
-    public void MenuButton()
-    {
-        Debug.Log("Open Menu Button Pressed");
-        SetState(GameState.LocalVsOnline);
-    }
-
-    public void SaveLocalNames()
-    {
-        Debug.Log("Save Local Names Button Pressed");
-        
-        // Validate minimum 3 players
-        if (players == null || players.Count < 3)
-        {
-            Debug.LogWarning($"Need at least 3 players to continue. Current count: {(players?.Count ?? 0)}");
-            
-            // ADD ERROR MESSAGE LOGIC HERE:
-            // You can add UI error message display logic here, such as:
-            // - Show a popup/modal with error message
-            // - Display error text in the UI
-            // - Play error sound/animation
-            // - Flash the button red
-            // Example: errorMessageText.text = "Need at least 3 players!";
-            // Example: errorMessagePanel.SetActive(true);
-            
-            return; // Don't proceed if not enough players
-        }
-        
-        Debug.Log($"Proceeding with {players.Count} players");
-        SetState(GameState.AssignGroups);
-    }
-
-    public void ConfirmAssignGroups ()
-    {
-        Debug.Log("Assign Groups Next Button Pressed");
-    }
-
-    public void HostButton()
-    {
-        Debug.Log("Host Button Pressed");
-        SetState(GameState.HostOnlineGame);
-    }
-
-    public void JoinButton()
-    {
-        Debug.Log("Join Button Pressed");
-        SetState(GameState.JoinOnlineGame);
-    }
-
-    /// <summary>
-    /// The Start button for the host of a server to initiate the game
-    /// </summary>
-    public void StartHostedGame()
-    {
-        Debug.Log("Host has pressed the Start Button");
-    }
-
-    /// <summary>
-    /// The Join button that is in GameState.JoinOnlineGame, sends the player to
-    /// the correct hosted game with the given room number
-    /// </summary>
-    public void JoinGameButton()
-    {
-        Debug.Log("Second Join Button Pressed");
     }
 
     // ------------------------------ Helper Functions ------------------------------
-    private void SetState(GameState newState)
+    public void SetState(GameState newState)
     {
         // Disable all states
         foreach (var state in stateDictionary.Values)
@@ -194,6 +116,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError($"State {newState} not found in the dictionary!");
         }
+    }
+
+    public void ToggleMenu()
+    {
+        Debug.Log("Toggling Menu");
+        SetState(GameState.LocalVsOnline);
     }
 
     public void BackButton()

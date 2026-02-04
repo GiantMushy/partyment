@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class StartLocalGameController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private GameManager gameManager;
+
+    // Awake is called when the script instance is being loaded
     void Start()
     {
-        
+        gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Next()
     {
-        
+        Debug.Log("Assign Groups Next Button Pressed");
+        gameManager.SetState(GameManager.GameState.AssignGroups);
+    }
+    public void Back()
+    {
+        Debug.Log("Start Local Game Back Button Pressed");
+        gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 }
