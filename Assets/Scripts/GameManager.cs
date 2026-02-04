@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Dev Values")]
     public bool developmentMode = true;
-    [SerializeField] private GameState startingState = GameState.LoadingScreen;
+    [SerializeField, Tooltip("Dictates the starting state of the game when development mode is ON")] private GameState startingState = GameState.LoadingScreen;
     public enum GameState
     {
         // Global States
@@ -20,11 +20,20 @@ public class GameManager : MonoBehaviour
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
-    private Dictionary<GameState, GameObject> stateDictionary;
 
+    // State Management
+    private Dictionary<GameState, GameObject> stateDictionary;
+    [HideInInspector] public GameState currentState;
+
+    // Player Management
     public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
-    public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
-    public GameState currentState;
+    [HideInInspector] public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
+
+    // Crisis Management
+    public enum CrisisPack { Basic, Millenial, GenX, Political, EighteenPlus }
+
+    // Secret Objective Management
+    public enum SecretObjectiveTypes { Speech, Interruption, Betrayal }
 
     [Header("State References")]
     public GameObject loadingScreen;
