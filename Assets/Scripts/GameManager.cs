@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         // Global States
-        LoadingScreen,
+        LoadingScreen, PackSelection,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups,
         // Online Game States
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     [Header("State References")]
     public GameObject loadingScreen;
+    public GameObject packSelection;
     public GameObject localVsOnline;
 
     // Local Game States
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         stateDictionary = new Dictionary<GameState, GameObject>
         {
             { GameState.LoadingScreen, loadingScreen },
+            { GameState.PackSelection, packSelection },
             { GameState.LocalVsOnline, localVsOnline },
 
             // Local Game States
@@ -81,6 +83,11 @@ public class GameManager : MonoBehaviour
     } 
 
     // ------------------------------ Button Functions ------------------------------
+    public void PackSelectionButton()
+    {
+        Debug.Log("Pack Selection Button Pressed");
+        SetState(GameState.LocalVsOnline);
+    }
     public void LocalButton()
     {
         Debug.Log("Local Button Pressed");
@@ -179,6 +186,12 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"State {newState} not found in the dictionary!");
         }
     }
+
+    public void BackButton()
+    {
+        Debug.Log("Back Button Pressed");
+        SetState(GameState.PackSelection);
+    }
     
     private IEnumerator LoadingSequence()
     {
@@ -189,6 +202,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         // Switch to the LocalVsOnline state
-        SetState(GameState.LocalVsOnline);
+        SetState(GameState.PackSelection);
     }
 }
