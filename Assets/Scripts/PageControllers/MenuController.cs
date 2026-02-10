@@ -36,6 +36,12 @@ public class MenuController : MonoBehaviour
         StartCoroutine(SmoothMove(isMenuOpen ? openPosition : closedPosition));
     }
 
+    public void NewGame()
+    {
+        ToggleMenu();
+        gameManager.BackToPackSelect();
+    }
+
     private IEnumerator SmoothMove(Vector3 targetPosition)
     {
         while (Vector3.Distance(parentTransform.localPosition, targetPosition) > 0.01f)

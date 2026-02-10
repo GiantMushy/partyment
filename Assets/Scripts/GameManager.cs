@@ -131,6 +131,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("Back Button Pressed");
         SetState(GameState.PackSelection);
     }
+
+    public void BackToPackSelect()
+    {
+        Debug.Log("Going back to Pack Selection");
+        SetState(GameState.PackSelection);
+    }
+
+    public void ButtonNotImplemented()
+    {
+        Debug.LogError("This Button Has not been programmed yet");
+    }
     
     private IEnumerator LoadingSequence()
     {
