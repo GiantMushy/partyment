@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         // Global States
-        LoadingScreen, PackSelection,
+        LoadingScreen, PackSelection, 
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups,
+        LocalVsOnline, StartLocalGame, AssignGroups, ShowSecObjLocal,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     // Local Game States
     public GameObject startLocalGame;
     public GameObject assignGroups;
+    public GameObject showSecObjLocal;
 
     // Online Game States
     public GameObject hostVsJoin;
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
             { GameState.AssignGroups, assignGroups },
+            { GameState.ShowSecObjLocal, showSecObjLocal },
 
             // Online Game States
             { GameState.HostVsJoin, hostVsJoin },
