@@ -1,12 +1,25 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
+[System.Serializable]
+public class PlayerEntry
+{
+    public int id;
+    public string name;
+    public Color favouredColor;
+    public PlayerManager.PlayerGroup group;
+}
 
 public class PlayerManager : MonoBehaviour
 {
 
     [HideInInspector] public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
     public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
+    public int maxPlayers = 8;
     [SerializeField, Tooltip("Enter names of players here for testing purposes when development mode is ON")] private List<string> devModePlayerNames = new List<string>();
+    [SerializeField, Tooltip("Visible representation of players in the Inspector")] 
+    private List<PlayerEntry> playersList = new List<PlayerEntry>();
 
     public class PlayerModel
     {
@@ -23,6 +36,7 @@ public class PlayerManager : MonoBehaviour
             if (favouredColor == default) favouredColor = Color.white;
             players.Add(id, new PlayerModel { id = id, name = name, favouredColor = favouredColor, group = group });
             Debug.Log($"Added player {name} with ID {id}");
+            SyncPlayersList();
         }
         else
         {
@@ -36,6 +50,7 @@ public class PlayerManager : MonoBehaviour
         {
             players.Remove(id);
             Debug.Log($"Removed player with ID {id}");
+            SyncPlayersList();
         }
         else
         {
@@ -83,5 +98,21 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Not enough player names provided for development mode. Please add more names to the devModePlayerNames list.");
         }
+    }
+
+    private void SyncPlayersList()
+    {
+        playersList = players.Select(p => new PlayerEntry
+        {
+            id = p.Value.id,
+            name = p.Value.name,
+            favouredColor = p.Value.favouredColor,
+            group = p.Value.group
+        }).ToList();
+    }
+
+    private void OnValidate()
+    {
+        SyncPlayersList();
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class NameInputController : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private int maxPlayers = 8;
+    private int maxPlayers;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject playerEntryPrefab; // Prefab containing input field and kick button
@@ -34,6 +34,8 @@ public class NameInputController : MonoBehaviour
 
         // Subscribe to the default input field events
         defaultInputField.onEndEdit.AddListener(OnDefaultInputEndEdit);
+
+        maxPlayers = PlayerManager.maxPlayers;
     }
 
     void OnEnable()
@@ -218,8 +220,13 @@ public class NameInputController : MonoBehaviour
 
     private void ReorderEntries()
     {
-        // Sort entries by player ID and set sibling indices
-        // Player entries should appear before the defaultInputField
+        // Ensure the default input field is always at the top
+        if (defaultInputField != null)
+        {
+            defaultInputField.transform.SetSiblingIndex(0);
+        }
+
+        // Sort player entries by player ID and set sibling indices below the input field
         var sortedPlayerIds = playerEntries.Keys.OrderBy(id => id).ToList();
 
         for (int i = 0; i < sortedPlayerIds.Count; i++)
@@ -227,7 +234,7 @@ public class NameInputController : MonoBehaviour
             int playerId = sortedPlayerIds[i];
             if (playerEntries.TryGetValue(playerId, out GameObject entry))
             {
-                entry.transform.SetSiblingIndex(i);
+                entry.transform.SetSiblingIndex(i + 1); // Start after the input field
             }
         }
     }
