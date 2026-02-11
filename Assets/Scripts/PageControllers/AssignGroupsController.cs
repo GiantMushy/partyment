@@ -12,15 +12,6 @@ public class AssignGroupsController : MonoBehaviour
 
     public void Next()
     {
-        Debug.Log("Save Local Names Button Pressed");
-
-        if (gameManager.players == null || gameManager.players.Count < 3)
-        {
-            Debug.LogWarning($"Need at least 3 players to continue. Current count: {(gameManager.players?.Count ?? 0)}");
-            return;
-        }
-
-        Debug.Log($"Proceeding with {gameManager.players.Count} players");
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 }

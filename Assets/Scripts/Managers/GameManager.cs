@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     // Singleton pattern
     public static GameManager Instance { get; private set; }
+    public PlayerManager playerManager;
 
     [Header("Dev Values")]
     public bool developmentMode = true;
@@ -25,10 +26,6 @@ public class GameManager : MonoBehaviour
     private Dictionary<GameState, GameObject> stateDictionary;
     [HideInInspector] public GameState currentState;
     [HideInInspector] public bool menuOpen;
-
-    // Player Management
-    public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
-    [HideInInspector] public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
 
     // Crisis Management
     public enum CrisisPack { Basic, Millenial, GenX, Political, EighteenPlus }
@@ -88,6 +85,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Development Mode: ON");
             SetState(startingState);
+            playerManager.InitializeDevModePlayers();
         }
         else
         {
@@ -141,6 +139,32 @@ public class GameManager : MonoBehaviour
     public void ButtonNotImplemented()
     {
         Debug.LogError("This Button Has not been programmed yet");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+        Application.Quit();
+    }
+
+    public void AddPlayer(int id, string name, Color favouredColor = default, PlayerManager.PlayerGroup group = PlayerManager.PlayerGroup.Unassigned)
+    {
+        playerManager.AddPlayer(id, name, favouredColor, group);
+    }
+
+    public void RemovePlayer(int id)
+    {
+        playerManager.RemovePlayer(id);
+    }
+
+    public void UpdatePlayerGroup(int id, PlayerManager.PlayerGroup newGroup)
+    {
+        playerManager.UpdatePlayerGroup(id, newGroup);
+    }
+
+    public void UpdatePlayerColor(int id, Color newColor)
+    {
+        playerManager.UpdatePlayerColor(id, newColor);
     }
     
     private IEnumerator LoadingSequence()
