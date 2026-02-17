@@ -2,15 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class HoldFlipReveal : MonoBehaviour,
-    IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+    IPointerDownHandler, IPointerUpHandler, ICancelHandler
 {
-    [Header("Assign your sides")]
-    public GameObject holdToReveal;       // front
-    public GameObject letGoToUnreveal;    // back
+    public GameObject holdToReveal;
+    public GameObject letGoToUnreveal;
 
-    [Header("Flip settings")]
-    public float flipDuration = 0.18f;    // sekúndur
-    public float revealedYRotation = -180f; // flip "vinstri" (negative)
+    public float flipDuration = 0.18f;
+    public float revealedYRotation = -180f;
 
     RectTransform rt;
     Coroutine flipRoutine;
@@ -18,8 +16,6 @@ public class HoldFlipReveal : MonoBehaviour,
     void Awake()
     {
         rt = GetComponent<RectTransform>();
-
-        // Start on "front"
         SetRotationY(0f);
         ShowFront();
     }
@@ -34,8 +30,8 @@ public class HoldFlipReveal : MonoBehaviour,
         FlipTo(0f);
     }
 
-    // If finger drags off the button, treat it like letting go
-    public void OnPointerExit(PointerEventData eventData)
+    // Called if the touch is cancelled (UI steals focus, etc.)
+    public void OnCancel(BaseEventData eventData)
     {
         FlipTo(0f);
     }
@@ -58,7 +54,7 @@ public class HoldFlipReveal : MonoBehaviour,
             float y = Mathf.LerpAngle(startY, endY, Mathf.SmoothStep(0f, 1f, t));
             SetRotationY(y);
 
-            // Swap which face is visible when passing the halfway point (90 degrees)
+            // Swap sides after halfway
             float absFromFront = Mathf.Abs(Mathf.DeltaAngle(0f, y));
             if (absFromFront < 90f) ShowFront();
             else ShowBack();
@@ -77,21 +73,21 @@ public class HoldFlipReveal : MonoBehaviour,
 
     void SetRotationY(float y)
     {
-        Vector3 e = rt.localEulerAngles;
+        var e = rt.localEulerAngles;
         e.y = y;
         rt.localEulerAngles = e;
     }
 
     void ShowFront()
     {
-        if (holdToReveal) holdToReveal.SetActive(true);
-        if (letGoToUnreveal) letGoToUnreveal.SetActive(false);
+        holdToReveal.SetActive(true);
+        letGoToUnreveal.SetActive(false);
     }
 
     void ShowBack()
     {
-        if (holdToReveal) holdToReveal.SetActive(false);
-        if (letGoToUnreveal) letGoToUnreveal.SetActive(true);
+        holdToReveal.SetActive(false);
+        letGoToUnreveal.SetActive(true);
     }
 
     float NormalizeAngle(float angle)
@@ -100,4 +96,6 @@ public class HoldFlipReveal : MonoBehaviour,
         if (angle > 180f) angle -= 360f;
         return angle;
     }
+
+    
 }
