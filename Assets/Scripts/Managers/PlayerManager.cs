@@ -13,7 +13,6 @@ public class PlayerEntry
 
 public class PlayerManager : MonoBehaviour
 {
-
     [HideInInspector] public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
     public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
     public int maxPlayers = 8;

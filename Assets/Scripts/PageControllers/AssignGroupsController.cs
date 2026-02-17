@@ -31,7 +31,7 @@ public class AssignGroupsController : MonoBehaviour
 
     public void Next()
     {
-        gameManager.SetState(GameManager.GameState.LocalVsOnline);
+        StartCoroutine(gameManager.LoadingSequence(GameManager.GameState.BillSelection));
     }
 
     public void Back()

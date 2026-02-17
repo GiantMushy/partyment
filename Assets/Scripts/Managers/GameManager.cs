@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     // Singleton pattern
     public static GameManager Instance { get; private set; }
     public PlayerManager playerManager;
+    public BillManager billManager;
+    public SecretObjectiveManager secretObjectiveManager;
 
     [Header("Dev Values")]
     public bool developmentMode = true;
@@ -17,21 +19,20 @@ public class GameManager : MonoBehaviour
         // Global States
         LoadingScreen, PackSelection,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups,
+        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, PlayerMutex, SecretObjectiveMutexDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
+
+    public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
+    public static Pack selectedPack;
 
     // State Management
     private Dictionary<GameState, GameObject> stateDictionary;
     [HideInInspector] public GameState currentState;
     [HideInInspector] public bool menuOpen;
 
-    // Crisis Management
-    public enum CrisisPack { Basic, Millenial, GenX, Political, EighteenPlus }
-
     // Secret Objective Management
-    public enum SecretObjectiveTypes { Speech, Interruption, Betrayal }
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -42,6 +43,12 @@ public class GameManager : MonoBehaviour
     // Local Game States
     public GameObject startLocalGame;
     public GameObject assignGroups;
+    public GameObject billSelection;
+    public GameObject playerMutex;
+    public GameObject secretObjectiveMutexDisplay;
+    public GameObject dmDisplay;
+    public GameObject voting;
+    public GameObject scoreboard;
 
     // Online Game States
     public GameObject hostVsJoin;
@@ -74,6 +81,12 @@ public class GameManager : MonoBehaviour
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
             { GameState.AssignGroups, assignGroups },
+            { GameState.BillSelection, billSelection },
+            { GameState.PlayerMutex, playerMutex },
+            { GameState.SecretObjectiveMutexDisplay, secretObjectiveMutexDisplay },
+            { GameState.DMDisplay, dmDisplay },
+            { GameState.Voting, voting },
+            { GameState.Scoreboard, scoreboard },
 
             // Online Game States
             { GameState.HostVsJoin, hostVsJoin },
@@ -118,16 +131,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToggleMenu()
+    public void SetPack(Pack pack)
     {
-        Debug.Log("Toggling Menu");
-        SetState(GameState.LocalVsOnline);
-    }
-
-    public void BackButton()
-    {
-        Debug.Log("Back Button Pressed");
-        SetState(GameState.PackSelection);
+        selectedPack = pack;
+        Debug.Log($"Selected Pack: {pack}");
     }
 
     public void BackToPackSelect()
@@ -167,7 +174,7 @@ public class GameManager : MonoBehaviour
         playerManager.UpdatePlayerColor(id, newColor);
     }
     
-    private IEnumerator LoadingSequence()
+    public IEnumerator LoadingSequence(GameState nextState = GameState.PackSelection)
     {
         // Start in the LoadingScreen state
         SetState(GameState.LoadingScreen);
@@ -175,7 +182,27 @@ public class GameManager : MonoBehaviour
         // Wait for 3 seconds
         yield return new WaitForSeconds(3f);
 
-        // Switch to the LocalVsOnline state
-        SetState(GameState.PackSelection);
+        // Switch to the next state
+        SetState(nextState);
+    }
+
+    public void StartPlayerMutex()
+    {
+        // TODO: 
+    }
+
+    public void SetSecretObjectiveMutexDisplay(PlayerManager.PlayerModel player)
+    {
+        // TODO: 
+    }
+
+    public void SetDMDisplay()
+    {
+        // TODO:
+    }
+
+    public void SetVotingDisplay(PlayerManager.PlayerModel player)
+    {
+        
     }
 }
