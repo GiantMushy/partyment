@@ -4,7 +4,9 @@ using UnityEngine;
 public class SecretObjectives : ScriptableObject
 {
     public ObjectivesRoles role;
-
+    public enum Type { Speech, Interruption, Betrayal }
+    public string Title;
+    
     [TextArea(2,5)]
     public string description;
 
