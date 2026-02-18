@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_Hnst_
   m_EditorClassIdentifier: Assembly-CSharp::SecretObjectives
   role: 3
-  Title: 
-  description: 
+  Title: Honest
+  description: " You\u2019re an honest politician."
   points: 0
   overrideIcon: {fileID: -2170584670418518062, guid: 3394bb22b6e7b644c8dd39fa408c11bf, type: 3}

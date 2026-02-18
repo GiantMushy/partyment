@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edf83249f63d4ca40a3fde3746126e02, type: 3}
-  m_Name: SO_Spch_
+  m_Name: SO_Intrpt_FakeFart
   m_EditorClassIdentifier: Assembly-CSharp::SecretObjectives
-  role: 0
-  Title: 
-  description: Try harding at karaoke is lame. People are here to have fun, not to
-    compete!
-  points: 0
-  overrideIcon: {fileID: -2646744550248847485, guid: 50ca2f88d0065dd48a961572a7647bd0, type: 3}
+  role: 2
+  Title: Fake fart
+  description: "Stig ef \xFE\xFA n\xE6r\xF0 a\xF0 sannf\xE6ra einhvern a\xF0 einhver
+    freta\xF0i. M\xEDnus stig ef einhver actually fretar"
+  points: 30
+  overrideIcon: {fileID: -5237673400779695833, guid: ceb0b395d95e5924c81dd8f71ec9ce3c, type: 3}

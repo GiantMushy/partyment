@@ -2312,7 +2312,7 @@ GameObject:
   - component: {fileID: 449450594}
   - component: {fileID: 449450593}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ObjectiveDescriptionTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7449,7 +7449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2646744550248847485, guid: 50ca2f88d0065dd48a961572a7647bd0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

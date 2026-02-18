@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public enum ObjectivesRoles
+public enum ObjectiveRole
 {
     Speech,          // green
     Betrayal,        // red

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edf83249f63d4ca40a3fde3746126e02, type: 3}
-  m_Name: SO_Btrl_
+  m_Name: SO_Btrl_NoOtherPoint
   m_EditorClassIdentifier: Assembly-CSharp::SecretObjectives
   role: 1
-  Title: 
-  description: 
-  points: 0
+  Title: Make Sure Other doesn't get points
+  description: Make it so your teammate or the other team who is the same as you
+    get no points also
+  points: 35
   overrideIcon: {fileID: 3029958122936453729, guid: 90e43a369888d73418ea9ed5cb978bb8, type: 3}
