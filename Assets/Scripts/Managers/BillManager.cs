@@ -17,20 +17,77 @@ public class Bill
 
 public class BillManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private BillDatabase billDatabase;
     public enum BillType { Short, Medium, Long }
+
+    // Master list — populated by BillDatabase or a real data source
     public List<Bill> allBills = new List<Bill>();
+
+    // Working list — filtered to the currently selected pack
+    private List<Bill> currentPackBills = new List<Bill>();
+
     public Bill currentBill;
     public List<Bill> seenBills = new List<Bill>();
 
-    public void LoadBillsFromPack()
+    void Start()
     {
-        // Placeholder: In a real implementation, this would load from a database or file
-        Debug.Log($"Loading bills for pack");
+        LoadDevBills();
     }
 
-    public void GetThreeRandomBills(GameManager.Pack pack, int seriousnessLevel)
+    public void LoadDevBills()
     {
-        // Placeholder: In a real implementation, this would filter bills by pack and seriousness, then return 3 random ones
-        Debug.Log($"Getting 3 random bills from pack {pack} with seriousness level {seriousnessLevel}");
+        allBills = billDatabase.LoadDevBills();
+        Debug.Log($"BillManager: Loaded {allBills.Count} dev bills.");
+    }
+
+    public void LoadBillsFromPack()
+    {
+        var pack = GameManager.selectedPack;
+        currentPackBills = allBills.Where(b => b.pack == pack).ToList();
+        Debug.Log($"Loaded {currentPackBills.Count} bills for pack {pack}");
+    }
+
+    // -------------------- Public Getters --------------------
+
+    public Bill GetRandomShortBill(int seriousnessLevel)
+    {
+        return GetRandomBill(BillType.Short, seriousnessLevel);
+    }
+
+    public Bill GetRandomMediumBill(int seriousnessLevel)
+    {
+        return GetRandomBill(BillType.Medium, seriousnessLevel);
+    }
+
+    public Bill GetRandomLongBill(int seriousnessLevel)
+    {
+        return GetRandomBill(BillType.Long, seriousnessLevel);
+    }
+
+    // -------------------- Internal Logic --------------------
+
+    private Bill GetRandomBill(BillType type, int seriousnessLevel)
+    {
+        var candidates = GetUnseenBills(type, seriousnessLevel);
+
+        if (candidates.Count == 0)
+        {
+            Debug.LogWarning($"No {type} bills available for seriousness level {seriousnessLevel}.");
+            return null;
+        }
+
+        var bill = candidates[Random.Range(0, candidates.Count)];
+        seenBills.Add(bill);
+        return bill;
+    }
+
+    private List<Bill> GetUnseenBills(BillType type, int seriousnessLevel)
+    {
+        return currentPackBills
+            .Where(b => b.type == type)
+            .Where(b => Mathf.Abs(b.seriousness - seriousnessLevel) <= 1)
+            .Where(b => !seenBills.Contains(b))
+            .ToList();
     }
 }

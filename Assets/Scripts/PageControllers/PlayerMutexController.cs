@@ -5,48 +5,27 @@ public class PlayerMutexController : MonoBehaviour
 {
     [Header("References")]
     private GameManager gameManager;
-    private PlayerManager playerManager => gameManager.playerManager;
-    private TextMeshProUGUI nameDisplay;
-    private TextMeshProUGUI buttonText;
+    [SerializeField] private TextMeshProUGUI nameDisplay;
+    [SerializeField] private TextMeshProUGUI buttonText;
 
     private GameManager.GameState nextState;
-    private PlayerManager.PlayerModel currentPlayer;
-
     void Start()
     {
         gameManager = GameManager.Instance;
     }
 
-    public void SetNextStateAndName(GameManager.GameState nextState, PlayerManager.PlayerModel player)
+    public void SetNameAndNextState(string name, GameManager.GameState nextState)
     {
-        this.nextState = nextState;
-        this.currentPlayer = player;
-
         if (nameDisplay != null)
         {
-            nameDisplay.text = player.name;
-            buttonText.text = "I am " + player.name;
+            nameDisplay.text = name;
+            buttonText.text = "I am " + name;
         }
+        this.nextState = nextState;
     }
 
     public void IAmButton()
     {
-        switch (nextState)
-        {
-            case GameManager.GameState.SecretObjectiveMutexDisplay:
-                gameManager.SetSecretObjectiveMutexDisplay(currentPlayer);
-                gameManager.SetState(nextState);
-                break;
-            
-            case GameManager.GameState.DMDisplay:
-                gameManager.SetDMDisplay();
-                gameManager.SetState(nextState);
-                break;
-
-            case GameManager.GameState.Voting:
-                gameManager.SetVotingDisplay(currentPlayer);
-                gameManager.SetState(nextState);
-                break;
-        }
+        gameManager.ExitMutex(nextState);
     }
 }

@@ -19,13 +19,19 @@ public class GameManager : MonoBehaviour
         // Global States
         LoadingScreen, PackSelection,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, PlayerMutex, SecretObjectiveMutexDisplay, DMDisplay, Voting, Scoreboard,
+        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveMutexDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
 
+    // Game Settings
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
     public static Pack selectedPack;
+    public int selectedSeriousnessLevel = 2; // 0 = Silly, 2 = Balanced, 4 = Serious
+
+    // DM selected metric for voting
+    public enum Metric { Comedy, Creativity, OnTopic, Factual, Enthusiasm }
+    [HideInInspector] public List<Metric> selectedMetrics = new List<Metric>();
 
     // State Management
     private Dictionary<GameState, GameObject> stateDictionary;
@@ -44,6 +50,8 @@ public class GameManager : MonoBehaviour
     public GameObject startLocalGame;
     public GameObject assignGroups;
     public GameObject billSelection;
+    public GameObject metricSelection;
+    public GameObject assignPositions;
     public GameObject playerMutex;
     public GameObject secretObjectiveMutexDisplay;
     public GameObject dmDisplay;
@@ -82,6 +90,8 @@ public class GameManager : MonoBehaviour
             { GameState.StartLocalGame, startLocalGame },
             { GameState.AssignGroups, assignGroups },
             { GameState.BillSelection, billSelection },
+            { GameState.MetricSelection, metricSelection },
+            { GameState.AssignPositions, assignPositions },
             { GameState.PlayerMutex, playerMutex },
             { GameState.SecretObjectiveMutexDisplay, secretObjectiveMutexDisplay },
             { GameState.DMDisplay, dmDisplay },
@@ -97,8 +107,8 @@ public class GameManager : MonoBehaviour
         if (developmentMode)
         {
             Debug.Log("Development Mode: ON");
-            SetState(startingState);
             playerManager.InitializeDevModePlayers();
+            SetState(startingState);
         }
         else
         {
@@ -186,9 +196,26 @@ public class GameManager : MonoBehaviour
         SetState(nextState);
     }
 
-    public void StartPlayerMutex()
+    public void StartMutex(PlayerManager.PlayerModel player, GameState nextState)
     {
-        // TODO: 
+        playerMutex.GetComponent<PlayerMutexController>().SetNameAndNextState(player.name, nextState);
+        SetState(GameState.PlayerMutex);
+    }
+
+    public void ExitMutex(GameState nextState)
+    {
+        switch (currentState)
+        {
+            case GameState.SecretObjectiveMutexDisplay:
+                break;
+            case GameState.DMDisplay:
+                break;
+            case GameState.Voting:
+                break;
+            case GameState.BillSelection:
+                break;
+        }
+        SetState(nextState);
     }
 
     public void SetSecretObjectiveMutexDisplay(PlayerManager.PlayerModel player)

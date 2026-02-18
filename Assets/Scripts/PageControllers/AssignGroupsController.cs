@@ -31,7 +31,8 @@ public class AssignGroupsController : MonoBehaviour
 
     public void Next()
     {
-        StartCoroutine(gameManager.LoadingSequence(GameManager.GameState.BillSelection));
+        //StartCoroutine(gameManager.LoadingSequence(GameManager.GameState.BillSelection));
+        gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.BillSelection);
     }
 
     public void Back()
