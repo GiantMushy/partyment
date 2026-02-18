@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: a03b4138fc1a8194c92ccb0ee713c2be
+guid: e7a21e7a8f4b944c9974ed2ea6bb6da7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2441340409793064975
-    second: Rectangle 2 (3)_0
+      213: -5419766192885563048
+    second: Hand the Phone to_0
+  - first:
+      213: 8025351560957092475
+    second: Hand the Phone to_1
+  - first:
+      213: 2205655196754996943
+    second: Hand the Phone to_2
+  - first:
+      213: 5525679863624908229
+    second: Hand the Phone to_3
+  - first:
+      213: -1135597569213433440
+    second: Hand the Phone to_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +84,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rectangle 2 (3)_0
+      name: Hand the Phone to_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
-        height: 78
+        y: 239
+        width: 566
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ff4a7205dd9e1ed0800000000000000
-      internalID: -2441340409793064975
+      spriteID: 851826bdc5f19c4b0800000000000000
+      internalID: -5419766192885563048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand the Phone to_1
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 239
+        width: 315
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72697c79b6cf5f60800000000000000
+      internalID: 8025351560957092475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand the Phone to_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1
+        width: 158
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce639327bf0c9e10800000000000000
+      internalID: 2205655196754996943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand the Phone to_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 474
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd34e54f882fac40800000000000000
+      internalID: 5525679863624908229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand the Phone to_4
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 0
+        width: 215
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a97c37070c8d30f0800000000000000
+      internalID: -1135597569213433440
       vertices: []
       indices: 
       edges: []
@@ -148,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rectangle 2 (3)_0: -2441340409793064975
+      Hand the Phone to_0: -5419766192885563048
+      Hand the Phone to_1: 8025351560957092475
+      Hand the Phone to_2: 2205655196754996943
+      Hand the Phone to_3: 5525679863624908229
+      Hand the Phone to_4: -1135597569213433440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

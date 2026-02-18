@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     // Singleton pattern
     public static GameManager Instance { get; private set; }
+    public PlayerManager playerManager;
+    public BillManager billManager;
+    public SecretObjectiveManager secretObjectiveManager;
 
     [Header("Dev Values")]
     public bool developmentMode = true;
@@ -16,25 +19,26 @@ public class GameManager : MonoBehaviour
         // Global States
         LoadingScreen, PackSelection,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups,
+        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveMutexDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
+
+    // Game Settings
+    public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
+    public static Pack selectedPack;
+    public int selectedSeriousnessLevel = 2; // 0 = Silly, 2 = Balanced, 4 = Serious
+
+    // DM selected metric for voting
+    public enum Metric { Comedy, Creativity, OnTopic, Factual, Enthusiasm }
+    [HideInInspector] public List<Metric> selectedMetrics = new List<Metric>();
 
     // State Management
     private Dictionary<GameState, GameObject> stateDictionary;
     [HideInInspector] public GameState currentState;
     [HideInInspector] public bool menuOpen;
 
-    // Player Management
-    public enum PlayerGroup { Unassigned, DM, Group_1, Group_2, Group_3, Group_4, Group_5}
-    [HideInInspector] public Dictionary<int, PlayerModel> players = new Dictionary<int, PlayerModel>();
-
-    // Crisis Management
-    public enum CrisisPack { Basic, Millenial, GenX, Political, EighteenPlus }
-
     // Secret Objective Management
-    public enum SecretObjectiveTypes { Speech, Interruption, Betrayal }
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -45,6 +49,14 @@ public class GameManager : MonoBehaviour
     // Local Game States
     public GameObject startLocalGame;
     public GameObject assignGroups;
+    public GameObject billSelection;
+    public GameObject metricSelection;
+    public GameObject assignPositions;
+    public GameObject playerMutex;
+    public GameObject secretObjectiveMutexDisplay;
+    public GameObject dmDisplay;
+    public GameObject voting;
+    public GameObject scoreboard;
 
     // Online Game States
     public GameObject hostVsJoin;
@@ -77,6 +89,14 @@ public class GameManager : MonoBehaviour
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
             { GameState.AssignGroups, assignGroups },
+            { GameState.BillSelection, billSelection },
+            { GameState.MetricSelection, metricSelection },
+            { GameState.AssignPositions, assignPositions },
+            { GameState.PlayerMutex, playerMutex },
+            { GameState.SecretObjectiveMutexDisplay, secretObjectiveMutexDisplay },
+            { GameState.DMDisplay, dmDisplay },
+            { GameState.Voting, voting },
+            { GameState.Scoreboard, scoreboard },
 
             // Online Game States
             { GameState.HostVsJoin, hostVsJoin },
@@ -87,6 +107,7 @@ public class GameManager : MonoBehaviour
         if (developmentMode)
         {
             Debug.Log("Development Mode: ON");
+            playerManager.InitializeDevModePlayers();
             SetState(startingState);
         }
         else
@@ -120,16 +141,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToggleMenu()
+    public void SetPack(Pack pack)
     {
-        Debug.Log("Toggling Menu");
-        SetState(GameState.LocalVsOnline);
-    }
-
-    public void BackButton()
-    {
-        Debug.Log("Back Button Pressed");
-        SetState(GameState.PackSelection);
+        selectedPack = pack;
+        Debug.Log($"Selected Pack: {pack}");
     }
 
     public void BackToPackSelect()
@@ -142,8 +157,34 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogError("This Button Has not been programmed yet");
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+        Application.Quit();
+    }
+
+    public void AddPlayer(int id, string name, Color favouredColor = default, PlayerManager.PlayerGroup group = PlayerManager.PlayerGroup.Unassigned)
+    {
+        playerManager.AddPlayer(id, name, favouredColor, group);
+    }
+
+    public void RemovePlayer(int id)
+    {
+        playerManager.RemovePlayer(id);
+    }
+
+    public void UpdatePlayerGroup(int id, PlayerManager.PlayerGroup newGroup)
+    {
+        playerManager.UpdatePlayerGroup(id, newGroup);
+    }
+
+    public void UpdatePlayerColor(int id, Color newColor)
+    {
+        playerManager.UpdatePlayerColor(id, newColor);
+    }
     
-    private IEnumerator LoadingSequence()
+    public IEnumerator LoadingSequence(GameState nextState = GameState.PackSelection)
     {
         // Start in the LoadingScreen state
         SetState(GameState.LoadingScreen);
@@ -151,7 +192,44 @@ public class GameManager : MonoBehaviour
         // Wait for 3 seconds
         yield return new WaitForSeconds(3f);
 
-        // Switch to the LocalVsOnline state
-        SetState(GameState.PackSelection);
+        // Switch to the next state
+        SetState(nextState);
+    }
+
+    public void StartMutex(PlayerManager.PlayerModel player, GameState nextState)
+    {
+        playerMutex.GetComponent<PlayerMutexController>().SetNameAndNextState(player.name, nextState);
+        SetState(GameState.PlayerMutex);
+    }
+
+    public void ExitMutex(GameState nextState)
+    {
+        switch (currentState)
+        {
+            case GameState.SecretObjectiveMutexDisplay:
+                break;
+            case GameState.DMDisplay:
+                break;
+            case GameState.Voting:
+                break;
+            case GameState.BillSelection:
+                break;
+        }
+        SetState(nextState);
+    }
+
+    public void SetSecretObjectiveMutexDisplay(PlayerManager.PlayerModel player)
+    {
+        // TODO: 
+    }
+
+    public void SetDMDisplay()
+    {
+        // TODO:
+    }
+
+    public void SetVotingDisplay(PlayerManager.PlayerModel player)
+    {
+        
     }
 }
