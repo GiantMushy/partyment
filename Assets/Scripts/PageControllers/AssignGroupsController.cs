@@ -17,27 +17,13 @@ public class AssignGroupsController : MonoBehaviour
     [SerializeField] private GameObject threePlayerGroupPrefab;
 
     [Header("Settings")]
-    public int numberOfGroups;
+    public int numberOfGroups = 2;
 
-
-    // Group assignment result: list of groups, each group is a list of player models
-    private List<List<PlayerManager.PlayerModel>> assignedGroups = new List<List<PlayerManager.PlayerModel>>();
     private int dmId;
 
     void Start()
     {
         gameManager = GameManager.Instance;
-    }
-
-    public void Next()
-    {
-        //StartCoroutine(gameManager.LoadingSequence(GameManager.GameState.BillSelection));
-        gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.BillSelection);
-    }
-
-    public void Back()
-    {
-        gameManager.SetState(GameManager.GameState.StartLocalGame);
     }
 
     void OnEnable()
@@ -47,15 +33,64 @@ public class AssignGroupsController : MonoBehaviour
         DisplayGroups();
     }
 
+    // -------------------- Button Logic --------------------
+    public void Next()
+    {
+        // Assign a random secret objective to each non-DM player
+        gameManager.secretObjectiveManager.AssignSecretObjectivesToPlayers(PlayerManager.players, dmId);
+
+        gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.BillSelection);
+    }
+
+    public void Back()
+    {
+        gameManager.SetState(GameManager.GameState.StartLocalGame);
+    }
+
+    public void AddGroup()
+    {
+        int nonDMPlayerCount = PlayerManager.players.Count - 1;
+        if (numberOfGroups < nonDMPlayerCount)
+        {
+            numberOfGroups++;
+            AssignPlayersToRandomGroups();
+            DisplayGroups();
+        }
+    }
+
+    public void RemoveGroup()
+    {
+        int nonDMPlayerCount = PlayerManager.players.Count - 1;
+        int minGroups = Mathf.Max(2, Mathf.CeilToInt(nonDMPlayerCount / 3f));
+        if (numberOfGroups > minGroups)
+        {
+            numberOfGroups--;
+            AssignPlayersToRandomGroups();
+            DisplayGroups();
+        }
+    }
+
     // -------------------- Assignment Logic --------------------
 
     private void AssignPlayersToRandomGroups()
     {
+        PlayerManager.ClearAllGroups();
         dmId = GetLowestPlayerId();
-        AssignDM(dmId);
+
         var nonDMPlayers = GetShuffledNonDMPlayers(dmId);
-        assignedGroups = SplitIntoGroups(nonDMPlayers);
-        ApplyGroupAssignments();
+
+        if (nonDMPlayers.Count < 2)
+        {
+            numberOfGroups = Mathf.Max(1, nonDMPlayers.Count);
+        }
+        else
+        {
+            int minGroups = Mathf.Max(2, Mathf.CeilToInt(nonDMPlayers.Count / 3f));
+            numberOfGroups = Mathf.Clamp(numberOfGroups, minGroups, nonDMPlayers.Count);
+        }
+
+        var playerGroups = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
+        ApplyGroupAssignments(playerGroups);
     }
 
     private int GetLowestPlayerId()
@@ -63,15 +98,7 @@ public class AssignGroupsController : MonoBehaviour
         return PlayerManager.players.Keys.Min();
     }
 
-    private void AssignDM(int id)
-    {
-        if (PlayerManager.players.ContainsKey(id))
-        {
-            PlayerManager.UpdatePlayerGroup(id, PlayerManager.PlayerGroup.DM);
-        }
-    }
-
-    private List<PlayerManager.PlayerModel> GetShuffledNonDMPlayers(int excludeId)
+    private List<Player> GetShuffledNonDMPlayers(int excludeId)
     {
         return PlayerManager.players.Values
             .Where(p => p.id != excludeId)
@@ -79,62 +106,31 @@ public class AssignGroupsController : MonoBehaviour
             .ToList();
     }
 
-    private List<List<PlayerManager.PlayerModel>> SplitIntoGroups(List<PlayerManager.PlayerModel> players)
+    private List<List<Player>> DistributePlayersIntoGroups(List<Player> players, int targetGroupCount)
     {
-        var groups = new List<List<PlayerManager.PlayerModel>>();
-        int index = 0;
+        targetGroupCount = Mathf.Clamp(targetGroupCount, 1, players.Count);
 
-        while (index < players.Count)
-        {
-            int remaining = players.Count - index;
-            int groupSize = GetNextGroupSize(remaining);
+        var groups = new List<List<Player>>();
+        for (int i = 0; i < targetGroupCount; i++)
+            groups.Add(new List<Player>());
 
-            groups.Add(players.GetRange(index, groupSize));
-            index += groupSize;
-        }
+        for (int i = 0; i < players.Count; i++)
+            groups[i % targetGroupCount].Add(players[i]);
 
-        EnsureMinimumGroups(groups);
         return groups;
     }
 
-    private void EnsureMinimumGroups(List<List<PlayerManager.PlayerModel>> groups, int minimum = 2)
+    private void ApplyGroupAssignments(List<List<Player>> playerGroups)
     {
-        while (groups.Count < minimum && groups.Count > 0 && groups[0].Count > 1)
+        for (int i = 0; i < playerGroups.Count; i++)
         {
-            var splitPlayer = groups[0][groups[0].Count - 1];
-            groups[0].RemoveAt(groups[0].Count - 1);
-            groups.Add(new List<PlayerManager.PlayerModel> { splitPlayer });
-        }
-    }
-
-    private int GetNextGroupSize(int remainingPlayers)
-    {
-        // Avoid leaving exactly 4 remaining after this group, which would force a group of 4 or a lone group of 1 after a 3
-        // Instead prefer (2, 2) over (3, 1)
-        if (remainingPlayers == 4) return 2;
-        if (remainingPlayers <= 3) return remainingPlayers;
-        return 3;
-    }
-
-    private void ApplyGroupAssignments()
-    {
-        PlayerManager.PlayerGroup[] groupEnums = {
-            PlayerManager.PlayerGroup.Group_1,
-            PlayerManager.PlayerGroup.Group_2,
-            PlayerManager.PlayerGroup.Group_3,
-            PlayerManager.PlayerGroup.Group_4,
-            PlayerManager.PlayerGroup.Group_5
-        };
-
-        for (int i = 0; i < assignedGroups.Count && i < groupEnums.Length; i++)
-        {
-            foreach (var player in assignedGroups[i])
+            var group = PlayerManager.CreateGroup($"Group {i + 1}");
+            foreach (var player in playerGroups[i])
             {
-                PlayerManager.UpdatePlayerGroup(player.id, groupEnums[i]);
+                PlayerManager.UpdatePlayerGroup(player.id, group.id);
             }
         }
-
-        numberOfGroups = assignedGroups.Count;
+        numberOfGroups = playerGroups.Count;
     }
 
     // -------------------- Display Logic --------------------
@@ -164,15 +160,15 @@ public class AssignGroupsController : MonoBehaviour
 
     private void InstantiateGroupDisplays()
     {
-        for (int i = 0; i < assignedGroups.Count; i++)
+        foreach (var group in PlayerManager.groups.Values)
         {
-            var group = assignedGroups[i];
-            GameObject prefab = GetPrefabForGroupSize(group.Count);
+            var groupPlayers = PlayerManager.GetPlayersWithGroupId(group.id);
+            GameObject prefab = GetPrefabForGroupSize(groupPlayers.Count);
             if (prefab == null) continue;
 
             GameObject display = Instantiate(prefab, groupDisplayParent.transform);
-            SetGroupLabel(display, $"Group {i + 1}");
-            SetGroupPlayerNames(display, group);
+            SetGroupLabel(display, group.name);
+            SetGroupPlayerNames(display, groupPlayers);
         }
     }
 
@@ -199,7 +195,7 @@ public class AssignGroupsController : MonoBehaviour
         if (tmp != null) tmp.text = label;
     }
 
-    private void SetGroupPlayerNames(GameObject display, List<PlayerManager.PlayerModel> players)
+    private void SetGroupPlayerNames(GameObject display, List<Player> players)
     {
         string[] nameFieldNames = { "First Name Field", "Second Name Field", "Third Name Field" };
 

@@ -48,6 +48,12 @@ public class BillManager : MonoBehaviour
         Debug.Log($"Loaded {currentPackBills.Count} bills for pack {pack}");
     }
 
+    public void ResetBillSelection()
+    {
+        seenBills.Clear();
+        currentBill = null;
+    }
+
     // -------------------- Public Getters --------------------
 
     public Bill GetRandomShortBill(int seriousnessLevel)

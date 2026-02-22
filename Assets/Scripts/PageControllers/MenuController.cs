@@ -39,7 +39,7 @@ public class MenuController : MonoBehaviour
     public void NewGame()
     {
         ToggleMenu();
-        gameManager.BackToPackSelect();
+        gameManager.NewGame();
     }
 
     private IEnumerator SmoothMove(Vector3 targetPosition)

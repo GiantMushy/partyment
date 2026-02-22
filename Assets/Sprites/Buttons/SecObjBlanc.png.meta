@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 699906e149fe8da49a9a3ae69b220e7a
+guid: e8441c7b010d74f01a16167858a5e610
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6765170090252405212
-    second: iPhone 16 - Loading Screen_0
+      213: -7479378616828530616
+    second: SecObjBlanc_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: iPhone 16 - Loading Screen_0
+      name: SecObjBlanc_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 393
-        height: 852
+        width: 1260
+        height: 904
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 426786575a94d12a0800000000000000
-      internalID: -6765170090252405212
+      spriteID: 840784386c8e33890800000000000000
+      internalID: -7479378616828530616
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      iPhone 16 - Loading Screen_0: -6765170090252405212
+      SecObjBlanc_0: -7479378616828530616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

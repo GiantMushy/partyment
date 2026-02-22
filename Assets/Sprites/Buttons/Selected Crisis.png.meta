@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d5fc1c3fe29384ae1a55c28173e7611f
+guid: 33fb96b523615466c9d19cd3e2bbdcf8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4291674443666540016
-    second: Debate Time_0
-  - first:
-      213: -2758420968211104437
-    second: Debate Time_1
+      213: 5628069999390669348
+    second: Selected Crisis_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Debate Time_0
+      name: Selected Crisis_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 699
-        height: 215
+        width: 1260
+        height: 908
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01a32ade4d8e074c0800000000000000
-      internalID: -4291674443666540016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Debate Time_1
-      rect:
-        serializedVersion: 2
-        x: 738
-        y: 0
-        width: 499
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b4db9c08ebe18b9d0800000000000000
-      internalID: -2758420968211104437
+      spriteID: 42ab6bc78dbea1e40800000000000000
+      internalID: 5628069999390669348
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Debate Time_0: -4291674443666540016
-      Debate Time_1: -2758420968211104437
+      Selected Crisis_0: 5628069999390669348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
