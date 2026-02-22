@@ -25,13 +25,13 @@ public class MetricSelectionController : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
+        CacheOriginalPositions();
     }
 
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
 
-        CacheOriginalPositions();
         ClearSelection();
     }
 

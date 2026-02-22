@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,14 +20,16 @@ public class GameManager : MonoBehaviour
         // Global States
         LoadingScreen, PackSelection,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveMutexDisplay, DMDisplay, Voting, Scoreboard,
+        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
 
     // Game Settings
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
-    public static Pack selectedPack;
+    public enum Position { For, Against }
+    public enum SecretObjectiveType { Civilian, Speech, Interruption, Betrayal }
+    public static Pack selectedPack = Pack.Default;
     public int selectedSeriousnessLevel = 2; // 0 = Silly, 2 = Balanced, 4 = Serious
 
     // DM selected metric for voting
@@ -38,7 +41,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameState currentState;
     [HideInInspector] public bool menuOpen;
 
-    // Secret Objective Management
+    // Secret Objective Sequence — controls the order players view their objectives
+    // Edit this ordering logic in StartSecretObjectiveSequence() to change player order
+    private List<Player> secretObjectiveOrder = new List<Player>();
+    private int secretObjectiveIndex = 0;
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -53,7 +59,7 @@ public class GameManager : MonoBehaviour
     public GameObject metricSelection;
     public GameObject assignPositions;
     public GameObject playerMutex;
-    public GameObject secretObjectiveMutexDisplay;
+    public GameObject secretObjectiveDisplay;
     public GameObject dmDisplay;
     public GameObject voting;
     public GameObject scoreboard;
@@ -93,7 +99,7 @@ public class GameManager : MonoBehaviour
             { GameState.MetricSelection, metricSelection },
             { GameState.AssignPositions, assignPositions },
             { GameState.PlayerMutex, playerMutex },
-            { GameState.SecretObjectiveMutexDisplay, secretObjectiveMutexDisplay },
+            { GameState.SecretObjectiveDisplay, secretObjectiveDisplay },
             { GameState.DMDisplay, dmDisplay },
             { GameState.Voting, voting },
             { GameState.Scoreboard, scoreboard },
@@ -147,9 +153,17 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Selected Pack: {pack}");
     }
 
-    public void BackToPackSelect()
+    public void NewGame()
     {
-        Debug.Log("Going back to Pack Selection");
+        Debug.Log("Starting a New Game");
+        // Reset Metrics, Bill Selection, Secret Objectives, and Player Groups
+        selectedMetrics.Clear();
+        selectedPack = Pack.Default;
+        billManager.ResetBillSelection();
+        secretObjectiveManager.ResetSecretObjectives();
+        playerManager.ResetPlayerGroups();
+
+        // Go back to Pack Selection
         SetState(GameState.PackSelection);
     }
 
@@ -164,9 +178,9 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void AddPlayer(int id, string name, Color favouredColor = default, PlayerManager.PlayerGroup group = PlayerManager.PlayerGroup.Unassigned)
+    public void AddPlayer(int id, string name)
     {
-        playerManager.AddPlayer(id, name, favouredColor, group);
+        playerManager.AddPlayer(id, name);
     }
 
     public void RemovePlayer(int id)
@@ -174,14 +188,9 @@ public class GameManager : MonoBehaviour
         playerManager.RemovePlayer(id);
     }
 
-    public void UpdatePlayerGroup(int id, PlayerManager.PlayerGroup newGroup)
+    public void UpdatePlayerGroup(int id, int newGroupId)
     {
-        playerManager.UpdatePlayerGroup(id, newGroup);
-    }
-
-    public void UpdatePlayerColor(int id, Color newColor)
-    {
-        playerManager.UpdatePlayerColor(id, newColor);
+        playerManager.UpdatePlayerGroup(id, newGroupId);
     }
     
     public IEnumerator LoadingSequence(GameState nextState = GameState.PackSelection)
@@ -196,7 +205,7 @@ public class GameManager : MonoBehaviour
         SetState(nextState);
     }
 
-    public void StartMutex(PlayerManager.PlayerModel player, GameState nextState)
+    public void StartMutex(Player player, GameState nextState)
     {
         playerMutex.GetComponent<PlayerMutexController>().SetNameAndNextState(player.name, nextState);
         SetState(GameState.PlayerMutex);
@@ -204,9 +213,12 @@ public class GameManager : MonoBehaviour
 
     public void ExitMutex(GameState nextState)
     {
-        switch (currentState)
+        // Set up the target state before transitioning
+        switch (nextState)
         {
-            case GameState.SecretObjectiveMutexDisplay:
+            case GameState.SecretObjectiveDisplay:
+                var currentPlayer = secretObjectiveOrder[secretObjectiveIndex];
+                secretObjectiveDisplay.GetComponent<SecretObjectiveDisplayController>().SetPlayer(currentPlayer);
                 break;
             case GameState.DMDisplay:
                 break;
@@ -218,9 +230,56 @@ public class GameManager : MonoBehaviour
         SetState(nextState);
     }
 
-    public void SetSecretObjectiveMutexDisplay(PlayerManager.PlayerModel player)
+    // -------------------- Secret Objective Sequence --------------------
+
+    /// <summary>
+    /// Starts the sequence of showing each non-DM player their secret objective.
+    /// Players are shown in ascending player ID order (excluding the DM, who has the lowest ID).
+    /// Edit the OrderBy below to change the player ordering.
+    /// </summary>
+    public void StartSecretObjectiveSequence()
     {
-        // TODO: 
+        int dmId = playerManager.players.Keys.Min();
+
+        // ---- Player ordering logic (edit here to change order) ----
+        secretObjectiveOrder = playerManager.players.Values
+            .Where(p => p.id != dmId)
+            .OrderBy(p => p.id)
+            .ToList();
+        // -----------------------------------------------------------
+
+        secretObjectiveIndex = 0;
+
+        if (secretObjectiveOrder.Count > 0)
+        {
+            StartMutex(secretObjectiveOrder[0], GameState.SecretObjectiveDisplay);
+        }
+        else
+        {
+            // No non-DM players, go straight to DM
+            StartMutex(playerManager.players[dmId], GameState.DMDisplay);
+        }
+    }
+
+    /// <summary>
+    /// Advances to the next player in the secret objective sequence,
+    /// or hands the phone to the DM if all players have seen theirs.
+    /// </summary>
+    public void AdvanceSecretObjectiveSequence()
+    {
+        secretObjectiveIndex++;
+        int dmId = playerManager.players.Keys.Min();
+
+        if (secretObjectiveIndex < secretObjectiveOrder.Count)
+        {
+            // Next player's mutex
+            StartMutex(secretObjectiveOrder[secretObjectiveIndex], GameState.SecretObjectiveDisplay);
+        }
+        else
+        {
+            // All players have seen their objectives — hand to DM
+            StartMutex(playerManager.players[dmId], GameState.DMDisplay);
+        }
     }
 
     public void SetDMDisplay()
@@ -228,7 +287,7 @@ public class GameManager : MonoBehaviour
         // TODO:
     }
 
-    public void SetVotingDisplay(PlayerManager.PlayerModel player)
+    public void SetVotingDisplay(Player player)
     {
         
     }

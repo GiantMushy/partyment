@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d5fc1c3fe29384ae1a55c28173e7611f
+guid: 699906e149fe8da49a9a3ae69b220e7a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4291674443666540016
-    second: Debate Time_0
-  - first:
-      213: -2758420968211104437
-    second: Debate Time_1
+      213: -6765170090252405212
+    second: iPhone 16 - Loading Screen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -116,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Debate Time_0
+      name: iPhone 16 - Loading Screen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 699
-        height: 215
+        width: 393
+        height: 852
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01a32ade4d8e074c0800000000000000
-      internalID: -4291674443666540016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Debate Time_1
-      rect:
-        serializedVersion: 2
-        x: 738
-        y: 0
-        width: 499
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b4db9c08ebe18b9d0800000000000000
-      internalID: -2758420968211104437
+      spriteID: 426786575a94d12a0800000000000000
+      internalID: -6765170090252405212
       vertices: []
       indices: 
       edges: []
@@ -163,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Debate Time_0: -4291674443666540016
-      Debate Time_1: -2758420968211104437
+      iPhone 16 - Loading Screen_0: -6765170090252405212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
