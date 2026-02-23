@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         // Global States
-        LoadingScreen, PackSelection,
+        LoadingScreen, PackSelection, Scalelevel,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     public GameObject menuPopup;
     public GameObject packSelection;
     public GameObject localVsOnline;
+
+    public GameObject scalelevel;
 
     // Local Game States
     public GameObject startLocalGame;
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
             { GameState.LoadingScreen, loadingScreen },
             { GameState.PackSelection, packSelection },
             { GameState.LocalVsOnline, localVsOnline },
+            { GameState.Scalelevel, scalelevel},
 
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
