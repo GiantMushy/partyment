@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Gametext Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Gametext
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 71ec90485182ac74eaaec99ec052da16
+  m_Entries:
+  - m_Id: 106927747072
+    m_Key: Menu_play
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

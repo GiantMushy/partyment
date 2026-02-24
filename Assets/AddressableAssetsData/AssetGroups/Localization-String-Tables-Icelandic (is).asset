@@ -14,8 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-String-Tables-Icelandic (is)
   m_GUID: bc7a6339c24dc3b43818dae9c9b66c48
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 37bf57fbf8c356d48bbb873f7e90a433
+    m_Address: Gametext_is
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-is
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 42054c34fbdd3aa4ea78bad3b49d8737, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 7a39fc3dcab12f54e8845d20b6c11049, type: 2}
+    - {fileID: 11400000, guid: 9393120d64eec8a4587e2d84e985d8b1, type: 2}

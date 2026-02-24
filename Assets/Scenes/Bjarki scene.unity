@@ -4494,6 +4494,7 @@ MonoBehaviour:
   menuPopup: {fileID: 1143111922}
   packSelection: {fileID: 1037677169}
   localVsOnline: {fileID: 277037344}
+  scalelevel: {fileID: 0}
   startLocalGame: {fileID: 1592466018}
   assignGroups: {fileID: 1593120808}
   billSelection: {fileID: 1576948009}
@@ -11103,6 +11104,7 @@ GameObject:
   - component: {fileID: 1334155828}
   - component: {fileID: 1334155830}
   - component: {fileID: 1334155829}
+  - component: {fileID: 1334155831}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11229,6 +11231,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334155827}
   m_CullTransparentMesh: 1
+--- !u!114 &1334155831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334155827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:71ec90485182ac74eaaec99ec052da16
+    m_TableEntryReference:
+      m_KeyId: 106927747072
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1334155827}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1344487527
 GameObject:
   m_ObjectHideFlags: 0
