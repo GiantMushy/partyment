@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         // Global States
-        LoadingScreen, PackSelection, Scalelevel,
+        LoadingScreen, PackSelection, Settings, Rulebook,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
     [Header("State References")]
     public GameObject loadingScreen;
     public GameObject menuPopup;
+    public GameObject settings;
+    public GameObject rulebook;
     public GameObject packSelection;
     public GameObject localVsOnline;
-
-    public GameObject scalelevel;
 
     // Local Game States
     public GameObject startLocalGame;
@@ -91,9 +91,10 @@ public class GameManager : MonoBehaviour
         stateDictionary = new Dictionary<GameState, GameObject>
         {
             { GameState.LoadingScreen, loadingScreen },
+            { GameState.Settings, settings },
+            { GameState.Rulebook, rulebook },
             { GameState.PackSelection, packSelection },
             { GameState.LocalVsOnline, localVsOnline },
-            { GameState.Scalelevel, scalelevel},
 
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },

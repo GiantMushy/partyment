@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 33fb96b523615466c9d19cd3e2bbdcf8
+guid: 6594c19025e06491b9896d596f909d7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5628069999390669348
-    second: Selected Crisis_0
+      213: -798157092558569940
+    second: StartTimerButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Selected Crisis_0
+      name: StartTimerButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1260
-        height: 902
+        width: 542
+        height: 163
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42ab6bc78dbea1e40800000000000000
-      internalID: 5628069999390669348
+      spriteID: c2e76176a506ce4f0800000000000000
+      internalID: -798157092558569940
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 40ec30f2fc20c42e0b5302135e9d259e
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Selected Crisis_0: 5628069999390669348
+      StartTimerButton_0: -798157092558569940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

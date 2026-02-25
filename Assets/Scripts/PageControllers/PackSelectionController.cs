@@ -15,7 +15,7 @@ public class PackSelectionController : MonoBehaviour
     {
         gameManager.SetPack(GameManager.Pack.Default);
         BillManager.LoadBillsFromPack();
-        gameManager.SetState(GameManager.GameState.Scalelevel);
+        gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
     public void EighteenPlus()

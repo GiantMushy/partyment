@@ -49,14 +49,6 @@ public class SecretObjectiveManager : MonoBehaviour
     {
         playerAssignments.Clear();
 
-        // Collect available types to distribute
-        var objectiveTypes = new List<GameManager.SecretObjectiveType>
-        {
-            GameManager.SecretObjectiveType.Speech,
-            GameManager.SecretObjectiveType.Interruption,
-            GameManager.SecretObjectiveType.Betrayal
-        };
-
         foreach (var player in players.Values)
         {
             if (player.id == dmId)
@@ -66,8 +58,15 @@ public class SecretObjectiveManager : MonoBehaviour
                 continue;
             }
 
-            // Pick a random type for this player
-            var randomType = objectiveTypes[Random.Range(0, objectiveTypes.Count)];
+            // Pick a weighted random type: 80% Speech, 15% Interruption, 5% Betrayal
+            float roll = Random.value;
+            GameManager.SecretObjectiveType randomType;
+            if (roll < 0.80f)
+                randomType = GameManager.SecretObjectiveType.Speech;
+            else if (roll < 0.95f)
+                randomType = GameManager.SecretObjectiveType.Interruption;
+            else
+                randomType = GameManager.SecretObjectiveType.Betrayal;
             var objective = GetRandomUnusedSecretObjective(randomType);
 
             if (objective != null)
@@ -106,7 +105,7 @@ public class SecretObjectiveManager : MonoBehaviour
     /// <summary>
     /// Returns the SecretObjective assigned to a given player for this round, or null.
     /// </summary>
-    public SecretObjective GetSecretObjectiveForPlayer(int playerId)
+    public SecretObjective GetSecretObjectiveByPlayerId(int playerId)
     {
         if (playerAssignments.TryGetValue(playerId, out var objective))
             return objective;
