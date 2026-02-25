@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: Menu_play
     m_Metadata:
       m_Items: []
+  - m_Id: 436510862340096
+    m_Key: Menu_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Key: Menu_rulebook
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

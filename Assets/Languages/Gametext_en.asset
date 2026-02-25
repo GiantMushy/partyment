@@ -19,7 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 106927747072
-    m_Localized: Play
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Localized: Rulebook
     m_Metadata:
       m_Items: []
   references:

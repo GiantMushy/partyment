@@ -56,6 +56,12 @@ public class MenuController : MonoBehaviour
         gameManager.NewGame();
     }
 
+      public void Settings()
+    {
+        ToggleMenu();
+        gameManager.Settings();
+    }
+
     private IEnumerator SmoothMove(Vector3 targetPosition)
     {
         while (Vector3.Distance(parentTransform.localPosition, targetPosition) > 0.01f)

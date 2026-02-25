@@ -156,6 +156,10 @@ public class GameManager : MonoBehaviour
         selectedPack = pack;
         Debug.Log($"Selected Pack: {pack}");
     }
+    public void Settings()
+    {
+        SetState(GameState.Settings);
+    }
 
     public void NewGame()
     {
