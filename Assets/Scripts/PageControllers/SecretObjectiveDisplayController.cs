@@ -34,6 +34,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
     private bool isRevealed = false;
     private bool hasBeenRevealed = false;
+    private bool scalesCaptured = false;
     private Coroutine flipCoroutine;
 
     private Vector3 cardHiddenOriginalScale;
@@ -41,10 +42,23 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
     void Awake()
     {
+        CaptureOriginalScales();
+    }
+
+    /// <summary>
+    /// Lazily captures the original card scales exactly once, before any code can modify them.
+    /// Safe to call whether or not Awake has run.
+    /// </summary>
+    private void CaptureOriginalScales()
+    {
+        if (scalesCaptured) return;
+
         if (cardHidden != null)
             cardHiddenOriginalScale = cardHidden.GetComponent<RectTransform>().localScale;
         if (cardRevealed != null)
             cardRevealedOriginalScale = cardRevealed.GetComponent<RectTransform>().localScale;
+
+        scalesCaptured = true;
     }
 
     void Start()
@@ -58,6 +72,19 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         ShowHiddenSide();
         hasBeenRevealed = false;
         if (nextButton != null) nextButton.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        // Stop any in-progress flip so scales aren't left at zero
+        if (flipCoroutine != null)
+        {
+            StopCoroutine(flipCoroutine);
+            flipCoroutine = null;
+        }
+        ResetCardScale(cardHidden);
+        ResetCardScale(cardRevealed);
+        isRevealed = false;
     }
 
     // -------------------- Pointer Events (Hold to Reveal) --------------------
@@ -169,6 +196,9 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     /// </summary>
     public void SetPlayer(Player player)
     {
+        if (gameManager == null) gameManager = GameManager.Instance;
+        CaptureOriginalScales(); // Ensure scales are captured before Awake may have run
+
         this.player = player;
         isRevealed = false;
 
@@ -178,7 +208,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
         ShowHiddenSide();
 
-        SecretObjective objective = SecretObjectiveManager.GetSecretObjectiveForPlayer(player.id);
+        SecretObjective objective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(player.id);
 
         if (objective != null)
             PopulateCard(objective);

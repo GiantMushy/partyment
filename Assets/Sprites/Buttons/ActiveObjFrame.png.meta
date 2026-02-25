@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 33fb96b523615466c9d19cd3e2bbdcf8
+guid: ec6b8283b792e4f65af146c080cff204
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5628069999390669348
-    second: Selected Crisis_0
+      213: 1336120176729656898
+    second: ActiveObjFrame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Selected Crisis_0
+      name: ActiveObjFrame_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1260
-        height: 902
+        width: 1408
+        height: 648
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42ab6bc78dbea1e40800000000000000
-      internalID: 5628069999390669348
+      spriteID: 24e043fb83ada8210800000000000000
+      internalID: 1336120176729656898
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 40ec30f2fc20c42e0b5302135e9d259e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Selected Crisis_0: 5628069999390669348
+      ActiveObjFrame_0: 1336120176729656898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

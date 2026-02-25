@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     private Vector3 closedPosition;
     private Vector3 openPosition;
     [SerializeField] private float transitionSpeed = 5f;
+    [SerializeField] private GameObject backdrop; // Full-screen transparent panel behind the menu
 
     private bool isMenuOpen = false;
 
@@ -21,6 +22,8 @@ public class MenuController : MonoBehaviour
         // Set initial positions for open and closed states
         closedPosition = parentTransform.localPosition;
         openPosition = new Vector3(500, parentTransform.localPosition.y, 0);
+
+        if (backdrop != null) backdrop.SetActive(false);
     }
 
     public void ToggleMenu()
@@ -31,9 +34,20 @@ public class MenuController : MonoBehaviour
         isMenuOpen = !isMenuOpen;
         gameManager.menuOpen = isMenuOpen;
 
+        // Show/hide backdrop
+        if (backdrop != null) backdrop.SetActive(isMenuOpen);
+
         // Start the smooth transition
         StopAllCoroutines();
         StartCoroutine(SmoothMove(isMenuOpen ? openPosition : closedPosition));
+    }
+
+    /// <summary>
+    /// Called by the backdrop's Button OnClick — closes the menu if open.
+    /// </summary>
+    public void CloseFromBackdrop()
+    {
+        if (isMenuOpen) ToggleMenu();
     }
 
     public void NewGame()
