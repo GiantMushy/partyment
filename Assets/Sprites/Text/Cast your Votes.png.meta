@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b5a3a5fbed17dab4c845bef4b83775b8
+guid: 308455f3e13d04d099d118869d8d6804
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9005769944389503070
-    second: Group 7_0
+      213: 1155043705141250720
+    second: Cast your Votes_0
+  - first:
+      213: -470886902270355616
+    second: Cast your Votes_1
+  - first:
+      213: 3170869388725806039
+    second: Cast your Votes_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +103,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 7_0
+      name: Cast your Votes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
-        height: 85
+        y: 355
+        width: 443
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a736cf33f3150380800000000000000
-      internalID: -9005769944389503070
+      spriteID: 0aacef0512a870010800000000000000
+      internalID: 1155043705141250720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast your Votes_1
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 300
+        width: 462
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0679ac47bd21779f0800000000000000
+      internalID: -470886902270355616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast your Votes_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 514
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d36928b8e0310c20800000000000000
+      internalID: 3170869388725806039
       vertices: []
       indices: 
       edges: []
@@ -161,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Group 7_0: -9005769944389503070
+      Cast your Votes_0: 1155043705141250720
+      Cast your Votes_1: -470886902270355616
+      Cast your Votes_2: 3170869388725806039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

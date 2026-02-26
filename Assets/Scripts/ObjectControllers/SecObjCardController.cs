@@ -79,5 +79,10 @@ public class SecObjCardController : MonoBehaviour
     public void ToggleComplete()
     {
         objective.completeted = !objective.completeted;
+
+        if (objective.completeted)
+            player.score += objective.points;
+        else
+            player.score -= objective.points;
     }
 }

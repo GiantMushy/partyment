@@ -84,6 +84,9 @@ public class DMDisplayController : MonoBehaviour
             UpdateNextGroupText();
         }
 
+        // Hide any containers that have no cards
+        UpdateContainerVisibility();
+
         // Reset the timer button to its idle state
         SetTimerIdle();
     }
@@ -189,6 +192,7 @@ public class DMDisplayController : MonoBehaviour
         foreach (var card in speechCardsByGroupId[groupId])
             card.transform.SetParent(activeSpeechObjectiveContainer.transform, false);
 
+        UpdateContainerVisibility();
         Debug.Log($"DMDisplay: Group '{GetGroupName(groupId)}' speech objectives are now active.");
     }
 
@@ -201,6 +205,8 @@ public class DMDisplayController : MonoBehaviour
 
         foreach (var card in speechCardsByGroupId[groupId])
             card.transform.SetParent(inactiveSpeechObjectiveContainer.transform, false);
+
+        UpdateContainerVisibility();
     }
 
     private string GetGroupName(int groupId)
@@ -208,6 +214,17 @@ public class DMDisplayController : MonoBehaviour
         return PlayerManager.groups.ContainsKey(groupId)
             ? PlayerManager.groups[groupId].name
             : groupId.ToString();
+    }
+
+    /// <summary>
+    /// Enables or disables each objective container based on whether it has
+    /// any cards beyond the first child (the Header).
+    /// </summary>
+    private void UpdateContainerVisibility()
+    {
+        activeSpeechObjectiveContainer.SetActive(activeSpeechObjectiveContainer.transform.childCount > 1);
+        inactiveSpeechObjectiveContainer.SetActive(inactiveSpeechObjectiveContainer.transform.childCount > 1);
+        interruptionObjectiveContainer.SetActive(interruptionObjectiveContainer.transform.childCount > 1);
     }
 
     private void CleanupCards()
@@ -337,7 +354,7 @@ public class DMDisplayController : MonoBehaviour
     private void ProceedToVoting()
     {
         Debug.Log("DMDisplay: Proceeding to Voting.");
-        gameManager.SetState(GameManager.GameState.Voting);
+        gameManager.StartVotingSequence();
     }
 
     // ===================================================================

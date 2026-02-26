@@ -24,6 +24,16 @@ public class PlayerMutexController : MonoBehaviour
         this.nextState = nextState;
     }
 
+    public void SetNameAndNextState(string name, string buttonPrefix, GameManager.GameState nextState)
+    {
+        if (nameDisplay != null)
+        {
+            nameDisplay.text = name;
+            buttonText.text = buttonPrefix + name;
+        }
+        this.nextState = nextState;
+    }
+
     public void IAmButton()
     {
         gameManager.ExitMutex(nextState);

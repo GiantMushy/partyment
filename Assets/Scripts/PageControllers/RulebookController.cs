@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class RulebookController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("References")]
+    private GameManager gameManager;
+
     void Start()
     {
-        
+        gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Back()
     {
-        
+        gameManager.BackToSavedState();
     }
 }

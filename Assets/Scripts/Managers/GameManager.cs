@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
 
+    private GameState saveStateForMenu;
+
     // Game Settings
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
     public enum Position { For, Against }
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
     // Edit this ordering logic in StartSecretObjectiveSequence() to change player order
     private List<Player> secretObjectiveOrder = new List<Player>();
     private int secretObjectiveIndex = 0;
+
+    // Voting Sequence — controls the order groups vote, then the DM votes metrics
+    private List<Group> votingGroupOrder = new List<Group>();
+    private int votingGroupIndex = 0;
+    [HideInInspector] public bool isDMMetricVoting = false;
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -171,6 +178,35 @@ public class GameManager : MonoBehaviour
         SetState(GameState.PackSelection);
     }
 
+    public void OpenSettings()
+    {
+        saveStateForMenu = currentState;
+        SetState(GameState.Settings);
+    }
+
+    public void OpenRulebook()
+    {
+        saveStateForMenu = currentState;
+        SetState(GameState.Rulebook);
+    }
+
+    public void BackToSavedState()
+    {
+        SetState(saveStateForMenu);
+    }
+
+    public void OpenFeedbackForm()
+    {
+        Debug.Log("Opening Feedback Form");
+        //Application.OpenURL("https://forms.gle/partyment-feedback");
+    }
+
+    public void OpenDataPrivacyPage()
+    {
+        Debug.Log("Opening Data Privacy Page");
+        //Application.OpenURL("https://partyment.com/privacy");
+    }
+
     public void ButtonNotImplemented()
     {
         Debug.LogError("This Button Has not been programmed yet");
@@ -215,6 +251,12 @@ public class GameManager : MonoBehaviour
         SetState(GameState.PlayerMutex);
     }
 
+    public void StartMutex(string displayName, string buttonPrefix, GameState nextState)
+    {
+        playerMutex.GetComponent<PlayerMutexController>().SetNameAndNextState(displayName, buttonPrefix, nextState);
+        SetState(GameState.PlayerMutex);
+    }
+
     public void ExitMutex(GameState nextState)
     {
         // Set up the target state before transitioning
@@ -227,6 +269,11 @@ public class GameManager : MonoBehaviour
             case GameState.DMDisplay:
                 break;
             case GameState.Voting:
+                var votingCtrl = voting.GetComponent<VotingController>();
+                if (isDMMetricVoting)
+                    votingCtrl.PrepareForDMMetricVoting();
+                else
+                    votingCtrl.PrepareForGroupVoting();
                 break;
             case GameState.BillSelection:
                 break;
@@ -294,5 +341,48 @@ public class GameManager : MonoBehaviour
     public void SetVotingDisplay(Player player)
     {
         
+    }
+
+    // -------------------- Voting Sequence --------------------
+
+    /// <summary>
+    /// Starts the voting sequence: each group votes for top groups,
+    /// then the DM assigns metrics. Uses PlayerMutex between each voter.
+    /// </summary>
+    public void StartVotingSequence()
+    {
+        votingGroupOrder = playerManager.groups.Values
+            .OrderBy(g => g.id)
+            .ToList();
+        votingGroupIndex = 0;
+        isDMMetricVoting = false;
+
+        if (votingGroupOrder.Count > 0)
+        {
+            StartMutex(votingGroupOrder[0].name, "We are ", GameState.Voting);
+        }
+    }
+
+    /// <summary>
+    /// Advances to the next group's vote, or to the DM's metric vote
+    /// if all groups have voted.
+    /// </summary>
+    public void AdvanceVotingSequence()
+    {
+        votingGroupIndex++;
+
+        if (votingGroupIndex < votingGroupOrder.Count)
+        {
+            // More groups to vote
+            StartMutex(votingGroupOrder[votingGroupIndex].name, "We are ", GameState.Voting);
+        }
+        else
+        {
+            // All groups have voted — hand to DM for metric voting
+            isDMMetricVoting = true;
+            int dmId = playerManager.players.Keys.Min();
+            Player dm = playerManager.players[dmId];
+            StartMutex(dm.name, "I am ", GameState.Voting);
+        }
     }
 }
