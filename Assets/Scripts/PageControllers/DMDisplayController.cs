@@ -10,7 +10,7 @@ public class DMDisplayController : MonoBehaviour
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
     private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
-    private BillManager BillManager => gameManager.billManager;
+    private TopicManager TopicManager => gameManager.topicManager;
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI topicDescription;
@@ -67,8 +67,8 @@ public class DMDisplayController : MonoBehaviour
 
     private void InitializeDisplay()
     {
-        // Show the active bill
-        DisplayActiveBill();
+        // Show the active topic
+        DisplayActiveTopic();
 
         // Build turn order and reset index
         DetermineGroupTurnOrder();
@@ -91,17 +91,17 @@ public class DMDisplayController : MonoBehaviour
         SetTimerIdle();
     }
 
-    private void DisplayActiveBill()
+    private void DisplayActiveTopic()
     {
-        Bill currentBill = BillManager.currentBill;
-        if (currentBill != null)
+        Topic currentTopic = TopicManager.currentTopic;
+        if (currentTopic != null)
         {
-            topicDescription.text = currentBill.description;
+            topicDescription.text = currentTopic.description;
         }
         else
         {
-            topicDescription.text = "No bill selected.";
-            Debug.LogWarning("DMDisplayController: No active bill found.");
+            topicDescription.text = "No topic selected.";
+            Debug.LogWarning("DMDisplayController: No active topic found.");
         }
     }
 

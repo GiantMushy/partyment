@@ -3,7 +3,7 @@ using UnityEngine;
 public class PackSelectionController : MonoBehaviour
 {
     private GameManager gameManager;
-    private BillManager BillManager => gameManager.billManager;
+    private TopicManager TopicManager => gameManager.topicManager;
 
     // Awake is called when the script instance is being loaded
     void Start()
@@ -14,35 +14,35 @@ public class PackSelectionController : MonoBehaviour
     public void Default()
     {
         gameManager.SetPack(GameManager.Pack.Default);
-        BillManager.LoadBillsFromPack();
+        TopicManager.LoadTopicsFromPack();
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
     public void EighteenPlus()
     {
         gameManager.SetPack(GameManager.Pack.EighteenPlus);
-        BillManager.LoadBillsFromPack();
+        TopicManager.LoadTopicsFromPack();
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
     public void Icelandic()
     {
         gameManager.SetPack(GameManager.Pack.Icelandic);
-        BillManager.LoadBillsFromPack();
+        TopicManager.LoadTopicsFromPack();
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
     public void Political()
     {
         gameManager.SetPack(GameManager.Pack.Political);
-        BillManager.LoadBillsFromPack();
+        TopicManager.LoadTopicsFromPack();
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
     public void PopCulture()
     {
         gameManager.SetPack(GameManager.Pack.PopCulture);
-        BillManager.LoadBillsFromPack();
+        TopicManager.LoadTopicsFromPack();
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 

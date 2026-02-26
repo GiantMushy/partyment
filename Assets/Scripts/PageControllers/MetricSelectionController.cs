@@ -51,7 +51,7 @@ public class MetricSelectionController : MonoBehaviour
 
     public void Back()
     {
-        gameManager.SetState(GameManager.GameState.BillSelection);
+        gameManager.SetState(GameManager.GameState.TopicSelection);
     }
 
     // -------------------- Selection Logic --------------------

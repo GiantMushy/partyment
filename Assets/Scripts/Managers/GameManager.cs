@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Singleton pattern
     public static GameManager Instance { get; private set; }
     public PlayerManager playerManager;
-    public BillManager billManager;
+    public TopicManager topicManager;
     public SecretObjectiveManager secretObjectiveManager;
 
     [Header("Dev Values")]
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         // Global States
         LoadingScreen, PackSelection, Settings, Rulebook,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups, BillSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
+        LocalVsOnline, StartLocalGame, AssignGroups, TopicSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     // Local Game States
     public GameObject startLocalGame;
     public GameObject assignGroups;
-    public GameObject billSelection;
+    public GameObject topicSelection;
     public GameObject metricSelection;
     public GameObject assignPositions;
     public GameObject playerMutex;
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             // Local Game States
             { GameState.StartLocalGame, startLocalGame },
             { GameState.AssignGroups, assignGroups },
-            { GameState.BillSelection, billSelection },
+            { GameState.TopicSelection, topicSelection },
             { GameState.MetricSelection, metricSelection },
             { GameState.AssignPositions, assignPositions },
             { GameState.PlayerMutex, playerMutex },
@@ -167,10 +167,10 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Debug.Log("Starting a New Game");
-        // Reset Metrics, Bill Selection, Secret Objectives, and Player Groups
+        // Reset Metrics, Topic Selection, Secret Objectives, and Player Groups
         selectedMetrics.Clear();
         selectedPack = Pack.Default;
-        billManager.ResetBillSelection();
+        topicManager.ResetTopicSelection();
         secretObjectiveManager.ResetSecretObjectives();
         playerManager.ResetPlayerGroups();
 
@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
                 else
                     votingCtrl.PrepareForGroupVoting();
                 break;
-            case GameState.BillSelection:
+            case GameState.TopicSelection:
                 break;
         }
         SetState(nextState);
