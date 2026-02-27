@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DMDisplayController : MonoBehaviour
 {
@@ -251,6 +252,9 @@ public class DMDisplayController : MonoBehaviour
     /// </summary>
     public void TimerButtonPressed()
     {
+        // Deselect the button so it doesn't stay highlighted
+        EventSystem.current.SetSelectedGameObject(null);
+
         switch (currentTimerState)
         {
             case TimerState.Idle:
@@ -427,7 +431,8 @@ public class DMDisplayController : MonoBehaviour
             .ToList();
 
         string playerNames = FormatPlayerNames(playersInGroup);
-        nextGroupText.text = $"Group: {currentGroup.name}\nPlayers: {playerNames}";
+        string positionLabel = currentGroup.position == GameManager.Position.For ? "For" : "Against";
+        nextGroupText.text = $"Group: {currentGroup.name}\nPosition: {positionLabel}\nPlayers: {playerNames}";
     }
 
     private string FormatPlayerNames(List<Player> players)

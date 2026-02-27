@@ -27,7 +27,7 @@ public class TopicDatabase : MonoBehaviour
         var pack = GameManager.Pack.Default;
         int id = startId;
 
-        // Short (4)
+        // Short (5)
         id = AddTopic(id, "Couch Potato", "Playing videogames is a waste of time.", pack, TopicManager.TopicType.Short);
         id = AddTopic(id, "Cat / Dog", "Cats make better pets than dogs", pack, TopicManager.TopicType.Short);
         id = AddTopic(id, "Carrots / Sticks", "Teachers should be strict", pack, TopicManager.TopicType.Short);
