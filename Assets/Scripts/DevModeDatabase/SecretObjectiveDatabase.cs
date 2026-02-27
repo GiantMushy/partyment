@@ -27,43 +27,55 @@ public class SecretObjectiveDatabase : MonoBehaviour
 
         id = AddObjective(id, "Nickelback Fan",
             "Reference \"Nickelback\" at any point during your speech.",
-            "Mention Nickelback", type);
+            "Mention Nickelback", type, 20);
 
         id = AddObjective(id, "Conspiracy Theorist",
             "Work a conspiracy theory into your argument as if it were a proven fact.",
-            "Use a conspiracy theory", type);
+            "Use a conspiracy theory", type, 50);
 
         id = AddObjective(id, "Movie Buff",
             "Quote a famous movie line during your speech without anyone calling you out.",
-            "Quote a movie", type);
+            "Quote a movie", type, 30);
 
         id = AddObjective(id, "Poet Laureate",
             "Rhyme at least two sentences in a row during your speech.",
-            "Rhyme two sentences", type);
+            "Rhyme two sentences", type, 70);
 
         id = AddObjective(id, "Name Dropper",
             "Mention a celebrity by name as if you personally know them.",
-            "Name drop a celebrity", type);
+            "Name drop a celebrity", type, 30);
 
         id = AddObjective(id, "Statistician",
             "Make up a completely fake statistic and present it with total confidence.",
-            "Fake a statistic", type);
+            "Fake a statistic", type, 30);
 
-        id = AddObjective(id, "Time Traveler",
-            "Reference an event from the future as if it already happened.",
-            "Reference the future", type);
-
-        id = AddObjective(id, "Foreign Diplomat",
-            "Use a word or phrase from another language and pretend it's common knowledge.",
-            "Use a foreign phrase", type);
+        id = AddObjective(id, "Photosynthesis",
+            "Confidently use a word or phrase in a completly incorrect context.",
+            "Use a word incorrectly", type, 30);
 
         id = AddObjective(id, "Dramatic Pause",
             "Take an uncomfortably long dramatic pause (at least 5 seconds) mid-sentence.",
-            "Long dramatic pause", type);
+            "Long dramatic pause", type, 40);
 
         id = AddObjective(id, "Catchphrase King",
             "Say the phrase \"and that's a fact\" at least three times during your speech.",
-            "Say catchphrase 3x", type);
+            "Say catchphrase 3x", type, 40);
+
+        id = AddObjective(id, "Belieber",
+            "Reference a Justin Bieber lyric in your speech.",
+            "Reference a Bieber lyric", type, 20);
+
+        id = AddObjective(id, "The Countdown",
+            "Say \"1\", \"2\", \"3\", \"4\" & \"5\" at some point during your speech. Does not have to be in order.",
+            "Say 1 through 5", type, 40);
+
+        id = AddObjective(id, "Old MacDonald",
+            "Make a dog, cat, duck, and cow noise at least once for each during your speech.",
+            "Make 4 animal noises", type, 80);
+ 
+        id = AddObjective(id, "Iceguys Superfan",
+            "Reference Iceguys during your speech.",
+            "Reference Iceguys", type, 20);
 
         return id;
     }
@@ -76,44 +88,48 @@ public class SecretObjectiveDatabase : MonoBehaviour
         int id = startId;
 
         id = AddObjective(id, "Slow Clap Starter",
-            "Start a group clap during someone else's speech.",
-            "Start a group clap", type);
+            "Start a group clap during or right after someone else's speech. At least 1 person from an opposing group must join in.",
+            "Start a group clap", type, 80);
 
         id = AddObjective(id, "Fact Checker",
-            "Loudly say \"Actually...\" and interrupt someone to correct a minor detail.",
-            "Interrupt with \"Actually...\"", type);
+            "Loudly say \"Actually...\" and interrupt someone to correct a minor detail. Your correction does not have to be correct.",
+            "Interrupt with \"Actually...\"", type, 50);
 
         id = AddObjective(id, "Standing Ovation",
-            "Stand up and applaud enthusiastically at an inappropriate moment during someone else's speech.",
-            "Applaud inappropriately", type);
+            "Stand up and applaud enthusiastically at any moment during someone else's speech.",
+            "Applaud enthusiastically", type, 60);
 
         id = AddObjective(id, "Phone a Friend",
             "Pretend to receive an important phone call during someone else's argument.",
-            "Fake a phone call", type);
+            "Fake a phone call", type, 50);
 
         id = AddObjective(id, "Heckler",
             "Boo or thumbs-down another group's argument at least once.",
-            "Boo an argument", type);
-
-        id = AddObjective(id, "Point of Order",
-            "Yell \"Point of order!\" during someone else's speech and raise a completely irrelevant objection.",
-            "Yell Point of order", type);
+            "Boo an argument", type, 40);
 
         id = AddObjective(id, "Sneeze Attack",
             "Have a loud, dramatic fake sneezing fit during someone else's key argument.",
-            "Fake sneeze fit", type);
+            "Fake sneeze fit", type, 50);
 
         id = AddObjective(id, "Echo Chamber",
             "Repeat the last word of someone else's sentence loudly, at least twice during the round.",
-            "Echo someone's words", type);
-
-        id = AddObjective(id, "The Narrator",
-            "Narrate someone else's actions out loud in a nature documentary voice.",
-            "Narrate like a documentary", type);
+            "Echo someone's words", type, 60);
 
         id = AddObjective(id, "Question Time",
             "Interrupt someone's speech to ask them a completely unrelated question.",
-            "Ask an unrelated question", type);
+            "Ask an unrelated question", type, 50);
+
+        id = AddObjective(id, "Stand Up Act",
+            "Have someone stand up during your speech.",
+            "Get someone to stand up", type, 80);
+
+        id = AddObjective(id, "Opening Yawn",
+            "Yawn loudly the moment someone else starts their speech.",
+            "Yawn at speech start", type, 40);
+
+        id = AddObjective(id, "Five Claps",
+            "Clap 5 times.",
+            "Clap 5 times", type, 40);
 
         return id;
     }
@@ -127,58 +143,58 @@ public class SecretObjectiveDatabase : MonoBehaviour
 
         id = AddObjective(id, "Double Agent",
             "Sabotage your group's speech so that it gets zero votes this round.",
-            "Sabotage your group", type);
+            "Sabotage your group", type, 100);
 
         id = AddObjective(id, "Devil's Advocate",
             "Secretly argue FOR the opposing side during your own group's speech.",
-            "Argue for the other side", type);
+            "Argue for the other side", type, 90);
 
         id = AddObjective(id, "The Fumble",
             "Deliberately forget your group's main argument mid-speech and improvise something terrible.",
-            "Forget your argument", type);
+            "Forget your argument", type, 80);
 
         id = AddObjective(id, "Credit Stealer",
-            "Take credit for an idea that came from another group's speech.",
-            "Steal another group's idea", type);
+            "Take credit for an idea that came from another group's speech. The points are void if the original group calls you out on it.",
+            "Steal another group's idea", type, 80);
 
         id = AddObjective(id, "Confidence Killer",
             "Subtly undermine your teammate by saying \"Well, they tried\" after they speak.",
-            "Undermine your teammate", type);
+            "Undermine your teammate", type, 80);
 
         id = AddObjective(id, "Wrong Side",
             "Start your part of the speech by accidentally arguing for the wrong side before \"correcting\" yourself.",
-            "Argue the wrong side first", type);
-
-        id = AddObjective(id, "Distracted Speaker",
-            "During your group's speech, look completely disinterested and yawn at least twice.",
-            "Look bored during speech", type);
+            "Argue the wrong side first", type, 80);
 
         id = AddObjective(id, "Contradiction Machine",
             "Contradict something your teammate just said and insist you're both on the same page.",
-            "Contradict your teammate", type);
+            "Contradict your teammate", type, 90);
 
         id = AddObjective(id, "TMI",
             "Derail your group's speech with an overly personal and irrelevant anecdote.",
-            "Tell an irrelevant story", type);
+            "Tell an irrelevant story", type, 80);
 
         id = AddObjective(id, "Apology Tour",
             "Apologize to the opposing side mid-speech and say they actually make a good point.",
-            "Apologize to opponents", type);
+            "Apologize to opponents", type, 90);
 
         return id;
     }
 
     // -------------------- Helper --------------------
 
-    private int AddObjective(int id, string title, string description, string shortDescription, GameManager.SecretObjectiveType type)
+    private int AddObjective(int id, string title, string description, string shortDescription, GameManager.SecretObjectiveType type, int points = -1)
     {
+        if (points == -1)
+        {
+            points = Random.Range(2, 11) * 10; // Random points: 20, 30, 40, ... 100
+        }
         objectives.Add(new SecretObjective
         {
             id = id,
             title = title,
             description = description,
             shortDescription = shortDescription,
-            points = Random.Range(2, 11) * 10, // Random points: 20, 30, 40, ... 100
+            points = points,
             type = type,
             assignedPlayerId = -1,
             neededCount = null,

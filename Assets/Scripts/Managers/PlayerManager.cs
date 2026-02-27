@@ -20,6 +20,7 @@ public class Group
     public int score = 0;
     public GameManager.Position position; // For or Against
     public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
+    public int votingPhasePoints = 0; // Accumulated local vote points during the voting phase
 }
 
 public class PlayerManager : MonoBehaviour

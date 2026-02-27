@@ -14,6 +14,10 @@ public class VotingController : MonoBehaviour
     public int firstPlacePoints = 3;
     public int secondPlacePoints = 2;
     public int thirdPlacePoints = 1;
+    [Header("Local Vote Points (per individual group vote)")]
+    public int localFirstPlacePoints = 3;
+    public int localSecondPlacePoints = 2;
+    public int localThirdPlacePoints = 1;
     public int metricPoints = 3;
 
     [Header("UI Elements")]
@@ -270,12 +274,13 @@ public class VotingController : MonoBehaviour
     {
         if (currentPhase == VotingPhase.GroupVoting)
         {
-            int[] points = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
+            // Accumulate local vote points — final ranking is resolved in FinalizeGroupVoting()
+            int[] points = { localFirstPlacePoints, localSecondPlacePoints, localThirdPlacePoints };
             for (int i = 0; i < selectedSlots.Count && i < points.Length; i++)
             {
                 int groupId = activeGroups[selectedSlots[i]].id;
                 if (PlayerManager.groups.ContainsKey(groupId))
-                    PlayerManager.groups[groupId].score += points[i];
+                    PlayerManager.groups[groupId].votingPhasePoints += points[i];
             }
         }
         else // DM metric voting
@@ -287,6 +292,34 @@ public class VotingController : MonoBehaviour
                     PlayerManager.groups[groupId].score += metricPoints;
             }
         }
+    }
+
+    // ===================================================================
+    //  FINALIZE GROUP VOTING
+    // ===================================================================
+
+    /// <summary>
+    /// Ranks groups by their accumulated votingPhasePoints and awards
+    /// the real firstPlacePoints / secondPlacePoints / thirdPlacePoints
+    /// to the top-ranked groups. Resets votingPhasePoints afterwards.
+    /// Called by GameManager after all groups have voted.
+    /// </summary>
+    public void FinalizeGroupVoting()
+    {
+        var rankedGroups = PlayerManager.groups.Values
+            .OrderByDescending(g => g.votingPhasePoints)
+            .ToList();
+
+        int[] finalPoints = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
+        for (int i = 0; i < rankedGroups.Count && i < finalPoints.Length; i++)
+        {
+            rankedGroups[i].score += finalPoints[i];
+            Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes — awarded {finalPoints[i]} points");
+        }
+
+        // Reset voting phase points for all groups
+        foreach (var group in PlayerManager.groups.Values)
+            group.votingPhasePoints = 0;
     }
 
     // ===================================================================

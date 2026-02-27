@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         // Global States
-        LoadingScreen, PackSelection, Settings, Rulebook,
+        None, LoadingScreen, PackSelection, Settings, Rulebook,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups, TopicSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     private List<Group> votingGroupOrder = new List<Group>();
     private int votingGroupIndex = 0;
     [HideInInspector] public bool isDMMetricVoting = false;
+    [SerializeField] private float fakeLoadingTime = 3f;
 
     [Header("State References")]
     public GameObject loadingScreen;
@@ -180,19 +182,20 @@ public class GameManager : MonoBehaviour
 
     public void OpenSettings()
     {
-        saveStateForMenu = currentState;
+        if (saveStateForMenu == GameState.None) saveStateForMenu = currentState;
         SetState(GameState.Settings);
     }
 
     public void OpenRulebook()
     {
-        saveStateForMenu = currentState;
+        if (saveStateForMenu == GameState.None) saveStateForMenu = currentState;
         SetState(GameState.Rulebook);
     }
 
     public void BackToSavedState()
     {
         SetState(saveStateForMenu);
+        saveStateForMenu = GameState.None;
     }
 
     public void OpenFeedbackForm()
@@ -237,11 +240,8 @@ public class GameManager : MonoBehaviour
     {
         // Start in the LoadingScreen state
         SetState(GameState.LoadingScreen);
+        yield return new WaitForSeconds(fakeLoadingTime);
 
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(3f);
-
-        // Switch to the next state
         SetState(nextState);
     }
 
@@ -333,16 +333,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetDMDisplay()
-    {
-        // TODO:
-    }
-
-    public void SetVotingDisplay(Player player)
-    {
-        
-    }
-
     // -------------------- Voting Sequence --------------------
 
     /// <summary>
@@ -378,7 +368,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // All groups have voted — hand to DM for metric voting
+            // All groups have voted — finalize group voting scores
+            voting.GetComponent<VotingController>().FinalizeGroupVoting();
+
+            // Hand to DM for metric voting
             isDMMetricVoting = true;
             int dmId = playerManager.players.Keys.Min();
             Player dm = playerManager.players[dmId];

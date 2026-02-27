@@ -28,22 +28,27 @@ public class TopicDatabase : MonoBehaviour
         int id = startId;
 
         // Short (4)
-        id = AddTopic(id, "Coke vs Pepsi", "Coke or Pepsi?", pack, TopicManager.TopicType.Short);
-        id = AddTopic(id, "Cat vs Dog", "Cats or dogs?", pack, TopicManager.TopicType.Short);
-        id = AddTopic(id, "Morning vs Night", "Are you a morning person or a night owl?", pack, TopicManager.TopicType.Short);
-        id = AddTopic(id, "Sweet vs Savory", "Sweet snacks or savory snacks?", pack, TopicManager.TopicType.Short);
+        id = AddTopic(id, "Couch Potato", "Playing videogames is a waste of time.", pack, TopicManager.TopicType.Short);
+        id = AddTopic(id, "Cat / Dog", "Cats make better pets than dogs", pack, TopicManager.TopicType.Short);
+        id = AddTopic(id, "Carrots / Sticks", "Teachers should be strict", pack, TopicManager.TopicType.Short);
+        id = AddTopic(id, "Flatulence", "Fart jokes are hilarious", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Hot Dogs / Kebab", "Hotdogs are better than kebabs after the club", pack, TopicManager.TopicType.Short);
 
-        // Medium (4)
+        // Medium (6)
         id = AddTopic(id, "Taxi Tip", "My taxi driver let me choose the music, but also vaped the entire time. Does he deserve a tip?", pack, TopicManager.TopicType.Medium);
-        id = AddTopic(id, "Cereal Water", "Is it acceptable to eat cereal with water if you're out of milk?", pack, TopicManager.TopicType.Medium);
-        id = AddTopic(id, "Sock Shoes", "Is it ever okay to wear socks with sandals?", pack, TopicManager.TopicType.Medium);
-        id = AddTopic(id, "Reply All", "Should replying-all to a company-wide email be a fireable offense?", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Flying Fragrance", "Strong fragrances should be catigoricaly banned on all flights", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Drramaaaa", "Drama classes should be mandatory in all elementary schools to encourage emotional expression", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Reply All", "Replying-all to a company-wide email should be a fireable offense", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "The Arts", "Online influencers should receive government supplied artist salaries from the state", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Hosting Etiquette", "It is acceptable to only offer beer ata a social gathering that advertises free drinks.", pack, TopicManager.TopicType.Medium);
 
-        // Long (4)
+        // Long (5)
         id = AddTopic(id, "Shower Debate", "Your roommate takes 45-minute showers every morning and uses all the hot water, but they also cook dinner for you every night. Do you confront them about the showers?", pack, TopicManager.TopicType.Long);
         id = AddTopic(id, "Birthday Rule", "Your friend always forgets your birthday but throws themselves a massive party every year and expects a gift. Do you stop buying them presents or keep the peace?", pack, TopicManager.TopicType.Long);
         id = AddTopic(id, "Fridge Thief", "Someone at work keeps eating your clearly labeled lunch from the fridge. HR says there's nothing they can do. Is it ethical to put an absurd amount of hot sauce in your food as a trap?",  pack, TopicManager.TopicType.Long);
         id = AddTopic(id, "Queue Justice", "You've been waiting in line for 20 minutes and someone cuts in front of you claiming they were 'holding a spot.' The rest of the line does nothing. Do you make a scene?", pack, TopicManager.TopicType.Long);
+        id = AddTopic(id, "Nudist Cults", "The cops have been arresting members of a nudist cult in Vestmanneyjar. Should we allow religious exemptions for public nudity?", pack, TopicManager.TopicType.Long);
+        id = AddTopic(id, "Brainrot", "Kids spend hours every day scrolling brainrot online. We should implement restrictions preventing them from accessing social media until they're 18.", pack, TopicManager.TopicType.Long);
 
         return id;
     }
@@ -142,7 +147,7 @@ public class TopicDatabase : MonoBehaviour
 
     // -------------------- Helper --------------------
 
-    private int AddTopic(int id, string title, string description, GameManager.Pack pack, TopicManager.TopicType type)
+    private int AddTopic(int id, string title, string description, GameManager.Pack pack, TopicManager.TopicType type, int seriousness = 2, string leadingQuestionFor = "", string leadingQuestionAgainst = "")
     {
         topics.Add(new Topic
         {
@@ -151,9 +156,9 @@ public class TopicDatabase : MonoBehaviour
             description = description,
             pack = pack,
             type = type,
-            seriousness = 2,
-            leadingQuestionFor = "",
-            leadingQuestionAgainst = ""
+            seriousness = seriousness,
+            leadingQuestionFor = leadingQuestionFor,
+            leadingQuestionAgainst = leadingQuestionAgainst
         });
         return id + 1;
     }
