@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: 0f80402433c056e4fb2ba622386c35c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3504631807506273972
+    second: Cyprus Seats_0
+  - first:
+      213: 1101236716696012776
+    second: Cyprus Seats_1
+  - first:
+      213: -4607275168734200940
+    second: Cyprus Seats_2
+  - first:
+      213: -3075027358825078028
+    second: Cyprus Seats_3
+  - first:
+      213: -3520829164177118319
+    second: Cyprus Seats_4
+  - first:
+      213: 5294413693550441522
+    second: Cyprus Seats_5
+  - first:
+      213: 4303364492124098013
+    second: Cyprus Seats_6
+  - first:
+      213: 8642893650513797101
+    second: Cyprus Seats_7
+  - first:
+      213: 3746471893786956314
+    second: Cyprus Seats_8
+  - first:
+      213: 2474144138068287551
+    second: Cyprus Seats_9
+  - first:
+      213: -4113752781430191471
+    second: Cyprus Seats_10
+  - first:
+      213: 4340084570851515185
+    second: Cyprus Seats_11
+  - first:
+      213: -708973580164204637
+    second: Cyprus Seats_12
+  - first:
+      213: -6317839960247970749
+    second: Cyprus Seats_13
+  - first:
+      213: -8041583692238138550
+    second: Cyprus Seats_14
+  - first:
+      213: -151086717197236880
+    second: Cyprus Seats_15
+  - first:
+      213: -7263722765673239418
+    second: Cyprus Seats_16
+  - first:
+      213: -291252068932662306
+    second: Cyprus Seats_17
+  - first:
+      213: -7349931087413910612
+    second: Cyprus Seats_18
+  - first:
+      213: -1433078024744724381
+    second: Cyprus Seats_19
+  - first:
+      213: -3551629832136434490
+    second: Cyprus Seats_20
+  - first:
+      213: 4636716806491131008
+    second: Cyprus Seats_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cyprus Seats_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 241
+        height: 428
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49ad0d70fb0d5fc0800000000000000
+      internalID: -3504631807506273972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cyprus Seats_0: -3504631807506273972
+      Cyprus Seats_1: 1101236716696012776
+      Cyprus Seats_10: -4113752781430191471
+      Cyprus Seats_11: 4340084570851515185
+      Cyprus Seats_12: -708973580164204637
+      Cyprus Seats_13: -6317839960247970749
+      Cyprus Seats_14: -8041583692238138550
+      Cyprus Seats_15: -151086717197236880
+      Cyprus Seats_16: -7263722765673239418
+      Cyprus Seats_17: -291252068932662306
+      Cyprus Seats_18: -7349931087413910612
+      Cyprus Seats_19: -1433078024744724381
+      Cyprus Seats_2: -4607275168734200940
+      Cyprus Seats_20: -3551629832136434490
+      Cyprus Seats_21: 4636716806491131008
+      Cyprus Seats_3: -3075027358825078028
+      Cyprus Seats_4: -3520829164177118319
+      Cyprus Seats_5: 5294413693550441522
+      Cyprus Seats_6: 4303364492124098013
+      Cyprus Seats_7: 8642893650513797101
+      Cyprus Seats_8: 3746471893786956314
+      Cyprus Seats_9: 2474144138068287551
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

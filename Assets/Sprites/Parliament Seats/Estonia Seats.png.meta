@@ -1,0 +1,1586 @@
+fileFormatVersion: 2
+guid: 6b0ca9c6d25dbab4fb6e2ab89fb47be7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -728807146602242804
+    second: Estonia Seats_0
+  - first:
+      213: 5180568700874546813
+    second: Estonia Seats_1
+  - first:
+      213: -3982698944842420554
+    second: Estonia Seats_2
+  - first:
+      213: -7549317488866359403
+    second: Estonia Seats_3
+  - first:
+      213: 7864457562375352987
+    second: Estonia Seats_4
+  - first:
+      213: 5258434112466572571
+    second: Estonia Seats_5
+  - first:
+      213: -3823757095528973733
+    second: Estonia Seats_6
+  - first:
+      213: -5411601335913732020
+    second: Estonia Seats_7
+  - first:
+      213: -1386427902627422756
+    second: Estonia Seats_8
+  - first:
+      213: -846893235481074988
+    second: Estonia Seats_9
+  - first:
+      213: 1806768638388163663
+    second: Estonia Seats_10
+  - first:
+      213: 1230313967203204115
+    second: Estonia Seats_11
+  - first:
+      213: 1042084804415752411
+    second: Estonia Seats_12
+  - first:
+      213: 5776144589297554114
+    second: Estonia Seats_13
+  - first:
+      213: 434700825813778245
+    second: Estonia Seats_14
+  - first:
+      213: 32512559424086285
+    second: Estonia Seats_15
+  - first:
+      213: 8546023309849639072
+    second: Estonia Seats_16
+  - first:
+      213: -2423654044686057157
+    second: Estonia Seats_17
+  - first:
+      213: -7296762297461987657
+    second: Estonia Seats_18
+  - first:
+      213: -6740595926453404042
+    second: Estonia Seats_19
+  - first:
+      213: -7392846895079084959
+    second: Estonia Seats_20
+  - first:
+      213: 8626365278335486312
+    second: Estonia Seats_21
+  - first:
+      213: -523307376038483799
+    second: Estonia Seats_22
+  - first:
+      213: 7200121324097004018
+    second: Estonia Seats_23
+  - first:
+      213: -6315422920132779929
+    second: Estonia Seats_24
+  - first:
+      213: 8368363894605593459
+    second: Estonia Seats_25
+  - first:
+      213: -1921948919177965670
+    second: Estonia Seats_26
+  - first:
+      213: 8618565554501632199
+    second: Estonia Seats_27
+  - first:
+      213: -3262295458628651054
+    second: Estonia Seats_28
+  - first:
+      213: -1972842927833096588
+    second: Estonia Seats_29
+  - first:
+      213: -8433019034469648777
+    second: Estonia Seats_30
+  - first:
+      213: 365578966829010502
+    second: Estonia Seats_31
+  - first:
+      213: 5600401438559264854
+    second: Estonia Seats_32
+  - first:
+      213: 6229943868302270524
+    second: Estonia Seats_33
+  - first:
+      213: -8810515729224131495
+    second: Estonia Seats_34
+  - first:
+      213: 6517792489825097998
+    second: Estonia Seats_35
+  - first:
+      213: 1772496496819287400
+    second: Estonia Seats_36
+  - first:
+      213: 7422128296946814813
+    second: Estonia Seats_37
+  - first:
+      213: -14166965218325451
+    second: Estonia Seats_38
+  - first:
+      213: -6355616788328666176
+    second: Estonia Seats_39
+  - first:
+      213: -6984829302958860351
+    second: Estonia Seats_40
+  - first:
+      213: -9184966640841676383
+    second: Estonia Seats_41
+  - first:
+      213: 8555426143016969331
+    second: Estonia Seats_42
+  - first:
+      213: -4526558255574121401
+    second: Estonia Seats_43
+  - first:
+      213: -4604038352298151793
+    second: Estonia Seats_44
+  - first:
+      213: -1195354927409462279
+    second: Estonia Seats_45
+  - first:
+      213: -3702975338622675180
+    second: Estonia Seats_46
+  - first:
+      213: -4600051989084530163
+    second: Estonia Seats_47
+  - first:
+      213: 6353492205119068777
+    second: Estonia Seats_48
+  - first:
+      213: -4734842845921204012
+    second: Estonia Seats_49
+  - first:
+      213: -535921223802321376
+    second: Estonia Seats_50
+  - first:
+      213: -9191246588776838725
+    second: Estonia Seats_51
+  - first:
+      213: -7909162918074979238
+    second: Estonia Seats_52
+  - first:
+      213: 5310634584907689662
+    second: Estonia Seats_53
+  - first:
+      213: 6445593051579444559
+    second: Estonia Seats_54
+  - first:
+      213: 7719043128351864650
+    second: Estonia Seats_55
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Estonia Seats_0
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 307
+        width: 106
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0dd105f2c1c2e5f0800000000000000
+      internalID: -728807146602242804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_1
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 303
+        width: 106
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e522e19c315e740800000000000000
+      internalID: 5180568700874546813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be2851396c9ab8c0800000000000000
+      internalID: -3982698944842420554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 255
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5970a7bedbf6b3790800000000000000
+      internalID: -7549317488866359403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_4
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 255
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92748c3c7a242d60800000000000000
+      internalID: 7864457562375352987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_5
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 255
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15dd5407f5b9f840800000000000000
+      internalID: 5258434112466572571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_6
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 255
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5abd954e294feac0800000000000000
+      internalID: -3823757095528973733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_7
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 255
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4825d2c14126e4b0800000000000000
+      internalID: -5411601335913732020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cddd33d0b2b62cce0800000000000000
+      internalID: -1386427902627422756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_9
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 223
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d22870e61b3f34f0800000000000000
+      internalID: -846893235481074988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_10
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 223
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f445172018ee21910800000000000000
+      internalID: 1806768638388163663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_11
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 223
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c3951e804f21110800000000000000
+      internalID: 1230313967203204115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_12
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 223
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd88801cb9a367e00800000000000000
+      internalID: 1042084804415752411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_13
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 223
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2106096ecf82050800000000000000
+      internalID: 5776144589297554114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54ff232191e580600800000000000000
+      internalID: 434700825813778245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_15
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 191
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0126332002837000800000000000000
+      internalID: 32512559424086285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_16
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 191
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8bbc9ebe2999670800000000000000
+      internalID: 8546023309849639072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_17
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 191
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b318c08cc737d5ed0800000000000000
+      internalID: -2423654044686057157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_18
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 191
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6a051b951bcba90800000000000000
+      internalID: -7296762297461987657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_19
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 191
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ebc45d7b79472a0800000000000000
+      internalID: -6740595926453404042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c26fbfae4576990800000000000000
+      internalID: -7392846895079084959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_21
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 159
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86943f5248107b770800000000000000
+      internalID: 8626365278335486312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_22
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 159
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a862eec6b6dcb8f0800000000000000
+      internalID: -523307376038483799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_23
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 159
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f164864238fbe360800000000000000
+      internalID: 7200121324097004018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_24
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 159
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760202f805c1b58a0800000000000000
+      internalID: -6315422920132779929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_25
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 159
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bbb29ef96622470800000000000000
+      internalID: 8368363894605593459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f83f314add355e0800000000000000
+      internalID: -1921948919177965670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_27
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 127
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0cc7d65bb4b9770800000000000000
+      internalID: 8618565554501632199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_28
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 127
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7b114909ff9b2d0800000000000000
+      internalID: -3262295458628651054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_29
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 127
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47eddd84fcd0f94e0800000000000000
+      internalID: -1972842927833096588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_30
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 127
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77634524ed5e7fa80800000000000000
+      internalID: -8433019034469648777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_31
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 127
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e8237222cc21500800000000000000
+      internalID: 365578966829010502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65069e8af6f98bd40800000000000000
+      internalID: 5600401438559264854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_33
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 95
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30a7c8c0f4357650800000000000000
+      internalID: 6229943868302270524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_34
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 95
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c9a97df92cab580800000000000000
+      internalID: -8810515729224131495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_35
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 95
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09dbbb9cb9d37a50800000000000000
+      internalID: 6517792489825097998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_36
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 95
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865b98a3c2c299810800000000000000
+      internalID: 1772496496819287400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_37
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 95
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fc3e8ac52b00760800000000000000
+      internalID: 7422128296946814813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ccd9e583badcff0800000000000000
+      internalID: -14166965218325451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_39
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 63
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb292b54305cc7a0800000000000000
+      internalID: -6355616788328666176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_40
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 63
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7d56491c6e01f90800000000000000
+      internalID: -6984829302958860351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_41
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 63
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9a1d21181788080800000000000000
+      internalID: -9184966640841676383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_42
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 63
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374ed9c9fbafab670800000000000000
+      internalID: 8555426143016969331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_43
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 63
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7448461df3f6e21c0800000000000000
+      internalID: -4526558255574121401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f807ef6038b2b10c0800000000000000
+      internalID: -4604038352298151793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_45
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 31
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f30f3bd60f396fe0800000000000000
+      internalID: -1195354927409462279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_46
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 31
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4171d597c836c9cc0800000000000000
+      internalID: -3702975338622675180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_47
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 31
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a994a86155920c0800000000000000
+      internalID: -4600051989084530163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_48
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 31
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ad5519f732c2850800000000000000
+      internalID: 6353492205119068777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_49
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 31
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8219594857a4eb0800000000000000
+      internalID: -4734842845921204012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 73
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0268ba38c760098f0800000000000000
+      internalID: -535921223802321376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_51
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 74
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb98fe0cce1227080800000000000000
+      internalID: -9191246588776838725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_52
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 78
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ce2750b320d3290800000000000000
+      internalID: -7909162918074979238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_53
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 74
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebea35d940a23b940800000000000000
+      internalID: 5310634584907689662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_54
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 74
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d6e1eeab8537950800000000000000
+      internalID: 6445593051579444559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Estonia Seats_55
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 77
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a473557f3dc8f1b60800000000000000
+      internalID: 7719043128351864650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Estonia Seats_0: -728807146602242804
+      Estonia Seats_1: 5180568700874546813
+      Estonia Seats_10: 1806768638388163663
+      Estonia Seats_11: 1230313967203204115
+      Estonia Seats_12: 1042084804415752411
+      Estonia Seats_13: 5776144589297554114
+      Estonia Seats_14: 434700825813778245
+      Estonia Seats_15: 32512559424086285
+      Estonia Seats_16: 8546023309849639072
+      Estonia Seats_17: -2423654044686057157
+      Estonia Seats_18: -7296762297461987657
+      Estonia Seats_19: -6740595926453404042
+      Estonia Seats_2: -3982698944842420554
+      Estonia Seats_20: -7392846895079084959
+      Estonia Seats_21: 8626365278335486312
+      Estonia Seats_22: -523307376038483799
+      Estonia Seats_23: 7200121324097004018
+      Estonia Seats_24: -6315422920132779929
+      Estonia Seats_25: 8368363894605593459
+      Estonia Seats_26: -1921948919177965670
+      Estonia Seats_27: 8618565554501632199
+      Estonia Seats_28: -3262295458628651054
+      Estonia Seats_29: -1972842927833096588
+      Estonia Seats_3: -7549317488866359403
+      Estonia Seats_30: -8433019034469648777
+      Estonia Seats_31: 365578966829010502
+      Estonia Seats_32: 5600401438559264854
+      Estonia Seats_33: 6229943868302270524
+      Estonia Seats_34: -8810515729224131495
+      Estonia Seats_35: 6517792489825097998
+      Estonia Seats_36: 1772496496819287400
+      Estonia Seats_37: 7422128296946814813
+      Estonia Seats_38: -14166965218325451
+      Estonia Seats_39: -6355616788328666176
+      Estonia Seats_4: 7864457562375352987
+      Estonia Seats_40: -6984829302958860351
+      Estonia Seats_41: -9184966640841676383
+      Estonia Seats_42: 8555426143016969331
+      Estonia Seats_43: -4526558255574121401
+      Estonia Seats_44: -4604038352298151793
+      Estonia Seats_45: -1195354927409462279
+      Estonia Seats_46: -3702975338622675180
+      Estonia Seats_47: -4600051989084530163
+      Estonia Seats_48: 6353492205119068777
+      Estonia Seats_49: -4734842845921204012
+      Estonia Seats_5: 5258434112466572571
+      Estonia Seats_50: -535921223802321376
+      Estonia Seats_51: -9191246588776838725
+      Estonia Seats_52: -7909162918074979238
+      Estonia Seats_53: 5310634584907689662
+      Estonia Seats_54: 6445593051579444559
+      Estonia Seats_55: 7719043128351864650
+      Estonia Seats_6: -3823757095528973733
+      Estonia Seats_7: -5411601335913732020
+      Estonia Seats_8: -1386427902627422756
+      Estonia Seats_9: -846893235481074988
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

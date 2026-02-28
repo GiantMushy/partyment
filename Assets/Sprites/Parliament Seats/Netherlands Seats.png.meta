@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 0d67dd929eb9e2d4d83660ac35030c04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -418428266572852982
+    second: Netherlands Seats_0
+  - first:
+      213: -8039779228348995860
+    second: Netherlands Seats_1
+  - first:
+      213: 8062082955511844874
+    second: Netherlands Seats_2
+  - first:
+      213: -7993174955910528127
+    second: Netherlands Seats_3
+  - first:
+      213: 7465478324280722828
+    second: Netherlands Seats_4
+  - first:
+      213: 1292506441658468797
+    second: Netherlands Seats_5
+  - first:
+      213: 5046024441853342894
+    second: Netherlands Seats_6
+  - first:
+      213: 462259227258498478
+    second: Netherlands Seats_7
+  - first:
+      213: -2673509986185444628
+    second: Netherlands Seats_8
+  - first:
+      213: 8666419456673782195
+    second: Netherlands Seats_9
+  - first:
+      213: 164798659456555070
+    second: Netherlands Seats_10
+  - first:
+      213: -2420524587101197179
+    second: Netherlands Seats_11
+  - first:
+      213: 6867591385371051145
+    second: Netherlands Seats_12
+  - first:
+      213: -3358138353921573993
+    second: Netherlands Seats_13
+  - first:
+      213: 9118847098557262130
+    second: Netherlands Seats_14
+  - first:
+      213: -6170005808004163794
+    second: Netherlands Seats_15
+  - first:
+      213: 7245787312224171765
+    second: Netherlands Seats_16
+  - first:
+      213: -663223394418277130
+    second: Netherlands Seats_17
+  - first:
+      213: -2960407234640660170
+    second: Netherlands Seats_18
+  - first:
+      213: 141453414780701727
+    second: Netherlands Seats_19
+  - first:
+      213: -3862762701523955616
+    second: Netherlands Seats_20
+  - first:
+      213: -339510021065414390
+    second: Netherlands Seats_21
+  - first:
+      213: -2202886492317563513
+    second: Netherlands Seats_22
+  - first:
+      213: -567723937858902026
+    second: Netherlands Seats_23
+  - first:
+      213: -4988403536348309099
+    second: Netherlands Seats_24
+  - first:
+      213: 5772501360773455532
+    second: Netherlands Seats_25
+  - first:
+      213: -4168510711225414425
+    second: Netherlands Seats_26
+  - first:
+      213: -7563205285305476550
+    second: Netherlands Seats_27
+  - first:
+      213: 7584103304030437745
+    second: Netherlands Seats_28
+  - first:
+      213: 5343225614961737414
+    second: Netherlands Seats_29
+  - first:
+      213: 7497481080462116196
+    second: Netherlands Seats_30
+  - first:
+      213: -6356327364557367674
+    second: Netherlands Seats_31
+  - first:
+      213: 9171485818873401943
+    second: Netherlands Seats_32
+  - first:
+      213: -2906838556225527004
+    second: Netherlands Seats_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Netherlands Seats_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 67
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0151fe55b1713af0800000000000000
+      internalID: -418428266572852982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 118
+        width: 62
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6a1bd6367fc6090800000000000000
+      internalID: -8039779228348995860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 135
+        width: 56
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00d309bbb542ef60800000000000000
+      internalID: 8062082955511844874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 151
+        width: 50
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183876d2ab9821190800000000000000
+      internalID: -7993174955910528127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_4
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 243
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85812d6bf4ba9760800000000000000
+      internalID: 7465478324280722828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_5
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 168
+        width: 44
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db905fcb2c7efe110800000000000000
+      internalID: 1292506441658468797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_6
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 185
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea47b90be74170640800000000000000
+      internalID: 5046024441853342894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 243
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eada3ea61564a6600800000000000000
+      internalID: 462259227258498478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_8
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 243
+        width: 108
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce205f915d8c5ead0800000000000000
+      internalID: -2673509986185444628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_9
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 243
+        width: 108
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b91395449e454870800000000000000
+      internalID: 8666419456673782195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_10
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 186
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e385e54f18b794200800000000000000
+      internalID: 164798659456555070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_11
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 170
+        width: 43
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cebb766b1986ed0800000000000000
+      internalID: -2420524587101197179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 153
+        width: 49
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984039b9af59e4f50800000000000000
+      internalID: 6867591385371051145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_13
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 136
+        width: 55
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bb3e395fe7561d0800000000000000
+      internalID: -3358138353921573993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_14
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 119
+        width: 61
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2396b965f17ac8e70800000000000000
+      internalID: 9118847098557262130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_15
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 103
+        width: 66
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2790df586cbf5aa0800000000000000
+      internalID: -6170005808004163794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_16
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 62
+        width: 97
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6772fab253e8460800000000000000
+      internalID: 7245787312224171765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 88
+        width: 84
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f448f036d1cbc6f0800000000000000
+      internalID: -663223394418277130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_18
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 113
+        width: 70
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6393fb41e458ae6d0800000000000000
+      internalID: -2960407234640660170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_19
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 138
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c054c912b86f100800000000000000
+      internalID: 141453414780701727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_20
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 129
+        width: 62
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060590ce9c5b46ac0800000000000000
+      internalID: -3862762701523955616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_21
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 137
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a09e5b44f61d94bf0800000000000000
+      internalID: -339510021065414390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_22
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 111
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785c7e81866cd61e0800000000000000
+      internalID: -2202886492317563513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 86
+        width: 89
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f72f61261a0f18f0800000000000000
+      internalID: -567723937858902026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_24
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 61
+        width: 102
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59918a3d961a5cab0800000000000000
+      internalID: -4988403536348309099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_25
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 12
+        width: 123
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae5c52576b0c1050800000000000000
+      internalID: 5772501360773455532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_26
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 37
+        width: 110
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec8ff608997626c0800000000000000
+      internalID: -4168510711225414425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_27
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 77
+        width: 89
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a92065dd81a0790800000000000000
+      internalID: -7563205285305476550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_28
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 103
+        width: 76
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 171c990d5c5204960800000000000000
+      internalID: 7584103304030437745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_29
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 36
+        width: 115
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ceff8e1363f62a40800000000000000
+      internalID: 5343225614961737414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_30
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 11
+        width: 129
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465082fb1576c0860800000000000000
+      internalID: 7497481080462116196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_31
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 25
+        width: 116
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686967f60f9c9c7a0800000000000000
+      internalID: -6356327364557367674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_32
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 51
+        width: 102
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7525b7872c9a74f70800000000000000
+      internalID: 9171485818873401943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Netherlands Seats_33
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 130
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423a4c4fbb5d8a7d0800000000000000
+      internalID: -2906838556225527004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Netherlands Seats_0: -418428266572852982
+      Netherlands Seats_1: -8039779228348995860
+      Netherlands Seats_10: 164798659456555070
+      Netherlands Seats_11: -2420524587101197179
+      Netherlands Seats_12: 6867591385371051145
+      Netherlands Seats_13: -3358138353921573993
+      Netherlands Seats_14: 9118847098557262130
+      Netherlands Seats_15: -6170005808004163794
+      Netherlands Seats_16: 7245787312224171765
+      Netherlands Seats_17: -663223394418277130
+      Netherlands Seats_18: -2960407234640660170
+      Netherlands Seats_19: 141453414780701727
+      Netherlands Seats_2: 8062082955511844874
+      Netherlands Seats_20: -3862762701523955616
+      Netherlands Seats_21: -339510021065414390
+      Netherlands Seats_22: -2202886492317563513
+      Netherlands Seats_23: -567723937858902026
+      Netherlands Seats_24: -4988403536348309099
+      Netherlands Seats_25: 5772501360773455532
+      Netherlands Seats_26: -4168510711225414425
+      Netherlands Seats_27: -7563205285305476550
+      Netherlands Seats_28: 7584103304030437745
+      Netherlands Seats_29: 5343225614961737414
+      Netherlands Seats_3: -7993174955910528127
+      Netherlands Seats_30: 7497481080462116196
+      Netherlands Seats_31: -6356327364557367674
+      Netherlands Seats_32: 9171485818873401943
+      Netherlands Seats_33: -2906838556225527004
+      Netherlands Seats_4: 7465478324280722828
+      Netherlands Seats_5: 1292506441658468797
+      Netherlands Seats_6: 5046024441853342894
+      Netherlands Seats_7: 462259227258498478
+      Netherlands Seats_8: -2673509986185444628
+      Netherlands Seats_9: 8666419456673782195
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
