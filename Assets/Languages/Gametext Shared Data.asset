@@ -27,6 +27,38 @@ MonoBehaviour:
     m_Key: Menu_rulebook
     m_Metadata:
       m_Items: []
+  - m_Id: 2567153339592704
+    m_Key: Menu_feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Key: Menu_data_privacy_page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Key: New_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Key: Pack_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Key: Pack_Icelandic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Key: Pack_PopCulture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Key: Pack_Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Key: Pack_18
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

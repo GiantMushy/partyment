@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 106927747072
-    m_Localized: Spila
+    m_Localized: Menu
     m_Metadata:
       m_Items: []
   - m_Id: 436510862340096
@@ -27,7 +27,39 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 436594098302976
-    m_Localized: "Hj\xE1lp"
+    m_Localized: "Lei\xF0beiningar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Localized: Senda Athugasemd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Localized: "\xD6ryggi og Pers\xF3nuvernd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Localized: "N\xFDr Leikur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Localized: 18+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Localized: "\xCDsland"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Localized: Almennar spurningar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Localized: "P\xF3l\xEDt\xEDskt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Localized: Popp menning
     m_Metadata:
       m_Items: []
   references:
