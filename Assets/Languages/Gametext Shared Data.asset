@@ -59,6 +59,98 @@ MonoBehaviour:
     m_Key: Pack_18
     m_Metadata:
       m_Items: []
+  - m_Id: 2920950347853824
+    m_Key: Local_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Key: Local_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Key: Online_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Key: Online_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Key: Name_of_players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925689563246592
+    m_Key: Enter_Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Key: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Key: Discussion_moderator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Key: Genric_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Key: Choose_a_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Key: Short_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930197299195904
+    m_Key: Short_description_of_the_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Key: Medium_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2931270000832512
+    m_Key: Medium_discription_of_the_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932441201504256
+    m_Key: Long_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932930764861440
+    m_Key: Long_discription_of_the_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Key: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Key: Comedy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Key: Creativity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Key: On_topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Key: Factual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Key: Enthusiasm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Key: Metrics_instructions
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

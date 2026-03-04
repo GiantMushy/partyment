@@ -62,6 +62,99 @@ MonoBehaviour:
     m_Localized: Popp Menning
     m_Metadata:
       m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: "A\xF0eins 1 s\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: "Allir hafa sinn s\xEDma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: "3+ S\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: "1 S\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: "Nafn \xE1 spilurunum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925689563246592
+    m_Localized: Nafn...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: "N\xE6st"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: "\xDEing Stj\xF3ri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Alment Nafn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: "Veldu frumvarp sem leikmenn munu r\xE6\xF0a um"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: Stutt Frumvarp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930197299195904
+    m_Localized: "\xDEetta er stutt l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: "Mi\xF0lungs Frumvarp"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2931270000832512
+    m_Localized: "\xDEetta er mi\xF0lungs l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932441201504256
+    m_Localized: Langt Frumvarp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932930764861440
+    m_Localized: "\xDEetta er l\xF6ng l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Velja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Gamanleikur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: "Sk\xF6punarg\xE1fu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: "EfnisVi\xF0eigandi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: "Sta\xF0reyndir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: "\xC1hugasemi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: "\xDE\xFA getur vali\xF0 hvort \xFE\xFA deilir \xFEessu me\xF0 spilurunum
+      e\xF0a ekki"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

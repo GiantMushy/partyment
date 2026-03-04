@@ -62,6 +62,98 @@ MonoBehaviour:
     m_Localized: 18+
     m_Metadata:
       m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: 1 Phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: 3+ Phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: Only 1 phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: Everyone has their own phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: Enter the names of the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925689563246592
+    m_Localized: Enter Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: Discussion Moderator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Generic Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: Choose a Bill that your players will debate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: Short Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930197299195904
+    m_Localized: This is a short discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: Medium Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2931270000832512
+    m_Localized: This is a medium discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932441201504256
+    m_Localized: Long Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932930764861440
+    m_Localized: This is a long discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Comedy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: Creativity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: On Topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: Factual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: Enthusiasm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: You can choose whether or not you share this with the players
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
