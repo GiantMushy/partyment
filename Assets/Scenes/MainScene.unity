@@ -639,6 +639,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 18+
       objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2017037289261919355, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8884,6 +8892,14 @@ PrefabInstance:
       propertyPath: m_text
       value: PopCulture
       objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2017037289261919355, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9997,6 +10013,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Political
       objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2017037289261919355, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10537,7 +10561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1037677170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14488,8 +14512,16 @@ PrefabInstance:
       value: "\xCDslenskt"
       objectReference: {fileID: 0}
     - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_fontStyle
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2017037289261919355, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15636,7 +15668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471129611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22978,6 +23010,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037677170}
     m_Modifications:
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_text
+      value: General Topics
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 690522057382894680, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2017037289261919355, guid: c36cb763ebe8d4d4da63aeff97e0ffb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

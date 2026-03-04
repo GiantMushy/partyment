@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2577921242034176
-    m_Localized: Almennar spurningar
+    m_Localized: Almennt efni
     m_Metadata:
       m_Items: []
   - m_Id: 2578079061110784
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2578011557982208
-    m_Localized: Popp menning
+    m_Localized: Popp Menning
     m_Metadata:
       m_Items: []
   references:
