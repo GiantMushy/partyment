@@ -16,10 +16,14 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     [SerializeField] private Sprite civilianDisplaySprite;
     [SerializeField] private Sprite interruptionDisplaySprite;
     [SerializeField] private Sprite betrayalDisplaySprite;
+    [SerializeField] private Sprite secObjIconSprite;
+    [SerializeField] private Sprite civilianIconSprite;
+    [SerializeField] private Sprite spyIconSprite;
     [SerializeField] private GameObject nextButton;
 
     [Header("Card Children")]
     [SerializeField] private Image cardImage;       // Background image on the revealed side
+    [SerializeField] private Image iconImage;       // cardRevealed > Icon
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI typeText;
@@ -235,6 +239,9 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (cardImage != null)
             cardImage.sprite = GetSpriteForType(objective.type);
 
+        if (iconImage != null)
+            iconImage.sprite = GetIconForType(objective.type);
+
         if (descriptionText != null)
             descriptionText.text = objective.description;
 
@@ -243,6 +250,11 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
         if (typeText != null)
             typeText.text = objective.type.ToString();
+
+        Color textColor = GetTextColorForType(objective.type);
+        if (descriptionText != null) descriptionText.color = textColor;
+        if (pointsText != null)      pointsText.color      = textColor;
+        if (typeText != null)        typeText.color        = textColor;
     }
 
     private void PopulateCivilianCard()
@@ -254,6 +266,9 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (cardImage != null)
             cardImage.sprite = civilianDisplaySprite;
 
+        if (iconImage != null)
+            iconImage.sprite = civilianIconSprite;
+
         if (descriptionText != null)
             descriptionText.text = secretObjectiveText;
 
@@ -262,6 +277,11 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
         if (typeText != null)
             typeText.text = "Civilian";
+
+        Color textColor = GetTextColorForType(GameManager.SecretObjectiveType.Civilian);
+        if (descriptionText != null) descriptionText.color = textColor;
+        if (pointsText != null)      pointsText.color      = textColor;
+        if (typeText != null)        typeText.color        = textColor;
     }
 
     private Sprite GetSpriteForType(GameManager.SecretObjectiveType type)
@@ -273,6 +293,35 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
             GameManager.SecretObjectiveType.Betrayal => betrayalDisplaySprite,
             GameManager.SecretObjectiveType.Civilian => civilianDisplaySprite,
             _ => civilianDisplaySprite
+        };
+    }
+
+    /// <summary>
+    /// Interruption and Betrayal use the spy icon.
+    /// Speech uses the secObj icon. Civilian uses the civilian icon.
+    /// </summary>
+    private Sprite GetIconForType(GameManager.SecretObjectiveType type)
+    {
+        return type switch
+        {
+            GameManager.SecretObjectiveType.Interruption => spyIconSprite,
+            GameManager.SecretObjectiveType.Betrayal     => spyIconSprite,
+            GameManager.SecretObjectiveType.Civilian     => civilianIconSprite,
+            _                                            => secObjIconSprite,
+        };
+    }
+
+    /// <summary>
+    /// Betrayal and Interruption use #DDF4E7 (light green).
+    /// Speech and Civilian use #282828 (near-black).
+    /// </summary>
+    private Color GetTextColorForType(GameManager.SecretObjectiveType type)
+    {
+        return type switch
+        {
+            GameManager.SecretObjectiveType.Betrayal      => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
+            GameManager.SecretObjectiveType.Interruption  => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
+            _                                              => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
         };
     }
 

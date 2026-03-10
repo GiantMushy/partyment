@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
@@ -11,20 +12,14 @@ public class TopicSelectionController : MonoBehaviour
     [SerializeField] private Button longTopicButton;
     [SerializeField] private Button selectButton;
 
-    [Header("Sprites")]
-    [SerializeField] private Sprite shortTopicSprite;
-    [SerializeField] private Sprite shortTopicSelectedSprite;
-    [SerializeField] private Sprite mediumTopicSprite;
-    [SerializeField] private Sprite mediumTopicSelectedSprite;
-    [SerializeField] private Sprite longTopicSprite;
-    [SerializeField] private Sprite longTopicSelectedSprite;
-
     [Header("Variables")]
     public Topic shortTopic;
     public Topic mediumTopic;
     public Topic longTopic;
     private Topic selectedTopic;
     private Button selectedButton;
+
+    private static readonly int SelectedParam = Animator.StringToHash("Selected");
 
     void Start()
     {
@@ -82,9 +77,9 @@ public class TopicSelectionController : MonoBehaviour
 
     // -------------------- Button Callbacks --------------------
 
-    public void TopicShort()  { SelectTopic(shortTopic, shortTopicButton); }
-    public void TopicMedium() { SelectTopic(mediumTopic, mediumTopicButton); }
-    public void TopicLong()   { SelectTopic(longTopic, longTopicButton); }
+    public void TopicShort()  { ToggleTopic(shortTopic, shortTopicButton); }
+    public void TopicMedium() { ToggleTopic(mediumTopic, mediumTopicButton); }
+    public void TopicLong()   { ToggleTopic(longTopic, longTopicButton); }
 
     public void Select()
     {
@@ -94,11 +89,28 @@ public class TopicSelectionController : MonoBehaviour
         gameManager.SetState(GameManager.GameState.MetricSelection);
     }
 
+    /// <summary>
+    /// Loads 3 new random topics and resets the selection. Hook this up to the Refresh button.
+    /// </summary>
+    public void Refresh()
+    {
+        LoadRandomTopics();
+        PopulateButtonText();
+        ClearSelection();
+    }
+
     // -------------------- Selection Logic --------------------
 
-    private void SelectTopic(Topic topic, Button button)
+    private void ToggleTopic(Topic topic, Button button)
     {
         if (topic == null) return;
+
+        // If the same topic is already selected, deselect it
+        if (selectedTopic == topic)
+        {
+            ClearSelection();
+            return;
+        }
 
         selectedTopic = topic;
         SetSelectedVisual(button);
@@ -110,25 +122,33 @@ public class TopicSelectionController : MonoBehaviour
         SetSelectedVisual(null);
     }
 
+    // LateUpdate runs after all input events and Button DoStateTransition calls,
+    // so our bool assignments always win over the Button's own state machine.
+    void LateUpdate()
+    {
+        SetButtonAnimatorSelected(shortTopicButton, selectedButton == shortTopicButton);
+        SetButtonAnimatorSelected(mediumTopicButton, selectedButton == mediumTopicButton);
+        SetButtonAnimatorSelected(longTopicButton, selectedButton == longTopicButton);
+    }
+
     private void SetSelectedVisual(Button selected)
     {
         selectedButton = selected;
-        ApplyButtonSprite(shortTopicButton, selected == shortTopicButton, shortTopicSprite, shortTopicSelectedSprite);
-        ApplyButtonSprite(mediumTopicButton, selected == mediumTopicButton, mediumTopicSprite, mediumTopicSelectedSprite);
-        ApplyButtonSprite(longTopicButton, selected == longTopicButton, longTopicSprite, longTopicSelectedSprite);
+
+        // Clear EventSystem so keyboard-nav "Selected" trigger doesn't interfere.
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
 
         if (selectButton != null)
             selectButton.interactable = selected != null;
     }
 
-    private void ApplyButtonSprite(Button button, bool isSelected, Sprite normalSprite, Sprite selectedSprite)
+    private void SetButtonAnimatorSelected(Button button, bool isSelected)
     {
         if (button == null) return;
 
-        var image = button.GetComponent<Image>();
-        if (image == null) return;
-
-        Sprite target = isSelected ? selectedSprite : normalSprite;
-        if (target != null) image.sprite = target;
+        var animator = button.GetComponent<Animator>();
+        if (animator != null)
+            animator.SetBool(SelectedParam, isSelected);
     }
 }

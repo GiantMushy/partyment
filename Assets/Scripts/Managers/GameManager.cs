@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     // State Management
     private Dictionary<GameState, GameObject> stateDictionary;
-    [HideInInspector] public GameState currentState;
+    [HideInInspector] public GameState currentState = GameState.None;
     [HideInInspector] public bool menuOpen;
 
     // Secret Objective Sequence — controls the order players view their objectives
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
             { GameState.JoinOnlineGame, joinOnlineGame }
         };
         
+        DisableAllStates();
         if (developmentMode)
         {
             Debug.Log("Development Mode: ON");
@@ -137,15 +139,15 @@ public class GameManager : MonoBehaviour
     }
 
     // ------------------------------ Helper Functions ------------------------------
+    private static readonly string[] ButtonTriggers = { "Normal", "Highlighted", "Pressed", "Selected", "Disabled" };
+
     public void SetState(GameState newState)
     {
         if (menuOpen) return;
 
-        // Disable all states
-        foreach (var state in stateDictionary.Values)
-        {
-            state.SetActive(false);
-        }
+        // Disable the current state (skip on first call when currentState is None)
+        if (currentState != GameState.None && stateDictionary.ContainsKey(currentState))
+            DisableState(stateDictionary[currentState]);
 
         // Enable the desired state
         if (stateDictionary.ContainsKey(newState))
@@ -158,6 +160,33 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError($"State {newState} not found in the dictionary!");
         }
+    }
+
+    /// <summary>
+    /// Resets only button/Selectable animators to "Normal", then deactivates the panel.
+    /// Scoped to Selectables so we don't hit StateAnimator or other custom animators
+    /// that don't have a "Normal" state.
+    /// </summary>
+    private void DisableState(GameObject state)
+    {
+        foreach (var selectable in state.GetComponentsInChildren<Selectable>(true))
+        {
+            var animator = selectable.GetComponent<Animator>();
+            if (animator == null || !animator.isActiveAndEnabled) continue;
+
+            foreach (var trigger in ButtonTriggers)
+                animator.ResetTrigger(trigger);
+
+            animator.Play("Normal", 0, 0f);
+            animator.Update(0f);
+        }
+        state.SetActive(false);
+    }
+
+    private void DisableAllStates()
+    {
+        foreach (var state in stateDictionary.Values)
+            state.SetActive(false);
     }
 
     public void SetPack(Pack pack)
@@ -175,6 +204,7 @@ public class GameManager : MonoBehaviour
         topicManager.ResetTopicSelection();
         secretObjectiveManager.ResetSecretObjectives();
         playerManager.ResetPlayerGroups();
+        assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
 
         // Go back to Pack Selection
         SetState(GameState.PackSelection);

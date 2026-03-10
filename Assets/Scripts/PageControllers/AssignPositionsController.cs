@@ -12,9 +12,8 @@ public class AssignPositionsController : MonoBehaviour
     [SerializeField] private GameObject groupDisplayParent;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject onePlayerGroupPrefab;
-    [SerializeField] private GameObject twoPlayerGroupPrefab;
-    [SerializeField] private GameObject threePlayerGroupPrefab;
+    [SerializeField] private GameObject groupContainerPrefab;
+    [SerializeField] private GameObject nameInGroupPrefab;
     [SerializeField] private GameObject switchForAgainstPrefab;
 
     void Start()
@@ -75,63 +74,37 @@ public class AssignPositionsController : MonoBehaviour
         foreach (var group in PlayerManager.groups.Values)
         {
             var groupPlayers = PlayerManager.GetPlayersWithGroupId(group.id);
-            GameObject prefab = GetPrefabForGroupSize(groupPlayers.Count);
-            if (prefab == null) continue;
 
             // Instantiate the For/Against switch above the group display
             GameObject switchObj = Instantiate(switchForAgainstPrefab, groupDisplayParent.transform);
             SetupSwitch(switchObj, group);
 
-            // Instantiate the group display below the switch
-            GameObject display = Instantiate(prefab, groupDisplayParent.transform);
-            SetGroupLabel(display, group.name);
-            SetGroupPlayerNames(display, groupPlayers);
+            // Instantiate the single resizable group container and populate it
+            GameObject container = Instantiate(groupContainerPrefab, groupDisplayParent.transform);
+            SetGroupLabel(container, group.name);
+            foreach (var player in groupPlayers)
+                CreateNameCard(player, container.transform);
         }
     }
 
-    private GameObject GetPrefabForGroupSize(int size)
+    private void SetGroupLabel(GameObject container, string label)
     {
-        return size switch
-        {
-            1 => onePlayerGroupPrefab,
-            2 => twoPlayerGroupPrefab,
-            3 => threePlayerGroupPrefab,
-            _ => null
-        };
-    }
-
-    private void SetGroupLabel(GameObject display, string label)
-    {
-        Transform labelTransform = display.transform.Find("Label");
-        if (labelTransform == null) return;
-
-        Transform titleTransform = labelTransform.Find("Title");
+        Transform titleTransform = container.transform.Find("Title");
         if (titleTransform == null) return;
 
         var tmp = titleTransform.GetComponent<TextMeshProUGUI>();
         if (tmp != null) tmp.text = label;
     }
 
-    private void SetGroupPlayerNames(GameObject display, List<Player> players)
+    private void CreateNameCard(Player player, Transform parent)
     {
-        string[] nameFieldNames = { "First Name Field", "Second Name Field", "Third Name Field" };
+        GameObject card = Instantiate(nameInGroupPrefab, parent);
 
-        for (int i = 0; i < players.Count && i < nameFieldNames.Length; i++)
-        {
-            SetPlayerNameField(display, nameFieldNames[i], players[i].name);
-        }
-    }
-
-    private void SetPlayerNameField(GameObject display, string fieldName, string playerName)
-    {
-        Transform field = display.transform.Find(fieldName);
-        if (field == null) return;
-
-        Transform nameTransform = field.Find("Name");
+        Transform nameTransform = card.transform.Find("Name");
         if (nameTransform == null) return;
 
         var tmp = nameTransform.GetComponent<TextMeshProUGUI>();
-        if (tmp != null) tmp.text = playerName;
+        if (tmp != null) tmp.text = player.name;
     }
 
     // -------------------- Switch Logic --------------------
