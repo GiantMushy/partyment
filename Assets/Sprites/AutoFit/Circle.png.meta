@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41e78b0c8804a4722910a69317cd322d
+guid: 07e2901e07c1241a6b81b0bdb9169284
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3406758075334205207
-    second: Betrayal SecObj Display_0
+      213: -2413806693520163455
+    second: Circle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +51,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 115, y: 115, z: 115, w: 115}
+  spritePixelsToUnits: 130
+  spriteBorder: {x: 70, y: 70, z: 70, w: 70}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Betrayal SecObj Display_0
+      name: Circle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 280
-        height: 280
+        width: 140
+        height: 140
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0e20c8493c8b0d0800000000000000
-      internalID: -3406758075334205207
+      spriteID: 18d3544e99f608ed0800000000000000
+      internalID: -2413806693520163455
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Betrayal SecObj Display_0: -3406758075334205207
+      Circle_0: -2413806693520163455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41e78b0c8804a4722910a69317cd322d
+guid: 1a2cf7a25c5c542619ad9ef556c77b2e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3406758075334205207
-    second: Betrayal SecObj Display_0
+      213: 5829589850030967307
+    second: stop_icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 115, y: 115, z: 115, w: 115}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Betrayal SecObj Display_0
+      name: stop_icon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 280
-        height: 280
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0e20c8493c8b0d0800000000000000
-      internalID: -3406758075334205207
+      spriteID: b0a8155051dd6e050800000000000000
+      internalID: 5829589850030967307
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Betrayal SecObj Display_0: -3406758075334205207
+      stop_icon_0: 5829589850030967307
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

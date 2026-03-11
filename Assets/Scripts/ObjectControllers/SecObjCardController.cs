@@ -23,10 +23,6 @@ public class SecObjCardController : MonoBehaviour
     [SerializeField] private Sprite speechFrame;
     [SerializeField] private Sprite interruptionFrame;
     [SerializeField] private Sprite betrayalFrame;
-    [SerializeField] private Sprite speechCheckbox;
-    [SerializeField] private Sprite interruptionCheckbox;
-    [SerializeField] private Sprite betrayalCheckbox;
-    
 
     void Start()
     {
@@ -63,15 +59,12 @@ public class SecObjCardController : MonoBehaviour
         {
             case GameManager.SecretObjectiveType.Speech:
                 GetComponent<UnityEngine.UI.Image>().sprite = speechFrame;
-                completedToggle.image.sprite = speechCheckbox;
                 break;
             case GameManager.SecretObjectiveType.Interruption:
                 GetComponent<UnityEngine.UI.Image>().sprite = interruptionFrame;
-                completedToggle.image.sprite = interruptionCheckbox;
                 break;
             case GameManager.SecretObjectiveType.Betrayal:
                 GetComponent<UnityEngine.UI.Image>().sprite = betrayalFrame;
-                completedToggle.image.sprite = betrayalCheckbox;
                 break;
         }
     }

@@ -4,10 +4,15 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DMDisplayController : MonoBehaviour
 {
-    [Header("References")]
+    // ===================================================================
+    //  Inspector References
+    // ===================================================================
+
+    [Header("Managers (auto-assigned)")]
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
     private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
@@ -15,35 +20,73 @@ public class DMDisplayController : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI topicDescription;
-    [SerializeField] private TextMeshProUGUI nextGroupText;
-    [SerializeField] private GameObject activeSpeechObjectiveContainer;
-    [SerializeField] private GameObject interruptionObjectiveContainer;
-    [SerializeField] private GameObject inactiveSpeechObjectiveContainer;
+    [SerializeField] private TextMeshProUGUI nextGroupNameText;
+    [SerializeField] private TextMeshProUGUI nextGroupPlayersText;
+    [SerializeField] private TextMeshProUGUI currPositionText;
+
+    [Header("Objective Containers")]
+    [Tooltip("RectTransform with HorizontalLayoutGroup. Slides left/right to reveal active or inactive panel.")]
+    [SerializeField] private RectTransform objectivesContainer;
+    [Tooltip("Left child of objectivesContainer — Speech(current group) + Interruption(all other groups).")]
+    [SerializeField] private Transform activeObjectiveContainer;
+    [Tooltip("Right child of objectivesContainer — Speech(all other groups) + Interruption(current group).")]
+    [SerializeField] private Transform inactiveObjectiveContainer;
     [SerializeField] private GameObject secretObjectivePrefab;
 
-    [Header("Timer Elements")]
-    [SerializeField] private GameObject timerButton;
-    [SerializeField] private TextMeshProUGUI startTimerText;
-    [SerializeField] private TextMeshProUGUI stopTimerText;
-    [SerializeField] private UnityEngine.UI.Image startTimerIcon;
-    [SerializeField] private UnityEngine.UI.Image stopTimerIcon;
-    [SerializeField] private Sprite timerOffBackgroundSprite;
-    [SerializeField] private Sprite timerOnBackgroundSprite;
-    [SerializeField] private float timerDuration = 60f; // Duration in seconds (soft limit)
+    [Header("Objectives Slide Settings")]
+    [Tooltip("How many pixels the container shifts left to bring the inactive panel into view.")]
+    [SerializeField] private float objectivesSlideOffset = 800f;
+    [Tooltip("Lerp speed of the slide animation. Higher = faster.")]
+    [SerializeField] private float objectivesSlideSpeed = 8f;
 
-    // Timer state machine
-    private enum TimerState { Idle, Running, Expired, AllGroupsDone }
+    [Header("Timer")]
+    [SerializeField] private TextMeshProUGUI timerText;
+    [Tooltip("Starts (Idle) or resumes (Paused) the timer. Disabled while running.")]
+    [SerializeField] private Button startTimerButton;
+    [Tooltip("Pauses the running timer. Initially disabled; enabled only while running.")]
+    [SerializeField] private Button pauseTimerButton;
+    [Tooltip("Resets the timer and advances to the next group's turn.")]
+    [SerializeField] private Button stopTimerButton;
+    [Tooltip("Starts disabled. Enabled after the last group's Stop is pressed. Wire onClick to ProceedToVoting().")]
+    [SerializeField] private GameObject nextButton;
+    [SerializeField] private float timerDuration = 60f;
+
+    // ===================================================================
+    //  Private State
+    // ===================================================================
+
+    private enum TimerState { Idle, Running, Paused, Expired, AllGroupsDone }
     private TimerState currentTimerState = TimerState.Idle;
     private Coroutine timerCoroutine;
     private float timeRemaining;
 
-    // Turn management
     private List<Group> groupTurnOrder = new List<Group>();
     private int currentGroupIndex = 0;
 
-    // Secret objective card tracking — maps group ID to its Speech cards
+    /// <summary>Maps each group_id to its instantiated Speech objective cards.</summary>
     private Dictionary<int, List<GameObject>> speechCardsByGroupId = new Dictionary<int, List<GameObject>>();
+    /// <summary>Maps each group_id to its instantiated Interruption objective cards.</summary>
+    private Dictionary<int, List<GameObject>> interruptionCardsByGroupId = new Dictionary<int, List<GameObject>>();
     private List<GameObject> allInstantiatedCards = new List<GameObject>();
+
+    /// <summary>Anchored position of objectivesContainer when the Active panel is centred on screen.</summary>
+    private Vector2 defaultAnchoredPos;
+    /// <summary>The position the container is currently lerping towards.</summary>
+    private Vector2 targetAnchoredPos;
+
+    // ===================================================================
+    //  Unity Lifecycle
+    // ===================================================================
+
+    void Awake()
+    {
+        // Cache before any layout or code can shift the container
+        if (objectivesContainer != null)
+        {
+            defaultAnchoredPos = objectivesContainer.anchoredPosition;
+            targetAnchoredPos  = defaultAnchoredPos;
+        }
+    }
 
     void Start()
     {
@@ -62,43 +105,49 @@ public class DMDisplayController : MonoBehaviour
         StopTimerCoroutine();
     }
 
+    void Update()
+    {
+        if (objectivesContainer == null) return;
+        objectivesContainer.anchoredPosition = Vector2.Lerp(
+            objectivesContainer.anchoredPosition,
+            targetAnchoredPos,
+            Time.deltaTime * objectivesSlideSpeed
+        );
+    }
+
     // ===================================================================
-    //  INITIALIZATION
+    //  Initialization
     // ===================================================================
 
     private void InitializeDisplay()
     {
-        // Show the active topic
         DisplayActiveTopic();
 
-        // Build turn order and reset index
         DetermineGroupTurnOrder();
         currentGroupIndex = 0;
 
-        // Populate secret objective cards into their containers
         InstantiateSecretObjectiveCards();
 
-        // Activate the first group's speech objectives
         if (groupTurnOrder.Count > 0)
         {
-            ActivateGroupSpeechCards(groupTurnOrder[0].id);
-            UpdateNextGroupText();
+            DistributeCardsForCurrentGroup();
+            UpdateGroupInfoText();
         }
 
-        // Hide any containers that have no cards
-        UpdateContainerVisibility();
+        ResetTimerToIdle();
 
-        // Reset the timer button to its idle state
-        SetTimerIdle();
+        if (nextButton != null) nextButton.SetActive(false);
+
+        // Snap — no animation — back to active panel on each entry
+        SnapToActiveObjectives();
     }
 
     private void DisplayActiveTopic()
     {
+        if (topicDescription == null) return;
         Topic currentTopic = TopicManager.currentTopic;
         if (currentTopic != null)
-        {
             topicDescription.text = currentTopic.description;
-        }
         else
         {
             topicDescription.text = "No topic selected.";
@@ -107,34 +156,25 @@ public class DMDisplayController : MonoBehaviour
     }
 
     // ===================================================================
-    //  TURN ORDER
+    //  Turn Order
     // ===================================================================
 
-    /// <summary>
-    /// Determines the order in which groups take their turns.
-    /// Currently ordered by ascending group ID.
-    /// To randomize or change the order, modify the LINQ query below.
-    /// </summary>
     private void DetermineGroupTurnOrder()
     {
-        // ---- Turn ordering logic (edit here to change order) ----
         groupTurnOrder = PlayerManager.groups.Values
             .OrderBy(g => g.id)
             .ToList();
-        // ---------------------------------------------------------
-
-        Debug.Log($"DMDisplay: Turn order determined — {groupTurnOrder.Count} group(s).");
+        Debug.Log($"DMDisplay: {groupTurnOrder.Count} group(s) in turn order.");
     }
 
     // ===================================================================
-    //  SECRET OBJECTIVE CARDS
+    //  Secret Objective Cards
     // ===================================================================
 
     /// <summary>
-    /// Instantiates a card for every non-DM player who has a Speech or
-    /// Interruption objective. Speech cards start in the inactive container
-    /// and are moved to active when their group's turn begins.
-    /// Betrayal objectives are intentionally omitted from the DM display.
+    /// Instantiates one SecObjCardController card per non-DM player that has a
+    /// Speech or Interruption objective and stores it in the tracking dictionaries.
+    /// Betrayal objectives are intentionally omitted from the DM screen.
     /// </summary>
     private void InstantiateSecretObjectiveCards()
     {
@@ -153,122 +193,161 @@ public class DMDisplayController : MonoBehaviour
             switch (objective.type)
             {
                 case GameManager.SecretObjectiveType.Speech:
-                    InstantiateCard(player, inactiveSpeechObjectiveContainer.transform, player.group_id);
+                {
+                    GameObject card = CreateCard(player);
+                    if (!speechCardsByGroupId.ContainsKey(player.group_id))
+                        speechCardsByGroupId[player.group_id] = new List<GameObject>();
+                    speechCardsByGroupId[player.group_id].Add(card);
                     break;
+                }
                 case GameManager.SecretObjectiveType.Interruption:
-                    InstantiateCard(player, interruptionObjectiveContainer.transform);
+                {
+                    GameObject card = CreateCard(player);
+                    if (!interruptionCardsByGroupId.ContainsKey(player.group_id))
+                        interruptionCardsByGroupId[player.group_id] = new List<GameObject>();
+                    interruptionCardsByGroupId[player.group_id].Add(card);
                     break;
-                // Betrayal objectives are NOT shown on the DM screen
+                }
+                // Betrayal: intentionally not displayed on the DM screen
             }
         }
     }
 
-    /// <summary>
-    /// Instantiates a single SecObj card under the given parent.
-    /// If groupId is provided, the card is tracked as a Speech card for that group.
-    /// </summary>
-    private void InstantiateCard(Player player, Transform parent, int groupId = -1)
+    private GameObject CreateCard(Player player)
     {
-        GameObject card = Instantiate(secretObjectivePrefab, parent);
-        SecObjCardController controller = card.GetComponent<SecObjCardController>();
-        controller.Initialize(player.id);
+        // Parented temporarily to activeObjectiveContainer; DistributeCards will move it if needed
+        GameObject card = Instantiate(secretObjectivePrefab, activeObjectiveContainer);
+        card.GetComponent<SecObjCardController>().Initialize(player.id);
+        allInstantiatedCards.Add(card);
+        return card;
+    }
 
-        if (groupId >= 0)
+    /// <summary>
+    /// Re-parents all cards into the correct container for whichever group is currently presenting.
+    ///
+    ///   Active   = Speech(current group)  +  Interruption(all other groups)
+    ///   Inactive = Speech(all other groups)  +  Interruption(current group)
+    ///
+    /// Within each container Speech cards always appear before Interruption cards.
+    /// </summary>
+    private void DistributeCardsForCurrentGroup()
+    {
+        if (currentGroupIndex >= groupTurnOrder.Count) return;
+        int currentGroupId = groupTurnOrder[currentGroupIndex].id;
+
+        // Route Speech cards — current group → active, everyone else → inactive
+        foreach (var kvp in speechCardsByGroupId)
         {
-            if (!speechCardsByGroupId.ContainsKey(groupId))
-                speechCardsByGroupId[groupId] = new List<GameObject>();
-            speechCardsByGroupId[groupId].Add(card);
+            Transform target = kvp.Key == currentGroupId
+                ? activeObjectiveContainer
+                : inactiveObjectiveContainer;
+            foreach (var card in kvp.Value)
+                card.transform.SetParent(target, false);
         }
 
-        allInstantiatedCards.Add(card);
+        // Route Interruption cards — opposite of Speech
+        foreach (var kvp in interruptionCardsByGroupId)
+        {
+            Transform target = kvp.Key == currentGroupId
+                ? inactiveObjectiveContainer
+                : activeObjectiveContainer;
+            foreach (var card in kvp.Value)
+                card.transform.SetParent(target, false);
+        }
+
+        // Enforce speech-before-interruption ordering inside each container
+        EnforceCardOrder(activeObjectiveContainer);
+        EnforceCardOrder(inactiveObjectiveContainer);
     }
 
     /// <summary>
-    /// Moves the given group's Speech cards into the active container.
+    /// Reorders children of <paramref name="container"/> so every Speech card
+    /// precedes every Interruption card. Uses SetSiblingIndex — no re-instantiation.
     /// </summary>
-    private void ActivateGroupSpeechCards(int groupId)
+    private void EnforceCardOrder(Transform container)
     {
-        if (!speechCardsByGroupId.ContainsKey(groupId)) return;
+        // Build a fast lookup set of all speech GameObjects
+        var speechSet = new HashSet<GameObject>();
+        foreach (var list in speechCardsByGroupId.Values)
+            foreach (var c in list)
+                if (c != null) speechSet.Add(c);
 
-        foreach (var card in speechCardsByGroupId[groupId])
-            card.transform.SetParent(activeSpeechObjectiveContainer.transform, false);
+        var speechCards       = new List<Transform>();
+        var interruptionCards = new List<Transform>();
 
-        UpdateContainerVisibility();
-        Debug.Log($"DMDisplay: Group '{GetGroupName(groupId)}' speech objectives are now active.");
-    }
+        foreach (Transform child in container)
+        {
+            if (speechSet.Contains(child.gameObject)) speechCards.Add(child);
+            else interruptionCards.Add(child);
+        }
 
-    /// <summary>
-    /// Moves the given group's Speech cards back to the inactive container.
-    /// </summary>
-    private void DeactivateGroupSpeechCards(int groupId)
-    {
-        if (!speechCardsByGroupId.ContainsKey(groupId)) return;
-
-        foreach (var card in speechCardsByGroupId[groupId])
-            card.transform.SetParent(inactiveSpeechObjectiveContainer.transform, false);
-
-        UpdateContainerVisibility();
-    }
-
-    private string GetGroupName(int groupId)
-    {
-        return PlayerManager.groups.ContainsKey(groupId)
-            ? PlayerManager.groups[groupId].name
-            : groupId.ToString();
-    }
-
-    /// <summary>
-    /// Enables or disables each objective container based on whether it has
-    /// any cards beyond the first child (the Header).
-    /// </summary>
-    private void UpdateContainerVisibility()
-    {
-        activeSpeechObjectiveContainer.SetActive(activeSpeechObjectiveContainer.transform.childCount > 1);
-        inactiveSpeechObjectiveContainer.SetActive(inactiveSpeechObjectiveContainer.transform.childCount > 1);
-        interruptionObjectiveContainer.SetActive(interruptionObjectiveContainer.transform.childCount > 1);
+        int idx = 0;
+        foreach (var card in speechCards)       card.SetSiblingIndex(idx++);
+        foreach (var card in interruptionCards)  card.SetSiblingIndex(idx++);
     }
 
     private void CleanupCards()
     {
         foreach (var card in allInstantiatedCards)
-        {
             if (card != null) Destroy(card);
-        }
         allInstantiatedCards.Clear();
         speechCardsByGroupId.Clear();
+        interruptionCardsByGroupId.Clear();
     }
 
     // ===================================================================
-    //  TIMER — Public entry point (wire to Button.onClick in Inspector)
+    //  Timer — Button Callbacks  (wire each to its Button's onClick)
     // ===================================================================
 
     /// <summary>
-    /// Called by the timer button's onClick event.
-    /// Behaviour depends on the current timer state:
-    ///   Idle         → Start the countdown
-    ///   Running      → Stop early and advance to next group
-    ///   Expired      → Acknowledge and advance to next group
-    ///   AllGroupsDone→ Proceed to Voting
+    /// Starts the timer from full duration (Idle) or resumes from where it paused (Paused).
+    /// Wire to the Start button's onClick event.
     /// </summary>
-    public void TimerButtonPressed()
+    public void OnStartPressed()
     {
-        // Deselect the button so it doesn't stay highlighted
         EventSystem.current.SetSelectedGameObject(null);
-
         switch (currentTimerState)
         {
             case TimerState.Idle:
-                StartTimer();
+                timeRemaining = timerDuration;
+                RunTimer();
                 break;
+            case TimerState.Paused:
+                RunTimer();
+                break;
+        }
+    }
 
+    /// <summary>
+    /// Pauses the running timer, preserving the remaining time for resumption.
+    /// Wire to the Pause button's onClick event.
+    /// </summary>
+    public void OnPausePressed()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        if (currentTimerState != TimerState.Running) return;
+
+        StopTimerCoroutine();
+        currentTimerState = TimerState.Paused;
+        RefreshTimerButtons();
+    }
+
+    /// <summary>
+    /// Resets the timer and advances to the next group's turn (or proceeds to Voting
+    /// once every group has presented).
+    /// Wire to the Stop button's onClick event.
+    /// </summary>
+    public void OnStopPressed()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        switch (currentTimerState)
+        {
             case TimerState.Running:
-                StopTimerEarly();
-                break;
-
+            case TimerState.Paused:
             case TimerState.Expired:
-                AcknowledgeTimerExpired();
+                StopTimerCoroutine();
+                AdvanceToNextGroup();
                 break;
-
             case TimerState.AllGroupsDone:
                 ProceedToVoting();
                 break;
@@ -276,21 +355,14 @@ public class DMDisplayController : MonoBehaviour
     }
 
     // ===================================================================
-    //  TIMER — Internal logic
+    //  Timer — Internal
     // ===================================================================
 
-    private void StartTimer()
+    private void RunTimer()
     {
         currentTimerState = TimerState.Running;
-        timeRemaining = timerDuration;
-
-        ShowStopTimerVisuals();
-        SetTimerButtonBackground(timerOnBackgroundSprite);
-        UpdateTimerText(timeRemaining);
-
+        RefreshTimerButtons();
         timerCoroutine = StartCoroutine(TimerCountdown());
-
-        Debug.Log($"DMDisplay: Timer started for group '{groupTurnOrder[currentGroupIndex].name}'.");
     }
 
     private IEnumerator TimerCountdown()
@@ -303,136 +375,115 @@ public class DMDisplayController : MonoBehaviour
             yield return null;
         }
 
-        // Timer expired — stay at 00:00 until the DM presses the button
         currentTimerState = TimerState.Expired;
+        RefreshTimerButtons();
         UpdateTimerText(0f);
-        Debug.Log("DMDisplay: Timer expired. Waiting for DM to acknowledge.");
+        Debug.Log("DMDisplay: Timer expired. Press Stop to advance to the next group.");
     }
 
-    /// <summary>DM stopped the timer before it expired.</summary>
-    private void StopTimerEarly()
-    {
-        StopTimerCoroutine();
-        AdvanceToNextGroup();
-    }
-
-    /// <summary>DM acknowledged the expired timer.</summary>
-    private void AcknowledgeTimerExpired()
-    {
-        AdvanceToNextGroup();
-    }
-
-    /// <summary>
-    /// Moves the current group's speech cards to inactive,
-    /// activates the next group, and resets the timer —
-    /// or shows "Next" if all groups have had their turn.
-    /// </summary>
     private void AdvanceToNextGroup()
     {
-        // Deactivate the current group's speech objectives
-        if (currentGroupIndex < groupTurnOrder.Count)
-            DeactivateGroupSpeechCards(groupTurnOrder[currentGroupIndex].id);
-
         currentGroupIndex++;
 
         if (currentGroupIndex < groupTurnOrder.Count)
         {
-            // More groups remain
-            ActivateGroupSpeechCards(groupTurnOrder[currentGroupIndex].id);
-            UpdateNextGroupText();
-            SetTimerIdle();
-            Debug.Log($"DMDisplay: Advanced to group '{groupTurnOrder[currentGroupIndex].name}'.");
+            DistributeCardsForCurrentGroup();
+            UpdateGroupInfoText();
+            ResetTimerToIdle();
+            Debug.Log($"DMDisplay: Now showing group '{groupTurnOrder[currentGroupIndex].name}'.");
         }
         else
         {
-            // All groups have gone — show "Next"
             currentTimerState = TimerState.AllGroupsDone;
-            ShowStartTimerVisuals();
-            startTimerText.text = "Next";
-            SetTimerButtonBackground(timerOffBackgroundSprite);
-            nextGroupText.text = "";
-            Debug.Log("DMDisplay: All groups have presented. Ready to proceed to Voting.");
+            RefreshTimerButtons();
+            ClearGroupInfoText();
+            if (nextButton != null) nextButton.SetActive(true);
+            Debug.Log("DMDisplay: All groups have presented. Press Next to proceed to Voting.");
         }
     }
 
-    private void ProceedToVoting()
+    public void ProceedToVoting()
     {
         Debug.Log("DMDisplay: Proceeding to Voting.");
         gameManager.StartVotingSequence();
     }
 
-    // ===================================================================
-    //  TIMER — Helpers
-    // ===================================================================
-
-    private void SetTimerIdle()
+    private void ResetTimerToIdle()
     {
+        StopTimerCoroutine();
         currentTimerState = TimerState.Idle;
-        ShowStartTimerVisuals();
-        startTimerText.text = "Start Timer";
-        SetTimerButtonBackground(timerOffBackgroundSprite);
+        timeRemaining = timerDuration;
+        UpdateTimerText(timerDuration);
+        RefreshTimerButtons();
     }
 
-    private void ShowStartTimerVisuals()
+    /// <summary>
+    /// Sets each timer button's interactable state for the current TimerState.
+    ///
+    ///   State          | Start | Pause | Stop
+    ///   Idle           |   ✓   |   ✗   |   ✗
+    ///   Running        |   ✗   |   ✓   |   ✓
+    ///   Paused         |   ✓   |   ✗   |   ✓
+    ///   Expired        |   ✗   |   ✗   |   ✓
+    ///   AllGroupsDone  |   ✗   |   ✗   |   ✓
+    /// </summary>
+    private void RefreshTimerButtons()
     {
-        startTimerText.gameObject.SetActive(true);
-        startTimerIcon.gameObject.SetActive(true);
-        stopTimerText.gameObject.SetActive(false);
-        stopTimerIcon.gameObject.SetActive(false);
-    }
+        bool start = currentTimerState == TimerState.Idle
+                  || currentTimerState == TimerState.Paused;
+        bool pause = currentTimerState == TimerState.Running;
+        bool stop  = currentTimerState == TimerState.Running
+                  || currentTimerState == TimerState.Paused
+                  || currentTimerState == TimerState.Expired
+                  || currentTimerState == TimerState.AllGroupsDone;
 
-    private void ShowStopTimerVisuals()
-    {
-        startTimerText.gameObject.SetActive(false);
-        startTimerIcon.gameObject.SetActive(false);
-        stopTimerText.gameObject.SetActive(true);
-        stopTimerIcon.gameObject.SetActive(true);
-    }
-
-    private void SetTimerButtonBackground(Sprite backgroundSprite)
-    {
-        var buttonImage = timerButton.GetComponent<UnityEngine.UI.Image>();
-        if (buttonImage != null)
-            buttonImage.sprite = backgroundSprite;
+        if (startTimerButton != null) startTimerButton.gameObject.SetActive(start);
+        if (pauseTimerButton != null) pauseTimerButton.gameObject.SetActive(pause);
+        if (stopTimerButton  != null) stopTimerButton.interactable  = stop;
     }
 
     private void UpdateTimerText(float seconds)
     {
+        if (timerText == null) return;
         int minutes = Mathf.FloorToInt(seconds / 60f);
-        int secs = Mathf.FloorToInt(seconds % 60f);
-        stopTimerText.text = $"{minutes:00}:{secs:00}";
+        int secs    = Mathf.FloorToInt(seconds % 60f);
+        timerText.text = $"{minutes:00}:{secs:00}";
     }
 
     private void StopTimerCoroutine()
     {
-        if (timerCoroutine != null)
-        {
-            StopCoroutine(timerCoroutine);
-            timerCoroutine = null;
-        }
+        if (timerCoroutine == null) return;
+        StopCoroutine(timerCoroutine);
+        timerCoroutine = null;
     }
 
     // ===================================================================
-    //  GROUP DISPLAY
+    //  Group Info Text
     // ===================================================================
 
-    private void UpdateNextGroupText()
+    private void UpdateGroupInfoText()
     {
         if (currentGroupIndex >= groupTurnOrder.Count)
         {
-            nextGroupText.text = "";
+            ClearGroupInfoText();
             return;
         }
 
-        Group currentGroup = groupTurnOrder[currentGroupIndex];
+        Group currentGroup   = groupTurnOrder[currentGroupIndex];
+        var   groupPlayers   = PlayerManager.players.Values
+                                   .Where(p => p.group_id == currentGroup.id)
+                                   .ToList();
 
-        var playersInGroup = PlayerManager.players.Values
-            .Where(p => p.group_id == currentGroup.id)
-            .ToList();
+        if (nextGroupNameText    != null) nextGroupNameText.text    = currentGroup.name;
+        if (currPositionText     != null) currPositionText.text     = currentGroup.position == GameManager.Position.For ? "For" : "Against";
+        if (nextGroupPlayersText != null) nextGroupPlayersText.text = FormatPlayerNames(groupPlayers);
+    }
 
-        string playerNames = FormatPlayerNames(playersInGroup);
-        string positionLabel = currentGroup.position == GameManager.Position.For ? "For" : "Against";
-        nextGroupText.text = $"Group: {currentGroup.name}\nPosition: {positionLabel}\nPlayers: {playerNames}";
+    private void ClearGroupInfoText()
+    {
+        if (nextGroupNameText    != null) nextGroupNameText.text    = "";
+        if (currPositionText     != null) currPositionText.text     = "";
+        if (nextGroupPlayersText != null) nextGroupPlayersText.text = "";
     }
 
     private string FormatPlayerNames(List<Player> players)
@@ -442,7 +493,38 @@ public class DMDisplayController : MonoBehaviour
         if (players.Count == 2) return $"{players[0].name} & {players[1].name}";
 
         var names = players.Select(p => p.name).ToList();
-        string allButLast = string.Join(", ", names.Take(names.Count - 1));
-        return $"{allButLast}, & {names.Last()}";
+        return $"{string.Join(", ", names.Take(names.Count - 1))}, & {names.Last()}";
+    }
+
+    // ===================================================================
+    //  Objectives Slide  (wire each to its Button's onClick in Inspector)
+    // ===================================================================
+
+    /// <summary>
+    /// Smoothly slides objectivesContainer back to its default position,
+    /// bringing the Active panel into view.
+    /// Wire to the "Active" button's onClick event.
+    /// </summary>
+    public void ShowActiveObjectives()
+    {
+        targetAnchoredPos = defaultAnchoredPos;
+    }
+
+    /// <summary>
+    /// Smoothly slides objectivesContainer left by <see cref="objectivesSlideOffset"/>,
+    /// bringing the Inactive panel into view.
+    /// Wire to the "Inactive" button's onClick event.
+    /// </summary>
+    public void ShowInactiveObjectives()
+    {
+        targetAnchoredPos = defaultAnchoredPos + new Vector2(-objectivesSlideOffset, 0f);
+    }
+
+    /// <summary>Snaps the container to the active position instantly — used on screen entry.</summary>
+    private void SnapToActiveObjectives()
+    {
+        targetAnchoredPos = defaultAnchoredPos;
+        if (objectivesContainer != null)
+            objectivesContainer.anchoredPosition = defaultAnchoredPos;
     }
 }
