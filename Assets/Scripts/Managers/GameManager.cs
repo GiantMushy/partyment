@@ -315,12 +315,12 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Starts the sequence of showing each non-DM player their secret objective.
-    /// Players are shown in ascending player ID order (excluding the DM, who has the lowest ID).
+    /// Players are shown in ascending player ID order (excluding the DM).
     /// Edit the OrderBy below to change the player ordering.
     /// </summary>
     public void StartSecretObjectiveSequence()
     {
-        int dmId = playerManager.players.Keys.Min();
+        int dmId = playerManager.dmId;
 
         // ---- Player ordering logic (edit here to change order) ----
         secretObjectiveOrder = playerManager.players.Values
@@ -349,7 +349,7 @@ public class GameManager : MonoBehaviour
     public void AdvanceSecretObjectiveSequence()
     {
         secretObjectiveIndex++;
-        int dmId = playerManager.players.Keys.Min();
+        int dmId = playerManager.dmId;
 
         if (secretObjectiveIndex < secretObjectiveOrder.Count)
         {
@@ -403,7 +403,7 @@ public class GameManager : MonoBehaviour
 
             // Hand to DM for metric voting
             isDMMetricVoting = true;
-            int dmId = playerManager.players.Keys.Min();
+            int dmId = playerManager.dmId;
             Player dm = playerManager.players[dmId];
             StartMutex(dm.name, "I am ", GameState.Voting);
         }

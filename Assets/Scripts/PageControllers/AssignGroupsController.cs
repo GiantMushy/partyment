@@ -40,6 +40,9 @@ public class AssignGroupsController : MonoBehaviour
     [Tooltip("Top-level RectTransform used as parent for the drag ghost (renders above everything).")]
     public RectTransform dragLayer;
 
+    [Tooltip("The ScrollRect containing the groups. Used to reset scroll position after layout rebuilds.")]
+    [SerializeField] private ScrollRect scrollRect;
+
     [Header("Buttons")]
     [SerializeField] private Button plusButton;
     [SerializeField] private Button minusButton;
@@ -156,7 +159,7 @@ public class AssignGroupsController : MonoBehaviour
 
         // DM container
         GameObject dmContainer = CreateGroupContainer(0, "Discussion Moderator");
-        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: false);
+        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
 
         // Distribute shuffled players into groups
         var distributed = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
@@ -168,6 +171,7 @@ public class AssignGroupsController : MonoBehaviour
         }
 
         RefreshButtons();
+        ForceLayoutRebuild();
     }
 
     /// <summary>
@@ -203,7 +207,7 @@ public class AssignGroupsController : MonoBehaviour
         // --- DM container (always index 0) ---
         GameObject dmContainer = CreateGroupContainer(0, "Discussion Moderator");
         Player dmPlayer = PlayerManager.players[dmId];
-        RectTransform dmCard = CreateNameCard(dmPlayer, dmContainer.transform, draggable: false);
+        RectTransform dmCard = CreateNameCard(dmPlayer, dmContainer.transform, draggable: true);
 
         // --- Debate group containers ---
         var distributed = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
@@ -217,6 +221,7 @@ public class AssignGroupsController : MonoBehaviour
         }
 
         RefreshButtons();
+        ForceLayoutRebuild();
     }
 
     private void ClearScreen()
@@ -264,9 +269,12 @@ public class AssignGroupsController : MonoBehaviour
         // Clear everything and rebuild
         ClearScreen();
 
-        dmId = PlayerManager.players.Keys.Min();
         var allPlayerIds = new HashSet<int>(PlayerManager.players.Keys);
         var placedIds = new HashSet<int>();
+
+        // Determine DM: whoever was in container index 0, or fallback to min ID
+        var previousDM = playerToGroup.Where(kvp => kvp.Value == 0 && allPlayerIds.Contains(kvp.Key));
+        dmId = previousDM.Any() ? previousDM.First().Key : allPlayerIds.Min();
 
         // Clamp numberOfGroups in case players were removed
         int nonDMCount = allPlayerIds.Count - 1;
@@ -277,7 +285,7 @@ public class AssignGroupsController : MonoBehaviour
 
         // DM container (always index 0)
         var dmContainer = CreateGroupContainer(0, "Discussion Moderator");
-        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: false);
+        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
         placedIds.Add(dmId);
 
         // Recreate debate group containers, placing players in their previous groups
@@ -316,6 +324,31 @@ public class AssignGroupsController : MonoBehaviour
         }
 
         RefreshButtons();
+        ForceLayoutRebuild();
+    }
+
+    // ================================================================
+    //  Layout Rebuild
+    // ================================================================
+
+    /// <summary>
+    /// Forces Unity's layout system to recalculate sizes bottom-up
+    /// (groupsParent first, then its parent Content) and resets the
+    /// scroll position to the top. Fixes intermittent positioning bugs
+    /// caused by ContentSizeFitter calculating before children exist.
+    /// </summary>
+    private void ForceLayoutRebuild()
+    {
+        if (groupsParent is RectTransform groupsRect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(groupsRect);
+
+        // Rebuild the outer Content layout (parent of groupsParent)
+        if (groupsParent.parent is RectTransform contentRect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
+
+        // Reset scroll to top
+        if (scrollRect != null)
+            scrollRect.verticalNormalizedPosition = 1f;
     }
 
     // ================================================================
@@ -332,11 +365,8 @@ public class AssignGroupsController : MonoBehaviour
         string label = overrideLabel ?? $"Group {groupNumber}";
         SetContainerLabel(container, label);
 
-        // New non-DM groups start with an empty placeholder
-        if (groupNumber > 0)
-        {
-            Instantiate(emptyFieldInGroupPrefab, container.transform);
-        }
+        // All groups start with an empty placeholder (removed when a card is added)
+        Instantiate(emptyFieldInGroupPrefab, container.transform);
 
         groupContainers.Add(container);
         return container;
@@ -416,9 +446,7 @@ public class AssignGroupsController : MonoBehaviour
     /// <summary>Adds an empty placeholder to a container if it has no name-card children.</summary>
     private void EnsurePlaceholderIfEmpty(Transform container)
     {
-        // Skip the DM container and the unassigned area — they should never have a placeholder
-        if (groupContainers.Count > 0 && container == groupContainers[0].transform)
-            return;
+        // Skip the unassigned area — it should never have a placeholder
         if (container == unassignedArea)
             return;
 
@@ -494,9 +522,7 @@ public class AssignGroupsController : MonoBehaviour
             {
                 if (groupContainers.Contains(candidate.gameObject))
                 {
-                    // Don't allow dropping into the DM container
-                    if (groupContainers.IndexOf(candidate.gameObject) != 0)
-                        hoveredGroup = candidate;
+                    hoveredGroup = candidate;
                     break;
                 }
                 candidate = candidate.parent;
@@ -545,9 +571,7 @@ public class AssignGroupsController : MonoBehaviour
             {
                 if (groupContainers.Contains(candidate.gameObject))
                 {
-                    // Don't allow dropping into the DM container
-                    if (groupContainers.IndexOf(candidate.gameObject) != 0)
-                        dropTarget = candidate;
+                    dropTarget = candidate;
                     break;
                 }
                 candidate = candidate.parent;
@@ -563,14 +587,34 @@ public class AssignGroupsController : MonoBehaviour
         }
         else if (dropTarget != null)
         {
-            // Remove empty placeholder from the target group
-            RemoveEmptyPlaceholder(dropTarget);
+            bool isDMContainer = groupContainers.Count > 0
+                && dropTarget == groupContainers[0].transform;
 
-            // Move card into the target group
-            card.SetParent(dropTarget, false);
+            if (isDMContainer)
+            {
+                // DM container holds exactly 1 player — swap if occupied
+                RectTransform existingCard = GetPlayerCardInContainer(dropTarget, card);
+                if (existingCard != null)
+                {
+                    RemoveEmptyPlaceholder(originalParent);
+                    existingCard.SetParent(originalParent, false);
+                    existingCard.SetSiblingIndex(originalSiblingIndex);
+                }
+                else
+                {
+                    EnsurePlaceholderIfEmpty(originalParent);
+                }
 
-            // If the source group is now empty, add a placeholder
-            EnsurePlaceholderIfEmpty(originalParent);
+                RemoveEmptyPlaceholder(dropTarget);
+                card.SetParent(dropTarget, false);
+            }
+            else
+            {
+                // Normal group drop
+                RemoveEmptyPlaceholder(dropTarget);
+                card.SetParent(dropTarget, false);
+                EnsurePlaceholderIfEmpty(originalParent);
+            }
         }
         else
         {
@@ -626,6 +670,26 @@ public class AssignGroupsController : MonoBehaviour
     }
 
     // ================================================================
+    //  Helper: Find Player Card in Container
+    // ================================================================
+
+    /// <summary>
+    /// Returns the first player-card RectTransform found in <paramref name="container"/>,
+    /// optionally excluding <paramref name="exclude"/> (useful during drag when the
+    /// dragged card is still a child of its original parent).
+    /// </summary>
+    private RectTransform GetPlayerCardInContainer(Transform container, RectTransform exclude = null)
+    {
+        foreach (Transform child in container)
+        {
+            RectTransform rt = child.GetComponent<RectTransform>();
+            if (rt != null && rt != exclude && cardToPlayerId.ContainsKey(rt))
+                return rt;
+        }
+        return null;
+    }
+
+    // ================================================================
     //  Button State Management
     // ================================================================
 
@@ -667,6 +731,10 @@ public class AssignGroupsController : MonoBehaviour
                 return false;
         }
 
+        // DM container must have exactly one player
+        if (groupContainers.Count > 0 && GetPlayerCardInContainer(groupContainers[0].transform) == null)
+            return false;
+
         // Check debate groups for empty placeholders (skip DM container at index 0)
         for (int i = 1; i < groupContainers.Count; i++)
         {
@@ -688,6 +756,17 @@ public class AssignGroupsController : MonoBehaviour
     private void CommitGroupAssignments()
     {
         PlayerManager.ClearAllGroups();
+
+        // Read the DM from container index 0
+        if (groupContainers.Count > 0)
+        {
+            RectTransform dmCard = GetPlayerCardInContainer(groupContainers[0].transform);
+            if (dmCard != null && cardToPlayerId.TryGetValue(dmCard, out int dmPlayerId))
+            {
+                dmId = dmPlayerId;
+                PlayerManager.dmId = dmPlayerId;
+            }
+        }
 
         // Skip index 0 (DM container). DM has no group assignment.
         for (int i = 1; i < groupContainers.Count; i++)

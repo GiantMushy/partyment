@@ -140,6 +140,9 @@ public class DMDisplayController : MonoBehaviour
 
         // Snap — no animation — back to active panel on each entry
         SnapToActiveObjectives();
+
+        // Force layout rebuild after all cards are placed
+        ForceObjectiveLayoutRebuild();
     }
 
     private void DisplayActiveTopic()
@@ -180,46 +183,101 @@ public class DMDisplayController : MonoBehaviour
     {
         CleanupCards();
 
-        int dmId = PlayerManager.players.Keys.Min();
+        int dmId = PlayerManager.dmId;
+        int playerCount = PlayerManager.players.Count;
+        Debug.Log($"DMDisplay: InstantiateSecretObjectiveCards — {playerCount} player(s), dmId={dmId}");
+        Debug.Log($"DMDisplay: activeObjectiveContainer={(activeObjectiveContainer != null ? activeObjectiveContainer.name : "NULL")}, secretObjectivePrefab={(secretObjectivePrefab != null ? secretObjectivePrefab.name : "NULL")}");
+
+        int cardsCreated = 0;
 
         foreach (var player in PlayerManager.players.Values)
         {
-            if (player.id == dmId) continue;
-            if (player.secretObjectiveId < 0) continue;
+            if (player.id == dmId)
+            {
+                Debug.Log($"DMDisplay: Skipping DM player {player.name} (ID {player.id})");
+                continue;
+            }
+            if (player.secretObjectiveId < 0)
+            {
+                Debug.Log($"DMDisplay: Skipping {player.name} (ID {player.id}) — no objective (Civilian)");
+                continue;
+            }
 
             SecretObjective objective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(player.id);
-            if (objective == null) continue;
+            if (objective == null)
+            {
+                Debug.LogWarning($"DMDisplay: Skipping {player.name} (ID {player.id}) — GetSecretObjectiveByPlayerId returned null despite secretObjectiveId={player.secretObjectiveId}");
+                continue;
+            }
+
+            Debug.Log($"DMDisplay: Player {player.name} has objective '{objective.title}' type={objective.type} group={player.group_id}");
 
             switch (objective.type)
             {
                 case GameManager.SecretObjectiveType.Speech:
                 {
                     GameObject card = CreateCard(player);
+                    if (card == null) break;
                     if (!speechCardsByGroupId.ContainsKey(player.group_id))
                         speechCardsByGroupId[player.group_id] = new List<GameObject>();
                     speechCardsByGroupId[player.group_id].Add(card);
+                    cardsCreated++;
                     break;
                 }
                 case GameManager.SecretObjectiveType.Interruption:
                 {
                     GameObject card = CreateCard(player);
+                    if (card == null) break;
                     if (!interruptionCardsByGroupId.ContainsKey(player.group_id))
                         interruptionCardsByGroupId[player.group_id] = new List<GameObject>();
                     interruptionCardsByGroupId[player.group_id].Add(card);
+                    cardsCreated++;
                     break;
                 }
-                // Betrayal: intentionally not displayed on the DM screen
+                default:
+                    Debug.Log($"DMDisplay: Skipping {player.name} — objective type {objective.type} not shown on DM screen");
+                    break;
             }
         }
+
+        Debug.Log($"DMDisplay: Created {cardsCreated} objective card(s). Speech groups: {speechCardsByGroupId.Count}, Interruption groups: {interruptionCardsByGroupId.Count}");
     }
 
     private GameObject CreateCard(Player player)
     {
-        // Parented temporarily to activeObjectiveContainer; DistributeCards will move it if needed
-        GameObject card = Instantiate(secretObjectivePrefab, activeObjectiveContainer);
-        card.GetComponent<SecObjCardController>().Initialize(player.id);
-        allInstantiatedCards.Add(card);
-        return card;
+        if (secretObjectivePrefab == null)
+        {
+            Debug.LogError("DMDisplayController: secretObjectivePrefab is NULL!");
+            return null;
+        }
+        if (activeObjectiveContainer == null)
+        {
+            Debug.LogError("DMDisplayController: activeObjectiveContainer is NULL!");
+            return null;
+        }
+
+        try
+        {
+            GameObject card = Instantiate(secretObjectivePrefab, activeObjectiveContainer);
+            card.SetActive(true);
+
+            var controller = card.GetComponent<SecObjCardController>();
+            if (controller == null)
+            {
+                Debug.LogError($"DMDisplay: Instantiated prefab has no SecObjCardController! Prefab name: {secretObjectivePrefab.name}");
+                return card;
+            }
+
+            controller.Initialize(player.id);
+            allInstantiatedCards.Add(card);
+            Debug.Log($"DMDisplay: Created card for {player.name} (ID {player.id}, group {player.group_id}) — now {activeObjectiveContainer.childCount} children in active container");
+            return card;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"DMDisplay: Exception creating card for {player.name}: {e.Message}\n{e.StackTrace}");
+            return null;
+        }
     }
 
     /// <summary>
@@ -293,6 +351,21 @@ public class DMDisplayController : MonoBehaviour
         allInstantiatedCards.Clear();
         speechCardsByGroupId.Clear();
         interruptionCardsByGroupId.Clear();
+
+        // Clear any remaining children in the objective containers
+        // (handles scene-placed prefabs or untracked leftovers from a previous layout)
+        DestroyAllChildren(activeObjectiveContainer);
+        DestroyAllChildren(inactiveObjectiveContainer);
+    }
+
+    private void DestroyAllChildren(Transform container)
+    {
+        if (container == null) return;
+        int count = container.childCount;
+        for (int i = count - 1; i >= 0; i--)
+            DestroyImmediate(container.GetChild(i).gameObject);
+        if (count > 0)
+            Debug.Log($"DMDisplay: Cleared {count} leftover child(ren) from {container.name}");
     }
 
     // ===================================================================
@@ -390,6 +463,7 @@ public class DMDisplayController : MonoBehaviour
             DistributeCardsForCurrentGroup();
             UpdateGroupInfoText();
             ResetTimerToIdle();
+            ForceObjectiveLayoutRebuild();
             Debug.Log($"DMDisplay: Now showing group '{groupTurnOrder[currentGroupIndex].name}'.");
         }
         else
@@ -526,5 +600,24 @@ public class DMDisplayController : MonoBehaviour
         targetAnchoredPos = defaultAnchoredPos;
         if (objectivesContainer != null)
             objectivesContainer.anchoredPosition = defaultAnchoredPos;
+    }
+
+    // ===================================================================
+    //  Layout Rebuild
+    // ===================================================================
+
+    /// <summary>
+    /// Forces Unity's layout system to recalculate sizes bottom-up for
+    /// the objective containers, then the parent objectivesContainer.
+    /// Fixes ContentSizeFitter overflow when cards are instantiated.
+    /// </summary>
+    private void ForceObjectiveLayoutRebuild()
+    {
+        if (activeObjectiveContainer is RectTransform activeRect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(activeRect);
+        if (inactiveObjectiveContainer is RectTransform inactiveRect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(inactiveRect);
+        if (objectivesContainer != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(objectivesContainer);
     }
 }

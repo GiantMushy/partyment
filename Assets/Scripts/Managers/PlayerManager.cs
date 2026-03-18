@@ -33,6 +33,17 @@ public class PlayerManager : MonoBehaviour
 
     public Dictionary<int, Group> groups = new Dictionary<int, Group>();
     private int nextGroupId = 0;
+
+    /// <summary>
+    /// Explicitly assigned DM player ID. Falls back to the lowest player ID when unset.
+    /// </summary>
+    private int _dmId = -1;
+    public int dmId
+    {
+        get => _dmId >= 0 && players.ContainsKey(_dmId) ? _dmId : (players.Count > 0 ? players.Keys.Min() : -1);
+        set => _dmId = value;
+    }
+
     [SerializeField, Tooltip("Visible representation of groups in the Inspector")]
     private List<Group> groupsList = new List<Group>();
 
@@ -114,6 +125,7 @@ public class PlayerManager : MonoBehaviour
     {
         groups.Clear();
         nextGroupId = 0;
+        _dmId = -1;
         foreach (var player in players.Values)
             player.group_id = -1;
         Debug.Log("All groups have been cleared.");

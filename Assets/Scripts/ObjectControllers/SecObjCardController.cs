@@ -43,39 +43,68 @@ public class SecObjCardController : MonoBehaviour
 
         SetValues();
         SetSprites();
+
+        // Reset toggle to unchecked without firing the event
+        if (completedToggle != null)
+        {
+            completedToggle.SetIsOnWithoutNotify(false);
+            completedToggle.onValueChanged.AddListener(_ => ToggleComplete());
+        }
     }
 
     private void SetValues()
     {
-        typeText.text = objective.type.ToString();
-        descriptionText.text = objective.description;
-        pointsText.text = $"{objective.points} Points";
-        nameText.text = player.name;
+        if (typeText != null) typeText.text = objective.type.ToString();
+        else Debug.LogError("SecObjCardController: typeText is not assigned in prefab!");
+
+        if (descriptionText != null) descriptionText.text = objective.description;
+        else Debug.LogError("SecObjCardController: descriptionText is not assigned in prefab!");
+
+        if (pointsText != null) pointsText.text = $"{objective.points} Points";
+        else Debug.LogError("SecObjCardController: pointsText is not assigned in prefab!");
+
+        if (nameText != null) nameText.text = player.name;
+        else Debug.LogError("SecObjCardController: nameText is not assigned in prefab!");
     }
 
     private void SetSprites()
     {
+        var img = GetComponent<UnityEngine.UI.Image>();
+        if (img == null) return;
+
         switch (objective.type)
         {
             case GameManager.SecretObjectiveType.Speech:
-                GetComponent<UnityEngine.UI.Image>().sprite = speechFrame;
+                if (speechFrame != null) img.sprite = speechFrame;
+                else Debug.LogWarning("SecObjCardController: speechFrame sprite not assigned in prefab!");
                 break;
             case GameManager.SecretObjectiveType.Interruption:
-                GetComponent<UnityEngine.UI.Image>().sprite = interruptionFrame;
+                if (interruptionFrame != null) img.sprite = interruptionFrame;
+                else Debug.LogWarning("SecObjCardController: interruptionFrame sprite not assigned in prefab!");
                 break;
             case GameManager.SecretObjectiveType.Betrayal:
-                GetComponent<UnityEngine.UI.Image>().sprite = betrayalFrame;
+                if (betrayalFrame != null) img.sprite = betrayalFrame;
+                else Debug.LogWarning("SecObjCardController: betrayalFrame sprite not assigned in prefab!");
                 break;
         }
     }
 
     public void ToggleComplete()
     {
-        objective.completeted = !objective.completeted;
+        if (objective == null || player == null) return;
 
-        if (objective.completeted)
+        // Sync with the toggle's actual state rather than blindly flipping
+        bool shouldBeCompleted = completedToggle != null ? completedToggle.isOn : !objective.completeted;
+
+        if (shouldBeCompleted && !objective.completeted)
+        {
+            objective.completeted = true;
             player.score += objective.points;
-        else
+        }
+        else if (!shouldBeCompleted && objective.completeted)
+        {
+            objective.completeted = false;
             player.score -= objective.points;
+        }
     }
 }
