@@ -19623,8 +19623,7 @@ MonoBehaviour:
   activeObjectiveContainer: {fileID: 806287339}
   inactiveObjectiveContainer: {fileID: 1178212931}
   secretObjectivePrefab: {fileID: 8648961093083843107, guid: 91d9e8ea9ac29435f8f71670dc41b41c, type: 3}
-  scrollRect: {fileID: 967023292}
-  objectivesSlideOffset: 800
+  objectivesSlideOffset: 1000
   objectivesSlideSpeed: 8
   timerText: {fileID: 1488301107}
   startTimerButton: {fileID: 1246505627}

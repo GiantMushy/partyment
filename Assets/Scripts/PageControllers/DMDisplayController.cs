@@ -33,10 +33,6 @@ public class DMDisplayController : MonoBehaviour
     [SerializeField] private Transform inactiveObjectiveContainer;
     [SerializeField] private GameObject secretObjectivePrefab;
 
-    [Header("Scroll View")]
-    [Tooltip("The ScrollRect that contains the objectives. Used to rebuild layout after cards are placed.")]
-    [SerializeField] private ScrollRect scrollRect;
-
     [Header("Objectives Slide Settings")]
     [Tooltip("How many pixels the container shifts left to bring the inactive panel into view.")]
     [SerializeField] private float objectivesSlideOffset = 800f;
@@ -611,34 +607,17 @@ public class DMDisplayController : MonoBehaviour
     // ===================================================================
 
     /// <summary>
-    /// Forces Unity's layout system to recalculate sizes for the full
-    /// objective hierarchy.  When a ScrollRect reference is assigned the
-    /// rebuild starts from its Content — ForceRebuildLayoutImmediate
-    /// internally processes children-first (bottom-up), so a single call
-    /// on the highest relevant RectTransform is sufficient.
+    /// Forces Unity's layout system to recalculate sizes bottom-up for
+    /// the objective containers, then the parent objectivesContainer.
+    /// Fixes ContentSizeFitter overflow when cards are instantiated.
     /// </summary>
     private void ForceObjectiveLayoutRebuild()
     {
-        // Prefer rebuilding from the scroll content — this propagates
-        // sizes through Objectives → ObjectivesContainer → Active/Inactive
-        // in one pass and lets the ScrollRect know the correct content height.
-        if (scrollRect != null && scrollRect.content != null)
-        {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
-            return;
-        }
-
-        // Fallback when no ScrollRect is assigned
         if (activeObjectiveContainer is RectTransform activeRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(activeRect);
         if (inactiveObjectiveContainer is RectTransform inactiveRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(inactiveRect);
         if (objectivesContainer != null)
-        {
             LayoutRebuilder.ForceRebuildLayoutImmediate(objectivesContainer);
-
-            if (objectivesContainer.parent is RectTransform objectivesWrapper)
-                LayoutRebuilder.ForceRebuildLayoutImmediate(objectivesWrapper);
-        }
     }
 }
