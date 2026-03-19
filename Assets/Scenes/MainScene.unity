@@ -1953,14 +1953,14 @@ PrefabInstance:
     - target: {fileID: 8876674388372724454, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 633501020}
+      objectReference: {fileID: 1803850209}
     - target: {fileID: 8876674388372724454, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Next
+      value: ProceedToVoting
       objectReference: {fileID: 0}
     - target: {fileID: 8876674388372724454, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SecretObjectiveDisplayController, Assembly-CSharp
+      value: DMDisplayController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
