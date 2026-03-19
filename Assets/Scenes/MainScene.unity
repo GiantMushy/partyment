@@ -249,6 +249,8 @@ GameObject:
   - component: {fileID: 3686790}
   - component: {fileID: 3686789}
   - component: {fileID: 3686788}
+  - component: {fileID: 3686792}
+  - component: {fileID: 3686791}
   m_Layer: 5
   m_Name: Group 3
   m_TagString: Untagged
@@ -319,19 +321,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3686789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3686789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,8 +342,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -370,6 +360,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3686786}
   m_CullTransparentMesh: 1
+--- !u!114 &3686791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &3686792
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686786}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &58331006
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +399,8 @@ GameObject:
   - component: {fileID: 58331007}
   - component: {fileID: 58331009}
   - component: {fileID: 58331008}
+  - component: {fileID: 58331011}
+  - component: {fileID: 58331010}
   m_Layer: 5
   m_Name: Third Vote Empty
   m_TagString: Untagged
@@ -427,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -445,6 +465,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58331006}
   m_CullTransparentMesh: 1
+--- !u!114 &58331010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58331006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b30f0874f9fd84a89ac8baa5e7fb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingSlotDropTarget
+  slotIndex: 3
+  controller: {fileID: 0}
+--- !u!225 &58331011
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58331006}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &58842828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,7 +670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1483,9 +1529,9 @@ RectTransform:
   - {fileID: 1873631333}
   m_Father: {fileID: 551537590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 489.4333, y: -1044.119}
   m_SizeDelta: {x: 1564, y: 241.2137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132343475
@@ -1721,6 +1767,8 @@ GameObject:
   - component: {fileID: 160543752}
   - component: {fileID: 160543751}
   - component: {fileID: 160543750}
+  - component: {fileID: 160543754}
+  - component: {fileID: 160543753}
   m_Layer: 5
   m_Name: Group 2
   m_TagString: Untagged
@@ -1791,19 +1839,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160543751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &160543751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,8 +1860,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1842,6 +1878,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160543748}
   m_CullTransparentMesh: 1
+--- !u!114 &160543753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160543748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &160543754
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160543748}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &168796092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4166,6 +4230,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367991835}
   m_CullTransparentMesh: 1
+--- !u!1 &374836637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374836638}
+  m_Layer: 5
+  m_Name: DropTargets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &374836638
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374836637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1961414717}
+  m_Father: {fileID: 1592148104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &377607460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,7 +5380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6544,7 +6644,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 971.04614}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &551537591
 MonoBehaviour:
@@ -7986,6 +8086,8 @@ GameObject:
   - component: {fileID: 699623130}
   - component: {fileID: 699623129}
   - component: {fileID: 699623128}
+  - component: {fileID: 699623132}
+  - component: {fileID: 699623131}
   m_Layer: 5
   m_Name: Group 6
   m_TagString: Untagged
@@ -8056,19 +8158,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 699623129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup6
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &699623129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8089,8 +8179,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8107,6 +8197,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699623126}
   m_CullTransparentMesh: 1
+--- !u!114 &699623131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699623126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &699623132
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699623126}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &700636310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9944,9 +10062,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1774552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1402.195, y: -375}
   m_SizeDelta: {x: 800, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806287340
@@ -12834,9 +12952,9 @@ RectTransform:
   - {fileID: 2561693113707641700}
   m_Father: {fileID: 1810919014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 782, y: -60}
   m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1157434053
@@ -13189,9 +13307,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1774552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 2402.1948, y: -375}
   m_SizeDelta: {x: 800, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178212932
@@ -14246,7 +14364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14275,6 +14393,8 @@ GameObject:
   - component: {fileID: 1275221775}
   - component: {fileID: 1275221777}
   - component: {fileID: 1275221776}
+  - component: {fileID: 1275221779}
+  - component: {fileID: 1275221778}
   m_Layer: 5
   m_Name: Second Vote Empty
   m_TagString: Untagged
@@ -14321,7 +14441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14339,6 +14459,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275221774}
   m_CullTransparentMesh: 1
+--- !u!114 &1275221778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275221774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b30f0874f9fd84a89ac8baa5e7fb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingSlotDropTarget
+  slotIndex: 2
+  controller: {fileID: 0}
+--- !u!225 &1275221779
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275221774}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1275598327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15201,7 +15347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16231,9 +16377,9 @@ RectTransform:
   - {fileID: 1945993966}
   m_Father: {fileID: 551537590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 489.4333, y: -637.0061}
   m_SizeDelta: {x: 1564, y: 413.0122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448762346
@@ -16645,6 +16791,8 @@ GameObject:
   - component: {fileID: 1471834969}
   - component: {fileID: 1471834968}
   - component: {fileID: 1471834967}
+  - component: {fileID: 1471834971}
+  - component: {fileID: 1471834970}
   m_Layer: 5
   m_Name: Group 4
   m_TagString: Untagged
@@ -16715,19 +16863,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471834968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup4
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1471834968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16748,8 +16884,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16766,6 +16902,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471834965}
   m_CullTransparentMesh: 1
+--- !u!114 &1471834970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471834965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &1471834971
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471834965}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1483678785
 GameObject:
   m_ObjectHideFlags: 0
@@ -17145,9 +17309,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 551537590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 489.4333, y: -275.25}
   m_SizeDelta: {x: 1237, y: 215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532846600
@@ -17540,7 +17704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1592148104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17559,6 +17723,7 @@ RectTransform:
   - {fileID: 1707105116}
   - {fileID: 1138408932}
   - {fileID: 915585379}
+  - {fileID: 374836638}
   - {fileID: 143605478}
   - {fileID: 1926898278}
   - {fileID: 160543749}
@@ -17604,15 +17769,23 @@ MonoBehaviour:
   onTopicSprite: {fileID: 21300000, guid: 6420db10fe2c141bcaf15685c9f2ecf1, type: 3}
   factualSprite: {fileID: 21300000, guid: bd230ff39354d433e9b74dc3c50852ee, type: 3}
   enthusiasmSprite: {fileID: 21300000, guid: a70962a2cb0284efaa14e2f31aca5035, type: 3}
-  firstVoteContainer: {fileID: 1869123041}
-  secondVoteContainer: {fileID: 1275221774}
-  thirdVoteContainer: {fileID: 58331006}
+  firstVoteSlot: {fileID: 1869123042}
+  secondVoteSlot: {fileID: 1275221775}
+  thirdVoteSlot: {fileID: 58331007}
+  firstVoteEmpty: {fileID: 1869123041}
+  secondVoteEmpty: {fileID: 1275221774}
+  thirdVoteEmpty: {fileID: 58331006}
+  firstSlotDropTarget: {fileID: 1869123045}
+  secondSlotDropTarget: {fileID: 1275221778}
+  thirdSlotDropTarget: {fileID: 58331010}
+  gridDropTarget: {fileID: 1961414713}
   group1Button: {fileID: 1926898277}
   group2Button: {fileID: 160543748}
   group3Button: {fileID: 3686786}
   group4Button: {fileID: 1471834965}
   group5Button: {fileID: 1610979565}
   group6Button: {fileID: 699623126}
+  dragLayer: {fileID: 2099552356}
 --- !u!1 &1592466018
 GameObject:
   m_ObjectHideFlags: 0
@@ -17879,6 +18052,8 @@ GameObject:
   - component: {fileID: 1610979569}
   - component: {fileID: 1610979568}
   - component: {fileID: 1610979567}
+  - component: {fileID: 1610979571}
+  - component: {fileID: 1610979570}
   m_Layer: 5
   m_Name: Group 5
   m_TagString: Untagged
@@ -17949,19 +18124,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1610979568}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup5
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1610979568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17982,8 +18145,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -18000,6 +18163,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610979565}
   m_CullTransparentMesh: 1
+--- !u!114 &1610979570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610979565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &1610979571
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610979565}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1613877243
 GameObject:
   m_ObjectHideFlags: 0
@@ -18176,7 +18367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19311,7 +19502,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 782, y: -535}
-  m_SizeDelta: {x: 2804.39, y: 0}
+  m_SizeDelta: {x: 2804.39, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774552633
 MonoBehaviour:
@@ -19581,7 +19772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1803850208
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19670,7 +19861,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 489.4333, y: -2234.414}
-  m_SizeDelta: {x: 1564, y: 0}
+  m_SizeDelta: {x: 1564, y: 1110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810919015
 MonoBehaviour:
@@ -20164,6 +20355,8 @@ GameObject:
   - component: {fileID: 1869123042}
   - component: {fileID: 1869123044}
   - component: {fileID: 1869123043}
+  - component: {fileID: 1869123046}
+  - component: {fileID: 1869123045}
   m_Layer: 5
   m_Name: First Vote Empty
   m_TagString: Untagged
@@ -20210,7 +20403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20228,6 +20421,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869123041}
   m_CullTransparentMesh: 1
+--- !u!114 &1869123045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869123041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b30f0874f9fd84a89ac8baa5e7fb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingSlotDropTarget
+  slotIndex: 1
+  controller: {fileID: 0}
+--- !u!225 &1869123046
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869123041}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1873631332
 GameObject:
   m_ObjectHideFlags: 0
@@ -20881,6 +21100,8 @@ GameObject:
   - component: {fileID: 1926898281}
   - component: {fileID: 1926898280}
   - component: {fileID: 1926898279}
+  - component: {fileID: 1926898283}
+  - component: {fileID: 1926898282}
   m_Layer: 5
   m_Name: Group 1
   m_TagString: Untagged
@@ -20951,19 +21172,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1926898280}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1592148105}
-        m_TargetAssemblyTypeName: VotingController, Assembly-CSharp
-        m_MethodName: ToggleGroup1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1926898280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20984,8 +21193,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8729197754602652415, guid: 86c5d6dea39824c25b84fbbb041bc054, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 951f046d9e7604d5bb07ff36ea149fba, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21002,6 +21211,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926898277}
   m_CullTransparentMesh: 1
+--- !u!114 &1926898282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926898277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24abb3c9ff07e34394d085819c54201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingDragHandler
+  controller: {fileID: 0}
+  homePosition: {x: 0, y: 0, z: 0}
+  slotIndex: 0
+  isClone: 0
+--- !u!225 &1926898283
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926898277}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1932501683
 GameObject:
   m_ObjectHideFlags: 0
@@ -21587,6 +21824,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954901096}
   m_CullTransparentMesh: 1
+--- !u!1 &1961414712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961414717}
+  - component: {fileID: 1961414716}
+  - component: {fileID: 1961414713}
+  - component: {fileID: 1961414715}
+  - component: {fileID: 1961414714}
+  m_Layer: 5
+  m_Name: Grid Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1961414713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961414712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f45bad62d0aed46b3e2bc674d06cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VotingGridDropTarget
+  controller: {fileID: 0}
+--- !u!114 &1961414714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961414712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1961414715
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961414712}
+  m_CullTransparentMesh: 1
+--- !u!225 &1961414716
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961414712}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!224 &1961414717
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961414712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 374836638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 10.813202, y: -470.24213}
+  m_SizeDelta: {x: 885.6263, y: 496.4843}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1961830014
 GameObject:
   m_ObjectHideFlags: 0
@@ -22064,7 +22403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5325643714931123030, guid: 85f387b15e168417aa4a36b9bc8ecf0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc193bd21c85e4e60a16ed90b291b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22254,9 +22593,9 @@ RectTransform:
   - {fileID: 1838295769}
   m_Father: {fileID: 551537590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 489.4333, y: -1422.07}
   m_SizeDelta: {x: 1408, y: 354.688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998178892
