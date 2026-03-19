@@ -169,28 +169,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void DisableState(GameObject state)
     {
-        try
+        foreach (var selectable in state.GetComponentsInChildren<Selectable>(true))
         {
-            foreach (var selectable in state.GetComponentsInChildren<Selectable>(true))
-            {
-                var animator = selectable.GetComponent<Animator>();
-                if (animator == null || !animator.isActiveAndEnabled) continue;
+            var animator = selectable.GetComponent<Animator>();
+            if (animator == null || !animator.isActiveAndEnabled) continue;
 
-                foreach (var trigger in ButtonTriggers)
-                    animator.ResetTrigger(trigger);
+            foreach (var trigger in ButtonTriggers)
+                animator.ResetTrigger(trigger);
 
-                animator.Play("Normal", 0, 0f);
-                animator.Update(0f);
-            }
+            animator.Play("Normal", 0, 0f);
+            animator.Update(0f);
         }
-        catch (System.Exception e)
-        {
-            Debug.LogWarning($"DisableState: animator cleanup failed on '{state.name}': {e.Message}");
-        }
-        finally
-        {
-            state.SetActive(false);
-        }
+        state.SetActive(false);
     }
 
     private void DisableAllStates()
@@ -309,14 +299,11 @@ public class GameManager : MonoBehaviour
             case GameState.DMDisplay:
                 break;
             case GameState.Voting:
-                var votingCtrl = voting != null ? voting.GetComponent<VotingController>() : null;
-                if (votingCtrl != null)
-                {
-                    if (isDMMetricVoting)
-                        votingCtrl.PrepareForDMMetricVoting();
-                    else
-                        votingCtrl.PrepareForGroupVoting();
-                }
+                var votingCtrl = voting.GetComponent<VotingController>();
+                if (isDMMetricVoting)
+                    votingCtrl.PrepareForDMMetricVoting();
+                else
+                    votingCtrl.PrepareForGroupVoting();
                 break;
             case GameState.TopicSelection:
                 break;
