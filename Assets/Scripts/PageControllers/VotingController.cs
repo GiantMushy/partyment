@@ -633,11 +633,47 @@ public class VotingController : MonoBehaviour
             .OrderByDescending(g => g.votingPhasePoints)
             .ToList();
 
-        int[] finalPoints = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
-        for (int i = 0; i < rankedGroups.Count && i < finalPoints.Length; i++)
+        int groupCount = rankedGroups.Count;
+        if (groupCount == 2)
         {
-            rankedGroups[i].score += finalPoints[i];
-            Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes — awarded {finalPoints[i]} points");
+            // Only two groups: 1st gets secondPlacePoints, 2nd gets 0
+            if (groupCount > 0)
+            {
+                rankedGroups[0].score += secondPlacePoints;
+                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
+            }
+            if (groupCount > 1)
+            {
+                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes — awarded 0 points");
+            }
+        }
+        else if (groupCount == 3)
+        {
+            // Three groups: 1st gets secondPlacePoints, 2nd gets thirdPlacePoints, 3rd gets 0
+            if (groupCount > 0)
+            {
+                rankedGroups[0].score += secondPlacePoints;
+                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
+            }
+            if (groupCount > 1)
+            {
+                rankedGroups[1].score += thirdPlacePoints;
+                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes — awarded {thirdPlacePoints} points");
+            }
+            if (groupCount > 2)
+            {
+                Debug.Log($"Group '{rankedGroups[2].name}' finished #3 with {rankedGroups[2].votingPhasePoints} local votes — awarded 0 points");
+            }
+        }
+        else
+        {
+            // Four or more groups: normal scoring
+            int[] finalPoints = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
+            for (int i = 0; i < rankedGroups.Count && i < finalPoints.Length; i++)
+            {
+                rankedGroups[i].score += finalPoints[i];
+                Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes — awarded {finalPoints[i]} points");
+            }
         }
 
         foreach (var group in PlayerManager.groups.Values)

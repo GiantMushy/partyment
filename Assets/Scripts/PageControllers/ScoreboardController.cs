@@ -21,12 +21,7 @@ public class ScoreboardController : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    void OnEnable()
-    {
-        if (gameManager == null) gameManager = GameManager.Instance;
-
-        RefreshScoreboard();
-    }
+    // Remove duplicate OnEnable above
 
     private void RefreshScoreboard()
     {
@@ -85,11 +80,44 @@ public class ScoreboardController : MonoBehaviour
         }
     }
 
-    public void NewGame()
+
+    [Header("Round UI")]
+    [SerializeField] private TMP_Text roundButtonText;
+
+    private void OnEnable()
     {
-        gameManager.PlayTransition("Starting New Game!", () =>
+        if (gameManager == null) gameManager = GameManager.Instance;
+        RefreshScoreboard();
+        UpdateRoundButton();
+    }
+
+    private void UpdateRoundButton()
+    {
+        if (gameManager == null) return;
+        if (roundButtonText == null) return;
+        if (gameManager.currentRound < gameManager.totalRounds)
+            roundButtonText.text = "Next Round";
+        else if (gameManager.currentRound == gameManager.totalRounds)
+            roundButtonText.text = "Finish Game";
+        else
+            roundButtonText.text = "New Game";
+    }
+
+    public void OnRoundButtonClicked()
+    {
+        if (gameManager.currentRound < gameManager.totalRounds)
         {
-            gameManager.NewGame();
-        });
+            gameManager.PlayTransition($"Round {gameManager.currentRound + 1}", () =>
+            {
+                gameManager.StartNextRound();
+            });
+        }
+        else if (gameManager.currentRound == gameManager.totalRounds)
+        {
+            gameManager.PlayTransition("Starting New Game!", () =>
+            {
+                gameManager.NewGame();
+            });
+        }
     }
 }

@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game Rounds")]
+    [SerializeField, Tooltip("Number of rounds per game")] public int totalRounds = 3;
+    [HideInInspector] public int currentRound = 1;
+
     // Singleton pattern
     public static GameManager Instance { get; private set; }
     public PlayerManager playerManager;
@@ -332,6 +336,23 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Starts the sequence of showing each non-DM player their secret objective.
+                /// <summary>
+                /// Starts a new round: advances round counter, resets round-specific state, and moves to topic selection.
+                /// </summary>
+                public void StartNextRound()
+                {
+                    if (currentRound < totalRounds)
+                    {
+                        currentRound++;
+                        selectedMetrics.Clear();
+                        SetState(GameState.TopicSelection);
+                    }
+                    else if (currentRound == totalRounds)
+                    {
+                        // Already at last round, go to scoreboard or finish
+                        SetState(GameState.Scoreboard);
+                    }
+                }
     /// Players are shown in ascending player ID order (excluding the DM).
     /// Edit the OrderBy below to change the player ordering.
     /// </summary>

@@ -44,12 +44,17 @@ public class AssignPositionsController : MonoBehaviour
 
     private void RandomlyAssignPositions()
     {
-        foreach (var group in PlayerManager.groups.Values)
+        var groups = PlayerManager.groups.Values.OrderBy(g => g.id).ToList();
+        if (groups.Count == 0) return;
+
+        // Randomly pick first group's position
+        GameManager.Position first = Random.value > 0.5f ? GameManager.Position.For : GameManager.Position.Against;
+        GameManager.Position current = first;
+        for (int i = 0; i < groups.Count; i++)
         {
-            GameManager.Position randomPosition = Random.value > 0.5f
-                ? GameManager.Position.For
-                : GameManager.Position.Against;
-            PlayerManager.SwapPosition(group.id, randomPosition);
+            PlayerManager.SwapPosition(groups[i].id, current);
+            // Alternate for next group
+            current = current == GameManager.Position.For ? GameManager.Position.Against : GameManager.Position.For;
         }
     }
 

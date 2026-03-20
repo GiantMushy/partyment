@@ -68,8 +68,8 @@ public class TopicSelectionController : MonoBehaviour
     {
         if (button == null || topic == null) return;
 
-        var title = button.transform.Find("Title")?.GetComponent<TextMeshProUGUI>();
-        var description = button.transform.Find("Description")?.GetComponent<TextMeshProUGUI>();
+        var title = button.transform.Find("Image/Topic")?.GetComponent<TextMeshProUGUI>();
+        var description = button.transform.Find("Image/Description")?.GetComponent<TextMeshProUGUI>();
 
         if (title != null) title.text = topic.title;
         if (description != null) description.text = topic.description;
