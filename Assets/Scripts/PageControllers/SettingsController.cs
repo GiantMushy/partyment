@@ -9,9 +9,18 @@ public class SettingsController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
     }
-
     public void Back()
     {
         gameManager.BackToSavedState();
+    }
+
+    public void Icelandic()
+    {
+        gameManager.SetLanguage("is");
+    }
+
+    public void English()
+    {
+        gameManager.SetLanguage("en");
     }
 }

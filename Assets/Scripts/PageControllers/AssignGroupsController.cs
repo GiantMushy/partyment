@@ -110,7 +110,10 @@ public class AssignGroupsController : MonoBehaviour
         // Assign a random secret objective to each non-DM player
         gameManager.secretObjectiveManager.AssignSecretObjectivesToPlayers(PlayerManager.players, dmId);
 
-        gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);
+        gameManager.PlayTransition("Game Is Starting!", () =>
+        {
+            gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);
+        });
     }
 
     public void Back()

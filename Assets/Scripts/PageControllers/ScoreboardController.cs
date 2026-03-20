@@ -87,6 +87,9 @@ public class ScoreboardController : MonoBehaviour
 
     public void NewGame()
     {
-        gameManager.NewGame();
+        gameManager.PlayTransition("Starting New Game!", () =>
+        {
+            gameManager.NewGame();
+        });
     }
 }

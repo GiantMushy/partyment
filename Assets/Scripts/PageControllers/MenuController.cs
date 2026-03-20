@@ -72,7 +72,10 @@ public class MenuController : MonoBehaviour
     public void NewGame()
     {
         ToggleMenu();
-        gameManager.NewGame();
+        gameManager.PlayTransition("Lets try this again...", () =>
+        {
+            gameManager.NewGame();
+        });
     }
 
     public void Settings()

@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [Header("Dev Values")]
     public bool developmentMode = true;
     [SerializeField, Tooltip("Dictates the starting state of the game when development mode is ON")] private GameState startingState = GameState.LoadingScreen;
+    public enum Language { English, Icelandic }
+    public Language selectedLanguage = Language.English;
     public enum GameState
     {
         // Global States
@@ -75,6 +77,9 @@ public class GameManager : MonoBehaviour
     public GameObject dmDisplay;
     public GameObject voting;
     public GameObject scoreboard;
+
+    [Header("Transition")]
+    public GameObject transitionScreen;
 
     // Online Game States
     public GameObject hostVsJoin;
@@ -251,6 +256,18 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    /// <summary>
+    /// Plays a full-screen transition overlay: fades in over the current screen,
+    /// invokes <paramref name="midTransitionAction"/> while fully opaque (so the
+    /// underlying state change is hidden), then fades out to reveal the new screen.
+    /// </summary>
+    public void PlayTransition(string text, System.Action midTransitionAction)
+    {
+        var ctrl = transitionScreen.GetComponent<TransitionController>();
+        ctrl.Setup(text, midTransitionAction);
+        transitionScreen.SetActive(true);
+    }
+
     public void AddPlayer(int id, string name)
     {
         playerManager.AddPlayer(id, name);
@@ -407,5 +424,22 @@ public class GameManager : MonoBehaviour
             Player dm = playerManager.players[dmId];
             StartMutex(dm.name, "I am ", GameState.Voting);
         }
+    }
+
+    public void SetLanguage(string langCode)
+    {
+        switch (langCode)
+        {
+            case "en":
+                selectedLanguage = Language.English;
+                break;
+            case "is":
+                selectedLanguage = Language.Icelandic;
+                break;
+            default:
+                Debug.LogError($"Unsupported language code: {langCode}");
+                break;
+        }
+        Debug.Log($"Selected Language: {selectedLanguage}");
     }
 }
