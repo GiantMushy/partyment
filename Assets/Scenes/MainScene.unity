@@ -6510,7 +6510,7 @@ MonoBehaviour:
   playerManager: {fileID: 840409766}
   topicManager: {fileID: 1045916292}
   secretObjectiveManager: {fileID: 1296881307}
-  developmentMode: 1
+  developmentMode: 0
   startingState: 7
   selectedLanguage: 0
   selectedSeriousnessLevel: 2
