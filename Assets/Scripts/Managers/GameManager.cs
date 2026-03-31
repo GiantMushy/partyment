@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     // Game Settings
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
+    public List<Pack> OwnedPacks = new List<Pack>() { Pack.Default, Pack.Icelandic }; // This should be set based on actual owned packs in a real implementation
     public enum Position { For, Against }
     public enum SecretObjectiveType { Civilian, Speech, Interruption, Betrayal }
     public static Pack selectedPack = Pack.Default;
