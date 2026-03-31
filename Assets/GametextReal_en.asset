@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GametextReal_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f58267f7eff4f4295ab2def66984f6fc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 106927747072
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Localized: Rulebook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Localized: Give us Feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Localized: Open Data Privacy Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Localized: General Topics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Localized: Icelandic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Localized: Pop Culture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Localized: Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Localized: 18+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: 1 Phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: Only 1 phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: 3+ Phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: Everyone has their own phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: Enter the names of the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925689563246592
+    m_Localized: Enter Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: Discussion Moderator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Generic Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: Choose a Bill that your players will debate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: Short Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930197299195904
+    m_Localized: This is a short discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: Medium Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2931270000832512
+    m_Localized: This is a medium discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932441201504256
+    m_Localized: Long Bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932930764861440
+    m_Localized: This is a long discription of the bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Comedy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: Creativity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: On Topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: Factual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: Enthusiasm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: You can choose whether or not you share this with the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516672329019392
+    m_Localized: Speech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516737768550400
+    m_Localized: Betryal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516739890868224
+    m_Localized: Interuption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517073245761536
+    m_Localized: 10 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517087133102080
+    m_Localized: 20 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517088492056576
+    m_Localized: 30 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517090299801600
+    m_Localized: 40 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517521574916096
+    m_Localized: 50 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517542819065856
+    m_Localized: 60 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517565237620736
+    m_Localized: 70 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517597923831808
+    m_Localized: 80 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517629674713088
+    m_Localized: 90 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517651531231232
+    m_Localized: 100 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517683223392256
+    m_Localized: 110 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517722570158080
+    m_Localized: 120 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517743109664768
+    m_Localized: 130 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518334737215488
+    m_Localized: 140 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518427209035776
+    m_Localized: 150 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518530732847104
+    m_Localized: 160 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518594729537536
+    m_Localized: 170 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518688124104704
+    m_Localized: 180 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518812900454400
+    m_Localized: 190 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518864326815744
+    m_Localized: 200 Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519024050106368
+    m_Localized: Im Done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519730853244928
+    m_Localized: 'I_am [name]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520027818356736
+    m_Localized: Host
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520057857961984
+    m_Localized: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520576273936384
+    m_Localized: Room Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520889928183808
+    m_Localized: Waiting for players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10525874187399168
+    m_Localized: Enter Your Room Key
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

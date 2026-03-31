@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GametextReal_is
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: is
+  m_SharedData: {fileID: 11400000, guid: f58267f7eff4f4295ab2def66984f6fc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 106927747072
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Localized: Stillingar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Localized: "Lei\xF0beiningar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Localized: Senda Athugasemd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Localized: "\xD6ryggi og Pers\xF3nuvernd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Localized: "N\xFDr Leikur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Localized: Almennt efni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Localized: "\xCDsland"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Localized: Popp Menning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Localized: "P\xF3l\xEDt\xEDskt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Localized: 18+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: "1 S\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: "A\xF0eins 1 s\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: "3+ S\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: "Allir hafa sinn s\xEDma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: "Nafn \xE1 spilurunum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925689563246592
+    m_Localized: Nafn...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: "N\xE6st"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: "\xDEing Stj\xF3ri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Alment Nafn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: "Veldu frumvarp sem leikmenn munu r\xE6\xF0a um"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: Stutt Frumvarp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930197299195904
+    m_Localized: "\xDEetta er stutt l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: "Mi\xF0lungs Frumvarp"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2931270000832512
+    m_Localized: "\xDEetta er mi\xF0lungs l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932441201504256
+    m_Localized: Langt Frumvarp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932930764861440
+    m_Localized: "\xDEetta er l\xF6ng l\xFDsing \xE1 frumvarpinu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Velja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Gamanleikur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: "Sk\xF6punarg\xE1fu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: "EfnisVi\xF0eigandi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: "Sta\xF0reyndir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: "\xC1hugasemi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: "\xDE\xFA getur vali\xF0 hvort \xFE\xFA deilir \xFEessu me\xF0 spilurunum
+      e\xF0a ekki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516672329019392
+    m_Localized: "R\xE6\xF0a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516737768550400
+    m_Localized: Svik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516739890868224
+    m_Localized: Trufflun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517073245761536
+    m_Localized: 10 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517087133102080
+    m_Localized: 20 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517088492056576
+    m_Localized: 30 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517090299801600
+    m_Localized: 40 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517521574916096
+    m_Localized: 50 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517542819065856
+    m_Localized: 60 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517565237620736
+    m_Localized: 70 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517597923831808
+    m_Localized: 80 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517629674713088
+    m_Localized: 90 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517651531231232
+    m_Localized: 100 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517683223392256
+    m_Localized: 110 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517722570158080
+    m_Localized: 120 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10517743109664768
+    m_Localized: 130 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518334737215488
+    m_Localized: 140 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518427209035776
+    m_Localized: 150 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518530732847104
+    m_Localized: 160 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518594729537536
+    m_Localized: 170 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518688124104704
+    m_Localized: 180 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518812900454400
+    m_Localized: 190 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10518864326815744
+    m_Localized: 200 Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519024050106368
+    m_Localized: "B\xFAin!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519730853244928
+    m_Localized: "\xC9g er [nafn]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520027818356736
+    m_Localized: "H\xFDsa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520057857961984
+    m_Localized: Tengjast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520576273936384
+    m_Localized: "Lotuk\xF3\xF0i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520889928183808
+    m_Localized: "B\xED\xF0a eftir leikm\xF6nnum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10525874187399168
+    m_Localized: "Sl\xE1\xF0u inn Lotuk\xF3\xF0a"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
