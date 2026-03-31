@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938556434703848893, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -141.41
+      value: -92.905
       objectReference: {fileID: 0}
     - target: {fileID: 6829833492554556928, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_Name
@@ -312,6 +312,34 @@ PrefabInstance:
     - target: {fileID: 8876674388372724454, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TopicSelectionController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898481386239286633, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
