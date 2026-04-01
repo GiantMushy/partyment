@@ -10,18 +10,32 @@ public class HostOnlineGameController : MonoBehaviour
     [SerializeField] private GameObject playerContainer;
     [SerializeField] private GameObject playerNamePrefab;
     [SerializeField] private TMP_InputField hostNameInputField;
+    [SerializeField] private TextMeshProUGUI roomCodeText;
     [SerializeField] private AppUIButton nextButton;
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
     private Dictionary<int, GameObject> playerEntries = new Dictionary<int, GameObject>();
     private int nextPlayerId = 0;
 
+    void Awake()
+    {
+        gameManager = GameManager.Instance;
+    }
+
     // Awake is called when the script instance is being loaded
     void Start()
     {
-        gameManager = GameManager.Instance;
+        if (gameManager == null) gameManager = GameManager.Instance;
 
         if (hostNameInputField != null)
             hostNameInputField.onValueChanged.AddListener(_ => RefreshNextButtonState());
+    }
+
+    void OnEnable()
+    {
+        if (gameManager == null) gameManager = GameManager.Instance;
+
+        if (roomCodeText != null && gameManager != null)
+            roomCodeText.text = gameManager.GetRoomCode() ?? string.Empty;
 
         RefreshNextButtonState();
     }
@@ -36,12 +50,16 @@ public class HostOnlineGameController : MonoBehaviour
         nextPlayerId++;
         
         gameManager.AddPlayersToOnlineGame(new List<string>(playerNames.Values));
-        gameManager.SetState(GameManager.GameState.LocalVsOnline);
+        gameManager.SetState(GameManager.GameState.AssignGroups);
     }
 
     public void Back()
     {
         Debug.Log("Host Online Game Back Button Pressed");
+        DeleteAllPlayerEntries();
+        playerNames.Clear();
+        nextPlayerId = 0;
+        gameManager.StopHostingOnlineGame();
         gameManager.SetState(GameManager.GameState.HostVsJoin);
     }
 
@@ -140,6 +158,16 @@ public class HostOnlineGameController : MonoBehaviour
         bool hasEnoughPlayers = playerNames.Count >= 3;
 
         nextButton.SetEnabled(hasHostName && hasEnoughPlayers);
+    }
+
+    private void DeleteAllPlayerEntries()
+    {
+        foreach (var entry in playerEntries.Values)
+        {
+            Destroy(entry);
+        }
+        playerEntries.Clear();
+        waitingForPlayersPanel.SetActive(true);
     }
 
     public void DevModeAddRandomPlayer()

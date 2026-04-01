@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,6 +52,9 @@ public class GameManager : MonoBehaviour
     private Dictionary<GameState, GameObject> stateDictionary;
     [HideInInspector] public GameState currentState = GameState.None;
     [HideInInspector] public bool menuOpen;
+
+    // Networking Variables
+    private string currentRoomCode;
 
     // Secret Objective Sequence — controls the order players view their objectives
     // Edit this ordering logic in StartSecretObjectiveSequence() to change player order
@@ -467,15 +471,24 @@ public class GameManager : MonoBehaviour
 
     // ------------------------ Networking ------------------------
 
+    public string GetRoomCode() => currentRoomCode;
+
     public void JoinOnlineGame(int port, string playerName)
     {
         Debug.Log($"Attempting to join online game on port {port} as {playerName}");
         // TODO: Implement actual networking logic to connect to the host and join the game
     }
 
-    public void HostOnlineGame(int port)
+    public void HostOnlineGame()
     {
-        Debug.Log($"Hosting online game on port {port}");
+        GenerateRoomCode();
+        Debug.Log($"Hosting online game with room code {currentRoomCode}");
+    }
+
+    public void StopHostingOnlineGame()
+    {
+        Debug.Log("Stopped hosting online game");
+        currentRoomCode = null;
     }
 
     public void AddPlayersToOnlineGame(List<string> playerNames)
@@ -487,4 +500,15 @@ public class GameManager : MonoBehaviour
             id++;
         }
     }
+
+    public void GenerateRoomCode()
+    {
+        // PLACEHOLDER FOR FUTURE CODE GENERATION LOGIC
+
+        System.Random rand = new System.Random();
+        int roomCode = rand.Next(100000, 999999); // Generate a random 6-digit code
+        Debug.Log($"Generated Room Code: {roomCode}");
+        currentRoomCode = roomCode.ToString();
+    }
+
 }

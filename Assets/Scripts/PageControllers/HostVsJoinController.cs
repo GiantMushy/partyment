@@ -12,6 +12,7 @@ public class HostVsJoinController : MonoBehaviour
     public void Host()
     {
         Debug.Log("Host Button Pressed");
+        gameManager.HostOnlineGame();
         gameManager.SetState(GameManager.GameState.HostOnlineGame);
     }
     public void Join()

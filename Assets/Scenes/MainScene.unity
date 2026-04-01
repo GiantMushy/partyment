@@ -30114,6 +30114,7 @@ MonoBehaviour:
   playerContainer: {fileID: 63927541}
   playerNamePrefab: {fileID: 1468411042637488808, guid: 38a2d3c22a5464392abc3e8c89d3679c, type: 3}
   hostNameInputField: {fileID: 1446448762}
+  roomCodeText: {fileID: 463910177}
 --- !u!1 &1994112696
 GameObject:
   m_ObjectHideFlags: 0
