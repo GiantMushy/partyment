@@ -464,4 +464,27 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log($"Selected Language: {selectedLanguage}");
     }
+
+    // ------------------------ Networking ------------------------
+
+    public void JoinOnlineGame(int port, string playerName)
+    {
+        Debug.Log($"Attempting to join online game on port {port} as {playerName}");
+        // TODO: Implement actual networking logic to connect to the host and join the game
+    }
+
+    public void HostOnlineGame(int port)
+    {
+        Debug.Log($"Hosting online game on port {port}");
+    }
+
+    public void AddPlayersToOnlineGame(List<string> playerNames)
+    {
+        int id = 1;
+        foreach (string playerName in playerNames)
+        {
+            playerManager.AddPlayer(id, playerName);
+            id++;
+        }
+    }
 }

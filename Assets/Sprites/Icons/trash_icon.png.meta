@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 9e226154198135b4b9d83e2c1690f38f
+guid: 12464b35cd8874f79b28db65bb135e16
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5828530852438870939
-    second: Kick (1)_0
+      213: -1955851177974502843
+    second: trash_icon_0
+  - first:
+      213: 5155568431146865716
+    second: trash_icon_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +100,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kick (1)_0
+      name: trash_icon_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 482
-        height: 482
+        x: 30
+        y: 391
+        width: 452
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 564f9f11216ec1fa0800000000000000
-      internalID: -5828530852438870939
+      spriteID: 54aec4757bb6bd4e0800000000000000
+      internalID: -1955851177974502843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trash_icon_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 390
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4341ab93c224c8740800000000000000
+      internalID: 5155568431146865716
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kick (1)_0: -5828530852438870939
+      trash_icon_0: -1955851177974502843
+      trash_icon_1: 5155568431146865716
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
