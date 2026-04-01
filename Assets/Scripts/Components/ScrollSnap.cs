@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+// TODO: THIS DOES NOT WORK AT ALL, NO SNAPING OCCURS, FIX WITH BETTER MODEL
 public class ScrollSnap : MonoBehaviour
 {
     [Header("Snapping")]

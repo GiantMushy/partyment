@@ -585,6 +585,16 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
+    /// Smoothly slides objectivesContainer right by <see cref="objectivesSlideOffset"/>,
+    /// bringing the Accusation panel into view (left panel).
+    /// Wire to the "Accusation" button's onClick event.
+    /// </summary>
+    public void ShowAccusation()
+    {
+        targetAnchoredPos = defaultAnchoredPos + new Vector2(objectivesSlideOffset, 0f);
+    }
+
+    /// <summary>
     /// Smoothly slides objectivesContainer left by <see cref="objectivesSlideOffset"/>,
     /// bringing the Inactive panel into view.
     /// Wire to the "Inactive" button's onClick event.
