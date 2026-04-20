@@ -23,10 +23,16 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
     [Header("Card Children")]
     [SerializeField] private Image cardImage;       // Background image on the revealed side
-    [SerializeField] private Image iconImage;       // cardRevealed > Icon
+    [SerializeField] private Image spyIconImage;            // cardRevealed > Spy Icon
+    [SerializeField] private Image civilianIconImage;       // cardRevealed > Civilian Icon
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI typeText;
+
+    [Header("Spy Icon Colors")]
+    [SerializeField] private Color spySpeechColor = Color.white;
+    [SerializeField] private Color spyInterruptionColor = Color.white;
+    [SerializeField] private Color spyBetrayalColor = Color.white;
 
     [Header("Flip Settings")]
     [SerializeField] private float flipDuration = 0.2f;
@@ -239,8 +245,32 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (cardImage != null)
             cardImage.sprite = GetSpriteForType(objective.type);
 
-        if (iconImage != null)
-            iconImage.sprite = GetIconForType(objective.type);
+        // Icon logic: enable/disable and set sprite/color
+        if (spyIconImage != null && civilianIconImage != null)
+        {
+            switch (objective.type)
+            {
+                case GameManager.SecretObjectiveType.Interruption:
+                case GameManager.SecretObjectiveType.Betrayal:
+                    spyIconImage.gameObject.SetActive(true);
+                    civilianIconImage.gameObject.SetActive(false);
+                    spyIconImage.sprite = spyIconSprite;
+                    spyIconImage.color = GetSpyIconColorForType(objective.type);
+                    break;
+                case GameManager.SecretObjectiveType.Speech:
+                    spyIconImage.gameObject.SetActive(true);
+                    civilianIconImage.gameObject.SetActive(false);
+                    spyIconImage.sprite = secObjIconSprite;
+                    spyIconImage.color = GetSpyIconColorForType(objective.type);
+                    break;
+                case GameManager.SecretObjectiveType.Civilian:
+                default:
+                    spyIconImage.gameObject.SetActive(false);
+                    civilianIconImage.gameObject.SetActive(true);
+                    civilianIconImage.sprite = civilianIconSprite;
+                    break;
+            }
+        }
 
         if (descriptionText != null)
             descriptionText.text = objective.description;
@@ -266,8 +296,12 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (cardImage != null)
             cardImage.sprite = civilianDisplaySprite;
 
-        if (iconImage != null)
-            iconImage.sprite = civilianIconSprite;
+        if (spyIconImage != null) spyIconImage.gameObject.SetActive(false);
+        if (civilianIconImage != null)
+        {
+            civilianIconImage.gameObject.SetActive(true);
+            civilianIconImage.sprite = civilianIconSprite;
+        }
 
         if (descriptionText != null)
             descriptionText.text = secretObjectiveText;
@@ -282,6 +316,19 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (descriptionText != null) descriptionText.color = textColor;
         if (pointsText != null)      pointsText.color      = textColor;
         if (typeText != null)        typeText.color        = textColor;
+    }
+    /// <summary>
+    /// Returns the color for the spy icon based on the secret objective type.
+    /// </summary>
+    private Color GetSpyIconColorForType(GameManager.SecretObjectiveType type)
+    {
+        return type switch
+        {
+            GameManager.SecretObjectiveType.Speech => spySpeechColor,
+            GameManager.SecretObjectiveType.Interruption => spyInterruptionColor,
+            GameManager.SecretObjectiveType.Betrayal => spyBetrayalColor,
+            _ => Color.white,
+        };
     }
 
     private Sprite GetSpriteForType(GameManager.SecretObjectiveType type)

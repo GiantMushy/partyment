@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 844f535123a104b948880ec84ada0192
+guid: c84f31421c4f64583906c1633c462160
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7731378018599670194
-    second: civilian_icon_0
+      213: 2356005373734846401
+    second: Corruption_0
   - first:
-      213: -8132430205975008290
-    second: civilian_icon_1
+      213: -8505082957333431134
+    second: Corruption_1
   - first:
-      213: -4529389380528537841
-    second: civilian_icon_2
+      213: -1444782830435439617
+    second: Corruption_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: civilian_icon_0
+      name: Corruption_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 5
-        height: 5
+        y: 0
+        width: 790
+        height: 305
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4e6a1997a0a4b490800000000000000
-      internalID: -7731378018599670194
+      spriteID: 1cf706e976632b020800000000000000
+      internalID: 2356005373734846401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: civilian_icon_1
+      name: Corruption_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 38
-        width: 224
-        height: 147
+        x: 787
+        y: 63
+        width: 452
+        height: 209
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edbe33ca0ddc32f80800000000000000
-      internalID: -8132430205975008290
+      spriteID: 2ac79e6bc10e7f980800000000000000
+      internalID: -8505082957333431134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: civilian_icon_2
+      name: Corruption_2
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 7
-        height: 5
-      alignment: 9
-      pivot: {x: 0.542026, y: 0.4999981}
+        x: 898
+        y: 225
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0f7b2c2b506421c0800000000000000
-      internalID: -4529389380528537841
+      spriteID: ffbef46aba913fbe0800000000000000
+      internalID: -1444782830435439617
       vertices: []
       indices: 
       edges: []
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      civilian_icon_0: -7731378018599670194
-      civilian_icon_1: -8132430205975008290
-      civilian_icon_2: -4529389380528537841
+      Corruption_0: 2356005373734846401
+      Corruption_1: -8505082957333431134
+      Corruption_2: -1444782830435439617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

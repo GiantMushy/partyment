@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 844f535123a104b948880ec84ada0192
+guid: a62a262e6c8804930af6cdfd0913da06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7731378018599670194
-    second: civilian_icon_0
-  - first:
-      213: -8132430205975008290
-    second: civilian_icon_1
-  - first:
-      213: -4529389380528537841
-    second: civilian_icon_2
+      213: -704413713785378702
+    second: Civilian Container_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 114, y: 114, z: 114, w: 114}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: civilian_icon_0
+      name: Civilian Container_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 5
-        height: 5
+        y: 0
+        width: 280
+        height: 280
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4e6a1997a0a4b490800000000000000
-      internalID: -7731378018599670194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: civilian_icon_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 38
-        width: 224
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edbe33ca0ddc32f80800000000000000
-      internalID: -8132430205975008290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: civilian_icon_2
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 6
-        width: 7
-        height: 5
-      alignment: 9
-      pivot: {x: 0.542026, y: 0.4999981}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0f7b2c2b506421c0800000000000000
-      internalID: -4529389380528537841
+      spriteID: 278a8ee957b6936f0800000000000000
+      internalID: -704413713785378702
       vertices: []
       indices: 
       edges: []
@@ -189,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      civilian_icon_0: -7731378018599670194
-      civilian_icon_1: -8132430205975008290
-      civilian_icon_2: -4529389380528537841
+      Civilian Container_0: -704413713785378702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
