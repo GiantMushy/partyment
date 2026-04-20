@@ -1,0 +1,1690 @@
+fileFormatVersion: 2
+guid: e4ae158a232c64e369d06c784dbda86c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4732604596648547369
+    second: Hungary_0
+  - first:
+      213: -4764331484410636507
+    second: Hungary_1
+  - first:
+      213: 163123871908916636
+    second: Hungary_2
+  - first:
+      213: -8857144303594981454
+    second: Hungary_3
+  - first:
+      213: 8418746526999169135
+    second: Hungary_4
+  - first:
+      213: -4650904679074045037
+    second: Hungary_5
+  - first:
+      213: 4361559898381315799
+    second: Hungary_6
+  - first:
+      213: -6242863575479277686
+    second: Hungary_7
+  - first:
+      213: 4378028403907664917
+    second: Hungary_8
+  - first:
+      213: 6781868470965394849
+    second: Hungary_9
+  - first:
+      213: 8552939723272966170
+    second: Hungary_10
+  - first:
+      213: 9160216909164701772
+    second: Hungary_11
+  - first:
+      213: 6993910308534302007
+    second: Hungary_12
+  - first:
+      213: -6205024362512697784
+    second: Hungary_13
+  - first:
+      213: -4347922137216057093
+    second: Hungary_14
+  - first:
+      213: 2828404112926595263
+    second: Hungary_15
+  - first:
+      213: -7791300890821051620
+    second: Hungary_16
+  - first:
+      213: 1034892438622716023
+    second: Hungary_17
+  - first:
+      213: 416612374941423527
+    second: Hungary_18
+  - first:
+      213: 2738045634529156886
+    second: Hungary_19
+  - first:
+      213: -5509725203398700417
+    second: Hungary_20
+  - first:
+      213: 6325156409903320122
+    second: Hungary_21
+  - first:
+      213: -7433976860336650950
+    second: Hungary_22
+  - first:
+      213: 6627681872541149996
+    second: Hungary_23
+  - first:
+      213: -6030990706308536056
+    second: Hungary_24
+  - first:
+      213: 2981709852879342815
+    second: Hungary_25
+  - first:
+      213: -7067337242603707405
+    second: Hungary_26
+  - first:
+      213: -1001574782688498771
+    second: Hungary_27
+  - first:
+      213: -565932584487861771
+    second: Hungary_28
+  - first:
+      213: 6885463850972151357
+    second: Hungary_29
+  - first:
+      213: -4092918003397292966
+    second: Hungary_30
+  - first:
+      213: 4827201301200026856
+    second: Hungary_31
+  - first:
+      213: 6325749641056092414
+    second: Hungary_32
+  - first:
+      213: -4550507524755949185
+    second: Hungary_33
+  - first:
+      213: -3890564337332923242
+    second: Hungary_34
+  - first:
+      213: -4191917474776369298
+    second: Hungary_35
+  - first:
+      213: -8618950961027152008
+    second: Hungary_36
+  - first:
+      213: -5307085292436799217
+    second: Hungary_37
+  - first:
+      213: -2479490173299554127
+    second: Hungary_38
+  - first:
+      213: 6157019725968976496
+    second: Hungary_39
+  - first:
+      213: 936066078265255666
+    second: Hungary_40
+  - first:
+      213: -6264000635881726048
+    second: Hungary_41
+  - first:
+      213: -461845842405850573
+    second: Hungary_42
+  - first:
+      213: 567890118781140016
+    second: Hungary_43
+  - first:
+      213: 4283429825612182160
+    second: Hungary_44
+  - first:
+      213: -3209488054416230065
+    second: Hungary_45
+  - first:
+      213: -1431660831481654695
+    second: Hungary_46
+  - first:
+      213: -2007228445966157272
+    second: Hungary_47
+  - first:
+      213: 8181471725604255345
+    second: Hungary_48
+  - first:
+      213: 944766465772282478
+    second: Hungary_49
+  - first:
+      213: -6660027184816354151
+    second: Hungary_50
+  - first:
+      213: 5533373741010969691
+    second: Hungary_51
+  - first:
+      213: 215941186507845496
+    second: Hungary_52
+  - first:
+      213: -4811792249387456667
+    second: Hungary_53
+  - first:
+      213: -8558768540661543391
+    second: Hungary_54
+  - first:
+      213: -5486187232240633026
+    second: Hungary_55
+  - first:
+      213: 3291864070463573149
+    second: Hungary_56
+  - first:
+      213: -1731634193609670336
+    second: Hungary_57
+  - first:
+      213: -1867712969092691277
+    second: Hungary_58
+  - first:
+      213: 535923206231844846
+    second: Hungary_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hungary_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 541
+        width: 22
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9241e956ec69da140800000000000000
+      internalID: 4732604596648547369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 541
+        width: 22
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5279e77e1c1b1edb0800000000000000
+      internalID: -4764331484410636507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d64871c48834200800000000000000
+      internalID: 163123871908916636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7b8dbde2a151580800000000000000
+      internalID: -8857144303594981454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f68c6d3ac5565d470800000000000000
+      internalID: 8418746526999169135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_5
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393e69ff5daa47fb0800000000000000
+      internalID: -4650904679074045037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_6
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 541
+        width: 22
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de6b997e9f578c30800000000000000
+      internalID: 4361559898381315799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 541
+        width: 22
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87255a77a4ec59a0800000000000000
+      internalID: -6242863575479277686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_8
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 541
+        width: 22
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c9c7733a1e1cc30800000000000000
+      internalID: 4378028403907664917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_9
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 541
+        width: 22
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad505541790e1e50800000000000000
+      internalID: 6781868470965394849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_10
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a105307ec5522b670800000000000000
+      internalID: 8552939723272966170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_11
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48e948feb0af1f70800000000000000
+      internalID: 9160216909164701772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_12
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735312bce5c5f0160800000000000000
+      internalID: 6993910308534302007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_13
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 541
+        width: 22
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84639c9c73353e9a0800000000000000
+      internalID: -6205024362512697784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_14
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 541
+        width: 22
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf00e2c3ad319a3c0800000000000000
+      internalID: -4347922137216057093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_15
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 541
+        width: 22
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb85e302e82804720800000000000000
+      internalID: 2828404112926595263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_16
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 212
+        width: 48
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b3d60be1dbfd390800000000000000
+      internalID: -7791300890821051620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_17
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 228
+        width: 43
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77048d8903dac5e00800000000000000
+      internalID: 1034892438622716023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 243
+        width: 39
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a75a696fba18c500800000000000000
+      internalID: 416612374941423527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_19
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 259
+        width: 35
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f5be07ffd7ff520800000000000000
+      internalID: 2738045634529156886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_20
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 275
+        width: 31
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7257698e168983b0800000000000000
+      internalID: -5509725203398700417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_21
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 291
+        width: 27
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c82112e3877c750800000000000000
+      internalID: 6325156409903320122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_22
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 308
+        width: 24
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a350923be6535d890800000000000000
+      internalID: -7433976860336650950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_23
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 325
+        width: 22
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b6c115c814afb50800000000000000
+      internalID: 6627681872541149996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_24
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 329
+        width: 22
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8092ccaf7ed9d4ca0800000000000000
+      internalID: -6030990706308536056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_25
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 311
+        width: 23
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcc72c3059216920800000000000000
+      internalID: 2981709852879342815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_26
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 295
+        width: 26
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f3a7b2e836cbed90800000000000000
+      internalID: -7067337242603707405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_27
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 279
+        width: 29
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dabecddaa01b912f0800000000000000
+      internalID: -1001574782688498771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_28
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 263
+        width: 33
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f148c610576528f0800000000000000
+      internalID: -565932584487861771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_29
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 247
+        width: 38
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3efcf644e41e8f50800000000000000
+      internalID: 6885463850972151357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_30
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 231
+        width: 42
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c04b8d2c80337c0800000000000000
+      internalID: -4092918003397292966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_31
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 215
+        width: 46
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecb451020aadf240800000000000000
+      internalID: 4827201301200026856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_32
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 195
+        width: 41
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0043588c399c750800000000000000
+      internalID: 6325749641056092414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_33
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 171
+        width: 141
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79fd2f048959d0c0800000000000000
+      internalID: -4550507524755949185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_34
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 199
+        width: 117
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694d7792950f10ac0800000000000000
+      internalID: -3890564337332923242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_35
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 227
+        width: 94
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67b334344153d5c0800000000000000
+      internalID: -4191917474776369298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_36
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 255
+        width: 70
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877077f14c5536880800000000000000
+      internalID: -8618950961027152008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_37
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 256
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01ca9f6b027956b0800000000000000
+      internalID: -5307085292436799217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_38
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 227
+        width: 87
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b8886403d4179dd0800000000000000
+      internalID: -2479490173299554127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_39
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 199
+        width: 111
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a2479c1d0227550800000000000000
+      internalID: 6157019725968976496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_40
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 171
+        width: 134
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f62b4183239dfc00800000000000000
+      internalID: 936066078265255666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_41
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 143
+        width: 158
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0afd2791c9cc119a0800000000000000
+      internalID: -6264000635881726048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_42
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 198
+        width: 42
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332886e37a13799f0800000000000000
+      internalID: -461845842405850573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_43
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 182
+        width: 41
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c7761ed0d81e700800000000000000
+      internalID: 567890118781140016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 39
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0927de75bbcc17b30800000000000000
+      internalID: 4283429825612182160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_45
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 137
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4939ad7e9b9573d0800000000000000
+      internalID: -3209488054416230065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_46
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 59
+        width: 234
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95212bc1f08b12ce0800000000000000
+      internalID: -1431660831481654695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_47
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 87
+        width: 211
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ab027fc54e424e0800000000000000
+      internalID: -2007228445966157272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_48
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 115
+        width: 187
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1763b88ef2d6a8170800000000000000
+      internalID: 8181471725604255345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_49
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 143
+        width: 164
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62ee04581c7c1d00800000000000000
+      internalID: 944766465772282478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_50
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 115
+        width: 181
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c839ecf84d293a0800000000000000
+      internalID: -6660027184816354151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_51
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 87
+        width: 204
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54ee62b91e7acc40800000000000000
+      internalID: 5533373741010969691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_52
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 59
+        width: 228
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f2d227d5d2ff200800000000000000
+      internalID: 215941186507845496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_53
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 149
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56768427174193db0800000000000000
+      internalID: -4811792249387456667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_54
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 115
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e841bcb55293980800000000000000
+      internalID: -8558768540661543391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_55
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 127
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b730387c52dd3b0800000000000000
+      internalID: -5486187232240633026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_56
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 149
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c4ad85eec0fad20800000000000000
+      internalID: 3291864070463573149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_57
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 27
+        width: 131
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041c9f020eff7f7e0800000000000000
+      internalID: -1731634193609670336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_58
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 27
+        width: 138
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba07de33fc8416e0800000000000000
+      internalID: -1867712969092691277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hungary_59
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 156
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7665e015bff6700800000000000000
+      internalID: 535923206231844846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hungary_0: 4732604596648547369
+      Hungary_1: -4764331484410636507
+      Hungary_10: 8552939723272966170
+      Hungary_11: 9160216909164701772
+      Hungary_12: 6993910308534302007
+      Hungary_13: -6205024362512697784
+      Hungary_14: -4347922137216057093
+      Hungary_15: 2828404112926595263
+      Hungary_16: -7791300890821051620
+      Hungary_17: 1034892438622716023
+      Hungary_18: 416612374941423527
+      Hungary_19: 2738045634529156886
+      Hungary_2: 163123871908916636
+      Hungary_20: -5509725203398700417
+      Hungary_21: 6325156409903320122
+      Hungary_22: -7433976860336650950
+      Hungary_23: 6627681872541149996
+      Hungary_24: -6030990706308536056
+      Hungary_25: 2981709852879342815
+      Hungary_26: -7067337242603707405
+      Hungary_27: -1001574782688498771
+      Hungary_28: -565932584487861771
+      Hungary_29: 6885463850972151357
+      Hungary_3: -8857144303594981454
+      Hungary_30: -4092918003397292966
+      Hungary_31: 4827201301200026856
+      Hungary_32: 6325749641056092414
+      Hungary_33: -4550507524755949185
+      Hungary_34: -3890564337332923242
+      Hungary_35: -4191917474776369298
+      Hungary_36: -8618950961027152008
+      Hungary_37: -5307085292436799217
+      Hungary_38: -2479490173299554127
+      Hungary_39: 6157019725968976496
+      Hungary_4: 8418746526999169135
+      Hungary_40: 936066078265255666
+      Hungary_41: -6264000635881726048
+      Hungary_42: -461845842405850573
+      Hungary_43: 567890118781140016
+      Hungary_44: 4283429825612182160
+      Hungary_45: -3209488054416230065
+      Hungary_46: -1431660831481654695
+      Hungary_47: -2007228445966157272
+      Hungary_48: 8181471725604255345
+      Hungary_49: 944766465772282478
+      Hungary_5: -4650904679074045037
+      Hungary_50: -6660027184816354151
+      Hungary_51: 5533373741010969691
+      Hungary_52: 215941186507845496
+      Hungary_53: -4811792249387456667
+      Hungary_54: -8558768540661543391
+      Hungary_55: -5486187232240633026
+      Hungary_56: 3291864070463573149
+      Hungary_57: -1731634193609670336
+      Hungary_58: -1867712969092691277
+      Hungary_59: 535923206231844846
+      Hungary_6: 4361559898381315799
+      Hungary_7: -6242863575479277686
+      Hungary_8: 4378028403907664917
+      Hungary_9: 6781868470965394849
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

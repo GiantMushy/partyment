@@ -1,0 +1,884 @@
+fileFormatVersion: 2
+guid: 06475de78f532492d8158c1a3ba8d88d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -655463845361607568
+    second: Austria_0
+  - first:
+      213: -8793653890772466531
+    second: Austria_1
+  - first:
+      213: -1919474364150675906
+    second: Austria_2
+  - first:
+      213: 2728589521723205661
+    second: Austria_3
+  - first:
+      213: -3183979905397715558
+    second: Austria_4
+  - first:
+      213: 6232919434032809562
+    second: Austria_5
+  - first:
+      213: -5293887216695853021
+    second: Austria_6
+  - first:
+      213: 8483696169619784422
+    second: Austria_7
+  - first:
+      213: 2349087274595493397
+    second: Austria_8
+  - first:
+      213: 6585906074166449039
+    second: Austria_9
+  - first:
+      213: -6478358146245401290
+    second: Austria_10
+  - first:
+      213: -6257619894100901564
+    second: Austria_11
+  - first:
+      213: 5768319466848408479
+    second: Austria_12
+  - first:
+      213: -3357604459206790092
+    second: Austria_13
+  - first:
+      213: 5185322661218853063
+    second: Austria_14
+  - first:
+      213: -5014883965162322875
+    second: Austria_15
+  - first:
+      213: 5292490990756638503
+    second: Austria_16
+  - first:
+      213: -805277214522611437
+    second: Austria_17
+  - first:
+      213: -3223792560221816960
+    second: Austria_18
+  - first:
+      213: 5425995036432725568
+    second: Austria_19
+  - first:
+      213: -3389872028230761234
+    second: Austria_20
+  - first:
+      213: 724569919922871774
+    second: Austria_21
+  - first:
+      213: 4243566153517888462
+    second: Austria_22
+  - first:
+      213: 8869860239918836274
+    second: Austria_23
+  - first:
+      213: -8543974544770543220
+    second: Austria_24
+  - first:
+      213: 6614474546318948287
+    second: Austria_25
+  - first:
+      213: -1985126803185244032
+    second: Austria_26
+  - first:
+      213: -4080824521824378526
+    second: Austria_27
+  - first:
+      213: -5067281277406635612
+    second: Austria_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Austria_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 224
+        width: 198
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c1c1efa1357e6f0800000000000000
+      internalID: -655463845361607568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 119
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9486ca806aa6f580800000000000000
+      internalID: -8793653890772466531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 63
+        width: 110
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3684515c38ac55e0800000000000000
+      internalID: -1919474364150675906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 80
+        width: 100
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d182a2c96b5edd520800000000000000
+      internalID: 2728589521723205661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 97
+        width: 89
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d89ce352b30d3d0800000000000000
+      internalID: -3183979905397715558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 115
+        width: 79
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56872ba337cf7650800000000000000
+      internalID: 6232919434032809562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 132
+        width: 68
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320ccd7ef955886b0800000000000000
+      internalID: -5293887216695853021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_7
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 112
+        width: 55
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e2878cb7b42cb570800000000000000
+      internalID: 8483696169619784422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_8
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 112
+        width: 60
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516a7a42e62a99020800000000000000
+      internalID: 2349087274595493397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_9
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 137
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8357ca4ea6d56b50800000000000000
+      internalID: 6585906074166449039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_10
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 119
+        width: 72
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 635e84df69f3816a0800000000000000
+      internalID: -6478358146245401290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_11
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 102
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 441c2b05cd77829a0800000000000000
+      internalID: -6257619894100901564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_12
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 84
+        width: 93
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9358744eff2d0050800000000000000
+      internalID: 5768319466848408479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_13
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 67
+        width: 103
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43436b0a8846761d0800000000000000
+      internalID: -3357604459206790092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 50
+        width: 112
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0abb3cc77f5f740800000000000000
+      internalID: 5185322661218853063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_15
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 28
+        width: 81
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54482ba8a9d876ab0800000000000000
+      internalID: -5014883965162322875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_16
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 74
+        width: 69
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f2109e384b27940800000000000000
+      internalID: 5292490990756638503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 93
+        width: 62
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319e9a2d3a413d4f0800000000000000
+      internalID: -805277214522611437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_18
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 93
+        width: 67
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0877e623fb9c243d0800000000000000
+      internalID: -3223792560221816960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_19
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 74
+        width: 74
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046fa9bccb10d4b40800000000000000
+      internalID: 5425995036432725568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_20
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 32
+        width: 76
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4c543c951c4f0d0800000000000000
+      internalID: -3389872028230761234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_21
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 37
+        width: 83
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd9fe3d0803e0a00800000000000000
+      internalID: 724569919922871774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_22
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 55
+        width: 76
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3fd49eeec24ea30800000000000000
+      internalID: 4243566153517888462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_23
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 55
+        width: 81
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a29b7c4e2181b70800000000000000
+      internalID: 8869860239918836274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_24
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 37
+        width: 88
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81d8f06b64bd6980800000000000000
+      internalID: -8543974544770543220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_25
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 18
+        width: 95
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7343d0e855bcb50800000000000000
+      internalID: 6614474546318948287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_26
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 97
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088690ea0b96374e0800000000000000
+      internalID: -1985126803185244032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_27
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 18
+        width: 90
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26164f1f7bffd57c0800000000000000
+      internalID: -4080824521824378526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austria_28
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 0
+        width: 102
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a9903b96866da9b0800000000000000
+      internalID: -5067281277406635612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Austria_0: -655463845361607568
+      Austria_1: -8793653890772466531
+      Austria_10: -6478358146245401290
+      Austria_11: -6257619894100901564
+      Austria_12: 5768319466848408479
+      Austria_13: -3357604459206790092
+      Austria_14: 5185322661218853063
+      Austria_15: -5014883965162322875
+      Austria_16: 5292490990756638503
+      Austria_17: -805277214522611437
+      Austria_18: -3223792560221816960
+      Austria_19: 5425995036432725568
+      Austria_2: -1919474364150675906
+      Austria_20: -3389872028230761234
+      Austria_21: 724569919922871774
+      Austria_22: 4243566153517888462
+      Austria_23: 8869860239918836274
+      Austria_24: -8543974544770543220
+      Austria_25: 6614474546318948287
+      Austria_26: -1985126803185244032
+      Austria_27: -4080824521824378526
+      Austria_28: -5067281277406635612
+      Austria_3: 2728589521723205661
+      Austria_4: -3183979905397715558
+      Austria_5: 6232919434032809562
+      Austria_6: -5293887216695853021
+      Austria_7: 8483696169619784422
+      Austria_8: 2349087274595493397
+      Austria_9: 6585906074166449039
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

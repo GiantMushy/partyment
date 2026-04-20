@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 5de0d5d98f997439d9463a8b2bdf7922
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2468184717673009082
+    second: Sweden_0
+  - first:
+      213: -790905432942074952
+    second: Sweden_1
+  - first:
+      213: 1729529103878198787
+    second: Sweden_2
+  - first:
+      213: 7000874402150482026
+    second: Sweden_3
+  - first:
+      213: 5572542422870269955
+    second: Sweden_4
+  - first:
+      213: 7720020875394635342
+    second: Sweden_5
+  - first:
+      213: 8691530875462375158
+    second: Sweden_6
+  - first:
+      213: 4082392870350956313
+    second: Sweden_7
+  - first:
+      213: 5903235478985605253
+    second: Sweden_8
+  - first:
+      213: -5080789484299034178
+    second: Sweden_9
+  - first:
+      213: -1767042177111566537
+    second: Sweden_10
+  - first:
+      213: -1344168491389806878
+    second: Sweden_11
+  - first:
+      213: -1940790929693702290
+    second: Sweden_12
+  - first:
+      213: -2038716655678977652
+    second: Sweden_13
+  - first:
+      213: -5120793306948316912
+    second: Sweden_14
+  - first:
+      213: -8309930496213450186
+    second: Sweden_15
+  - first:
+      213: -5123719839760400684
+    second: Sweden_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sweden_0
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 607
+        width: 91
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6407d07831f3fbdd0800000000000000
+      internalID: -2468184717673009082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_1
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 503
+        width: 112
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3af8af2b32605f0800000000000000
+      internalID: -790905432942074952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_2
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 501
+        width: 123
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3061c597e85800810800000000000000
+      internalID: 1729529103878198787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 479
+        width: 179
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a600e413d2a182160800000000000000
+      internalID: 7000874402150482026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_4
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 478
+        width: 65
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3002afa1fc5a55d40800000000000000
+      internalID: 5572542422870269955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_5
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 477
+        width: 186
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e465f707516032b60800000000000000
+      internalID: 7720020875394635342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1116
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6564218458e9870800000000000000
+      internalID: 8691530875462375158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_7
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 20
+        width: 1064
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9172bd6afa297a830800000000000000
+      internalID: 4082392870350956313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_8
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 44
+        width: 1011
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5808b6634618ce150800000000000000
+      internalID: 5903235478985605253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_9
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 68
+        width: 958
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1e0d912e86d79b0800000000000000
+      internalID: -5080789484299034178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_10
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 92
+        width: 904
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737d12a80843a77e0800000000000000
+      internalID: -1767042177111566537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 139
+        width: 798
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e61078f0ed885de0800000000000000
+      internalID: -1344168491389806878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_12
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 163
+        width: 744
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e678e44aeece015e0800000000000000
+      internalID: -1940790929693702290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_13
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 186
+        width: 691
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c890594d00605b3e0800000000000000
+      internalID: -2038716655678977652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_14
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 210
+        width: 638
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011d5235e994fe8b0800000000000000
+      internalID: -5120793306948316912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_15
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 237
+        width: 588
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6320309dd323dac80800000000000000
+      internalID: -8309930496213450186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sweden_16
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 261
+        width: 540
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4deb57ec3f3e4e8b0800000000000000
+      internalID: -5123719839760400684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sweden_0: -2468184717673009082
+      Sweden_1: -790905432942074952
+      Sweden_10: -1767042177111566537
+      Sweden_11: -1344168491389806878
+      Sweden_12: -1940790929693702290
+      Sweden_13: -2038716655678977652
+      Sweden_14: -5120793306948316912
+      Sweden_15: -8309930496213450186
+      Sweden_16: -5123719839760400684
+      Sweden_2: 1729529103878198787
+      Sweden_3: 7000874402150482026
+      Sweden_4: 5572542422870269955
+      Sweden_5: 7720020875394635342
+      Sweden_6: 8691530875462375158
+      Sweden_7: 4082392870350956313
+      Sweden_8: 5903235478985605253
+      Sweden_9: -5080789484299034178
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

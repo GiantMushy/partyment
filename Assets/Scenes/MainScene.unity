@@ -2689,6 +2689,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6829833492554556928, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
   m_PrefabInstance: {fileID: 168796092}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &172135386 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5591286868878137911, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+  m_PrefabInstance: {fileID: 338755105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &175110225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,7 +3212,7 @@ GameObject:
   - component: {fileID: 193725271}
   - component: {fileID: 193725270}
   m_Layer: 2
-  m_Name: Germany (3)
+  m_Name: Romania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3222,8 +3227,8 @@ RectTransform:
   m_GameObject: {fileID: 193725268}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
@@ -3266,7 +3271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a67556a2a4ef834ba01095376f7236d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 159685e6e93194999b0b9fa30f0179c3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4411,7 +4416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &277037345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4880,7 +4885,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5938556434703848893, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5591286868878137911, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157434054}
     m_AddedComponents: []
@@ -4888,11 +4893,6 @@ PrefabInstance:
 --- !u!224 &338755106 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3143579719693866051, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
-  m_PrefabInstance: {fileID: 338755105}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &338755107 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5938556434703848893, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
   m_PrefabInstance: {fileID: 338755105}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &343400943
@@ -7337,7 +7337,7 @@ MonoBehaviour:
   playerManager: {fileID: 840409766}
   topicManager: {fileID: 1045916292}
   secretObjectiveManager: {fileID: 1296881307}
-  developmentMode: 1
+  developmentMode: 0
   startingState: 7
   selectedLanguage: 0
   OwnedPacks: 0000000001000000
@@ -9673,7 +9673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &633501019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17130,7 +17130,7 @@ GameObject:
   - component: {fileID: 1157434056}
   - component: {fileID: 1157434055}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Subtext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17148,12 +17148,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 338755107}
+  m_Father: {fileID: 172135386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50.000008}
-  m_SizeDelta: {x: 0, y: -99.999985}
+  m_AnchoredPosition: {x: 0, y: -74.999985}
+  m_SizeDelta: {x: -10, y: -59.999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157434055
 MonoBehaviour:
@@ -19572,7 +19572,7 @@ RectTransform:
   m_GameObject: {fileID: 1298100920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1011924101}
@@ -20039,7 +20039,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1732, y: 1000}
-  m_SizeDelta: {x: 241, y: 428}
+  m_SizeDelta: {x: 325, y: 428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344487529
 MonoBehaviour:
@@ -20075,7 +20075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3504631807506273972, guid: 0f80402433c056e4fb2ba622386c35c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f80402433c056e4fb2ba622386c35c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20590,7 +20590,7 @@ GameObject:
   - component: {fileID: 1373655193}
   - component: {fileID: 1373655192}
   m_Layer: 2
-  m_Name: UK (1)
+  m_Name: Hungary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20605,15 +20605,15 @@ RectTransform:
   m_GameObject: {fileID: 1373655190}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1414, y: 1414}
-  m_SizeDelta: {x: 165, y: 250}
+  m_SizeDelta: {x: 637, y: 942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373655192
 MonoBehaviour:
@@ -20649,7 +20649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d012f8e381fe5348a060874a6cebb05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4ae158a232c64e369d06c784dbda86c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21416,7 +21416,7 @@ GameObject:
   - component: {fileID: 1402097448}
   - component: {fileID: 1402097447}
   m_Layer: 2
-  m_Name: Germany (1)
+  m_Name: France
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21431,15 +21431,15 @@ RectTransform:
   m_GameObject: {fileID: 1402097445}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2000}
-  m_SizeDelta: {x: 449, y: 448}
+  m_SizeDelta: {x: 976, y: 689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402097447
 MonoBehaviour:
@@ -21475,7 +21475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a67556a2a4ef834ba01095376f7236d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4f3d63cb156b498586c2d0441767ea9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21760,7 +21760,7 @@ GameObject:
   - component: {fileID: 1445187645}
   - component: {fileID: 1445187644}
   m_Layer: 2
-  m_Name: UK (3)
+  m_Name: EU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21775,15 +21775,15 @@ RectTransform:
   m_GameObject: {fileID: 1445187642}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1414, y: -1414}
-  m_SizeDelta: {x: 165, y: 250}
+  m_SizeDelta: {x: 972, y: 806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445187644
 MonoBehaviour:
@@ -21819,7 +21819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d012f8e381fe5348a060874a6cebb05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f68888718dc64b3588898bdaa1b1c1a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23187,6 +23187,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540971993}
   m_CullTransparentMesh: 1
+--- !u!224 &1558627277 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5591286868878137911, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+  m_PrefabInstance: {fileID: 380011610969363811}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1559203291
 GameObject:
   m_ObjectHideFlags: 0
@@ -23501,7 +23506,7 @@ GameObject:
   - component: {fileID: 1582196587}
   - component: {fileID: 1582196586}
   m_Layer: 2
-  m_Name: Belgium (6)
+  m_Name: Latvia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23524,7 +23529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2000, y: 0}
-  m_SizeDelta: {x: 116, y: 81}
+  m_SizeDelta: {x: 282, y: 204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582196586
 MonoBehaviour:
@@ -23560,7 +23565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79a6169386dfa9246bdcad75f9ed9a10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ccac72282b25849fc861bdd17c178476, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28496,7 +28501,7 @@ GameObject:
   - component: {fileID: 1932501686}
   - component: {fileID: 1932501685}
   m_Layer: 2
-  m_Name: UK (2)
+  m_Name: Sweden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28511,15 +28516,15 @@ RectTransform:
   m_GameObject: {fileID: 1932501683}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.35}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1414, y: -1414}
-  m_SizeDelta: {x: 165, y: 250}
+  m_SizeDelta: {x: 1116, y: 614}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932501685
 MonoBehaviour:
@@ -28555,7 +28560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d012f8e381fe5348a060874a6cebb05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5de0d5d98f997439d9463a8b2bdf7922, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31798,7 +31803,7 @@ GameObject:
   - component: {fileID: 2091944454}
   - component: {fileID: 2091944453}
   m_Layer: 2
-  m_Name: Germany (2)
+  m_Name: Greece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31813,15 +31818,15 @@ RectTransform:
   m_GameObject: {fileID: 2091944451}
   m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1239346898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2000, y: 0}
-  m_SizeDelta: {x: 449, y: 448}
+  m_SizeDelta: {x: 873, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091944453
 MonoBehaviour:
@@ -31857,7 +31862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a67556a2a4ef834ba01095376f7236d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32980316042ea4f4180df853b78127ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32540,7 +32545,7 @@ GameObject:
   - component: {fileID: 2120266052}
   - component: {fileID: 2120266051}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Subtext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32558,12 +32563,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 380011610969363812}
+  m_Father: {fileID: 1558627277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46.461365}
-  m_SizeDelta: {x: 0, y: -92.9227}
+  m_AnchoredPosition: {x: 0, y: -71.461395}
+  m_SizeDelta: {x: -10, y: -52.9227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120266051
 MonoBehaviour:
@@ -32998,6 +33003,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4953896805010213337, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
     - target: {fileID: 5591286868878137911, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_SizeDelta.y
       value: -50
@@ -33026,16 +33035,11 @@ PrefabInstance:
     - {fileID: 1483466823095185465, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5938556434703848893, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5591286868878137911, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2120266050}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
---- !u!224 &380011610969363812 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5938556434703848893, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
-  m_PrefabInstance: {fileID: 380011610969363811}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &459451089665628714
 PrefabInstance:
   m_ObjectHideFlags: 0

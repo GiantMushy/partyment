@@ -1,0 +1,1690 @@
+fileFormatVersion: 2
+guid: 32980316042ea4f4180df853b78127ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5171240025506481938
+    second: Greece_0
+  - first:
+      213: -2876863591545872531
+    second: Greece_1
+  - first:
+      213: -2648101069822737907
+    second: Greece_2
+  - first:
+      213: -6372056665517237005
+    second: Greece_3
+  - first:
+      213: -2903955052977649845
+    second: Greece_4
+  - first:
+      213: -2344096617114082286
+    second: Greece_5
+  - first:
+      213: -6111010230116390073
+    second: Greece_6
+  - first:
+      213: 8279802526389184599
+    second: Greece_7
+  - first:
+      213: -3294704997553553658
+    second: Greece_8
+  - first:
+      213: -4152029736201690045
+    second: Greece_9
+  - first:
+      213: -4668312261263554317
+    second: Greece_10
+  - first:
+      213: 8437711726235883751
+    second: Greece_11
+  - first:
+      213: -4292212868394065106
+    second: Greece_12
+  - first:
+      213: -5832578269075288321
+    second: Greece_13
+  - first:
+      213: -8612572008679103330
+    second: Greece_14
+  - first:
+      213: 2166070963966694409
+    second: Greece_15
+  - first:
+      213: -5268667481025238010
+    second: Greece_16
+  - first:
+      213: -5349314603294625739
+    second: Greece_17
+  - first:
+      213: -8371831933810639432
+    second: Greece_18
+  - first:
+      213: -8235969819261711050
+    second: Greece_19
+  - first:
+      213: -4766242284330966111
+    second: Greece_20
+  - first:
+      213: 5976758813822341760
+    second: Greece_21
+  - first:
+      213: 6198943502349994835
+    second: Greece_22
+  - first:
+      213: -3583851563006836901
+    second: Greece_23
+  - first:
+      213: 494461519017761257
+    second: Greece_24
+  - first:
+      213: 4260086836955081321
+    second: Greece_25
+  - first:
+      213: -2788607619236953238
+    second: Greece_26
+  - first:
+      213: -4678786950061583585
+    second: Greece_27
+  - first:
+      213: 6380741560884500647
+    second: Greece_28
+  - first:
+      213: 7583217814078867546
+    second: Greece_29
+  - first:
+      213: -2693904330301229456
+    second: Greece_30
+  - first:
+      213: -8922162251315234441
+    second: Greece_31
+  - first:
+      213: -2943180728641358803
+    second: Greece_32
+  - first:
+      213: 7107790266504035223
+    second: Greece_33
+  - first:
+      213: 2681458879259806238
+    second: Greece_34
+  - first:
+      213: -8642257155089284386
+    second: Greece_35
+  - first:
+      213: 8235047617940602657
+    second: Greece_36
+  - first:
+      213: -8496027278506563083
+    second: Greece_37
+  - first:
+      213: 864717316527222862
+    second: Greece_38
+  - first:
+      213: -8900054431333389512
+    second: Greece_39
+  - first:
+      213: -2593370121441837125
+    second: Greece_40
+  - first:
+      213: 2275694550425848647
+    second: Greece_41
+  - first:
+      213: -5105766299617476426
+    second: Greece_42
+  - first:
+      213: 3886150757463698447
+    second: Greece_43
+  - first:
+      213: -5298421685168387358
+    second: Greece_44
+  - first:
+      213: -2928854053445147272
+    second: Greece_45
+  - first:
+      213: -7429687003473569324
+    second: Greece_46
+  - first:
+      213: 1153029563502986414
+    second: Greece_47
+  - first:
+      213: 3193021728274883446
+    second: Greece_48
+  - first:
+      213: 2394957079990274214
+    second: Greece_49
+  - first:
+      213: -8467315961477369194
+    second: Greece_50
+  - first:
+      213: -1550360497513567931
+    second: Greece_51
+  - first:
+      213: -478459256362410752
+    second: Greece_52
+  - first:
+      213: 6987448235682590484
+    second: Greece_53
+  - first:
+      213: 80585613135582923
+    second: Greece_54
+  - first:
+      213: -4055133334592997200
+    second: Greece_55
+  - first:
+      213: 937301629765001201
+    second: Greece_56
+  - first:
+      213: 2533972694304620822
+    second: Greece_57
+  - first:
+      213: 8371684342169062728
+    second: Greece_58
+  - first:
+      213: -5496532924924090477
+    second: Greece_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Greece_0
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 453
+        width: 198
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8776f58901c38b0800000000000000
+      internalID: -5171240025506481938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 444
+        width: 177
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f57a64ec35318d0800000000000000
+      internalID: -2876863591545872531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_2
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 434
+        width: 155
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0242e37b1e004bd0800000000000000
+      internalID: -2648101069822737907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_3
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 493
+        width: 187
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc5f2b2938e197a0800000000000000
+      internalID: -6372056665517237005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_4
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 439
+        width: 156
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b47019fd34413b7d0800000000000000
+      internalID: -2903955052977649845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_5
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 458
+        width: 197
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21468b9db88187fd0800000000000000
+      internalID: -2344096617114082286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_6
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 449
+        width: 177
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b622fb294513ba0800000000000000
+      internalID: -6111010230116390073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_7
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 471
+        width: 187
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7582fcb8784c7e270800000000000000
+      internalID: 8279802526389184599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 148
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fbd15c24bd642d0800000000000000
+      internalID: -3294704997553553658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 132
+        width: 143
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344e6dc04f60166c0800000000000000
+      internalID: -4152029736201690045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 150
+        width: 135
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f809ce6bb2d63fb0800000000000000
+      internalID: -4668312261263554317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 168
+        width: 128
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8107f2c16c81570800000000000000
+      internalID: 8437711726235883751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_12
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 186
+        width: 121
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23e207232ffe64c0800000000000000
+      internalID: -4292212868394065106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 204
+        width: 114
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffeca1377f48e0fa0800000000000000
+      internalID: -5832578269075288321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 222
+        width: 106
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94a534b36ff97880800000000000000
+      internalID: -8612572008679103330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_15
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 240
+        width: 98
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904d58db01e6f0e10800000000000000
+      internalID: 2166070963966694409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_16
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 259
+        width: 92
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ca6d137dee1e6b0800000000000000
+      internalID: -5268667481025238010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_17
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 277
+        width: 84
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53070dec5ba63c5b0800000000000000
+      internalID: -5349314603294625739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 295
+        width: 76
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdf1f9463741db80800000000000000
+      internalID: -8371831933810639432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_19
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 313
+        width: 70
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d411ed515f3bd80800000000000000
+      internalID: -8235969819261711050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_20
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 331
+        width: 62
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3a10125e7eaddb0800000000000000
+      internalID: -4766242284330966111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_21
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 277
+        width: 106
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 082d0169976b1f250800000000000000
+      internalID: 5976758813822341760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_22
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 277
+        width: 106
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b8940a542170650800000000000000
+      internalID: 6198943502349994835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_23
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 331
+        width: 62
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5fbf33ddf9934ec0800000000000000
+      internalID: -3583851563006836901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_24
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 313
+        width: 69
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9572cb12eacd600800000000000000
+      internalID: 494461519017761257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_25
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 295
+        width: 76
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a6605486ede1b30800000000000000
+      internalID: 4260086836955081321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_26
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 277
+        width: 84
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a630f6d1520ec49d0800000000000000
+      internalID: -2788607619236953238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_27
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 259
+        width: 91
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1398d5ee0c911fb0800000000000000
+      internalID: -4678786950061583585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_28
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 241
+        width: 98
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8971c94a2fc8850800000000000000
+      internalID: 6380741560884500647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_29
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 223
+        width: 106
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58c59e9c600d3960800000000000000
+      internalID: 7583217814078867546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_30
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 205
+        width: 112
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0763285d8445d9ad0800000000000000
+      internalID: -2693904330301229456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_31
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 187
+        width: 120
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779b4fd34bc1e2480800000000000000
+      internalID: -8922162251315234441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_32
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 169
+        width: 127
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d247e8f88b8b727d0800000000000000
+      internalID: -2943180728641358803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_33
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 151
+        width: 135
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bb3f4b691f3a260800000000000000
+      internalID: 7107790266504035223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_34
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 133
+        width: 141
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a091ac4a4763520800000000000000
+      internalID: 2681458879259806238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_35
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 115
+        width: 148
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed24355f7e8801880800000000000000
+      internalID: -8642257155089284386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_36
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 184
+        width: 163
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fb6c76d24c84270800000000000000
+      internalID: 8235047617940602657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_37
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 207
+        width: 149
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9669e343c081a80800000000000000
+      internalID: -8496027278506563083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_38
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 230
+        width: 134
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40fbb261d7100c00800000000000000
+      internalID: 864717316527222862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_39
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 254
+        width: 120
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b6bb236a7ac7480800000000000000
+      internalID: -8900054431333389512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_40
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 254
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbff8546d9f720cd0800000000000000
+      internalID: -2593370121441837125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_41
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 230
+        width: 135
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74bcc6fe224e49f10800000000000000
+      internalID: 2275694550425848647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_42
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 207
+        width: 149
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0c32d1a9ca429b0800000000000000
+      internalID: -5105766299617476426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_43
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 184
+        width: 163
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c2d3236816ee530800000000000000
+      internalID: 3886150757463698447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_44
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 69
+        width: 234
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eacf41bc893876b0800000000000000
+      internalID: -5298421685168387358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_45
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 92
+        width: 220
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875607191ce9a57d0800000000000000
+      internalID: -2928854053445147272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_46
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 115
+        width: 206
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d91f95d80374e890800000000000000
+      internalID: -7429687003473569324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_47
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 138
+        width: 191
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea48e1c6742600010800000000000000
+      internalID: 1153029563502986414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_48
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 161
+        width: 177
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 673ade13854ef4c20800000000000000
+      internalID: 3193021728274883446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_49
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 161
+        width: 177
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8802576c89c3120800000000000000
+      internalID: 2394957079990274214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_50
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 138
+        width: 192
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692752baefc0e7a80800000000000000
+      internalID: -8467315961477369194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_51
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 115
+        width: 206
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549e7e777530c7ae0800000000000000
+      internalID: -1550360497513567931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_52
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 92
+        width: 220
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d550167db2c59f0800000000000000
+      internalID: -478459256362410752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_53
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 69
+        width: 235
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f6a46362768f060800000000000000
+      internalID: 6987448235682590484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_54
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 277
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc614fc203c4e1100800000000000000
+      internalID: 80585613135582923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_55
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 23
+        width: 263
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b83dba97b549b7c0800000000000000
+      internalID: -4055133334592997200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_56
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 46
+        width: 249
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff9981cdd6f10d00800000000000000
+      internalID: 937301629765001201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_57
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 46
+        width: 249
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611019a6dba7a2320800000000000000
+      internalID: 2533972694304620822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_58
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 23
+        width: 263
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84dcfaadd823e2470800000000000000
+      internalID: 8371684342169062728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greece_59
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 0
+        width: 277
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39729a93d6468b3b0800000000000000
+      internalID: -5496532924924090477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Greece_0: -5171240025506481938
+      Greece_1: -2876863591545872531
+      Greece_10: -4668312261263554317
+      Greece_11: 8437711726235883751
+      Greece_12: -4292212868394065106
+      Greece_13: -5832578269075288321
+      Greece_14: -8612572008679103330
+      Greece_15: 2166070963966694409
+      Greece_16: -5268667481025238010
+      Greece_17: -5349314603294625739
+      Greece_18: -8371831933810639432
+      Greece_19: -8235969819261711050
+      Greece_2: -2648101069822737907
+      Greece_20: -4766242284330966111
+      Greece_21: 5976758813822341760
+      Greece_22: 6198943502349994835
+      Greece_23: -3583851563006836901
+      Greece_24: 494461519017761257
+      Greece_25: 4260086836955081321
+      Greece_26: -2788607619236953238
+      Greece_27: -4678786950061583585
+      Greece_28: 6380741560884500647
+      Greece_29: 7583217814078867546
+      Greece_3: -6372056665517237005
+      Greece_30: -2693904330301229456
+      Greece_31: -8922162251315234441
+      Greece_32: -2943180728641358803
+      Greece_33: 7107790266504035223
+      Greece_34: 2681458879259806238
+      Greece_35: -8642257155089284386
+      Greece_36: 8235047617940602657
+      Greece_37: -8496027278506563083
+      Greece_38: 864717316527222862
+      Greece_39: -8900054431333389512
+      Greece_4: -2903955052977649845
+      Greece_40: -2593370121441837125
+      Greece_41: 2275694550425848647
+      Greece_42: -5105766299617476426
+      Greece_43: 3886150757463698447
+      Greece_44: -5298421685168387358
+      Greece_45: -2928854053445147272
+      Greece_46: -7429687003473569324
+      Greece_47: 1153029563502986414
+      Greece_48: 3193021728274883446
+      Greece_49: 2394957079990274214
+      Greece_5: -2344096617114082286
+      Greece_50: -8467315961477369194
+      Greece_51: -1550360497513567931
+      Greece_52: -478459256362410752
+      Greece_53: 6987448235682590484
+      Greece_54: 80585613135582923
+      Greece_55: -4055133334592997200
+      Greece_56: 937301629765001201
+      Greece_57: 2533972694304620822
+      Greece_58: 8371684342169062728
+      Greece_59: -5496532924924090477
+      Greece_6: -6111010230116390073
+      Greece_7: 8279802526389184599
+      Greece_8: -3294704997553553658
+      Greece_9: -4152029736201690045
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

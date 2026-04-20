@@ -1,0 +1,2210 @@
+fileFormatVersion: 2
+guid: f4f3d63cb156b498586c2d0441767ea9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7677905035433403721
+    second: France_0
+  - first:
+      213: -5975363488443723138
+    second: France_1
+  - first:
+      213: 382078445274414360
+    second: France_2
+  - first:
+      213: -1216128017309061381
+    second: France_3
+  - first:
+      213: -5657941223236963299
+    second: France_4
+  - first:
+      213: 5863642673493422874
+    second: France_5
+  - first:
+      213: -3116043235611956809
+    second: France_6
+  - first:
+      213: -5437116544465715142
+    second: France_7
+  - first:
+      213: -1177768313584905623
+    second: France_8
+  - first:
+      213: -1311916275721689554
+    second: France_9
+  - first:
+      213: 2680118873433012664
+    second: France_10
+  - first:
+      213: -615911624468836041
+    second: France_11
+  - first:
+      213: 367929831344026689
+    second: France_12
+  - first:
+      213: 5236317563476918192
+    second: France_13
+  - first:
+      213: -2835258997228856433
+    second: France_14
+  - first:
+      213: 4720774185839091249
+    second: France_15
+  - first:
+      213: 4057405542424325641
+    second: France_16
+  - first:
+      213: -8020902600535780885
+    second: France_17
+  - first:
+      213: 7670094638914779036
+    second: France_18
+  - first:
+      213: -436009154857580180
+    second: France_19
+  - first:
+      213: -8079321886053505710
+    second: France_20
+  - first:
+      213: -8024579167762085995
+    second: France_21
+  - first:
+      213: 4550821772544530670
+    second: France_22
+  - first:
+      213: 2500819692468545405
+    second: France_23
+  - first:
+      213: -3846715643672751256
+    second: France_24
+  - first:
+      213: -6944366972046351678
+    second: France_25
+  - first:
+      213: 8048245828896130361
+    second: France_26
+  - first:
+      213: -3787379584764250660
+    second: France_27
+  - first:
+      213: -8118540315749622081
+    second: France_28
+  - first:
+      213: -3126718661578810460
+    second: France_29
+  - first:
+      213: 1758044914172989384
+    second: France_30
+  - first:
+      213: 612786846651228457
+    second: France_31
+  - first:
+      213: -6493065023743766436
+    second: France_32
+  - first:
+      213: 2630170766095891991
+    second: France_33
+  - first:
+      213: 8443703364374904309
+    second: France_34
+  - first:
+      213: -3959596602307014839
+    second: France_35
+  - first:
+      213: 3054394657520396938
+    second: France_36
+  - first:
+      213: 8838158709107248501
+    second: France_37
+  - first:
+      213: -1382562625999119808
+    second: France_38
+  - first:
+      213: 4559095928400106260
+    second: France_39
+  - first:
+      213: 6487581098029295287
+    second: France_40
+  - first:
+      213: 6032458889130331846
+    second: France_41
+  - first:
+      213: -8361285021293682856
+    second: France_42
+  - first:
+      213: -6977597114320076081
+    second: France_43
+  - first:
+      213: 8770208773816254986
+    second: France_44
+  - first:
+      213: 5902913299414679264
+    second: France_45
+  - first:
+      213: 1793631935212039861
+    second: France_46
+  - first:
+      213: 6980332242123170693
+    second: France_47
+  - first:
+      213: 4791582450098229635
+    second: France_48
+  - first:
+      213: -4770233763139424357
+    second: France_49
+  - first:
+      213: -2153648475078295928
+    second: France_50
+  - first:
+      213: 7128877084631816375
+    second: France_51
+  - first:
+      213: 6576032194915990526
+    second: France_52
+  - first:
+      213: 8430794876667188067
+    second: France_53
+  - first:
+      213: -907906450317230207
+    second: France_54
+  - first:
+      213: 6067339560587415063
+    second: France_55
+  - first:
+      213: 6849449867118198157
+    second: France_56
+  - first:
+      213: -7114118982772683215
+    second: France_57
+  - first:
+      213: -3003393814673365477
+    second: France_58
+  - first:
+      213: 3949784429268278660
+    second: France_59
+  - first:
+      213: 4141917245896173153
+    second: France_60
+  - first:
+      213: 2275740446667647812
+    second: France_61
+  - first:
+      213: -6124554019936785757
+    second: France_62
+  - first:
+      213: -523594516300733602
+    second: France_63
+  - first:
+      213: 121695100728581674
+    second: France_64
+  - first:
+      213: 3332603430149519131
+    second: France_65
+  - first:
+      213: 2772614627157075717
+    second: France_66
+  - first:
+      213: -396329957093887045
+    second: France_67
+  - first:
+      213: -8040806630958527819
+    second: France_68
+  - first:
+      213: -6672650209960428169
+    second: France_69
+  - first:
+      213: 5242423260006422309
+    second: France_70
+  - first:
+      213: 3310710767725154497
+    second: France_71
+  - first:
+      213: 1167908449031070457
+    second: France_72
+  - first:
+      213: -572914190089321202
+    second: France_73
+  - first:
+      213: -7176088861291912982
+    second: France_74
+  - first:
+      213: 5061361579644435487
+    second: France_75
+  - first:
+      213: -1949072544718386156
+    second: France_76
+  - first:
+      213: -5584926495855248530
+    second: France_77
+  - first:
+      213: 1387655398246741102
+    second: France_78
+  - first:
+      213: 1457474247168573944
+    second: France_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: France_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 390
+        width: 58
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945e03053f56d8a60800000000000000
+      internalID: 7677905035433403721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 395
+        width: 56
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72197be09e331da0800000000000000
+      internalID: -5975363488443723138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 400
+        width: 53
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d3ae6525a6d4500800000000000000
+      internalID: 382078445274414360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 405
+        width: 50
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfea4e6f2027f1fe0800000000000000
+      internalID: -1216128017309061381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 410
+        width: 47
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d14fbec3f64fa71b0800000000000000
+      internalID: -5657941223236963299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_5
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 415
+        width: 44
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13b563d1f7df5150800000000000000
+      internalID: 5863642673493422874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_6
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 420
+        width: 41
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9279ccf2791c4d0800000000000000
+      internalID: -3116043235611956809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_7
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 424
+        width: 38
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30c8b45f4b7b84b0800000000000000
+      internalID: -5437116544465715142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_8
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 429
+        width: 36
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9629f0975f9b7afe0800000000000000
+      internalID: -1177768313584905623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_9
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 434
+        width: 32
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e262e8a19132bcde0800000000000000
+      internalID: -1311916275721689554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_10
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 580
+        width: 98
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b97bce5ae1b13520800000000000000
+      internalID: 2680118873433012664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_11
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 435
+        width: 32
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731508a04a7d377f0800000000000000
+      internalID: -615911624468836041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_12
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 430
+        width: 36
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144b7837b362b1500800000000000000
+      internalID: 367929831344026689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_13
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 425
+        width: 38
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf3e2ea4132ba840800000000000000
+      internalID: 5236317563476918192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_14
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 420
+        width: 41
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b91ffb6f227a8d0800000000000000
+      internalID: -2835258997228856433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_15
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 416
+        width: 45
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ed5cb3c1f838140800000000000000
+      internalID: 4720774185839091249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_16
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 411
+        width: 47
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90e27e108dcce4830800000000000000
+      internalID: 4057405542424325641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_17
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 406
+        width: 50
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1de05d49700b090800000000000000
+      internalID: -8020902600535780885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_18
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 401
+        width: 53
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97b42aaf66a17a60800000000000000
+      internalID: 7670094638914779036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_19
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 396
+        width: 56
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6945e5dbfbf2f9f0800000000000000
+      internalID: -436009154857580180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_20
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 391
+        width: 57
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255edbbfc8b70ef80800000000000000
+      internalID: -8079321886053505710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_21
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 439
+        width: 30
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5978a8153c7f2a090800000000000000
+      internalID: -8024579167762085995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_22
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 444
+        width: 27
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee851a47a44c72f30800000000000000
+      internalID: 4550821772544530670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_23
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 556
+        width: 98
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77a3e8a242b4b220800000000000000
+      internalID: 2500819692468545405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_24
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 445
+        width: 27
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86392fab088bd9ac0800000000000000
+      internalID: -3846715643672751256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_25
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 440
+        width: 30
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2e8312807a0af90800000000000000
+      internalID: -6944366972046351678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_26
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 449
+        width: 25
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9358f50a0fc11bf60800000000000000
+      internalID: 8048245828896130361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_27
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 450
+        width: 25
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd57f848556807bc0800000000000000
+      internalID: -3787379584764250660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_28
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 159
+        width: 129
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe5e01c896255f80800000000000000
+      internalID: -8118540315749622081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_29
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 175
+        width: 123
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab920081f9ab94d0800000000000000
+      internalID: -3126718661578810460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_30
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 191
+        width: 118
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf8670f884d56810800000000000000
+      internalID: 1758044914172989384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 208
+        width: 112
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921adade36e018800800000000000000
+      internalID: 612786846651228457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_32
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 224
+        width: 107
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c505d3c33cff3e5a0800000000000000
+      internalID: -6493065023743766436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 240
+        width: 101
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e33c3606e308420800000000000000
+      internalID: 2630170766095891991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_34
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 257
+        width: 94
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd3656297f0e2570800000000000000
+      internalID: 8443703364374904309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_35
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 273
+        width: 89
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f85a97edfac09c0800000000000000
+      internalID: -3959596602307014839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_36
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 290
+        width: 83
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8aaa5512c3636a20800000000000000
+      internalID: 3054394657520396938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_37
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 306
+        width: 77
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dccd4f48277aa70800000000000000
+      internalID: 8838158709107248501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_38
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 322
+        width: 72
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a5795ed9620dce0800000000000000
+      internalID: -1382562625999119808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_39
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 339
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413d73d7799254f30800000000000000
+      internalID: 4559095928400106260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_40
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 355
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6239fc2a4880a50800000000000000
+      internalID: 6487581098029295287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_41
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 296
+        width: 122
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cec2c8f56997b350800000000000000
+      internalID: 6032458889130331846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_42
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 361
+        width: 55
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85fdef7b29fb6fb80800000000000000
+      internalID: -8361285021293682856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_43
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 344
+        width: 61
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc24927b4689a2f90800000000000000
+      internalID: -6977597114320076081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_44
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 328
+        width: 67
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a020559c96a06b970800000000000000
+      internalID: 8770208773816254986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_45
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 311
+        width: 73
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee7a8fee5c5be150800000000000000
+      internalID: 5902913299414679264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_46
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 295
+        width: 78
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be2c14fdb244e810800000000000000
+      internalID: 1793631935212039861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_47
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 278
+        width: 84
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58325f9d03f1fd060800000000000000
+      internalID: 6980332242123170693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_48
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 262
+        width: 91
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381d91af9de1f7240800000000000000
+      internalID: 4791582450098229635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_49
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 245
+        width: 96
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9fef7c8aa9bccdb0800000000000000
+      internalID: -4770233763139424357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_50
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 229
+        width: 102
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e75e75f14bc12e0800000000000000
+      internalID: -2153648475078295928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_51
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 212
+        width: 108
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8d6e420fbdee260800000000000000
+      internalID: 7128877084631816375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_52
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 196
+        width: 114
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efbff71a072c24b50800000000000000
+      internalID: 6576032194915990526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_53
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 180
+        width: 119
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3635ee5a543300570800000000000000
+      internalID: 8430794876667188067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_54
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 163
+        width: 125
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f3e8bc4e77663f0800000000000000
+      internalID: -907906450317230207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_55
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 221
+        width: 185
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ecc782f25833450800000000000000
+      internalID: 6067339560587415063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_56
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 246
+        width: 166
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d3d6c3d522e0f50800000000000000
+      internalID: 6849449867118198157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_57
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 270
+        width: 148
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e88f53a72954d90800000000000000
+      internalID: -7114118982772683215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_58
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 295
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16e9cbfc3dc156d0800000000000000
+      internalID: -3003393814673365477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_59
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 271
+        width: 140
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d97e5f20470d630800000000000000
+      internalID: 3949784429268278660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_60
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 246
+        width: 159
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166a4b25acb0b7930800000000000000
+      internalID: 4141917245896173153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_61
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 222
+        width: 177
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b2d9cf0ed059f10800000000000000
+      internalID: 2275740446667647812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_62
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 197
+        width: 195
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa2af17196310ba0800000000000000
+      internalID: -6124554019936785757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_63
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 73
+        width: 295
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e536d81cf81dbb8f0800000000000000
+      internalID: -523594516300733602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_64
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 98
+        width: 277
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e15d1ac0950b100800000000000000
+      internalID: 121695100728581674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_65
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 123
+        width: 259
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b177f4fa929cf3e20800000000000000
+      internalID: 3332603430149519131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_66
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 147
+        width: 240
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 507efbe305e4a7620800000000000000
+      internalID: 2772614627157075717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_67
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 172
+        width: 222
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb3b29df004ff7af0800000000000000
+      internalID: -396329957093887045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_68
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 197
+        width: 203
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba8c1e98f0596090800000000000000
+      internalID: -8040806630958527819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_69
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 172
+        width: 214
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d7fdcbcfbf563a0800000000000000
+      internalID: -6672650209960428169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_70
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 148
+        width: 232
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5279deeed24d0c840800000000000000
+      internalID: 5242423260006422309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_71
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 123
+        width: 250
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0915007e102fd20800000000000000
+      internalID: 3310710767725154497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_72
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 98
+        width: 268
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2acaaeb8e353010800000000000000
+      internalID: 1167908449031070457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_73
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 74
+        width: 287
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0502fc54999c08f0800000000000000
+      internalID: -572914190089321202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_74
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 49
+        width: 305
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0ee028339696c90800000000000000
+      internalID: -7176088861291912982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_75
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 350
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c348a5a819d3640800000000000000
+      internalID: 5061361579644435487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_76
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 24
+        width: 332
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c0892e8d083f4e0800000000000000
+      internalID: -1949072544718386156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_77
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 49
+        width: 314
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b71e531fa5e72b0800000000000000
+      internalID: -5584926495855248530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_78
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 24
+        width: 323
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64762b8b31f14310800000000000000
+      internalID: 1387655398246741102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: France_79
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 0
+        width: 342
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f143c31b1df93410800000000000000
+      internalID: 1457474247168573944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      France_0: 7677905035433403721
+      France_1: -5975363488443723138
+      France_10: 2680118873433012664
+      France_11: -615911624468836041
+      France_12: 367929831344026689
+      France_13: 5236317563476918192
+      France_14: -2835258997228856433
+      France_15: 4720774185839091249
+      France_16: 4057405542424325641
+      France_17: -8020902600535780885
+      France_18: 7670094638914779036
+      France_19: -436009154857580180
+      France_2: 382078445274414360
+      France_20: -8079321886053505710
+      France_21: -8024579167762085995
+      France_22: 4550821772544530670
+      France_23: 2500819692468545405
+      France_24: -3846715643672751256
+      France_25: -6944366972046351678
+      France_26: 8048245828896130361
+      France_27: -3787379584764250660
+      France_28: -8118540315749622081
+      France_29: -3126718661578810460
+      France_3: -1216128017309061381
+      France_30: 1758044914172989384
+      France_31: 612786846651228457
+      France_32: -6493065023743766436
+      France_33: 2630170766095891991
+      France_34: 8443703364374904309
+      France_35: -3959596602307014839
+      France_36: 3054394657520396938
+      France_37: 8838158709107248501
+      France_38: -1382562625999119808
+      France_39: 4559095928400106260
+      France_4: -5657941223236963299
+      France_40: 6487581098029295287
+      France_41: 6032458889130331846
+      France_42: -8361285021293682856
+      France_43: -6977597114320076081
+      France_44: 8770208773816254986
+      France_45: 5902913299414679264
+      France_46: 1793631935212039861
+      France_47: 6980332242123170693
+      France_48: 4791582450098229635
+      France_49: -4770233763139424357
+      France_5: 5863642673493422874
+      France_50: -2153648475078295928
+      France_51: 7128877084631816375
+      France_52: 6576032194915990526
+      France_53: 8430794876667188067
+      France_54: -907906450317230207
+      France_55: 6067339560587415063
+      France_56: 6849449867118198157
+      France_57: -7114118982772683215
+      France_58: -3003393814673365477
+      France_59: 3949784429268278660
+      France_6: -3116043235611956809
+      France_60: 4141917245896173153
+      France_61: 2275740446667647812
+      France_62: -6124554019936785757
+      France_63: -523594516300733602
+      France_64: 121695100728581674
+      France_65: 3332603430149519131
+      France_66: 2772614627157075717
+      France_67: -396329957093887045
+      France_68: -8040806630958527819
+      France_69: -6672650209960428169
+      France_7: -5437116544465715142
+      France_70: 5242423260006422309
+      France_71: 3310710767725154497
+      France_72: 1167908449031070457
+      France_73: -572914190089321202
+      France_74: -7176088861291912982
+      France_75: 5061361579644435487
+      France_76: -1949072544718386156
+      France_77: -5584926495855248530
+      France_78: 1387655398246741102
+      France_79: 1457474247168573944
+      France_8: -1177768313584905623
+      France_9: -1311916275721689554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

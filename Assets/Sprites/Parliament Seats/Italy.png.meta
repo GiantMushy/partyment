@@ -1,0 +1,3354 @@
+fileFormatVersion: 2
+guid: 5e9c788ac91ab4432bdc4ca1ea292938
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4171653571250100432
+    second: Italy_0
+  - first:
+      213: -5623452377573054162
+    second: Italy_1
+  - first:
+      213: -1352365441499865693
+    second: Italy_2
+  - first:
+      213: 1971752000845323254
+    second: Italy_3
+  - first:
+      213: 553516339627445791
+    second: Italy_4
+  - first:
+      213: 4103581259918010940
+    second: Italy_5
+  - first:
+      213: 6343600519479178318
+    second: Italy_6
+  - first:
+      213: 1009653433940013343
+    second: Italy_7
+  - first:
+      213: -7274526533925284771
+    second: Italy_8
+  - first:
+      213: 8580575872336361393
+    second: Italy_9
+  - first:
+      213: -9034858675229410114
+    second: Italy_10
+  - first:
+      213: 7060926764209777953
+    second: Italy_11
+  - first:
+      213: 6227854970234667419
+    second: Italy_12
+  - first:
+      213: 2176227694046685171
+    second: Italy_13
+  - first:
+      213: -8909717687809353315
+    second: Italy_14
+  - first:
+      213: -1922941825068797436
+    second: Italy_15
+  - first:
+      213: 7730474302552653845
+    second: Italy_16
+  - first:
+      213: -4812609176794923486
+    second: Italy_17
+  - first:
+      213: -5436883597303265601
+    second: Italy_18
+  - first:
+      213: 5783940263051079637
+    second: Italy_19
+  - first:
+      213: 7225957172024008325
+    second: Italy_20
+  - first:
+      213: -8679665953957293139
+    second: Italy_21
+  - first:
+      213: 5565996999152951191
+    second: Italy_22
+  - first:
+      213: -1206844901153151027
+    second: Italy_23
+  - first:
+      213: -427663588494643521
+    second: Italy_24
+  - first:
+      213: 4064756768533364444
+    second: Italy_25
+  - first:
+      213: -988852256920338266
+    second: Italy_26
+  - first:
+      213: 2930756706212517695
+    second: Italy_27
+  - first:
+      213: -6737356926582028305
+    second: Italy_28
+  - first:
+      213: 8719988899843022720
+    second: Italy_29
+  - first:
+      213: -4371687363127501414
+    second: Italy_30
+  - first:
+      213: -5018765512528577543
+    second: Italy_31
+  - first:
+      213: 7881040246020659084
+    second: Italy_32
+  - first:
+      213: 8482215012498866113
+    second: Italy_33
+  - first:
+      213: 617464883225890406
+    second: Italy_34
+  - first:
+      213: -8650078864890262777
+    second: Italy_35
+  - first:
+      213: 7134343202148542471
+    second: Italy_36
+  - first:
+      213: -361452043595536644
+    second: Italy_37
+  - first:
+      213: 8526425541280156469
+    second: Italy_38
+  - first:
+      213: -4426715552424961551
+    second: Italy_39
+  - first:
+      213: 909739680552364414
+    second: Italy_40
+  - first:
+      213: -1647664926389030343
+    second: Italy_41
+  - first:
+      213: 2989440706732301785
+    second: Italy_42
+  - first:
+      213: 4261573562575666495
+    second: Italy_43
+  - first:
+      213: -7563267169860724783
+    second: Italy_44
+  - first:
+      213: 4461002885076829538
+    second: Italy_45
+  - first:
+      213: 8635327422650870462
+    second: Italy_46
+  - first:
+      213: 7817684524720822230
+    second: Italy_47
+  - first:
+      213: -3668646537732117201
+    second: Italy_48
+  - first:
+      213: -996265243360583771
+    second: Italy_49
+  - first:
+      213: 2871167833808647624
+    second: Italy_50
+  - first:
+      213: 2065758253558689685
+    second: Italy_51
+  - first:
+      213: -4665965000244211351
+    second: Italy_52
+  - first:
+      213: 1532732385521311400
+    second: Italy_53
+  - first:
+      213: -8744230233568005312
+    second: Italy_54
+  - first:
+      213: 3825044083040082848
+    second: Italy_55
+  - first:
+      213: 4050524394801192462
+    second: Italy_56
+  - first:
+      213: -7164838261573224082
+    second: Italy_57
+  - first:
+      213: -1320273778341307897
+    second: Italy_58
+  - first:
+      213: -6910435849537630289
+    second: Italy_59
+  - first:
+      213: -6440123250264248707
+    second: Italy_60
+  - first:
+      213: -5100777764880477143
+    second: Italy_61
+  - first:
+      213: 5535652293024454410
+    second: Italy_62
+  - first:
+      213: 559580515688149998
+    second: Italy_63
+  - first:
+      213: -5364951067671501893
+    second: Italy_64
+  - first:
+      213: -943597559680321099
+    second: Italy_65
+  - first:
+      213: 1926274476571339057
+    second: Italy_66
+  - first:
+      213: -2359106622456230142
+    second: Italy_67
+  - first:
+      213: -8257252117955878201
+    second: Italy_68
+  - first:
+      213: 1083625556740857549
+    second: Italy_69
+  - first:
+      213: 3850813090042258149
+    second: Italy_70
+  - first:
+      213: 6793888475390503802
+    second: Italy_71
+  - first:
+      213: 3963937589094312969
+    second: Italy_72
+  - first:
+      213: -3671275462511592268
+    second: Italy_73
+  - first:
+      213: 2985683722419398436
+    second: Italy_74
+  - first:
+      213: -4648267471909744660
+    second: Italy_75
+  - first:
+      213: 7955271229746751906
+    second: Italy_76
+  - first:
+      213: -6530510832343980646
+    second: Italy_77
+  - first:
+      213: -5588322159754864904
+    second: Italy_78
+  - first:
+      213: -8281382529062726721
+    second: Italy_79
+  - first:
+      213: 4674669671424931414
+    second: Italy_80
+  - first:
+      213: 4744884234203662022
+    second: Italy_81
+  - first:
+      213: -8455072309794287940
+    second: Italy_82
+  - first:
+      213: -6249367631992951663
+    second: Italy_83
+  - first:
+      213: 2045679563815173977
+    second: Italy_84
+  - first:
+      213: -6874452462715978159
+    second: Italy_85
+  - first:
+      213: 7664114151803140051
+    second: Italy_86
+  - first:
+      213: 6769158666360265130
+    second: Italy_87
+  - first:
+      213: -2450826642273821851
+    second: Italy_88
+  - first:
+      213: -5183047023997828973
+    second: Italy_89
+  - first:
+      213: -3754961707157354393
+    second: Italy_90
+  - first:
+      213: -2721132737690938139
+    second: Italy_91
+  - first:
+      213: 5266750122326743389
+    second: Italy_92
+  - first:
+      213: -1468589402460975981
+    second: Italy_93
+  - first:
+      213: 5343594848468598327
+    second: Italy_94
+  - first:
+      213: -3671884205421391433
+    second: Italy_95
+  - first:
+      213: -1434130166242508539
+    second: Italy_96
+  - first:
+      213: 1813930143705466085
+    second: Italy_97
+  - first:
+      213: 2603467587841922842
+    second: Italy_98
+  - first:
+      213: -4263499610061706405
+    second: Italy_99
+  - first:
+      213: -4966066509886281419
+    second: Italy_100
+  - first:
+      213: -3392213362666685767
+    second: Italy_101
+  - first:
+      213: -5762036268743386899
+    second: Italy_102
+  - first:
+      213: 2564286231310057287
+    second: Italy_103
+  - first:
+      213: -5423450455096438967
+    second: Italy_104
+  - first:
+      213: -262247443568148822
+    second: Italy_105
+  - first:
+      213: 7213617398942147137
+    second: Italy_106
+  - first:
+      213: 3370879542751483865
+    second: Italy_107
+  - first:
+      213: -1712931559933754574
+    second: Italy_108
+  - first:
+      213: -7614087163412208823
+    second: Italy_109
+  - first:
+      213: 166307664164430404
+    second: Italy_110
+  - first:
+      213: -1104837409680747354
+    second: Italy_111
+  - first:
+      213: -8160093997760002934
+    second: Italy_112
+  - first:
+      213: -4924251401031871502
+    second: Italy_113
+  - first:
+      213: -1258746920457758193
+    second: Italy_114
+  - first:
+      213: -7311300245115197672
+    second: Italy_115
+  - first:
+      213: 4463848626272216918
+    second: Italy_116
+  - first:
+      213: 3183463441629934191
+    second: Italy_117
+  - first:
+      213: -5574036608483562706
+    second: Italy_118
+  - first:
+      213: -2542940998718117710
+    second: Italy_119
+  - first:
+      213: -708343662348897994
+    second: Italy_120
+  - first:
+      213: -5896472062581179143
+    second: Italy_121
+  - first:
+      213: -6736408365514602808
+    second: Italy_122
+  - first:
+      213: 5424269536470578402
+    second: Italy_123
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Italy_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 468
+        width: 19
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037e5a7ed2f4b16c0800000000000000
+      internalID: -4171653571250100432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 463
+        width: 18
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29ae6f5bdb75f1b0800000000000000
+      internalID: -5623452377573054162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_2
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 522
+        width: 194
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3add2eccbce6b3de0800000000000000
+      internalID: -1352365441499865693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_3
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 463
+        width: 19
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb1d8b7ff11d5b10800000000000000
+      internalID: 1971752000845323254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_4
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 468
+        width: 19
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e4ed0ad2c7ea700800000000000000
+      internalID: 553516339627445791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 458
+        width: 19
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3aec580a69d2f830800000000000000
+      internalID: 4103581259918010940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_6
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 454
+        width: 18
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e443a88001ff80850800000000000000
+      internalID: 6343600519479178318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_7
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 449
+        width: 19
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f117f34e272030e00800000000000000
+      internalID: 1009653433940013343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_8
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 500
+        width: 194
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54da34d8a0bb0b90800000000000000
+      internalID: -7274526533925284771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_9
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 448
+        width: 19
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b775e64b44541770800000000000000
+      internalID: 8580575872336361393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_10
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 454
+        width: 19
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc381357ebbd9280800000000000000
+      internalID: -9034858675229410114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_11
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 458
+        width: 18
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12da5cd4b737df160800000000000000
+      internalID: 7060926764209777953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_12
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 443
+        width: 19
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b910d7d4919cd6650800000000000000
+      internalID: 6227854970234667419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_13
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 439
+        width: 18
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7250ebe83833e10800000000000000
+      internalID: 2176227694046685171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 434
+        width: 19
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99db19f7f25a5480800000000000000
+      internalID: -8909717687809353315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_15
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 478
+        width: 194
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402780929965055e0800000000000000
+      internalID: -1922941825068797436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 434
+        width: 19
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510cfec9b69284b60800000000000000
+      internalID: 7730474302552653845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_17
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 439
+        width: 19
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e7a56b37d263db0800000000000000
+      internalID: -4812609176794923486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_18
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 444
+        width: 19
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb647919c2f4c84b0800000000000000
+      internalID: -5436883597303265601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 22
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df2d3d460fa44050800000000000000
+      internalID: 5783940263051079637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_20
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 374
+        width: 24
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e5da063c1c74460800000000000000
+      internalID: 7225957172024008325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_21
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 374
+        width: 23
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3d25d3dc1ab8780800000000000000
+      internalID: -8679665953957293139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 374
+        width: 22
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79fd663e7c46e3d40800000000000000
+      internalID: 5565996999152951191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 374
+        width: 22
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc766cfd4fc604fe0800000000000000
+      internalID: -1206844901153151027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_24
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 374
+        width: 21
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe686c6b32a01af0800000000000000
+      internalID: -427663588494643521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_25
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 429
+        width: 19
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdebbc6bebae86830800000000000000
+      internalID: 4064756768533364444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_26
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 424
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a08bea8c14e642f0800000000000000
+      internalID: -988852256920338266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_27
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 419
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3714ec42b32ca820800000000000000
+      internalID: 2930756706212517695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_28
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 419
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe78f0242991082a0800000000000000
+      internalID: -6737356926582028305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_29
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 424
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f1e7434bf930970800000000000000
+      internalID: 8719988899843022720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_30
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 429
+        width: 19
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d98b36185a453c0800000000000000
+      internalID: -4371687363127501414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_31
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 374
+        width: 22
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbb0ce5b53c95ab0800000000000000
+      internalID: -5018765512528577543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_32
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 374
+        width: 22
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c875e9429541f5d60800000000000000
+      internalID: 7881040246020659084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_33
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 374
+        width: 22
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cffa78fc91e6b570800000000000000
+      internalID: 8482215012498866113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_34
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 374
+        width: 22
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e05f13a0da19800800000000000000
+      internalID: 617464883225890406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_35
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 374
+        width: 23
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b0a1b3a1fb4f780800000000000000
+      internalID: -8650078864890262777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_36
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 374
+        width: 23
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70869cdc757420360800000000000000
+      internalID: 7134343202148542471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_37
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 374
+        width: 20
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6262a084ddbfaf0800000000000000
+      internalID: -361452043595536644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_38
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 374
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b42d7dad2f35670800000000000000
+      internalID: 8526425541280156469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_39
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 374
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f95308a8a52192c0800000000000000
+      internalID: -4426715552424961551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_40
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 374
+        width: 20
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79a6616b6b00ac00800000000000000
+      internalID: 909739680552364414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_41
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 374
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93236b9aa715229e0800000000000000
+      internalID: -1647664926389030343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_42
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 374
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd1fd9eb70ac7920800000000000000
+      internalID: 2989440706732301785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_43
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 374
+        width: 19
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3db48d8396242b30800000000000000
+      internalID: 4261573562575666495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_44
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 374
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7d317b490e90790800000000000000
+      internalID: -7563267169860724783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_45
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 374
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2654ff21d7aa8ed30800000000000000
+      internalID: 4461002885076829538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_46
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 374
+        width: 21
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba6b4af988d6d770800000000000000
+      internalID: 8635327422650870462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 214
+        width: 57
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d79d06c7aefd7c60800000000000000
+      internalID: 7817684524720822230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_48
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 223
+        width: 55
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2da2084969561dc0800000000000000
+      internalID: -3668646537732117201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_49
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 233
+        width: 52
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af9c632a0e8c22f0800000000000000
+      internalID: -996265243360583771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_50
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 242
+        width: 50
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c531b8ceef68d720800000000000000
+      internalID: 2871167833808647624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_51
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 251
+        width: 49
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f623fcf2c0bac10800000000000000
+      internalID: 2065758253558689685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_52
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 261
+        width: 47
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961d90abd892f3fb0800000000000000
+      internalID: -4665965000244211351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_53
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 270
+        width: 44
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae1cbedbfb554510800000000000000
+      internalID: 1532732385521311400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_54
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 280
+        width: 42
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043b2f57ee046a680800000000000000
+      internalID: -8744230233568005312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_55
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 289
+        width: 39
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab50dbd359451530800000000000000
+      internalID: 3825044083040082848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_56
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 298
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0edd2af97a563830800000000000000
+      internalID: 4050524394801192462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_57
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 308
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69fcc1ef81619c90800000000000000
+      internalID: -7164838261573224082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_58
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 305
+        width: 36
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a14b36ef17dade0800000000000000
+      internalID: -1320273778341307897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_59
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 296
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf4f2935333910a0800000000000000
+      internalID: -6910435849537630289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_60
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 287
+        width: 40
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ee34e660610a6a0800000000000000
+      internalID: -6440123250264248707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_61
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 277
+        width: 43
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924961ed5a56639b0800000000000000
+      internalID: -5100777764880477143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_62
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 268
+        width: 45
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a079ccd6e6692dc40800000000000000
+      internalID: 5535652293024454410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_63
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 258
+        width: 47
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee372d4a38704c700800000000000000
+      internalID: 559580515688149998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_64
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 249
+        width: 50
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb3661ebd6ddb85b0800000000000000
+      internalID: -5364951067671501893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_65
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 240
+        width: 52
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b93454d40ba7e2f0800000000000000
+      internalID: -943597559680321099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_66
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 230
+        width: 54
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139afeb3e608bba10800000000000000
+      internalID: 1926274476571339057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_67
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 221
+        width: 56
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f8935a605c24fd0800000000000000
+      internalID: -2359106622456230142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_68
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 211
+        width: 59
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2e56092f8586d80800000000000000
+      internalID: -8257252117955878201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_69
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 163
+        width: 86
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dced21bd3bfc90f00800000000000000
+      internalID: 1083625556740857549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_70
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 181
+        width: 79
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2a4685a16d07530800000000000000
+      internalID: 3850813090042258149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_71
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 199
+        width: 71
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b6543a29db84e50800000000000000
+      internalID: 6793888475390503802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_72
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 218
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ce8c54c3cb20730800000000000000
+      internalID: 3963937589094312969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_73
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 236
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc73680b620d0dc0800000000000000
+      internalID: -3671275462511592268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_74
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 253
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4276976d6874f6920800000000000000
+      internalID: 2985683722419398436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_75
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 219
+        width: 69
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef01d3ac590e7fb0800000000000000
+      internalID: -4648267471909744660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_76
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 221
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9a0fcd80dc66e60800000000000000
+      internalID: 7955271229746751906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_77
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 254
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95eb448ff6fe55a0800000000000000
+      internalID: -6530510832343980646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_78
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 236
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f61e599a9a4272b0800000000000000
+      internalID: -5588322159754864904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_79
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 218
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3171a677e921d80800000000000000
+      internalID: -8281382529062726721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_80
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 200
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65633977c43cfd040800000000000000
+      internalID: 4674669671424931414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_81
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 182
+        width: 76
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c68f00521739d140800000000000000
+      internalID: 4744884234203662022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_82
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 164
+        width: 84
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe4878f78c89aa80800000000000000
+      internalID: -8455072309794287940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_83
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 91
+        width: 116
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c6c30df39c549a0800000000000000
+      internalID: -6249367631992951663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_84
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 109
+        width: 108
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fba7d89b6b36c10800000000000000
+      internalID: 2045679563815173977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_85
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 127
+        width: 101
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e318658e90990a0800000000000000
+      internalID: -6874452462715978159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_86
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 145
+        width: 94
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7354007376c5a60800000000000000
+      internalID: 7664114151803140051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_87
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 177
+        width: 82
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa919a841f1e0fd50800000000000000
+      internalID: 6769158666360265130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_88
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 198
+        width: 75
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b9435672aecfdd0800000000000000
+      internalID: -2450826642273821851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_89
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 216
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390c670513e1218b0800000000000000
+      internalID: -5183047023997828973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_90
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 200
+        width: 70
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76801b3d832b3ebc0800000000000000
+      internalID: -3754961707157354393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_91
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 179
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4de3731389c3ad0800000000000000
+      internalID: -2721132737690938139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_92
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 146
+        width: 92
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59d702f451471940800000000000000
+      internalID: 5266750122326743389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_93
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 128
+        width: 99
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c096928b58e9be0800000000000000
+      internalID: -1468589402460975981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_94
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 110
+        width: 106
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ef39ef333482a40800000000000000
+      internalID: 5343594848468598327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_95
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 92
+        width: 114
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b19d7705c8da0dc0800000000000000
+      internalID: -3671884205421391433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_96
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 74
+        width: 124
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 501817f4632f81ce0800000000000000
+      internalID: -1434130166242508539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_97
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 156
+        width: 89
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e400f6eadf5c2910800000000000000
+      internalID: 1813930143705466085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_98
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 195
+        width: 52
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a179f853aff512420800000000000000
+      internalID: 2603467587841922842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_99
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 157
+        width: 84
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5b614291b105d4c0800000000000000
+      internalID: -4263499610061706405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_100
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 74
+        width: 121
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539a34312dcf41bb0800000000000000
+      internalID: -4966066509886281419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_101
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 135
+        width: 97
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba3beb5bef6ce0d0800000000000000
+      internalID: -3392213362666685767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_102
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 151
+        width: 73
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de812aaca822900b0800000000000000
+      internalID: -5762036268743386899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_103
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 173
+        width: 62
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f39afbdbc269320800000000000000
+      internalID: 2564286231310057287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_104
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 136
+        width: 90
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fcb07bb880cb4b0800000000000000
+      internalID: -5423450455096438967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_105
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 71
+        width: 118
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaebddae65f4c5cf0800000000000000
+      internalID: -262247443568148822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_106
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 93
+        width: 111
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14226811ecaeb1460800000000000000
+      internalID: 7213617398942147137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_107
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 114
+        width: 104
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7555e9515c7ce20800000000000000
+      internalID: 3370879542751483865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_108
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 108
+        width: 94
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233c79d52d17a38e0800000000000000
+      internalID: -1712931559933754574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_109
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 129
+        width: 84
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94324f7e014555690800000000000000
+      internalID: -7614087163412208823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_110
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 115
+        width: 98
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44222fd70f7de4200800000000000000
+      internalID: 166307664164430404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_111
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 94
+        width: 105
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a49a65ca34daa0f0800000000000000
+      internalID: -1104837409680747354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_112
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 73
+        width: 112
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84c7b93eb581ce80800000000000000
+      internalID: -8160093997760002934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_113
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 29
+        width: 132
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f396c8c07b89abb0800000000000000
+      internalID: -4924251401031871502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_114
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 50
+        width: 125
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a9fff4858088ee0800000000000000
+      internalID: -1258746920457758193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_115
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 64
+        width: 114
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 817aeabf92b098a90800000000000000
+      internalID: -7311300245115197672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_116
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 86
+        width: 104
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6572214dca6c2fd30800000000000000
+      internalID: 4463848626272216918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_117
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 52
+        width: 120
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f627bc9222fed2c20800000000000000
+      internalID: 3183463441629934191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_118
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 31
+        width: 127
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b6052bc3b05a2b0800000000000000
+      internalID: -5574036608483562706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_119
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 8
+        width: 140
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b821ae72a8a5bcd0800000000000000
+      internalID: -2542940998718117710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_120
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 21
+        width: 135
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6317bca21357b26f0800000000000000
+      internalID: -708343662348897994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_121
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 42
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc75d166e58b2ea0800000000000000
+      internalID: -5896472062581179143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_122
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 10
+        width: 133
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6488758487382a0800000000000000
+      internalID: -6736408365514602808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Italy_123
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 0
+        width: 146
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e43d478760e64b40800000000000000
+      internalID: 5424269536470578402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Italy_0: -4171653571250100432
+      Italy_1: -5623452377573054162
+      Italy_10: -9034858675229410114
+      Italy_100: -4966066509886281419
+      Italy_101: -3392213362666685767
+      Italy_102: -5762036268743386899
+      Italy_103: 2564286231310057287
+      Italy_104: -5423450455096438967
+      Italy_105: -262247443568148822
+      Italy_106: 7213617398942147137
+      Italy_107: 3370879542751483865
+      Italy_108: -1712931559933754574
+      Italy_109: -7614087163412208823
+      Italy_11: 7060926764209777953
+      Italy_110: 166307664164430404
+      Italy_111: -1104837409680747354
+      Italy_112: -8160093997760002934
+      Italy_113: -4924251401031871502
+      Italy_114: -1258746920457758193
+      Italy_115: -7311300245115197672
+      Italy_116: 4463848626272216918
+      Italy_117: 3183463441629934191
+      Italy_118: -5574036608483562706
+      Italy_119: -2542940998718117710
+      Italy_12: 6227854970234667419
+      Italy_120: -708343662348897994
+      Italy_121: -5896472062581179143
+      Italy_122: -6736408365514602808
+      Italy_123: 5424269536470578402
+      Italy_13: 2176227694046685171
+      Italy_14: -8909717687809353315
+      Italy_15: -1922941825068797436
+      Italy_16: 7730474302552653845
+      Italy_17: -4812609176794923486
+      Italy_18: -5436883597303265601
+      Italy_19: 5783940263051079637
+      Italy_2: -1352365441499865693
+      Italy_20: 7225957172024008325
+      Italy_21: -8679665953957293139
+      Italy_22: 5565996999152951191
+      Italy_23: -1206844901153151027
+      Italy_24: -427663588494643521
+      Italy_25: 4064756768533364444
+      Italy_26: -988852256920338266
+      Italy_27: 2930756706212517695
+      Italy_28: -6737356926582028305
+      Italy_29: 8719988899843022720
+      Italy_3: 1971752000845323254
+      Italy_30: -4371687363127501414
+      Italy_31: -5018765512528577543
+      Italy_32: 7881040246020659084
+      Italy_33: 8482215012498866113
+      Italy_34: 617464883225890406
+      Italy_35: -8650078864890262777
+      Italy_36: 7134343202148542471
+      Italy_37: -361452043595536644
+      Italy_38: 8526425541280156469
+      Italy_39: -4426715552424961551
+      Italy_4: 553516339627445791
+      Italy_40: 909739680552364414
+      Italy_41: -1647664926389030343
+      Italy_42: 2989440706732301785
+      Italy_43: 4261573562575666495
+      Italy_44: -7563267169860724783
+      Italy_45: 4461002885076829538
+      Italy_46: 8635327422650870462
+      Italy_47: 7817684524720822230
+      Italy_48: -3668646537732117201
+      Italy_49: -996265243360583771
+      Italy_5: 4103581259918010940
+      Italy_50: 2871167833808647624
+      Italy_51: 2065758253558689685
+      Italy_52: -4665965000244211351
+      Italy_53: 1532732385521311400
+      Italy_54: -8744230233568005312
+      Italy_55: 3825044083040082848
+      Italy_56: 4050524394801192462
+      Italy_57: -7164838261573224082
+      Italy_58: -1320273778341307897
+      Italy_59: -6910435849537630289
+      Italy_6: 6343600519479178318
+      Italy_60: -6440123250264248707
+      Italy_61: -5100777764880477143
+      Italy_62: 5535652293024454410
+      Italy_63: 559580515688149998
+      Italy_64: -5364951067671501893
+      Italy_65: -943597559680321099
+      Italy_66: 1926274476571339057
+      Italy_67: -2359106622456230142
+      Italy_68: -8257252117955878201
+      Italy_69: 1083625556740857549
+      Italy_7: 1009653433940013343
+      Italy_70: 3850813090042258149
+      Italy_71: 6793888475390503802
+      Italy_72: 3963937589094312969
+      Italy_73: -3671275462511592268
+      Italy_74: 2985683722419398436
+      Italy_75: -4648267471909744660
+      Italy_76: 7955271229746751906
+      Italy_77: -6530510832343980646
+      Italy_78: -5588322159754864904
+      Italy_79: -8281382529062726721
+      Italy_8: -7274526533925284771
+      Italy_80: 4674669671424931414
+      Italy_81: 4744884234203662022
+      Italy_82: -8455072309794287940
+      Italy_83: -6249367631992951663
+      Italy_84: 2045679563815173977
+      Italy_85: -6874452462715978159
+      Italy_86: 7664114151803140051
+      Italy_87: 6769158666360265130
+      Italy_88: -2450826642273821851
+      Italy_89: -5183047023997828973
+      Italy_9: 8580575872336361393
+      Italy_90: -3754961707157354393
+      Italy_91: -2721132737690938139
+      Italy_92: 5266750122326743389
+      Italy_93: -1468589402460975981
+      Italy_94: 5343594848468598327
+      Italy_95: -3671884205421391433
+      Italy_96: -1434130166242508539
+      Italy_97: 1813930143705466085
+      Italy_98: 2603467587841922842
+      Italy_99: -4263499610061706405
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

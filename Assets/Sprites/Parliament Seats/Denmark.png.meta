@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 64680d85c0c5e42bcb0ad2e9bb8654b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2833630465986982656
+    second: Denmark_0
+  - first:
+      213: 724887362182620970
+    second: Denmark_1
+  - first:
+      213: 8063551780679174715
+    second: Denmark_2
+  - first:
+      213: -855064587200475808
+    second: Denmark_3
+  - first:
+      213: -8943188611802064502
+    second: Denmark_4
+  - first:
+      213: 5695466029122746122
+    second: Denmark_5
+  - first:
+      213: 337564953091238642
+    second: Denmark_6
+  - first:
+      213: -5955262937670140179
+    second: Denmark_7
+  - first:
+      213: 1072446669562914864
+    second: Denmark_8
+  - first:
+      213: 2500138442586271810
+    second: Denmark_9
+  - first:
+      213: 2845572134731053367
+    second: Denmark_10
+  - first:
+      213: 2028671644268621883
+    second: Denmark_11
+  - first:
+      213: -7840338530548030259
+    second: Denmark_12
+  - first:
+      213: 2842512778857475096
+    second: Denmark_13
+  - first:
+      213: -8767711084426939101
+    second: Denmark_14
+  - first:
+      213: 880882693257185840
+    second: Denmark_15
+  - first:
+      213: 48619640863850533
+    second: Denmark_16
+  - first:
+      213: -5567132030097147424
+    second: Denmark_17
+  - first:
+      213: 1149277913175232719
+    second: Denmark_18
+  - first:
+      213: -5255002929366200596
+    second: Denmark_19
+  - first:
+      213: -3920722622507774104
+    second: Denmark_20
+  - first:
+      213: -8775896192776360376
+    second: Denmark_21
+  - first:
+      213: 6820368522879956464
+    second: Denmark_22
+  - first:
+      213: 6484895548505290328
+    second: Denmark_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Denmark_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 142
+        width: 8
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d0f1aba1ceca8d0800000000000000
+      internalID: -2833630465986982656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 145
+        width: 9
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27a01d17315f0a00800000000000000
+      internalID: 724887362182620970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 147
+        width: 9
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ac95b3f9d77ef60800000000000000
+      internalID: 8063551780679174715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 149
+        width: 8
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d46ebc9433224f0800000000000000
+      internalID: -855064587200475808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_4
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 152
+        width: 9
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a891832375963e380800000000000000
+      internalID: -8943188611802064502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_5
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 152
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a077a287d2c5a0f40800000000000000
+      internalID: 5695466029122746122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 150
+        width: 9
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2faef9d49854fa400800000000000000
+      internalID: 337564953091238642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_7
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 147
+        width: 8
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee3f1819e7aa5da0800000000000000
+      internalID: -5955262937670140179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_8
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 145
+        width: 9
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03829db509812ee00800000000000000
+      internalID: 1072446669562914864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_9
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 143
+        width: 8
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24037afcaa642b220800000000000000
+      internalID: 2500138442586271810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739f461b7c08d7720800000000000000
+      internalID: 2845572134731053367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 137
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30f982bc1a472c10800000000000000
+      internalID: 2028671644268621883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 21
+        width: 131
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc460e775a5813390800000000000000
+      internalID: -7840338530548030259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_13
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 32
+        width: 120
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81cee45ef42a27720800000000000000
+      internalID: 2842512778857475096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 43
+        width: 109
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3253a77d835d25680800000000000000
+      internalID: -8767711084426939101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_15
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 53
+        width: 98
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a42647426893c00800000000000000
+      internalID: 880882693257185840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_16
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 64
+        width: 87
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5200cc64e4bbca000800000000000000
+      internalID: 48619640863850533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_17
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 64
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e93c502ae29db2b0800000000000000
+      internalID: -5567132030097147424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_18
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 53
+        width: 94
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc013034c2e03ff00800000000000000
+      internalID: 1149277913175232719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_19
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 43
+        width: 105
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee8d7d8daa7217b0800000000000000
+      internalID: -5255002929366200596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_20
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 32
+        width: 116
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f06963c8bc699c0800000000000000
+      internalID: -3920722622507774104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_21
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 21
+        width: 127
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84eacdbc8e0c53680800000000000000
+      internalID: -8775896192776360376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_22
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 11
+        width: 137
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5f3832901d6ae50800000000000000
+      internalID: 6820368522879956464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Denmark_23
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 133
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8567b26942afef950800000000000000
+      internalID: 6484895548505290328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Denmark_0: -2833630465986982656
+      Denmark_1: 724887362182620970
+      Denmark_10: 2845572134731053367
+      Denmark_11: 2028671644268621883
+      Denmark_12: -7840338530548030259
+      Denmark_13: 2842512778857475096
+      Denmark_14: -8767711084426939101
+      Denmark_15: 880882693257185840
+      Denmark_16: 48619640863850533
+      Denmark_17: -5567132030097147424
+      Denmark_18: 1149277913175232719
+      Denmark_19: -5255002929366200596
+      Denmark_2: 8063551780679174715
+      Denmark_20: -3920722622507774104
+      Denmark_21: -8775896192776360376
+      Denmark_22: 6820368522879956464
+      Denmark_23: 6484895548505290328
+      Denmark_3: -855064587200475808
+      Denmark_4: -8943188611802064502
+      Denmark_5: 5695466029122746122
+      Denmark_6: 337564953091238642
+      Denmark_7: -5955262937670140179
+      Denmark_8: 1072446669562914864
+      Denmark_9: 2500138442586271810
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

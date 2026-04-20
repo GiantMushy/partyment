@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 36643fefd70b54586aebef7c11292709
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -537563614448136770
+    second: Slovakia_0
+  - first:
+      213: 2922626501966981095
+    second: Slovakia_1
+  - first:
+      213: -3303463603482502297
+    second: Slovakia_2
+  - first:
+      213: 2713969025175112069
+    second: Slovakia_3
+  - first:
+      213: -1007671131592641827
+    second: Slovakia_4
+  - first:
+      213: 5089832551678172643
+    second: Slovakia_5
+  - first:
+      213: -430918037182460999
+    second: Slovakia_6
+  - first:
+      213: 1287836360596338361
+    second: Slovakia_7
+  - first:
+      213: -7869370064792966767
+    second: Slovakia_8
+  - first:
+      213: 9148916371231127282
+    second: Slovakia_9
+  - first:
+      213: 1718422030477766660
+    second: Slovakia_10
+  - first:
+      213: -3688292342474547313
+    second: Slovakia_11
+  - first:
+      213: -3122024258246527094
+    second: Slovakia_12
+  - first:
+      213: 4362600931698326752
+    second: Slovakia_13
+  - first:
+      213: 5247606439859273111
+    second: Slovakia_14
+  - first:
+      213: -7879188202575254680
+    second: Slovakia_15
+  - first:
+      213: -8878776721725199730
+    second: Slovakia_16
+  - first:
+      213: -2347271736570577510
+    second: Slovakia_17
+  - first:
+      213: -4672851602849672359
+    second: Slovakia_18
+  - first:
+      213: -7282731299489201118
+    second: Slovakia_19
+  - first:
+      213: 2864014313234518281
+    second: Slovakia_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Slovakia_0
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 234
+        width: 371
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebdc4a4adb03a88f0800000000000000
+      internalID: -537563614448136770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 215
+        width: 371
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e762ec91514f8820800000000000000
+      internalID: 2922626501966981095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 195
+        width: 371
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b5ef9ea5db722d0800000000000000
+      internalID: -3303463603482502297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 153
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589c9fcf274f9a520800000000000000
+      internalID: 2713969025175112069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 39
+        width: 147
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd23107d1780402f0800000000000000
+      internalID: -1007671131592641827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_5
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 54
+        width: 139
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed5ff81db7b2a640800000000000000
+      internalID: 5089832551678172643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 69
+        width: 132
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb4e6a0452150af0800000000000000
+      internalID: -430918037182460999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_7
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 84
+        width: 125
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b63d22c8505fd110800000000000000
+      internalID: 1287836360596338361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 99
+        width: 116
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1992ce9ae916ac290800000000000000
+      internalID: -7869370064792966767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 77
+        width: 190
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6bcf277fa77fe70800000000000000
+      internalID: 9148916371231127282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_10
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 100
+        width: 114
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40035dc6bbf09d710800000000000000
+      internalID: 1718422030477766660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_11
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 85
+        width: 122
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fd20be7ad80dcc0800000000000000
+      internalID: -3688292342474547313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_12
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 70
+        width: 130
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8730137a775ca4d0800000000000000
+      internalID: -3122024258246527094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_13
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 55
+        width: 137
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ecbaaeee621b8c30800000000000000
+      internalID: 4362600931698326752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_14
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 39
+        width: 145
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d3dd8014e33d840800000000000000
+      internalID: 5247606439859273111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_15
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 24
+        width: 151
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86bad03531087a290800000000000000
+      internalID: -7879188202575254680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 30
+        width: 222
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8aef850d9f38c480800000000000000
+      internalID: -8878776721725199730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_17
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 46
+        width: 210
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d756ebac0dc6fd0800000000000000
+      internalID: -2347271736570577510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_18
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 62
+        width: 200
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953d70c9932b62fb0800000000000000
+      internalID: -4672851602849672359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_19
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 244
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224c35bf77a8eea90800000000000000
+      internalID: -7282731299489201118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slovakia_20
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 14
+        width: 232
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9015afbf7d50fb720800000000000000
+      internalID: 2864014313234518281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Slovakia_0: -537563614448136770
+      Slovakia_1: 2922626501966981095
+      Slovakia_10: 1718422030477766660
+      Slovakia_11: -3688292342474547313
+      Slovakia_12: -3122024258246527094
+      Slovakia_13: 4362600931698326752
+      Slovakia_14: 5247606439859273111
+      Slovakia_15: -7879188202575254680
+      Slovakia_16: -8878776721725199730
+      Slovakia_17: -2347271736570577510
+      Slovakia_18: -4672851602849672359
+      Slovakia_19: -7282731299489201118
+      Slovakia_2: -3303463603482502297
+      Slovakia_20: 2864014313234518281
+      Slovakia_3: 2713969025175112069
+      Slovakia_4: -1007671131592641827
+      Slovakia_5: 5089832551678172643
+      Slovakia_6: -430918037182460999
+      Slovakia_7: 1287836360596338361
+      Slovakia_8: -7869370064792966767
+      Slovakia_9: 9148916371231127282
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

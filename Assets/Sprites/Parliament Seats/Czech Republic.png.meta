@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: e9e2eb283ab184277929c76df84bf9a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4000225086859184497
+    second: Czech Republic_0
+  - first:
+      213: 2737480750179224901
+    second: Czech Republic_1
+  - first:
+      213: -6692197818897056927
+    second: Czech Republic_2
+  - first:
+      213: -6633260826066457858
+    second: Czech Republic_3
+  - first:
+      213: 3256741498435753675
+    second: Czech Republic_4
+  - first:
+      213: -8857385174155759026
+    second: Czech Republic_5
+  - first:
+      213: 3143230213631087678
+    second: Czech Republic_6
+  - first:
+      213: -2710343160265152559
+    second: Czech Republic_7
+  - first:
+      213: -170170716282578093
+    second: Czech Republic_8
+  - first:
+      213: 1950108465258352053
+    second: Czech Republic_9
+  - first:
+      213: -3528428993557836571
+    second: Czech Republic_10
+  - first:
+      213: -2861799974848988615
+    second: Czech Republic_11
+  - first:
+      213: -8156502783446960525
+    second: Czech Republic_12
+  - first:
+      213: 1914511323230997493
+    second: Czech Republic_13
+  - first:
+      213: -3803313459883825431
+    second: Czech Republic_14
+  - first:
+      213: -7533897250521303075
+    second: Czech Republic_15
+  - first:
+      213: -7369629134593108217
+    second: Czech Republic_16
+  - first:
+      213: -4706947083287572974
+    second: Czech Republic_17
+  - first:
+      213: -6254600509730465664
+    second: Czech Republic_18
+  - first:
+      213: -1109566223687630384
+    second: Czech Republic_19
+  - first:
+      213: -4232784644654952686
+    second: Czech Republic_20
+  - first:
+      213: 4424604577974969452
+    second: Czech Republic_21
+  - first:
+      213: 3676788409970539521
+    second: Czech Republic_22
+  - first:
+      213: -3222640772304649477
+    second: Czech Republic_23
+  - first:
+      213: 6531286136145110605
+    second: Czech Republic_24
+  - first:
+      213: 7319552121450207223
+    second: Czech Republic_25
+  - first:
+      213: -179958157137039974
+    second: Czech Republic_26
+  - first:
+      213: 3126602557410364321
+    second: Czech Republic_27
+  - first:
+      213: -5427956035470840666
+    second: Czech Republic_28
+  - first:
+      213: -7745112092199673466
+    second: Czech Republic_29
+  - first:
+      213: 6846206357701067555
+    second: Czech Republic_30
+  - first:
+      213: -4588106385928038617
+    second: Czech Republic_31
+  - first:
+      213: 1441361777628808095
+    second: Czech Republic_32
+  - first:
+      213: -6691992541609025270
+    second: Czech Republic_33
+  - first:
+      213: -5938033973542469865
+    second: Czech Republic_34
+  - first:
+      213: 7982949370167482452
+    second: Czech Republic_35
+  - first:
+      213: -4331648445573235477
+    second: Czech Republic_36
+  - first:
+      213: 7801487943869056099
+    second: Czech Republic_37
+  - first:
+      213: -8965819845793189022
+    second: Czech Republic_38
+  - first:
+      213: -6276610924954661348
+    second: Czech Republic_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Czech Republic_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 263
+        width: 105
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f86f6244a785c78c0800000000000000
+      internalID: -4000225086859184497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_1
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 263
+        width: 109
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54d07ed0d3c7df520800000000000000
+      internalID: 2737480750179224901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b3ffd5a898023a0800000000000000
+      internalID: -6692197818897056927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_3
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 243
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa6bc75c6ce1f3a0800000000000000
+      internalID: -6633260826066457858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6598b4325423d20800000000000000
+      internalID: 3256741498435753675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_5
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 223
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4272afcc1f341580800000000000000
+      internalID: -8857385174155759026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 203
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3491cac93ffe9b20800000000000000
+      internalID: 3143230213631087678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_7
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 203
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d76cf8714de26ad0800000000000000
+      internalID: -2710343160265152559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 105
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b9dc892ae63adf0800000000000000
+      internalID: -170170716282578093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_9
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 184
+        width: 109
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdc439215d201b10800000000000000
+      internalID: 1950108465258352053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 105
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eccbc75680880fc0800000000000000
+      internalID: -3528428993557836571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_11
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 159
+        width: 109
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a77e8d518d848d0800000000000000
+      internalID: -2861799974848988615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 139
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376b827fee74ece80800000000000000
+      internalID: -8156502783446960525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_13
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 139
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb85aba7e5b19a10800000000000000
+      internalID: 1914511323230997493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 119
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6a92e1f8ae73bc0800000000000000
+      internalID: -3803313459883825431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_15
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 119
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd7b260fd58327790800000000000000
+      internalID: -7533897250521303075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707553a1951d9b990800000000000000
+      internalID: -7369629134593108217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_17
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 99
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e4514f0909daeb0800000000000000
+      internalID: -4706947083287572974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 105
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088d98589f13339a0800000000000000
+      internalID: -6254600509730465664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_19
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 81
+        width: 109
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1c356f5670a90f0800000000000000
+      internalID: -1109566223687630384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f0d9cbac02245c0800000000000000
+      internalID: -4232784644654952686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_21
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 55
+        width: 90
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64e3cdcb6a576d30800000000000000
+      internalID: 4424604577974969452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_22
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 55
+        width: 90
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c31921493960330800000000000000
+      internalID: 3676788409970539521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_23
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 55
+        width: 86
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf24718ba41e643d0800000000000000
+      internalID: -3222640772304649477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_24
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 55
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46ec57f22ac3aa50800000000000000
+      internalID: 6531286136145110605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 105
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f71ff1bfd5449560800000000000000
+      internalID: 7319552121450207223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_26
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 37
+        width: 90
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9da9617209a08df0800000000000000
+      internalID: -179958157137039974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_27
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 37
+        width: 90
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1abc544e57ce36b20800000000000000
+      internalID: 3126602557410364321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_28
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 37
+        width: 86
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aca2598eb60ca4b0800000000000000
+      internalID: -5427956035470840666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_29
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 37
+        width: 109
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6812bd66695d38490800000000000000
+      internalID: -7745112092199673466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 105
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3230bc9d86c920f50800000000000000
+      internalID: 6846206357701067555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_31
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 19
+        width: 90
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727de030d85c350c0800000000000000
+      internalID: -4588106385928038617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_32
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 19
+        width: 90
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93046c66eeb00410800000000000000
+      internalID: 1441361777628808095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_33
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 19
+        width: 86
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01a4d53d344123a0800000000000000
+      internalID: -6691992541609025270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_34
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 19
+        width: 109
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fbcc6ef8dd79da0800000000000000
+      internalID: -5938033973542469865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 105
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458d2cc182229ce60800000000000000
+      internalID: 7982949370167482452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_36
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 90
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: becfbb550b4e2e3c0800000000000000
+      internalID: -4331648445573235477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_37
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 90
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364cecd63f3744c60800000000000000
+      internalID: 7801487943869056099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_38
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 86
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263795b6a52039380800000000000000
+      internalID: -8965819845793189022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Czech Republic_39
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 0
+        width: 109
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ecdb06e9ff4e8a0800000000000000
+      internalID: -6276610924954661348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Czech Republic_0: -4000225086859184497
+      Czech Republic_1: 2737480750179224901
+      Czech Republic_10: -3528428993557836571
+      Czech Republic_11: -2861799974848988615
+      Czech Republic_12: -8156502783446960525
+      Czech Republic_13: 1914511323230997493
+      Czech Republic_14: -3803313459883825431
+      Czech Republic_15: -7533897250521303075
+      Czech Republic_16: -7369629134593108217
+      Czech Republic_17: -4706947083287572974
+      Czech Republic_18: -6254600509730465664
+      Czech Republic_19: -1109566223687630384
+      Czech Republic_2: -6692197818897056927
+      Czech Republic_20: -4232784644654952686
+      Czech Republic_21: 4424604577974969452
+      Czech Republic_22: 3676788409970539521
+      Czech Republic_23: -3222640772304649477
+      Czech Republic_24: 6531286136145110605
+      Czech Republic_25: 7319552121450207223
+      Czech Republic_26: -179958157137039974
+      Czech Republic_27: 3126602557410364321
+      Czech Republic_28: -5427956035470840666
+      Czech Republic_29: -7745112092199673466
+      Czech Republic_3: -6633260826066457858
+      Czech Republic_30: 6846206357701067555
+      Czech Republic_31: -4588106385928038617
+      Czech Republic_32: 1441361777628808095
+      Czech Republic_33: -6691992541609025270
+      Czech Republic_34: -5938033973542469865
+      Czech Republic_35: 7982949370167482452
+      Czech Republic_36: -4331648445573235477
+      Czech Republic_37: 7801487943869056099
+      Czech Republic_38: -8965819845793189022
+      Czech Republic_39: -6276610924954661348
+      Czech Republic_4: 3256741498435753675
+      Czech Republic_5: -8857385174155759026
+      Czech Republic_6: 3143230213631087678
+      Czech Republic_7: -2710343160265152559
+      Czech Republic_8: -170170716282578093
+      Czech Republic_9: 1950108465258352053
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
