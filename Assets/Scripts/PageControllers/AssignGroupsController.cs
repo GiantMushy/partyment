@@ -127,6 +127,7 @@ public class AssignGroupsController : MonoBehaviour
         numberOfGroups++;
         CreateGroupContainer(numberOfGroups); // label = "Group N"
         RefreshButtons();
+        ForceLayoutRebuild();
     }
 
     /// <summary>Remove the last group, ejecting its players to the unassigned area.</summary>
@@ -142,6 +143,7 @@ public class AssignGroupsController : MonoBehaviour
         numberOfGroups--;
 
         RefreshButtons();
+        ForceLayoutRebuild();
     }
 
     /// <summary>
@@ -403,15 +405,15 @@ public class AssignGroupsController : MonoBehaviour
         RectTransform rt = card.GetComponent<RectTransform>();
         cardToPlayerId[rt] = player.id;
 
-        // Wire up the drag handle
-        DragHandle handle = card.GetComponentInChildren<DragHandle>(true);
-        if (handle != null)
-        {
-            handle.nameCard = rt;
-            handle.Initialize(this);
-            // Disable dragging for the DM card
-            handle.enabled = draggable;
-        }
+        // Remove any DragHandle that exists on children (e.g. the Drag Icon in the prefab)
+        foreach (var childHandle in card.GetComponentsInChildren<DragHandle>(true))
+            DestroyImmediate(childHandle);
+
+        // Wire up drag handling on the card itself
+        DragHandle handle = card.AddComponent<DragHandle>();
+        handle.nameCard = rt;
+        handle.Initialize(this);
+        handle.enabled = draggable;
 
         // Ensure card has a CanvasGroup for drag fading
         if (card.GetComponent<CanvasGroup>() == null)
@@ -627,6 +629,7 @@ public class AssignGroupsController : MonoBehaviour
         }
 
         RefreshButtons();
+        ForceLayoutRebuild();
     }
 
     // ================================================================

@@ -3,16 +3,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// Attach this to the "Drag Icon" child of a NameInGroupPrefab.
-/// Dragging is initiated only from this handle, not the entire card.
+/// Attach this directly to the NameInGroupPrefab root.
+/// Dragging can be initiated from anywhere on the card.
 /// Communicates drag lifecycle events back to AssignGroupsController.
 /// </summary>
-[RequireComponent(typeof(Image))]
 public class DragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    // ---- Inspector Reference ----
-    [Tooltip("The NameInGroupPrefab this handle belongs to (parent card).")]
-    public RectTransform nameCard;
+    // ---- Runtime Reference ----
+    /// <summary>The RectTransform of this card (set automatically on Initialize).</summary>
+    [HideInInspector] public RectTransform nameCard;
 
     // ---- Runtime State ----
     private AssignGroupsController controller;
@@ -22,18 +21,16 @@ public class DragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private Transform originalParent;
     private int originalSiblingIndex;
 
-    void Awake()
+    /// <summary>Lazily resolves the CanvasGroup on the name card.</summary>
+    private CanvasGroup GetCardCanvasGroup()
     {
-        // Walk up to find the controller (it lives on the page root)
-        controller = GetComponentInParent<AssignGroupsController>();
-
-        // Ensure the name card has a CanvasGroup for fading during drag
-        if (nameCard != null)
+        if (cardCanvasGroup == null && nameCard != null)
         {
             cardCanvasGroup = nameCard.GetComponent<CanvasGroup>();
             if (cardCanvasGroup == null)
                 cardCanvasGroup = nameCard.gameObject.AddComponent<CanvasGroup>();
         }
+        return cardCanvasGroup;
     }
 
     /// <summary>
@@ -62,8 +59,12 @@ public class DragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         originalSiblingIndex = nameCard.GetSiblingIndex();
 
         // Fade the original card and let raycasts pass through it
-        cardCanvasGroup.alpha = 0.4f;
-        cardCanvasGroup.blocksRaycasts = false;
+        var cg = GetCardCanvasGroup();
+        if (cg != null)
+        {
+            cg.alpha = 0.4f;
+            cg.blocksRaycasts = false;
+        }
 
         // Create a ghost clone parented to the drag layer
         ghostRect = CreateGhost();
@@ -95,10 +96,11 @@ public class DragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void OnEndDrag(PointerEventData eventData)
     {
         // Restore card visuals
-        if (cardCanvasGroup != null)
+        var cg = GetCardCanvasGroup();
+        if (cg != null)
         {
-            cardCanvasGroup.alpha = 1f;
-            cardCanvasGroup.blocksRaycasts = true;
+            cg.alpha = 1f;
+            cg.blocksRaycasts = true;
         }
 
         // Destroy the ghost
@@ -125,10 +127,11 @@ public class DragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             ghostRect = null;
         }
 
-        if (cardCanvasGroup != null)
+        var cg = GetCardCanvasGroup();
+        if (cg != null)
         {
-            cardCanvasGroup.alpha = 1f;
-            cardCanvasGroup.blocksRaycasts = true;
+            cg.alpha = 1f;
+            cg.blocksRaycasts = true;
         }
     }
 

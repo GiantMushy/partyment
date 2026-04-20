@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 4657627036971035370}
   - component: {fileID: 7807405566448454839}
   - component: {fileID: 7860922239489237500}
-  - component: {fileID: 3770196600787511452}
   m_Layer: 5
   m_Name: Drag Icon
   m_TagString: Untagged
@@ -151,19 +150,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3770196600787511452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5437709183448230921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0333f6964b4cd4b6eaf9d6d1dad168cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragHandle
-  nameCard: {fileID: 3675449269103775873}
 --- !u!1 &5684955248577394169
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +298,8 @@ GameObject:
   - component: {fileID: 3675449269103775873}
   - component: {fileID: 5240807999732713682}
   - component: {fileID: 7858508919520832833}
+  - component: {fileID: 2771087175133472003}
+  - component: {fileID: 4098209564456130413}
   m_Layer: 5
   m_Name: Name In Group Prefab Moveable
   m_TagString: Untagged
@@ -382,3 +370,41 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!222 &2771087175133472003
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020421710525066323}
+  m_CullTransparentMesh: 1
+--- !u!114 &4098209564456130413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020421710525066323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
