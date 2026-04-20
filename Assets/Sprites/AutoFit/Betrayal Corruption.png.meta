@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41e78b0c8804a4722910a69317cd322d
+guid: 3611aa16bf80642279111b0cf44aad50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3406758075334205207
-    second: Betrayal SecObj Display_0
+      213: -5376145547440175334
+    second: Rectangle 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 115, y: 115, z: 115, w: 115}
+  spriteBorder: {x: 114, y: 114, z: 114, w: 114}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Betrayal SecObj Display_0
+      name: Rectangle 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 280
-        height: 280
+        width: 1224
+        height: 892
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0e20c8493c8b0d0800000000000000
-      internalID: -3406758075334205207
+      spriteID: a17c700db181465b0800000000000000
+      internalID: -5376145547440175334
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Betrayal SecObj Display_0: -3406758075334205207
+      Rectangle 2_0: -5376145547440175334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

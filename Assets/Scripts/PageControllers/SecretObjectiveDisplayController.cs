@@ -16,7 +16,6 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     [SerializeField] private Sprite civilianDisplaySprite;
     [SerializeField] private Sprite interruptionDisplaySprite;
     [SerializeField] private Sprite betrayalDisplaySprite;
-    [SerializeField] private Sprite secObjIconSprite;
     [SerializeField] private Sprite civilianIconSprite;
     [SerializeField] private Sprite spyIconSprite;
     [SerializeField] private GameObject nextButton;
@@ -251,6 +250,11 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
             switch (objective.type)
             {
                 case GameManager.SecretObjectiveType.Interruption:
+                    spyIconImage.gameObject.SetActive(true);
+                    civilianIconImage.gameObject.SetActive(false);
+                    spyIconImage.sprite = spyIconSprite;
+                    spyIconImage.color = GetSpyIconColorForType(objective.type);
+                    break;
                 case GameManager.SecretObjectiveType.Betrayal:
                     spyIconImage.gameObject.SetActive(true);
                     civilianIconImage.gameObject.SetActive(false);
@@ -260,7 +264,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
                 case GameManager.SecretObjectiveType.Speech:
                     spyIconImage.gameObject.SetActive(true);
                     civilianIconImage.gameObject.SetActive(false);
-                    spyIconImage.sprite = secObjIconSprite;
+                    spyIconImage.sprite = spyIconSprite;
                     spyIconImage.color = GetSpyIconColorForType(objective.type);
                     break;
                 case GameManager.SecretObjectiveType.Civilian:
@@ -353,8 +357,8 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         {
             GameManager.SecretObjectiveType.Interruption => spyIconSprite,
             GameManager.SecretObjectiveType.Betrayal     => spyIconSprite,
+            GameManager.SecretObjectiveType.Speech       => spyIconSprite,
             GameManager.SecretObjectiveType.Civilian     => civilianIconSprite,
-            _                                            => secObjIconSprite,
         };
     }
 
