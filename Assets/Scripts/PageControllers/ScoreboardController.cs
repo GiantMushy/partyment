@@ -14,6 +14,7 @@ public class ScoreboardController : MonoBehaviour
     
     [SerializeField] private List<GameObject> groupScoreDisplays = new List<GameObject>(7);
     [SerializeField] private List<GameObject> secObjScoreDisplays = new List<GameObject>(7);
+    [SerializeField] private List<TextMeshProUGUI> totalScoreDisplays = new List<TextMeshProUGUI>(7);
     [SerializeField] private List<GameObject> nameDisplays = new List<GameObject>(7);
 
     void Start()
@@ -57,6 +58,12 @@ public class ScoreboardController : MonoBehaviour
                     var rt = secObjScoreDisplays[i].GetComponent<RectTransform>();
                     rt.sizeDelta = new Vector2(rt.sizeDelta.x, secObjScore * 2);
                     secObjScoreDisplays[i].SetActive(true);
+                }
+
+                // Set total score text
+                if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)                {
+                    totalScoreDisplays[i].text = (groupScore + secObjScore).ToString();
+                    totalScoreDisplays[i].gameObject.SetActive(true);
                 }
 
                 // Set player name
