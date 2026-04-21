@@ -81,6 +81,8 @@ public class ScoreboardController : MonoBehaviour
                     groupScoreDisplays[i].SetActive(false);
                 if (i < secObjScoreDisplays.Count && secObjScoreDisplays[i] != null)
                     secObjScoreDisplays[i].SetActive(false);
+                if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)
+                    totalScoreDisplays[i].gameObject.SetActive(false);
                 if (i < nameDisplays.Count && nameDisplays[i] != null)
                     nameDisplays[i].SetActive(false);
             }

@@ -61,18 +61,18 @@ public class SecretObjectiveManager : MonoBehaviour
             // Pick a weighted random type: 40% Speech, 15% Interruption, 40% Civilian, 5% Betrayal
             float roll = Random.value;
             GameManager.SecretObjectiveType randomType;
-            if (roll < 0.40f)
+            if (roll < 0.4f)
                 randomType = GameManager.SecretObjectiveType.Speech;
             else if (roll < 0.55f)
                 randomType = GameManager.SecretObjectiveType.Interruption;
-            else if (roll < 0.95f)
+            else if (roll < 0.6f) 
+                randomType = GameManager.SecretObjectiveType.Betrayal;
+            else
             {
-                // Civilian — no secret objective, same as DM
+                // Civilian — no secret objective
                 player.secretObjectiveId = -1;
                 continue;
             }
-            else
-                randomType = GameManager.SecretObjectiveType.Betrayal;
 
             var objective = GetRandomUnusedSecretObjective(randomType);
 
