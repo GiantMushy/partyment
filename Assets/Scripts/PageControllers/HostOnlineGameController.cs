@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using AppUIButton = Unity.AppUI.UI.Button;
+using UnityEngine.UI;
 
 public class HostOnlineGameController : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class HostOnlineGameController : MonoBehaviour
     [SerializeField] private GameObject playerNamePrefab;
     [SerializeField] private TMP_InputField hostNameInputField;
     [SerializeField] private TextMeshProUGUI roomCodeText;
-    [SerializeField] private AppUIButton nextButton;
+    [SerializeField] private UnityEngine.UI.Button nextButton;
     private Dictionary<int, string> playerNames = new Dictionary<int, string>();
     private Dictionary<int, GameObject> playerEntries = new Dictionary<int, GameObject>();
     private int nextPlayerId = 0;
@@ -120,7 +120,7 @@ public class HostOnlineGameController : MonoBehaviour
         // Connect the Kick button to KickPlayer with the current player ID
         int playerId = nextPlayerId - 1; // ID was just incremented in AddPlayer()
         playerEntries[playerId] = newPlayerEntry;
-        UnityEngine.UI.Button kickButton = newPlayerEntry.GetComponentInChildren<UnityEngine.UI.Button>();
+        Button kickButton = newPlayerEntry.GetComponentInChildren<Button>();
         if (kickButton != null)
         {
             kickButton.onClick.AddListener(() => KickPlayer(playerId));
@@ -157,7 +157,7 @@ public class HostOnlineGameController : MonoBehaviour
         bool hasHostName = !string.IsNullOrWhiteSpace(hostNameInputField != null ? hostNameInputField.text : string.Empty);
         bool hasEnoughPlayers = playerNames.Count >= 3;
 
-        nextButton.SetEnabled(hasHostName && hasEnoughPlayers);
+        nextButton.interactable = hasHostName && hasEnoughPlayers;
     }
 
     private void DeleteAllPlayerEntries()
