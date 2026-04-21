@@ -79,7 +79,15 @@ public class TopicManager : MonoBehaviour
 
         if (candidates.Count == 0)
         {
-            Debug.LogWarning($"No {type} topics available for seriousness level {seriousnessLevel}.");
+            // All topics of this type have been seen — reset and try again
+            Debug.Log($"All {type} topics seen, resetting seen list for this type.");
+            seenTopics.RemoveAll(t => t.type == type);
+            candidates = GetUnseenTopics(type, seriousnessLevel);
+        }
+
+        if (candidates.Count == 0)
+        {
+            Debug.LogWarning($"No {type} topics available for seriousness level {seriousnessLevel} even after reset.");
             return null;
         }
 

@@ -40,7 +40,7 @@ public class TopicDatabase : MonoBehaviour
         id = AddTopic(id, "Drramaaaa", "Drama classes should be mandatory in all elementary schools to encourage emotional expression", pack, TopicManager.TopicType.Medium);
         id = AddTopic(id, "Reply All", "Replying-all to a company-wide email should be a fireable offense", pack, TopicManager.TopicType.Medium);
         id = AddTopic(id, "The Arts", "Online influencers should receive government supplied artist salaries from the state", pack, TopicManager.TopicType.Medium);
-        id = AddTopic(id, "Hosting Etiquette", "It is acceptable to only offer beer ata a social gathering that advertises free drinks.", pack, TopicManager.TopicType.Medium);
+        id = AddTopic(id, "Hosting Etiquette", "It is acceptable to only offer beer at a social gathering that advertises free drinks.", pack, TopicManager.TopicType.Medium);
 
         // Long (5)
         id = AddTopic(id, "Shower Debate", "Your roommate takes 45-minute showers every morning and uses all the hot water, but they also cook dinner for you every night. Do you confront them about the showers?", pack, TopicManager.TopicType.Long);

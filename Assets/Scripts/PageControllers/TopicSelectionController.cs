@@ -68,6 +68,7 @@ public class TopicSelectionController : MonoBehaviour
     /// </summary>
     public void Refresh()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         LoadRandomTopics();
         PopulateButtonText();
     }
@@ -76,6 +77,7 @@ public class TopicSelectionController : MonoBehaviour
     private void SelectTopic(Topic topic)
     {
         if (topic == null) return;
+        EventSystem.current.SetSelectedGameObject(null);
         gameManager.topicManager.currentTopic = topic;
         gameManager.SetState(GameManager.GameState.MetricSelection);
     }
