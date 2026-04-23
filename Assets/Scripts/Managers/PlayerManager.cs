@@ -8,6 +8,7 @@ public class Player
     public int id;
     public string name;
     public int score = 0;
+    public int stolenScore = 0; // Points accumulated through successful accusations
     public int group_id = -1; // -1 means unassigned
     public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
 }
@@ -194,6 +195,37 @@ public class PlayerManager : MonoBehaviour
             return players[playerId].secretObjectiveId;
         Debug.LogWarning($"Player with ID {playerId} does not exist.");
         return -1;
+    }
+
+    // -------------------- Score Manipulation --------------------
+
+    /// <summary>Adds <paramref name="amount"/> to the player's regular score.</summary>
+    public void AddScore(int playerId, int amount)
+    {
+        if (!players.ContainsKey(playerId)) { Debug.LogWarning($"AddScore: Player {playerId} not found."); return; }
+        players[playerId].score += amount;
+        SyncPlayersList();
+    }
+
+    /// <summary>Subtracts <paramref name="amount"/> from the player's regular score (can go negative).</summary>
+    public void SubtractScore(int playerId, int amount)
+    {
+        if (!players.ContainsKey(playerId)) { Debug.LogWarning($"SubtractScore: Player {playerId} not found."); return; }
+        players[playerId].score -= amount;
+        SyncPlayersList();
+    }
+
+    /// <summary>
+    /// Records <paramref name="amount"/> as stolen points for <paramref name="accusingPlayerId"/> and
+    /// adds them to that player's regular score. Does NOT deduct from the accused player — call
+    /// <see cref="SubtractScore"/> separately on the accused player before calling this.
+    /// </summary>
+    public void AddStolenScore(int accusingPlayerId, int amount)
+    {
+        if (!players.ContainsKey(accusingPlayerId)) { Debug.LogWarning($"AddStolenScore: Player {accusingPlayerId} not found."); return; }
+        players[accusingPlayerId].stolenScore += amount;
+        players[accusingPlayerId].score       += amount;
+        SyncPlayersList();
     }
 
     // -------------------- Dev Mode --------------------
