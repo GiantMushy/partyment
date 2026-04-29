@@ -275,6 +275,10 @@ MonoBehaviour:
     m_Localized: "Sl\xE1\xF0u inn Lotuk\xF3\xF0a"
     m_Metadata:
       m_Items: []
+  - m_Id: 10520374725046272
+    m_Localized: "H\xE9rna eru regglurnar"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

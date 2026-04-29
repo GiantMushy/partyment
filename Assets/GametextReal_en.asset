@@ -274,6 +274,12 @@ MonoBehaviour:
     m_Localized: Enter Your Room Key
     m_Metadata:
       m_Items: []
+  - m_Id: 10520374725046272
+    m_Localized: 'This is the Rulebook Page
+
+'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
