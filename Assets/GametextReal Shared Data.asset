@@ -275,6 +275,87 @@ MonoBehaviour:
     m_Key: Rulebook Page
     m_Metadata:
       m_Items: []
+  - m_Id: 10542488945422336
+    m_Key: 'Start '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Key: Shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Key: Hold or tap to reveal your Corruption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Key: im done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Key: Topic Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Key: Group 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Key: Group 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Key: Group 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Key: Group 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Key: Group 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Key: Group 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Key: For
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Key: Against
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Key: Accusation!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Key: 'This is where players can accuse each other of Corruption. If they guess
+      correctly, they steal the corruption points
+
+
+      Click on the player that
+      is accusing'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Key: Incorrect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Key: Active Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Key: Inactive Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Key: Starting Game Setup
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

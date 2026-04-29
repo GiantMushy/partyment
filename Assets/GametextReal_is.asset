@@ -99,7 +99,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2929375169474560
-    m_Localized: "Veldu frumvarp sem leikmenn munu r\xE6\xF0a um"
+    m_Localized: "Veldu frumvarp e\xF0a velji\xF0 saman frumvarp sem leikmenn munu
+      r\xE6\xF0a um"
     m_Metadata:
       m_Items: []
   - m_Id: 2929931501957120
@@ -277,6 +278,84 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10520374725046272
     m_Localized: "H\xE9rna eru regglurnar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10542488945422336
+    m_Localized: Byrja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Localized: Stokka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Localized: "Haltu e\xF0a smelltu til a\xF0 sj\xE1 Spillinguna \xFE\xEDna\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Localized: "B\xFAin!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Localized: "Umr\xE6\xF0uefni L\xFDsing"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Localized: "H\xF3pur 6"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Localized: "H\xF3pur 5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Localized: "H\xF3pur 4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Localized: "H\xF3pur 3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Localized: "H\xF3pur 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Localized: "H\xF3pur 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Localized: "Me\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Localized: "\xC1 m\xF3ti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Localized: "\xC1s\xF6kun"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Localized: "\xDEetta er \xFEar sem leikmenn geta saka\xF0 hver annan um spillingu.
+      Ef \xFEeir giska r\xE9tt, stela \xFEeir spillingar stigunum\r\n\r\nSmelltu
+      \xE1 leikmanninn sem \xE1sakar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Localized: Vitlaust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Localized: Virk Verkefni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Localized: "\xD3virk Verkefni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Localized: Byrja Leik
     m_Metadata:
       m_Items: []
   references:

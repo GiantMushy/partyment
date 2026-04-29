@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2929375169474560
-    m_Localized: Choose a Bill that your players will debate
+    m_Localized: "Pick a topic and announce it\u2014or let the group decide!"
     m_Metadata:
       m_Items: []
   - m_Id: 2929931501957120
@@ -278,6 +278,87 @@ MonoBehaviour:
     m_Localized: 'This is the Rulebook Page
 
 '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10542488945422336
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Localized: Shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Localized: Hold or tap to reveal your Corruption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Localized: im done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Localized: Topic Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Localized: Group 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Localized: Group 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Localized: Group 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Localized: Group 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Localized: Group 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Localized: Group 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Localized: FOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Localized: Against
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Localized: Accusation!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Localized: 'This is where players can accuse each other of Corruption. If they
+      guess correctly, they steal the corruption points
+
+
+      Click on the player
+      that is accusing'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Localized: Incorrect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Localized: Active Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Localized: Inactive Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Localized: Starting Game Setup
     m_Metadata:
       m_Items: []
   references:
