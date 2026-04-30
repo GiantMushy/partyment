@@ -361,6 +361,22 @@ MonoBehaviour:
     m_Localized: Starting Game Setup
     m_Metadata:
       m_Items: []
+  - m_Id: 10888662424481792
+    m_Localized: Next Round!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10889828461965312
+    m_Localized: Your Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890083345625088
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890220713275392
+    m_Localized: Key
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
