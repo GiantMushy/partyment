@@ -25,8 +25,10 @@ public class DMDisplayController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currPositionText;
 
     [Header("Objective Containers")]
-    [Tooltip("RectTransform with HorizontalLayoutGroup. Slides left/right to reveal active or inactive panel.")]
+    [Tooltip("RectTransform that is a child of the VerticalLayoutGroup. Its position is managed by the VLG — do NOT slide this.")]
     [SerializeField] private RectTransform objectivesContainer;
+    [Tooltip("RectTransform inside objectivesContainer (stretch-fill). This is what actually slides — the VLG never touches it.")]
+    [SerializeField] private RectTransform slideTrack;
     [Tooltip("Left child of objectivesContainer — Speech(current group) + Interruption(all other groups).")]
     [SerializeField] private Transform activeObjectiveContainer;
     [Tooltip("Right child of objectivesContainer — Speech(all other groups) + Interruption(current group).")]
@@ -80,10 +82,12 @@ public class DMDisplayController : MonoBehaviour
 
     void Awake()
     {
-        // Cache before any layout or code can shift the container
-        if (objectivesContainer != null)
+        // Cache the slide track's resting position (centre / Active panel).
+        // We slide slideTrack, not objectivesContainer — the parent VerticalLayoutGroup
+        // owns objectivesContainer.anchoredPosition and will reset it on every layout rebuild.
+        if (slideTrack != null)
         {
-            defaultAnchoredPos = objectivesContainer.anchoredPosition;
+            defaultAnchoredPos = slideTrack.anchoredPosition;
             targetAnchoredPos  = defaultAnchoredPos;
         }
     }
@@ -107,9 +111,9 @@ public class DMDisplayController : MonoBehaviour
 
     void Update()
     {
-        if (objectivesContainer == null) return;
-        objectivesContainer.anchoredPosition = Vector2.Lerp(
-            objectivesContainer.anchoredPosition,
+        if (slideTrack == null) return;
+        slideTrack.anchoredPosition = Vector2.Lerp(
+            slideTrack.anchoredPosition,
             targetAnchoredPos,
             Time.deltaTime * objectivesSlideSpeed
         );
@@ -604,12 +608,12 @@ public class DMDisplayController : MonoBehaviour
         targetAnchoredPos = defaultAnchoredPos + new Vector2(-objectivesSlideOffset, 0f);
     }
 
-    /// <summary>Snaps the container to the active position instantly — used on screen entry.</summary>
+    /// <summary>Snaps the slide track to the active position instantly — used on screen entry.</summary>
     private void SnapToActiveObjectives()
     {
         targetAnchoredPos = defaultAnchoredPos;
-        if (objectivesContainer != null)
-            objectivesContainer.anchoredPosition = defaultAnchoredPos;
+        if (slideTrack != null)
+            slideTrack.anchoredPosition = defaultAnchoredPos;
     }
 
     // ===================================================================

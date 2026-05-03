@@ -36,6 +36,8 @@ public class AccusationController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI headerText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Button          incorrectButton;
+    /// <summary>Cached CanvasGroup on incorrectButton — used to show/hide without SetActive (which dirties the layout).</summary>
+    private CanvasGroup incorrectButtonGroup;
 
     [Header("Player Buttons (assign Player1 → Player8 in order)")]
     [SerializeField] private PlayerButtonUI[] playerButtons = new PlayerButtonUI[8];
@@ -54,10 +56,6 @@ public class AccusationController : MonoBehaviour
     [Tooltip("Points deducted from the accusing player on an incorrect accusation.")]
     [SerializeField] private int incorrectPenalty = 20;
 
-    [Header("Animation")]
-    [Tooltip("Duration in seconds for the selected button slide animation.")]
-    [SerializeField] private float moveDuration = 0.3f;
-
     // ===================================================================
     //  Private State
     // ===================================================================
@@ -75,12 +73,8 @@ public class AccusationController : MonoBehaviour
     private Color[]  originalBackgroundColors;
     private Color[]  originalTextColors;
     private Sprite[] originalIcons;
-    private int[]    originalSiblingIndices;   // sibling indices recorded at init time
-
     /// <summary>Index into playerButtons[] of the currently selected (accusing) player, or -1.</summary>
     private int selectedButtonIndex = -1;
-
-    private Coroutine moveCoroutine;
 
     // ===================================================================
     //  Unity Lifecycle
@@ -111,7 +105,6 @@ public class AccusationController : MonoBehaviour
         originalBackgroundColors = new Color[maxButtons];
         originalTextColors       = new Color[maxButtons];
         originalIcons            = new Sprite[maxButtons];
-        originalSiblingIndices   = new int[maxButtons];
 
         // Collect non-DM players sorted by ID
         int dmId = PlayerManager.dmId;
@@ -138,11 +131,10 @@ public class AccusationController : MonoBehaviour
                 originalBackgroundColors[i] = ui.backgroundImage != null ? ui.backgroundImage.color  : Color.white;
                 originalTextColors[i]       = ui.nameText        != null ? ui.nameText.color          : Color.black;
                 originalIcons[i]            = ui.iconImage       != null ? ui.iconImage.sprite        : null;
-                originalSiblingIndices[i]   = ui.button.transform.GetSiblingIndex();
 
                 // Show and wire click listener (remove old to avoid duplicates)
                 ui.button.gameObject.SetActive(true);
-                ui.button.interactable = true;
+                ui.button.interactable = !p.hasAccused;
                 int capturedIndex = i;
                 ui.button.onClick.RemoveAllListeners();
                 ui.button.onClick.AddListener(() => OnPlayerButtonClicked(capturedIndex));
@@ -158,9 +150,15 @@ public class AccusationController : MonoBehaviour
         // Setup Incorrect button
         if (incorrectButton != null)
         {
-            incorrectButton.gameObject.SetActive(false);
+            // Get or add a CanvasGroup so we can hide without SetActive (SetActive dirties the layout
+            // and causes the parent HorizontalLayoutGroup to reset/jerk).
+            incorrectButtonGroup = incorrectButton.GetComponent<CanvasGroup>();
+            if (incorrectButtonGroup == null)
+                incorrectButtonGroup = incorrectButton.gameObject.AddComponent<CanvasGroup>();
+
             incorrectButton.onClick.RemoveAllListeners();
             incorrectButton.onClick.AddListener(OnIncorrectButtonClicked);
+            HideIncorrectButton();
         }
 
         if (descriptionText != null) descriptionText.text = defaultDescription;
@@ -210,9 +208,6 @@ public class AccusationController : MonoBehaviour
         // Update description
         if (descriptionText != null) descriptionText.text = playerSelectedDescription;
 
-        // Smoothly move the selected button to sibling index 1 (between Header and Description)
-        ScheduleMove(accusingButtonIndex, targetSiblingIndex: 1);
-
         // Style all other visible buttons: red + point icon, disable those without a SecretObjective
         for (int i = 0; i < playerButtons.Length; i++)
         {
@@ -238,14 +233,11 @@ public class AccusationController : MonoBehaviour
         }
 
         // Reveal the Incorrect button
-        if (incorrectButton != null) incorrectButton.gameObject.SetActive(true);
+        ShowIncorrectButton();
     }
 
     private void CancelAccusation()
     {
-        // Move selected button back to its original position before returning to Default
-        ScheduleMove(selectedButtonIndex, originalSiblingIndices[selectedButtonIndex]);
-
         FinishAndReturnToDefault();
     }
 
@@ -285,8 +277,7 @@ public class AccusationController : MonoBehaviour
                   $"{PlayerManager.players[accusedPlayerId].name} and stole {stolenPoints} point(s). " +
                   $"Their stolenScore is now {PlayerManager.players[accusingPlayerId].stolenScore}.");
 
-        // Move selected button back before returning to default
-        ScheduleMove(selectedButtonIndex, originalSiblingIndices[selectedButtonIndex]);
+        PlayerManager.players[accusingPlayerId].hasAccused = true;
         FinishAndReturnToDefault();
     }
 
@@ -307,8 +298,7 @@ public class AccusationController : MonoBehaviour
         Debug.Log($"[Accusation] {PlayerManager.players[accusingPlayerId].name} made an incorrect accusation " +
                   $"and lost {incorrectPenalty} point(s). Score is now {PlayerManager.players[accusingPlayerId].score}.");
 
-        // Move selected button back before returning to default
-        ScheduleMove(selectedButtonIndex, originalSiblingIndices[selectedButtonIndex]);
+        PlayerManager.players[accusingPlayerId].hasAccused = true;
         FinishAndReturnToDefault();
     }
 
@@ -325,7 +315,7 @@ public class AccusationController : MonoBehaviour
 
         RestoreAllButtons();
 
-        if (incorrectButton != null) incorrectButton.gameObject.SetActive(false);
+        HideIncorrectButton();
 
         selectedButtonIndex = -1;
     }
@@ -347,8 +337,10 @@ public class AccusationController : MonoBehaviour
             // Restore icon
             if (ui.iconImage != null) ui.iconImage.sprite = originalIcons[i];
 
-            // Re-enable interactivity
-            ui.button.interactable = true;
+            // Re-enable interactivity only if this player hasn't used their accusation this round
+            int pid = buttonPlayerIds[i];
+            bool canStillAccuse = PlayerManager.players.ContainsKey(pid) && !PlayerManager.players[pid].hasAccused;
+            ui.button.interactable = canStillAccuse;
         }
     }
 
@@ -364,65 +356,26 @@ public class AccusationController : MonoBehaviour
     }
 
     // ===================================================================
-    //  Smooth Button Movement
+    //  Incorrect Button Visibility
+    //  Using CanvasGroup instead of SetActive so the button stays in the
+    //  VerticalLayoutGroup and never dirties the parent HorizontalLayoutGroup.
     // ===================================================================
 
-    private void ScheduleMove(int buttonIndex, int targetSiblingIndex)
+    private void ShowIncorrectButton()
     {
-        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-        var buttonRect = playerButtons[buttonIndex].button.transform as RectTransform;
-        moveCoroutine = StartCoroutine(MoveButtonSmoothly(buttonRect, targetSiblingIndex, moveDuration));
+        if (incorrectButtonGroup == null) return;
+        incorrectButtonGroup.alpha          = 1f;
+        incorrectButtonGroup.interactable   = true;
+        incorrectButtonGroup.blocksRaycasts = true;
     }
 
-    /// <summary>
-    /// Smoothly slides <paramref name="buttonRect"/> to the given sibling index within its
-    /// parent VerticalLayoutGroup by temporarily opting it out of the layout,
-    /// measuring the destination, then lerping the world position before re-enabling.
-    /// </summary>
-    private IEnumerator MoveButtonSmoothly(RectTransform buttonRect, int targetSiblingIndex, float duration)
+    private void HideIncorrectButton()
     {
-        if (buttonRect == null) yield break;
-
-        RectTransform parent = buttonRect.parent as RectTransform;
-        if (parent == null) yield break;
-
-        // Get or add a LayoutElement so we can temporarily opt this button out of layout control
-        LayoutElement le = buttonRect.GetComponent<LayoutElement>();
-        if (le == null) le = buttonRect.gameObject.AddComponent<LayoutElement>();
-
-        // Step 1 — record starting world position
-        Vector3 startWorld = buttonRect.position;
-
-        // Step 2 — opt out of layout and force rebuild so other buttons fill the gap
-        le.ignoreLayout = true;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
-
-        // Step 3 — move to target sibling and briefly re-enable layout to measure landing position
-        buttonRect.SetSiblingIndex(targetSiblingIndex);
-        le.ignoreLayout = false;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
-        Vector3 endWorld = buttonRect.position;
-
-        // Step 4 — opt back out and hold at start position, then lerp
-        le.ignoreLayout = true;
-        buttonRect.position = startWorld;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
-
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
-            buttonRect.position = Vector3.Lerp(startWorld, endWorld, t);
-            yield return null;
-        }
-
-        // Step 5 — snap to final position and hand control back to the layout
-        buttonRect.position = endWorld;
-        le.ignoreLayout = false;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(parent);
-
-        moveCoroutine = null;
+        if (incorrectButtonGroup == null) return;
+        incorrectButtonGroup.alpha          = 0f;
+        incorrectButtonGroup.interactable   = false;
+        incorrectButtonGroup.blocksRaycasts = false;
     }
+
 }
 

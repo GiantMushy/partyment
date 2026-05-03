@@ -11,6 +11,7 @@ public class Player
     public int stolenScore = 0; // Points accumulated through successful accusations
     public int group_id = -1; // -1 means unassigned
     public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
+    public bool hasAccused = false; // True once this player has made an accusation this round
 }
 
 [System.Serializable]
@@ -266,5 +267,13 @@ public class PlayerManager : MonoBehaviour
     {
         ClearAllGroups();
         Debug.Log("All player groups have been reset.");
+    }
+
+    /// <summary>Clears the hasAccused flag on every player. Call at the start of each new round.</summary>
+    public void ResetAccusations()
+    {
+        foreach (var player in players.Values)
+            player.hasAccused = false;
+        Debug.Log("All player accusation flags have been reset.");
     }
 }
