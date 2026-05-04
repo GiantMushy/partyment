@@ -49,8 +49,6 @@ public class AccusationController : MonoBehaviour
     [Header("Visuals")]
     [Tooltip("Icon displayed on non-selected player buttons while a player is selected.")]
     [SerializeField] private Sprite pointIcon;
-    [Tooltip("Color applied to the Border, Background, and (white) Text of non-selected buttons during PlayerSelected state.")]
-    [SerializeField] private Color  accusedColor = new Color(0.80f, 0.10f, 0.10f, 1f);
 
     [Header("Accusation Settings")]
     [Tooltip("Points deducted from the accusing player on an incorrect accusation.")]
@@ -68,9 +66,7 @@ public class AccusationController : MonoBehaviour
     private AccusationState currentState = AccusationState.Default;
 
     // Per-slot cached data (indexed parallel to playerButtons[])
-    private int[]    buttonPlayerIds;          // actual Player.id, or -1 if slot unused
-    private Color[]  originalBorderColors;
-    private Color[]  originalBackgroundColors;
+    private int[]    buttonPlayerIds; // actual Player.id, or -1 if slot unused
     private Color[]  originalTextColors;
     private Sprite[] originalIcons;
     /// <summary>Index into playerButtons[] of the currently selected (accusing) player, or -1.</summary>
@@ -99,12 +95,10 @@ public class AccusationController : MonoBehaviour
     {
         if (gameManager == null) return;
 
-        int maxButtons = playerButtons.Length;
-        buttonPlayerIds          = new int[maxButtons];
-        originalBorderColors     = new Color[maxButtons];
-        originalBackgroundColors = new Color[maxButtons];
-        originalTextColors       = new Color[maxButtons];
-        originalIcons            = new Sprite[maxButtons];
+        int maxButtons    = playerButtons.Length;
+        buttonPlayerIds   = new int[maxButtons];
+        originalTextColors = new Color[maxButtons];
+        originalIcons      = new Sprite[maxButtons];
 
         // Collect non-DM players sorted by ID
         int dmId = PlayerManager.dmId;
@@ -127,14 +121,13 @@ public class AccusationController : MonoBehaviour
                 if (ui.nameText != null) ui.nameText.text = p.name;
 
                 // Cache original visuals
-                originalBorderColors[i]     = ui.borderImage     != null ? ui.borderImage.color      : Color.white;
-                originalBackgroundColors[i] = ui.backgroundImage != null ? ui.backgroundImage.color  : Color.white;
-                originalTextColors[i]       = ui.nameText        != null ? ui.nameText.color          : Color.black;
-                originalIcons[i]            = ui.iconImage       != null ? ui.iconImage.sprite        : null;
+                originalTextColors[i] = ui.nameText  != null ? ui.nameText.color  : Color.black;
+                originalIcons[i]      = ui.iconImage  != null ? ui.iconImage.sprite : null;
 
                 // Show and wire click listener (remove old to avoid duplicates)
                 ui.button.gameObject.SetActive(true);
                 ui.button.interactable = !p.hasAccused;
+                GetAnimator(ui).SetBool("InCrossfire", false);
                 int capturedIndex = i;
                 ui.button.onClick.RemoveAllListeners();
                 ui.button.onClick.AddListener(() => OnPlayerButtonClicked(capturedIndex));
@@ -217,8 +210,8 @@ public class AccusationController : MonoBehaviour
             var ui = playerButtons[i];
             if (!ui.button.gameObject.activeSelf) continue;
 
-            // Apply accusation colour (border, background, text)
-            SetButtonColor(ui, accusedColor, Color.white);
+            // Drive red color via Crossfire animator layer
+            GetAnimator(ui).SetBool("InCrossfire", true);
 
             // Swap icon to point icon
             if (ui.iconImage != null && pointIcon != null)
@@ -330,13 +323,12 @@ public class AccusationController : MonoBehaviour
             var ui = playerButtons[i];
             if (!ui.button.gameObject.activeSelf) continue;
 
-            // Restore colours
-            if (ui.borderImage     != null) ui.borderImage.color     = originalBorderColors[i];
-            if (ui.backgroundImage != null) ui.backgroundImage.color = originalBackgroundColors[i];
-            if (ui.nameText        != null) ui.nameText.color        = originalTextColors[i];
+            // Restore color via Crossfire animator layer
+            GetAnimator(ui).SetBool("InCrossfire", false);
 
-            // Restore icon
-            if (ui.iconImage != null) ui.iconImage.sprite = originalIcons[i];
+            // Restore text color and icon
+            if (ui.nameText  != null) ui.nameText.color    = originalTextColors[i];
+            if (ui.iconImage != null) ui.iconImage.sprite  = originalIcons[i];
 
             // Re-enable interactivity only if this player hasn't used their accusation this round
             int pid = buttonPlayerIds[i];
@@ -346,15 +338,10 @@ public class AccusationController : MonoBehaviour
     }
 
     // ===================================================================
-    //  Button Color Helper
+    //  Animator Helper
     // ===================================================================
 
-    private void SetButtonColor(PlayerButtonUI ui, Color bgAndBorderColor, Color textColor)
-    {
-        if (ui.borderImage     != null) ui.borderImage.color     = bgAndBorderColor;
-        if (ui.backgroundImage != null) ui.backgroundImage.color = bgAndBorderColor;
-        if (ui.nameText        != null) ui.nameText.color        = textColor;
-    }
+    private Animator GetAnimator(PlayerButtonUI ui) => ui.button.GetComponent<Animator>();
 
     // ===================================================================
     //  Incorrect Button Visibility

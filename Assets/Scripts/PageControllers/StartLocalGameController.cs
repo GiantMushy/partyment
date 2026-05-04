@@ -19,6 +19,8 @@ public class StartLocalGameController : MonoBehaviour
     [Header("Input")]
     [SerializeField] private TMP_InputField defaultInputField;
 
+    private const int MaxNameLength = 12;
+
     private int maxPlayers;
     private Dictionary<int, GameObject> playerEntries = new Dictionary<int, GameObject>();
     private int nextPlayerId = 0;
@@ -30,6 +32,7 @@ public class StartLocalGameController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         scrollContent = defaultInputField.transform.parent;
+        defaultInputField.characterLimit = MaxNameLength;
         defaultInputField.onEndEdit.AddListener(OnDefaultInputEndEdit);
         maxPlayers = PlayerManager.maxPlayers;
     }
@@ -69,7 +72,7 @@ public class StartLocalGameController : MonoBehaviour
         if (string.IsNullOrWhiteSpace(inputText) || PlayerCount >= maxPlayers)
             return;
 
-        AddPlayer(inputText);
+        AddPlayer(ClampName(inputText));
         defaultInputField.text = "";
 
         if (PlayerCount < maxPlayers)
@@ -99,6 +102,7 @@ public class StartLocalGameController : MonoBehaviour
         TMP_InputField entryInputField = entry.GetComponentInChildren<TMP_InputField>();
         if (entryInputField != null)
         {
+            entryInputField.characterLimit = MaxNameLength;
             entryInputField.text = playerName;
             entryInputField.onEndEdit.AddListener((newText) => OnPlayerNameEdited(playerId, newText));
         }
@@ -121,7 +125,7 @@ public class StartLocalGameController : MonoBehaviour
             return;
         }
 
-        PlayerManager.players[playerId].name = newName;
+        PlayerManager.players[playerId].name = ClampName(newName);
         Debug.Log($"Player {playerId} name updated to: {newName}");
     }
 
@@ -193,6 +197,12 @@ public class StartLocalGameController : MonoBehaviour
     {
         if (nextButton != null)
             nextButton.interactable = PlayerCount >= 3;
+    }
+
+    private static string ClampName(string name)
+    {
+        name = name.Trim();
+        return name.Length > MaxNameLength ? name[..MaxNameLength] : name;
     }
 
     void OnDestroy()
