@@ -29,6 +29,22 @@ public class SecObjCardController : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
+    void Update()
+    {
+        if (player == null || completedToggle == null || !player.isAccused) return;
+        if (!completedToggle.interactable) return;
+
+        completedToggle.interactable = false;
+
+        // If the toggle was already checked when the accusation landed, undo the completion
+        // so the data model matches — the accusation's SubtractScore already handled the points.
+        if (completedToggle.isOn)
+        {
+            completedToggle.SetIsOnWithoutNotify(false);
+            if (objective != null) objective.completeted = false;
+        }
+    }
+
     public void Initialize(int playerId)
     {
         if (gameManager == null) gameManager = GameManager.Instance;
@@ -92,6 +108,7 @@ public class SecObjCardController : MonoBehaviour
     public void ToggleComplete()
     {
         if (objective == null || player == null) return;
+        if (player.isAccused) return;
 
         // Sync with the toggle's actual state rather than blindly flipping
         bool shouldBeCompleted = completedToggle != null ? completedToggle.isOn : !objective.completeted;

@@ -74,9 +74,25 @@ Topics and Secret Objectives are hardcoded in `Assets/Scripts/DevModeDatabase/`.
 ### Scoring
 
 - **Group score** (`Group.score`): awarded during voting phase finalization and DM metric awards.
-- **Player score** (`Player.score`): awarded for completing Secret Objectives and accusations.
-- **Accusation mechanic**: any non-DM player can accuse another of secretly working against their group. Correct accusation steals the accused player's Secret Objective points; incorrect accusation costs `incorrectPenalty` (default 20) points. Each player can only accuse once per round.
-- `Player.stolenScore` tracks stolen points separately for display purposes.
+- **Player score** (`Player.score`): net total — can go negative.
+
+**Player score fields** (all on `Player` in `PlayerManager.cs`):
+
+| Field | Type | Resets each round | Description |
+|---|---|---|---|
+| `score` | `int` | No | Net total score |
+| `stolenScore` | `int` | No | Points earned by correctly accusing another player |
+| `penaltyScore` | `int` | No | Points lost from incorrect accusations (use to display deductions separately) |
+| `hasAccused` | `bool` | Yes | True once this player has made an accusation this round |
+| `isAccused` | `bool` | Yes | True once this player has been successfully accused this round |
+
+**Accusation mechanic** — managed by `AccusationController` (a sub-panel of `DMDisplay`):
+- Any non-DM player may accuse once per round (`hasAccused` gates this; their button is disabled after use).
+- **Correct accusation**: stolen points = accused player's `SecretObjective.points`. Points are deducted from the accused via `SubtractScore` and added to the accuser via `AddStolenScore`. `SetPlayerAccused(accusedId)` is then called, which sets `isAccused = true` and prevents their objective toggle from awarding points going forward.
+- **Incorrect accusation**: `AddPenaltyScore(accusingId, incorrectPenalty)` records the deduction in `penaltyScore` and subtracts from `score` in one call. Default penalty is 20 points (Inspector-configurable).
+- Players with no secret objective (`secretObjectiveId == -1`) have their accusation-target buttons disabled during the `PlayerSelected` state.
+
+**Secret Objective toggle** (`SecObjCardController`): when a player's `isAccused` flag becomes true, `Update()` immediately disables their toggle. If the toggle was already checked, it is silently unchecked and `objective.completeted` is cleared — the score is already correct because the accusation's `SubtractScore` handled the transfer.
 
 ### Localization
 

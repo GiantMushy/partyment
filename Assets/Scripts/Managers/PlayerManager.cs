@@ -8,10 +8,12 @@ public class Player
     public int id;
     public string name;
     public int score = 0;
-    public int stolenScore = 0; // Points accumulated through successful accusations
+    public int stolenScore = 0;  // Points earned by successfully accusing another player
+    public int penaltyScore = 0; // Points lost from incorrect accusations (cumulative across rounds)
     public int group_id = -1; // -1 means unassigned
     public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
     public bool hasAccused = false; // True once this player has made an accusation this round
+    public bool isAccused = false;  // True once this player has been successfully accused this round
 }
 
 [System.Serializable]
@@ -229,6 +231,29 @@ public class PlayerManager : MonoBehaviour
         SyncPlayersList();
     }
 
+    /// <summary>
+    /// Marks <paramref name="playerId"/> as successfully accused this round,
+    /// preventing their secret objective toggle from awarding further points.
+    /// </summary>
+    public void SetPlayerAccused(int playerId)
+    {
+        if (!players.ContainsKey(playerId)) { Debug.LogWarning($"SetPlayerAccused: Player {playerId} not found."); return; }
+        players[playerId].isAccused = true;
+        SyncPlayersList();
+    }
+
+    /// <summary>
+    /// Records <paramref name="amount"/> as a penalty for <paramref name="playerId"/> (incorrect accusation)
+    /// and deducts it from their score.
+    /// </summary>
+    public void AddPenaltyScore(int playerId, int amount)
+    {
+        if (!players.ContainsKey(playerId)) { Debug.LogWarning($"AddPenaltyScore: Player {playerId} not found."); return; }
+        players[playerId].penaltyScore += amount;
+        players[playerId].score        -= amount;
+        SyncPlayersList();
+    }
+
     // -------------------- Dev Mode --------------------
 
     public void InitializeDevModePlayers()
@@ -269,11 +294,14 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("All player groups have been reset.");
     }
 
-    /// <summary>Clears the hasAccused flag on every player. Call at the start of each new round.</summary>
+    /// <summary>Clears per-round accusation flags. Call at the start of each new round.</summary>
     public void ResetAccusations()
     {
         foreach (var player in players.Values)
+        {
             player.hasAccused = false;
+            player.isAccused  = false;
+        }
         Debug.Log("All player accusation flags have been reset.");
     }
 }

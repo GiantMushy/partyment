@@ -278,6 +278,7 @@ public class AccusationController : MonoBehaviour
                   $"Their stolenScore is now {PlayerManager.players[accusingPlayerId].stolenScore}.");
 
         PlayerManager.players[accusingPlayerId].hasAccused = true;
+        PlayerManager.SetPlayerAccused(accusedPlayerId);
         FinishAndReturnToDefault();
     }
 
@@ -293,7 +294,7 @@ public class AccusationController : MonoBehaviour
         //  ▶ Currently: accusing player loses `incorrectPenalty` points (default 20).
         //    Adjust the "Incorrect Penalty" SerializeField in the Inspector.
         // ----------------------------------------------------------------
-        PlayerManager.SubtractScore(accusingPlayerId, incorrectPenalty);
+        PlayerManager.AddPenaltyScore(accusingPlayerId, incorrectPenalty);
 
         Debug.Log($"[Accusation] {PlayerManager.players[accusingPlayerId].name} made an incorrect accusation " +
                   $"and lost {incorrectPenalty} point(s). Score is now {PlayerManager.players[accusingPlayerId].score}.");
