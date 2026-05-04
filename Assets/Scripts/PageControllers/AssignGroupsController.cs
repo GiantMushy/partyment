@@ -9,8 +9,8 @@ using TMPro;
 /// Manages the Assign Groups screen.
 /// Players are distributed into draggable groups. The DM (lowest player ID)
 /// is always placed in a fixed "Discussion Moderator" container.
-/// Players can be dragged between groups or into an unassigned holding area.
-/// Groups can be added (+) or removed (–) with the constraint of a 2-group minimum.
+/// A persistent "ghost" group container at the bottom accepts card drops to
+/// create a new group; real groups auto-delete when emptied.
 /// </summary>
 public class AssignGroupsController : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class AssignGroupsController : MonoBehaviour
     private PlayerManager PlayerManager => gameManager.playerManager;
 
     [Header("Prefabs")]
-    [Tooltip("Container with VerticalLayoutGroup + ContentSizeFitter. Has Label/Title child and a content area.")]
+    [Tooltip("Container with VerticalLayoutGroup + ContentSizeFitter. Has Group Name Container child with InputField and Edit Button.")]
     [SerializeField] private GameObject groupContainerPrefab;
 
     [Tooltip("Name card with Name TMP, Field image, and Drag Icon (with DragHandle).")]
@@ -34,6 +34,9 @@ public class AssignGroupsController : MonoBehaviour
     [Tooltip("Parent transform that holds all GroupContainerPrefab instances.")]
     public Transform groupsParent;
 
+    [Tooltip("Pre-placed scene object used as the Discussion Moderator container. If assigned, it is never destroyed and no new prefab is instantiated for the DM slot.")]
+    [SerializeField] private GameObject dmContainerOverride;
+
     [Tooltip("VerticalLayoutGroup panel at the bottom for unassigned / ejected players.")]
     public Transform unassignedArea;
 
@@ -44,19 +47,20 @@ public class AssignGroupsController : MonoBehaviour
     [SerializeField] private ScrollRect scrollRect;
 
     [Header("Buttons")]
-    [SerializeField] private Button plusButton;
-    [SerializeField] private Button minusButton;
     [SerializeField] private Button nextButton;
 
     // -------------------- Runtime State --------------------
 
     private int dmId;
 
-    /// <summary>Number of debate groups (excludes the DM container).</summary>
+    /// <summary>Number of real debate groups (excludes DM container and ghost).</summary>
     public int numberOfGroups = 2;
 
-    /// <summary>Live list of group container GameObjects (index 0 = DM container).</summary>
+    /// <summary>Live list of real group container GameObjects (index 0 = DM container).</summary>
     private List<GameObject> groupContainers = new List<GameObject>();
+
+    /// <summary>The always-present empty group at the bottom — not in groupContainers. Dropping a card here creates a new real group.</summary>
+    private GameObject ghostGroupContainer;
 
     /// <summary>Maps each NameInGroupPrefab instance to its player ID for bookkeeping.</summary>
     private Dictionary<RectTransform, int> cardToPlayerId = new Dictionary<RectTransform, int>();
@@ -104,12 +108,8 @@ public class AssignGroupsController : MonoBehaviour
     /// <summary>Proceed to the next game state. Disabled while layout is invalid.</summary>
     public void Next()
     {
-        // Commit the visual layout back to PlayerManager data
         CommitGroupAssignments();
-
-        // Assign a random secret objective to each non-DM player
         gameManager.secretObjectiveManager.AssignSecretObjectivesToPlayers(PlayerManager.players, dmId);
-
         gameManager.PlayTransition("Game Is Starting!", () =>
         {
             gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);
@@ -121,34 +121,8 @@ public class AssignGroupsController : MonoBehaviour
         gameManager.SetState(GameManager.GameState.StartLocalGame);
     }
 
-    /// <summary>Add a new empty group.</summary>
-    public void AddGroup()
-    {
-        numberOfGroups++;
-        CreateGroupContainer(numberOfGroups); // label = "Group N"
-        RefreshButtons();
-        ForceLayoutRebuild();
-    }
-
-    /// <summary>Remove the last group, ejecting its players to the unassigned area.</summary>
-    public void RemoveGroup()
-    {
-        if (numberOfGroups <= 2) return;
-
-        // The last debate-group container (index 0 is DM, so last = end of list)
-        GameObject lastContainer = groupContainers[groupContainers.Count - 1];
-        EjectCardsToUnassigned(lastContainer.transform);
-        groupContainers.Remove(lastContainer);
-        Destroy(lastContainer);
-        numberOfGroups--;
-
-        RefreshButtons();
-        ForceLayoutRebuild();
-    }
-
     /// <summary>
     /// Randomizes all non-DM players into the current number of groups.
-    /// Hook this up to a Randomize button in the Inspector.
     /// </summary>
     public void Randomize()
     {
@@ -162,11 +136,9 @@ public class AssignGroupsController : MonoBehaviour
         else
             numberOfGroups = Mathf.Clamp(numberOfGroups, 2, nonDMPlayers.Count);
 
-        // DM container
-        GameObject dmContainer = CreateGroupContainer(0, "Discussion Moderator");
+        GameObject dmContainer = SetupDMContainer();
         CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
 
-        // Distribute shuffled players into groups
         var distributed = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
         for (int g = 0; g < distributed.Count; g++)
         {
@@ -175,6 +147,7 @@ public class AssignGroupsController : MonoBehaviour
                 CreateNameCard(player, container.transform, draggable: true);
         }
 
+        CreateGhostGroupContainer();
         RefreshButtons();
         ForceLayoutRebuild();
     }
@@ -193,10 +166,6 @@ public class AssignGroupsController : MonoBehaviour
     //  Screen Construction
     // ================================================================
 
-    /// <summary>
-    /// Tears down any existing UI and rebuilds the entire screen from
-    /// the current PlayerManager data.
-    /// </summary>
     private void BuildScreen()
     {
         ClearScreen();
@@ -204,55 +173,88 @@ public class AssignGroupsController : MonoBehaviour
         dmId = PlayerManager.players.Keys.Min();
         var nonDMPlayers = GetOrderedNonDMPlayers(dmId);
 
-        // Always start with 2 groups on first build
         numberOfGroups = 2;
         if (nonDMPlayers.Count < 2)
             numberOfGroups = Mathf.Max(1, nonDMPlayers.Count);
 
-        // --- DM container (always index 0) ---
-        GameObject dmContainer = CreateGroupContainer(0, "Discussion Moderator");
-        Player dmPlayer = PlayerManager.players[dmId];
-        RectTransform dmCard = CreateNameCard(dmPlayer, dmContainer.transform, draggable: true);
+        GameObject dmContainer = SetupDMContainer();
+        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
 
-        // --- Debate group containers ---
         var distributed = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
         for (int g = 0; g < distributed.Count; g++)
         {
             GameObject container = CreateGroupContainer(g + 1);
             foreach (var player in distributed[g])
-            {
                 CreateNameCard(player, container.transform, draggable: true);
-            }
         }
 
+        CreateGhostGroupContainer();
         RefreshButtons();
         ForceLayoutRebuild();
     }
 
     private void ClearScreen()
     {
-        // Destroy all group containers
         foreach (Transform child in groupsParent)
+        {
+            if (dmContainerOverride != null && child.gameObject == dmContainerOverride)
+            {
+                ClearPlayerCardsFrom(child);
+                continue;
+            }
             Destroy(child.gameObject);
+        }
 
-        // Destroy anything in the unassigned area
+        // If the DM container lives outside groupsParent, still clear its cards
+        if (dmContainerOverride != null && dmContainerOverride.transform.parent != groupsParent)
+            ClearPlayerCardsFrom(dmContainerOverride.transform);
+
         foreach (Transform child in unassignedArea)
             Destroy(child.gameObject);
 
         groupContainers.Clear();
         cardToPlayerId.Clear();
+        ghostGroupContainer = null;
+    }
+
+    /// <summary>Removes all player name-cards and empty placeholders from a container without destroying the container itself.</summary>
+    private void ClearPlayerCardsFrom(Transform container)
+    {
+        var toDestroy = new List<GameObject>();
+        foreach (Transform child in container)
+        {
+            var rt = child.GetComponent<RectTransform>();
+            if ((rt != null && cardToPlayerId.ContainsKey(rt)) || IsEmptyPlaceholder(child.gameObject))
+                toDestroy.Add(child.gameObject);
+        }
+        foreach (var go in toDestroy)
+            DestroyImmediate(go);
     }
 
     /// <summary>
-    /// Rebuilds the screen while preserving the player-to-group layout from before.
-    /// New players (added since last visit) are placed in the unassigned area.
-    /// Removed players are silently skipped.
+    /// Uses dmContainerOverride if assigned (the pre-placed scene object), otherwise
+    /// instantiates a new container from the prefab. Either way, it becomes groupContainers[0].
+    /// </summary>
+    private GameObject SetupDMContainer()
+    {
+        if (dmContainerOverride != null)
+        {
+            groupContainers.Add(dmContainerOverride);
+            return dmContainerOverride;
+        }
+        return CreateGroupContainer(0, "Discussion Moderator");
+    }
+
+    /// <summary>
+    /// Rebuilds the screen while preserving the player-to-group layout and custom group names.
+    /// New players are placed in the unassigned area; removed players are silently skipped.
     /// </summary>
     private void RebuildScreenPreservingLayout()
     {
-        // Snapshot current layout: which player was in which group container index
+        // Snapshot current layout
         var playerToGroup = new Dictionary<int, int>();
         var unassignedPlayerIds = new HashSet<int>();
+        var groupCustomNames = new Dictionary<int, string>();
 
         for (int i = 0; i < groupContainers.Count; i++)
         {
@@ -262,6 +264,8 @@ public class AssignGroupsController : MonoBehaviour
                 if (rt != null && cardToPlayerId.TryGetValue(rt, out int pid))
                     playerToGroup[pid] = i;
             }
+            if (i > 0)
+                groupCustomNames[i] = GetContainerEffectiveName(groupContainers[i]);
         }
 
         foreach (Transform child in unassignedArea)
@@ -271,32 +275,31 @@ public class AssignGroupsController : MonoBehaviour
                 unassignedPlayerIds.Add(pid);
         }
 
-        // Clear everything and rebuild
         ClearScreen();
 
         var allPlayerIds = new HashSet<int>(PlayerManager.players.Keys);
         var placedIds = new HashSet<int>();
 
-        // Determine DM: whoever was in container index 0, or fallback to min ID
         var previousDM = playerToGroup.Where(kvp => kvp.Value == 0 && allPlayerIds.Contains(kvp.Key));
         dmId = previousDM.Any() ? previousDM.First().Key : allPlayerIds.Min();
 
-        // Clamp numberOfGroups in case players were removed
         int nonDMCount = allPlayerIds.Count - 1;
         if (nonDMCount < 2)
             numberOfGroups = Mathf.Max(1, nonDMCount);
         else
             numberOfGroups = Mathf.Clamp(numberOfGroups, 2, nonDMCount);
 
-        // DM container (always index 0)
-        var dmContainer = CreateGroupContainer(0, "Discussion Moderator");
+        var dmContainer = SetupDMContainer();
         CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
         placedIds.Add(dmId);
 
-        // Recreate debate group containers, placing players in their previous groups
         for (int g = 1; g <= numberOfGroups; g++)
         {
             var container = CreateGroupContainer(g);
+
+            // Restore custom name only if it differs from the default placeholder
+            if (groupCustomNames.TryGetValue(g, out string savedName) && savedName != $"Group {g}")
+                SetContainerCustomName(container, savedName);
 
             foreach (var kvp in playerToGroup)
             {
@@ -309,7 +312,6 @@ public class AssignGroupsController : MonoBehaviour
             }
         }
 
-        // Restore previously unassigned players
         foreach (int pid in unassignedPlayerIds)
         {
             if (allPlayerIds.Contains(pid) && !placedIds.Contains(pid))
@@ -319,15 +321,16 @@ public class AssignGroupsController : MonoBehaviour
             }
         }
 
-        // Any new players not in the previous layout → unassigned area
         foreach (int pid in allPlayerIds)
         {
             if (!placedIds.Contains(pid))
-            {
                 CreateNameCard(PlayerManager.players[pid], unassignedArea, draggable: true);
-            }
         }
 
+        // Remove groups that ended up empty (e.g. players were removed from the game)
+        CleanupEmptyGroups();
+
+        CreateGhostGroupContainer();
         RefreshButtons();
         ForceLayoutRebuild();
     }
@@ -336,22 +339,12 @@ public class AssignGroupsController : MonoBehaviour
     //  Layout Rebuild
     // ================================================================
 
-    /// <summary>
-    /// Forces Unity's layout system to recalculate sizes bottom-up
-    /// (groupsParent first, then its parent Content) and resets the
-    /// scroll position to the top. Fixes intermittent positioning bugs
-    /// caused by ContentSizeFitter calculating before children exist.
-    /// </summary>
     private void ForceLayoutRebuild()
     {
         if (groupsParent is RectTransform groupsRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(groupsRect);
-
-        // Rebuild the outer Content layout (parent of groupsParent)
         if (groupsParent.parent is RectTransform contentRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
-
-        // Reset scroll to top
         if (scrollRect != null)
             scrollRect.verticalNormalizedPosition = 1f;
     }
@@ -361,61 +354,179 @@ public class AssignGroupsController : MonoBehaviour
     // ================================================================
 
     /// <summary>
-    /// Instantiates a GroupContainerPrefab, sets its label, and tracks it.
+    /// Instantiates a real GroupContainerPrefab, sets its placeholder label, wires the
+    /// Edit button, and tracks it in groupContainers.
     /// <paramref name="groupNumber"/> 0 = DM, 1+ = "Group N".
     /// </summary>
     private GameObject CreateGroupContainer(int groupNumber, string overrideLabel = null)
     {
         GameObject container = Instantiate(groupContainerPrefab, groupsParent);
-        string label = overrideLabel ?? $"Group {groupNumber}";
-        SetContainerLabel(container, label);
-
-        // All groups start with an empty placeholder (removed when a card is added)
+        string placeholderLabel = overrideLabel ?? $"Group {groupNumber}";
+        SetContainerPlaceholder(container, placeholderLabel);
+        SetupEditButton(container);
+        if (groupNumber == 0) LockDMNameField(container);
         Instantiate(emptyFieldInGroupPrefab, container.transform);
-
         groupContainers.Add(container);
         return container;
     }
 
-    private void SetContainerLabel(GameObject container, string label)
+    /// <summary>
+    /// Creates (or recreates) the ghost group container — the always-present empty drop
+    /// target at the bottom. It is NOT added to groupContainers.
+    /// </summary>
+    private void CreateGhostGroupContainer()
     {
-        Transform titleTransform = container.transform.Find("Title");
-        if (titleTransform == null) return;
+        // ghostNumber = how many real groups exist (excluding DM), +1
+        int ghostNumber = groupContainers.Count; // [DM, G1, G2] → count=3 → ghost = Group 3
+        ghostGroupContainer = Instantiate(groupContainerPrefab, groupsParent);
+        SetContainerPlaceholder(ghostGroupContainer, $"Group {ghostNumber}");
+        SetupEditButton(ghostGroupContainer);
+        Instantiate(emptyFieldInGroupPrefab, ghostGroupContainer.transform);
+    }
 
-        var tmp = titleTransform.GetComponent<TextMeshProUGUI>();
-        if (tmp != null) tmp.text = label;
+    /// <summary>Sets the placeholder text of the TMP_InputField inside the Group Name Container.</summary>
+    private void SetContainerPlaceholder(GameObject container, string label)
+    {
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        if (inputField == null) return;
+        var placeholder = inputField.placeholder as TextMeshProUGUI;
+        if (placeholder != null) placeholder.text = label;
+    }
+
+    /// <summary>Sets the typed text of the TMP_InputField (used when restoring a custom name).</summary>
+    private void SetContainerCustomName(GameObject container, string name)
+    {
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        if (inputField != null) inputField.text = name;
+    }
+
+    /// <summary>
+    /// Returns the typed text if non-empty, otherwise returns the placeholder text.
+    /// This is what gets committed to PlayerManager as the group name.
+    /// </summary>
+    private string GetContainerEffectiveName(GameObject container)
+    {
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        if (inputField != null && !string.IsNullOrWhiteSpace(inputField.text))
+            return inputField.text.Trim();
+        var placeholder = inputField?.placeholder as TextMeshProUGUI;
+        return placeholder?.text ?? "Group";
+    }
+
+    /// <summary>
+    /// Wires the Edit Button to focus the name input field and fixes the typed-text
+    /// font size to match the placeholder (auto-size, min 72).
+    /// </summary>
+    private void SetupEditButton(GameObject container)
+    {
+        var editButton = container.transform
+            .Find("Group Name Container/Edit Button")
+            ?.GetComponent<Button>();
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        if (editButton == null || inputField == null) return;
+
+        // The prefab's typed-text TMP component defaults to 14pt — fix it to match the placeholder.
+        var textTMP = inputField.textComponent;
+        if (textTMP != null)
+        {
+            textTMP.enableAutoSizing = true;
+            textTMP.fontSizeMin = 72;
+            textTMP.fontSizeMax = 72;
+        }
+
+        editButton.onClick.AddListener(() =>
+        {
+            inputField.ActivateInputField();
+            inputField.Select();
+        });
+    }
+
+    /// <summary>
+    /// Makes the name field of the DM container non-editable: hides the Edit Button
+    /// and disables the InputField component so the placeholder always shows.
+    /// </summary>
+    private void LockDMNameField(GameObject container)
+    {
+        var editButtonGO = container.transform
+            .Find("Group Name Container/Edit Button")
+            ?.gameObject;
+        if (editButtonGO != null) editButtonGO.SetActive(false);
+
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        if (inputField != null) inputField.enabled = false;
+    }
+
+    /// <summary>
+    /// Updates placeholder labels on all real debate groups (index 1+) and the ghost
+    /// so they reflect the current group order after additions or deletions.
+    /// Custom names typed by the user are unaffected (only placeholder text changes).
+    /// </summary>
+    private void RenumberGroups()
+    {
+        for (int i = 1; i < groupContainers.Count; i++)
+            SetContainerPlaceholder(groupContainers[i], $"Group {i}");
+        if (ghostGroupContainer != null)
+            SetContainerPlaceholder(ghostGroupContainer, $"Group {groupContainers.Count}");
+    }
+
+    /// <summary>
+    /// After a rebuild, destroys any real group containers (index 1+) that ended up
+    /// empty because players were removed from the game.
+    /// </summary>
+    private void CleanupEmptyGroups()
+    {
+        var toDelete = new List<GameObject>();
+        for (int i = 1; i < groupContainers.Count; i++)
+        {
+            bool hasCards = false;
+            foreach (Transform child in groupContainers[i].transform)
+            {
+                var rt = child.GetComponent<RectTransform>();
+                if (rt != null && cardToPlayerId.ContainsKey(rt)) { hasCards = true; break; }
+            }
+            if (!hasCards) toDelete.Add(groupContainers[i]);
+        }
+
+        foreach (var container in toDelete)
+        {
+            groupContainers.Remove(container);
+            numberOfGroups--;
+            Destroy(container);
+        }
+
+        if (toDelete.Count > 0) RenumberGroups();
     }
 
     // ================================================================
     //  Name Card Helpers
     // ================================================================
 
-    /// <summary>
-    /// Creates a NameInGroupPrefab for the given player inside <paramref name="parent"/>.
-    /// If the parent had an EmptyFieldInGroupPrefab, it is removed.
-    /// </summary>
     private RectTransform CreateNameCard(Player player, Transform parent, bool draggable)
     {
-        // Remove empty placeholder if present
         RemoveEmptyPlaceholder(parent);
-
         GameObject card = Instantiate(nameInGroupPrefab, parent);
         SetCardName(card, player.name);
-
         RectTransform rt = card.GetComponent<RectTransform>();
         cardToPlayerId[rt] = player.id;
 
-        // Remove any DragHandle that exists on children (e.g. the Drag Icon in the prefab)
         foreach (var childHandle in card.GetComponentsInChildren<DragHandle>(true))
             DestroyImmediate(childHandle);
 
-        // Wire up drag handling on the card itself
         DragHandle handle = card.AddComponent<DragHandle>();
         handle.nameCard = rt;
         handle.Initialize(this);
         handle.enabled = draggable;
 
-        // Ensure card has a CanvasGroup for drag fading
         if (card.GetComponent<CanvasGroup>() == null)
             card.AddComponent<CanvasGroup>();
 
@@ -426,7 +537,6 @@ public class AssignGroupsController : MonoBehaviour
     {
         Transform nameTransform = card.transform.Find("Name");
         if (nameTransform == null) return;
-
         var tmp = nameTransform.GetComponent<TextMeshProUGUI>();
         if (tmp != null) tmp.text = playerName;
     }
@@ -448,12 +558,10 @@ public class AssignGroupsController : MonoBehaviour
         }
     }
 
-    /// <summary>Adds an empty placeholder to a container if it has no name-card children.</summary>
+    /// <summary>Adds an empty placeholder to a container if it has no name-card children. Used for DM container only.</summary>
     private void EnsurePlaceholderIfEmpty(Transform container)
     {
-        // Skip the unassigned area — it should never have a placeholder
-        if (container == unassignedArea)
-            return;
+        if (container == unassignedArea) return;
 
         bool hasCards = false;
         foreach (Transform child in container)
@@ -466,8 +574,35 @@ public class AssignGroupsController : MonoBehaviour
         }
 
         if (!hasCards && !ContainsEmptyPlaceholder(container))
-        {
             Instantiate(emptyFieldInGroupPrefab, container);
+    }
+
+    /// <summary>
+    /// If a real debate group container (not DM, not ghost) is now empty, deletes it
+    /// and renumbers the remaining groups. No-op for unassigned area, DM container,
+    /// ghost container, and anything not in groupContainers.
+    /// </summary>
+    private void TryAutoDeleteIfEmpty(Transform container)
+    {
+        if (container == null) return;
+        if (container == unassignedArea) return;
+        if (ghostGroupContainer != null && container.gameObject == ghostGroupContainer) return;
+        if (groupContainers.Count > 0 && container.gameObject == groupContainers[0]) return; // DM
+        if (!groupContainers.Contains(container.gameObject)) return;
+
+        bool hasCards = false;
+        foreach (Transform child in container)
+        {
+            var rt = child.GetComponent<RectTransform>();
+            if (rt != null && cardToPlayerId.ContainsKey(rt)) { hasCards = true; break; }
+        }
+
+        if (!hasCards)
+        {
+            groupContainers.Remove(container.gameObject);
+            numberOfGroups--;
+            Destroy(container.gameObject);
+            RenumberGroups();
         }
     }
 
@@ -475,19 +610,13 @@ public class AssignGroupsController : MonoBehaviour
     {
         foreach (Transform child in container)
         {
-            if (IsEmptyPlaceholder(child.gameObject))
-                return true;
+            if (IsEmptyPlaceholder(child.gameObject)) return true;
         }
         return false;
     }
 
-    /// <summary>
-    /// Heuristic: a placeholder is any child that is NOT tracked as a name card
-    /// and NOT the Label. We check by name prefix for robustness.
-    /// </summary>
     private bool IsEmptyPlaceholder(GameObject obj)
     {
-        // Placeholder instances will be named after the prefab
         return obj.name.StartsWith(emptyFieldInGroupPrefab.name);
     }
 
@@ -496,15 +625,11 @@ public class AssignGroupsController : MonoBehaviour
     // ================================================================
 
     /// <summary>Called when a drag begins on a name card.</summary>
-    public void OnCardDragBegin(RectTransform card, Transform originalParent)
-    {
-        // Nothing extra needed here; state is held by DragHandle.
-    }
+    public void OnCardDragBegin(RectTransform card, Transform originalParent) { }
 
     /// <summary>Called every frame during a drag to highlight the hovered group.</summary>
     public void OnCardDragUpdate(PointerEventData eventData)
     {
-        // Raycast to find what's under the pointer
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
@@ -513,7 +638,6 @@ public class AssignGroupsController : MonoBehaviour
 
         foreach (var hit in results)
         {
-            // Check if hovering the unassigned area
             if (hit.gameObject.transform == unassignedArea ||
                 hit.gameObject.transform.IsChildOf(unassignedArea))
             {
@@ -521,11 +645,11 @@ public class AssignGroupsController : MonoBehaviour
                 break;
             }
 
-            // Check if hovering a group container
             Transform candidate = hit.gameObject.transform;
             while (candidate != null)
             {
-                if (groupContainers.Contains(candidate.gameObject))
+                if (groupContainers.Contains(candidate.gameObject) ||
+                    (ghostGroupContainer != null && candidate.gameObject == ghostGroupContainer))
                 {
                     hoveredGroup = candidate;
                     break;
@@ -535,17 +659,11 @@ public class AssignGroupsController : MonoBehaviour
             if (hoveredGroup != null) break;
         }
 
-        // Update highlight
         ClearHighlight();
-
         if (hoveredGroup != null)
-        {
             ApplyHighlight(hoveredGroup.GetComponent<Image>());
-        }
         else if (hoveringUnassigned)
-        {
             ApplyHighlight(unassignedArea.GetComponent<Image>());
-        }
     }
 
     /// <summary>Called when the drag ends. Decides where the card should land.</summary>
@@ -553,16 +671,15 @@ public class AssignGroupsController : MonoBehaviour
     {
         ClearHighlight();
 
-        // Raycast to find the drop target
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
         Transform dropTarget = null;
         bool droppedOnUnassigned = false;
+        bool droppedOnGhost = false;
 
         foreach (var hit in results)
         {
-            // Unassigned area?
             if (hit.gameObject.transform == unassignedArea ||
                 hit.gameObject.transform.IsChildOf(unassignedArea))
             {
@@ -570,13 +687,18 @@ public class AssignGroupsController : MonoBehaviour
                 break;
             }
 
-            // Group container?
             Transform candidate = hit.gameObject.transform;
             while (candidate != null)
             {
                 if (groupContainers.Contains(candidate.gameObject))
                 {
                     dropTarget = candidate;
+                    break;
+                }
+                if (ghostGroupContainer != null && candidate.gameObject == ghostGroupContainer)
+                {
+                    dropTarget = candidate;
+                    droppedOnGhost = true;
                     break;
                 }
                 candidate = candidate.parent;
@@ -586,9 +708,22 @@ public class AssignGroupsController : MonoBehaviour
 
         if (droppedOnUnassigned)
         {
-            // Move card to the unassigned area
             card.SetParent(unassignedArea, false);
-            EnsurePlaceholderIfEmpty(originalParent);
+            TryAutoDeleteIfEmpty(originalParent);
+        }
+        else if (droppedOnGhost && dropTarget != null)
+        {
+            // Promote ghost to a real group
+            numberOfGroups++;
+            groupContainers.Add(ghostGroupContainer);
+            ghostGroupContainer = null;
+
+            RemoveEmptyPlaceholder(dropTarget);
+            card.SetParent(dropTarget, false);
+            TryAutoDeleteIfEmpty(originalParent);
+
+            CreateGhostGroupContainer();
+            RenumberGroups();
         }
         else if (dropTarget != null)
         {
@@ -601,13 +736,16 @@ public class AssignGroupsController : MonoBehaviour
                 RectTransform existingCard = GetPlayerCardInContainer(dropTarget, card);
                 if (existingCard != null)
                 {
+                    // Send the current DM back to where the dragged card came from
                     RemoveEmptyPlaceholder(originalParent);
                     existingCard.SetParent(originalParent, false);
                     existingCard.SetSiblingIndex(originalSiblingIndex);
+                    // originalParent now has existingCard, so it won't be empty
                 }
                 else
                 {
-                    EnsurePlaceholderIfEmpty(originalParent);
+                    // DM slot was vacant; original container may now be empty
+                    TryAutoDeleteIfEmpty(originalParent);
                 }
 
                 RemoveEmptyPlaceholder(dropTarget);
@@ -615,10 +753,10 @@ public class AssignGroupsController : MonoBehaviour
             }
             else
             {
-                // Normal group drop
+                // Normal debate group drop
                 RemoveEmptyPlaceholder(dropTarget);
                 card.SetParent(dropTarget, false);
-                EnsurePlaceholderIfEmpty(originalParent);
+                TryAutoDeleteIfEmpty(originalParent);
             }
         }
         else
@@ -627,6 +765,10 @@ public class AssignGroupsController : MonoBehaviour
             card.SetParent(originalParent, false);
             card.SetSiblingIndex(originalSiblingIndex);
         }
+
+        // Keep a placeholder in the DM container when it's empty so it has visual drop-target feedback
+        if (groupContainers.Count > 0)
+            EnsurePlaceholderIfEmpty(groupContainers[0].transform);
 
         RefreshButtons();
         ForceLayoutRebuild();
@@ -654,36 +796,9 @@ public class AssignGroupsController : MonoBehaviour
     }
 
     // ================================================================
-    //  Ejecting Cards from a Removed Group
-    // ================================================================
-
-    /// <summary>
-    /// Moves every name card out of <paramref name="container"/> into the unassigned area.
-    /// </summary>
-    private void EjectCardsToUnassigned(Transform container)
-    {
-        // Collect first to avoid mutating the child list while iterating
-        var cards = new List<Transform>();
-        foreach (Transform child in container)
-        {
-            RectTransform rt = child.GetComponent<RectTransform>();
-            if (rt != null && cardToPlayerId.ContainsKey(rt))
-                cards.Add(child);
-        }
-
-        foreach (var card in cards)
-            card.SetParent(unassignedArea, false);
-    }
-
-    // ================================================================
     //  Helper: Find Player Card in Container
     // ================================================================
 
-    /// <summary>
-    /// Returns the first player-card RectTransform found in <paramref name="container"/>,
-    /// optionally excluding <paramref name="exclude"/> (useful during drag when the
-    /// dragged card is still a child of its original parent).
-    /// </summary>
     private RectTransform GetPlayerCardInContainer(Transform container, RectTransform exclude = null)
     {
         foreach (Transform child in container)
@@ -699,49 +814,38 @@ public class AssignGroupsController : MonoBehaviour
     //  Button State Management
     // ================================================================
 
-    /// <summary>
-    /// Refreshes the interactable state of +, –, and Next buttons
-    /// based on the current layout.
-    /// </summary>
     private void RefreshButtons()
     {
-        // – is disabled when only 2 groups remain
-        if (minusButton != null)
-            minusButton.interactable = numberOfGroups > 2;
-
-        // + is disabled when group count equals or exceeds non-DM player count
-        if (plusButton != null)
-        {
-            int nonDMCount = PlayerManager.players.Count - 1;
-            plusButton.interactable = numberOfGroups < nonDMCount;
-        }
-
-        // Next is disabled if any card is in the unassigned area
-        // OR any group container still has an empty placeholder
         if (nextButton != null)
             nextButton.interactable = IsLayoutValid();
     }
 
     /// <summary>
-    /// The layout is valid when:
-    ///   1. No name cards remain in the unassigned area.
-    ///   2. No debate-group container (index 1+) contains an EmptyFieldInGroupPrefab.
+    /// Layout is valid when:
+    ///   1. At least 2 real debate groups exist.
+    ///   2. No name cards remain in the unassigned area.
+    ///   3. DM container has exactly one player.
+    ///   4. No debate group contains an empty placeholder.
     /// </summary>
     private bool IsLayoutValid()
     {
-        // Check unassigned area for any name cards
+        // Require at least 2 debate groups (index 0 = DM, so count must be ≥ 3)
+        if (groupContainers.Count < 3)
+            return false;
+
+        // No cards in unassigned area
         foreach (Transform child in unassignedArea)
         {
-            RectTransform rt = child.GetComponent<RectTransform>();
+            var rt = child.GetComponent<RectTransform>();
             if (rt != null && cardToPlayerId.ContainsKey(rt))
                 return false;
         }
 
         // DM container must have exactly one player
-        if (groupContainers.Count > 0 && GetPlayerCardInContainer(groupContainers[0].transform) == null)
+        if (GetPlayerCardInContainer(groupContainers[0].transform) == null)
             return false;
 
-        // Check debate groups for empty placeholders (skip DM container at index 0)
+        // No debate group may be empty
         for (int i = 1; i < groupContainers.Count; i++)
         {
             if (ContainsEmptyPlaceholder(groupContainers[i].transform))
@@ -758,12 +862,12 @@ public class AssignGroupsController : MonoBehaviour
     /// <summary>
     /// Reads the visual hierarchy and writes group assignments back into
     /// PlayerManager so downstream systems see the player's choices.
+    /// Group names use the typed text if provided, otherwise the placeholder default.
     /// </summary>
     private void CommitGroupAssignments()
     {
         PlayerManager.ClearAllGroups();
 
-        // Read the DM from container index 0
         if (groupContainers.Count > 0)
         {
             RectTransform dmCard = GetPlayerCardInContainer(groupContainers[0].transform);
@@ -774,18 +878,16 @@ public class AssignGroupsController : MonoBehaviour
             }
         }
 
-        // Skip index 0 (DM container). DM has no group assignment.
         for (int i = 1; i < groupContainers.Count; i++)
         {
-            var group = PlayerManager.CreateGroup($"Group {i}");
+            string groupName = GetContainerEffectiveName(groupContainers[i]);
+            var group = PlayerManager.CreateGroup(groupName);
 
             foreach (Transform child in groupContainers[i].transform)
             {
-                RectTransform rt = child.GetComponent<RectTransform>();
+                var rt = child.GetComponent<RectTransform>();
                 if (rt != null && cardToPlayerId.TryGetValue(rt, out int playerId))
-                {
                     PlayerManager.UpdatePlayerGroup(playerId, group.id);
-                }
             }
         }
     }
@@ -813,14 +915,11 @@ public class AssignGroupsController : MonoBehaviour
     private List<List<Player>> DistributePlayersIntoGroups(List<Player> players, int targetGroupCount)
     {
         targetGroupCount = Mathf.Clamp(targetGroupCount, 1, players.Count);
-
         var groups = new List<List<Player>>();
         for (int i = 0; i < targetGroupCount; i++)
             groups.Add(new List<Player>());
-
         for (int i = 0; i < players.Count; i++)
             groups[i % targetGroupCount].Add(players[i]);
-
         return groups;
     }
 }
