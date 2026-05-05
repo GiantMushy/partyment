@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -9,28 +10,38 @@ public class PlayerMutexController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI buttonText;
 
     private GameManager.GameState nextState;
+    private string pendingName;
+    private string pendingPrefix;
+
     void Start()
     {
         gameManager = GameManager.Instance;
     }
 
+    void OnEnable()
+    {
+        if (pendingName != null)
+            StartCoroutine(ApplyTextNextFrame());
+    }
+
+    private IEnumerator ApplyTextNextFrame()
+    {
+        yield return null;
+        if (nameDisplay != null) nameDisplay.text = pendingName;
+        if (buttonText != null) buttonText.text = pendingPrefix + pendingName;
+    }
+
     public void SetNameAndNextState(string name, GameManager.GameState nextState)
     {
-        if (nameDisplay != null)
-        {
-            nameDisplay.text = name;
-            buttonText.text = "I am " + name;
-        }
+        pendingName = name;
+        pendingPrefix = "I am ";
         this.nextState = nextState;
     }
 
     public void SetNameAndNextState(string name, string buttonPrefix, GameManager.GameState nextState)
     {
-        if (nameDisplay != null)
-        {
-            nameDisplay.text = name;
-            buttonText.text = buttonPrefix + name;
-        }
+        pendingName = name;
+        pendingPrefix = buttonPrefix;
         this.nextState = nextState;
     }
 

@@ -8,23 +8,24 @@ public class Topic
     public int id;
     public string title;
     public string description;
+    public string descriptionIs;       // Icelandic description
+    public string optionA;             // "This" label (English)
+    public string optionB;             // "That" label (English)
+    public string optionAIs;           // "Hitt" label (Icelandic)
+    public string optionBIs;           // "Þetta" label (Icelandic)
     public GameManager.Pack pack;
     public TopicManager.TopicType type;
-    public int seriousness; // Scale of 0-5 for how serious the topic is
-    public string leadingQuestionFor;
-    public string leadingQuestionAgainst;
+    public int seriousness;            // 0-5 scale
 }
 
 public class TopicManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TopicDatabase topicDatabase;
-    public enum TopicType { Short, Medium, Long }
 
-    // Master list — populated by TopicDatabase or a real data source
+    public enum TopicType { Versus, Scenarios }
+
     public List<Topic> allTopics = new List<Topic>();
-
-    // Working list — filtered to the currently selected pack
     private List<Topic> currentPackTopics = new List<Topic>();
 
     public Topic currentTopic;
@@ -32,13 +33,13 @@ public class TopicManager : MonoBehaviour
 
     void Start()
     {
-        LoadDevTopics();
+        LoadTopics();
     }
 
-    public void LoadDevTopics()
+    public void LoadTopics()
     {
-        allTopics = topicDatabase.LoadDevTopics();
-        Debug.Log($"TopicManager: Loaded {allTopics.Count} dev topics.");
+        allTopics = topicDatabase.LoadTopics();
+        Debug.Log($"TopicManager: Loaded {allTopics.Count} topics.");
     }
 
     public void LoadTopicsFromPack()
@@ -56,19 +57,14 @@ public class TopicManager : MonoBehaviour
 
     // -------------------- Public Getters --------------------
 
-    public Topic GetRandomShortTopic(int seriousnessLevel)
+    public Topic GetRandomVersusTopic(int seriousnessLevel)
     {
-        return GetRandomTopic(TopicType.Short, seriousnessLevel);
+        return GetRandomTopic(TopicType.Versus, seriousnessLevel);
     }
 
-    public Topic GetRandomMediumTopic(int seriousnessLevel)
+    public Topic GetRandomScenarioTopic(int seriousnessLevel)
     {
-        return GetRandomTopic(TopicType.Medium, seriousnessLevel);
-    }
-
-    public Topic GetRandomLongTopic(int seriousnessLevel)
-    {
-        return GetRandomTopic(TopicType.Long, seriousnessLevel);
+        return GetRandomTopic(TopicType.Scenarios, seriousnessLevel);
     }
 
     // -------------------- Internal Logic --------------------
@@ -79,15 +75,14 @@ public class TopicManager : MonoBehaviour
 
         if (candidates.Count == 0)
         {
-            // All topics of this type have been seen — reset and try again
-            Debug.Log($"All {type} topics seen, resetting seen list for this type.");
+            Debug.Log($"All {type} topics seen — resetting seen list for this type.");
             seenTopics.RemoveAll(t => t.type == type);
             candidates = GetUnseenTopics(type, seriousnessLevel);
         }
 
         if (candidates.Count == 0)
         {
-            Debug.LogWarning($"No {type} topics available for seriousness level {seriousnessLevel} even after reset.");
+            Debug.LogWarning($"No {type} topics available for seriousness {seriousnessLevel} even after reset.");
             return null;
         }
 

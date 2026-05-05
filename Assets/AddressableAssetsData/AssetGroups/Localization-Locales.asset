@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_GUID: 3ba207695e89248a8af99863b3be7720
   m_SerializeEntries:
+  - m_GUID: a96b4c2d1e3f5a7b8c9d0e1f2a3b4c5d
+    m_Address: English (en)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24921210266e64fb6b6c019de4d0c362
     m_Address: Icelandic (is)
     m_ReadOnly: 1

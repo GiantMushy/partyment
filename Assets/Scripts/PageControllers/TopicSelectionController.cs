@@ -3,41 +3,87 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Manages the Topic Selection screen.
+///
+/// Versus is selected by default. Callbacks are registered in Start() — do NOT
+/// also wire them in the Inspector or they will fire twice.
+///
+/// Inspector wiring required:
+///   Toggle Buttons  → versusButton / scenariosButton
+///   Topic Display   → bodyText (Body/Text TMP), topicTypeText (Header/Topic Type TMP),
+///                     topicIcon (Header/Icon Image), versusIcon + scenariosIcon (Sprites)
+///   Shuffle         → shuffleButton, shuffleCountText (its TMP child)
+///   Confirm         → selectButton
+/// </summary>
 public class TopicSelectionController : MonoBehaviour
 {
     [Header("References")]
     private GameManager gameManager;
-    [SerializeField] private TextMeshProUGUI shortTopicText;
-    [SerializeField] private TextMeshProUGUI mediumTopicText;
-    [SerializeField] private TextMeshProUGUI longTopicText;
 
-    [Header("Variables")]
-    public Topic shortTopic;
-    public Topic mediumTopic;
-    public Topic longTopic;
+    [Header("Toggle Buttons")]
+    [SerializeField] private Button versusButton;
+    [SerializeField] private Button scenariosButton;
+
+    [Header("Topic Description — Body")]
+    [SerializeField] private TextMeshProUGUI bodyText;
+
+    [Header("Topic Description — Header")]
+    [SerializeField] private TextMeshProUGUI topicTypeText;
+    [SerializeField] private Image topicIcon;
+    [SerializeField] private Sprite versusIcon;
+    [SerializeField] private Sprite scenariosIcon;
+
+    [Header("Shuffle")]
+    [SerializeField] private Button shuffleButton;
+    [SerializeField] private TextMeshProUGUI shuffleCountText;
+    [Tooltip("How many times the player may shuffle topics per round.")]
+    public int startingNumOfShuffles = 1;
+
+    [Header("Navigation")]
+    [SerializeField] private Button selectButton;
+
+    // -------------------- State --------------------
+
+    private Topic versusTopic;
+    private Topic scenarioTopic;
+    private bool versusSelected = true;
+    private int shufflesRemaining;
+
+    // ================================================================
+    //  Unity Lifecycle
+    // ================================================================
 
     void Start()
     {
         gameManager = GameManager.Instance;
+
+        // Register callbacks in code — do NOT also wire these in the Inspector.
+        if (versusButton   != null) versusButton.onClick.AddListener(OnVersusClicked);
+        if (scenariosButton != null) scenariosButton.onClick.AddListener(OnScenariosClicked);
+        if (shuffleButton  != null) shuffleButton.onClick.AddListener(OnShuffleClicked);
+        if (selectButton   != null) selectButton.onClick.AddListener(OnSelectClicked);
     }
 
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
-
-        // Guard: skip if GameManager isn't ready yet (initial scene load)
         if (gameManager == null || gameManager.topicManager == null)
         {
             Debug.LogWarning("TopicSelectionController.OnEnable: GameManager not ready, skipping.");
             return;
         }
 
+        shufflesRemaining = startingNumOfShuffles;
+        versusSelected    = true;
+
         LoadRandomTopics();
-        PopulateButtonText();
-        Debug.Log($"TopicSelection OnEnable — short: {shortTopic?.title}, medium: {mediumTopic?.title}, long: {longTopic?.title}");
+        RefreshUI();
     }
 
-    // -------------------- Topic Loading --------------------
+    // ================================================================
+    //  Topic Loading
+    // ================================================================
 
     private void LoadRandomTopics()
     {
@@ -45,40 +91,80 @@ public class TopicSelectionController : MonoBehaviour
         tm.LoadTopicsFromPack();
 
         int seriousness = gameManager.selectedSeriousnessLevel;
-        shortTopic = tm.GetRandomShortTopic(seriousness);
-        mediumTopic = tm.GetRandomMediumTopic(seriousness);
-        longTopic = tm.GetRandomLongTopic(seriousness);
+        versusTopic   = tm.GetRandomVersusTopic(seriousness);
+        scenarioTopic = tm.GetRandomScenarioTopic(seriousness);
+
+        Debug.Log($"TopicSelection — Versus: {versusTopic?.description}, Scenario: {scenarioTopic?.description}");
     }
 
-    private void PopulateButtonText()
+    // ================================================================
+    //  UI Refresh
+    // ================================================================
+
+    private void RefreshUI()
     {
-        shortTopicText.text = shortTopic != null ? shortTopic.description : "No topic";
-        mediumTopicText.text = mediumTopic != null ? mediumTopic.description : "No topic";
-        longTopicText.text = longTopic != null ? longTopic.description : "No topic";
+        // Drive "Selected" animator state on the active toggle via EventSystem selection.
+        // The other button returns to "Normal" automatically when it loses selection.
+        if (versusSelected)
+            versusButton?.Select();
+        else
+            scenariosButton?.Select();
+
+        // Topic description
+        Topic displayed = versusSelected ? versusTopic : scenarioTopic;
+        if (bodyText != null)
+            bodyText.text = displayed != null ? displayed.description : "No topic available";
+
+        if (topicTypeText != null)
+            topicTypeText.text = versusSelected ? "Versus" : "Scenarios";
+
+        if (topicIcon != null)
+            topicIcon.sprite = versusSelected ? versusIcon : scenariosIcon;
+
+        // Shuffle button
+        if (shuffleButton != null)
+            shuffleButton.interactable = shufflesRemaining > 0;
+        if (shuffleCountText != null)
+            shuffleCountText.text = $"x{shufflesRemaining}";
+
+        // Select button disabled when there's no topic to pick
+        if (selectButton != null)
+            selectButton.interactable = displayed != null;
     }
 
-    // -------------------- Button Callbacks --------------------
+    // ================================================================
+    //  Button Callbacks  (registered in Start — do NOT wire in Inspector)
+    // ================================================================
 
-    public void TopicShort()  { SelectTopic(shortTopic); }
-    public void TopicMedium() { SelectTopic(mediumTopic); }
-    public void TopicLong()   { SelectTopic(longTopic); }
-
-    /// <summary>
-    /// Loads 3 new random topics and resets the selection. Hook this up to the Refresh button.
-    /// </summary>
-    public void Refresh()
+    public void OnVersusClicked()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        if (versusSelected) return;
+        versusSelected = true;
+        RefreshUI();
+    }
+
+    public void OnScenariosClicked()
+    {
+        if (!versusSelected) return;
+        versusSelected = false;
+        RefreshUI();
+    }
+
+    public void OnShuffleClicked()
+    {
+        if (shufflesRemaining <= 0) return;
+        shufflesRemaining--;
         LoadRandomTopics();
-        PopulateButtonText();
+        RefreshUI();
     }
 
-    // -------------------- Selection Logic --------------------
-    private void SelectTopic(Topic topic)
+    public void OnSelectClicked()
     {
-        if (topic == null) return;
+        Topic selected = versusSelected ? versusTopic : scenarioTopic;
+        if (selected == null) return;
+
         EventSystem.current.SetSelectedGameObject(null);
-        gameManager.topicManager.currentTopic = topic;
+        gameManager.topicManager.currentTopic = selected;
         gameManager.SetState(GameManager.GameState.MetricSelection);
     }
 }
