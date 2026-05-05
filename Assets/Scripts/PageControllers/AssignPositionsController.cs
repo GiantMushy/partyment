@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +11,8 @@ public class AssignPositionsController : MonoBehaviour
     [SerializeField] private GameObject groupDisplayParent;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject groupContainerPrefab;
+    [SerializeField] private GameObject groupPositionPrefab;
     [SerializeField] private GameObject nameInGroupPrefab;
-    [SerializeField] private GameObject switchForAgainstPrefab;
 
     void Start()
     {
@@ -47,13 +45,11 @@ public class AssignPositionsController : MonoBehaviour
         var groups = PlayerManager.groups.Values.OrderBy(g => g.id).ToList();
         if (groups.Count == 0) return;
 
-        // Randomly pick first group's position
         GameManager.Position first = Random.value > 0.5f ? GameManager.Position.For : GameManager.Position.Against;
         GameManager.Position current = first;
         for (int i = 0; i < groups.Count; i++)
         {
             PlayerManager.SwapPosition(groups[i].id, current);
-            // Alternate for next group
             current = current == GameManager.Position.For ? GameManager.Position.Against : GameManager.Position.For;
         }
     }
@@ -62,66 +58,28 @@ public class AssignPositionsController : MonoBehaviour
 
     private void DisplayGroups()
     {
-        ClearGroupDisplays();
-        InstantiateGroupDisplays();
-    }
-
-    private void ClearGroupDisplays()
-    {
         foreach (Transform child in groupDisplayParent.transform)
-        {
             Destroy(child.gameObject);
-        }
-    }
 
-    private void InstantiateGroupDisplays()
-    {
         foreach (var group in PlayerManager.groups.Values)
         {
-            var groupPlayers = PlayerManager.GetPlayersWithGroupId(group.id);
+            GameObject container = Instantiate(groupPositionPrefab, groupDisplayParent.transform);
+            SetupGroupContainer(container, group);
 
-            // Instantiate the For/Against switch above the group display
-            GameObject switchObj = Instantiate(switchForAgainstPrefab, groupDisplayParent.transform);
-            SetupSwitch(switchObj, group);
-
-            // Instantiate the single resizable group container and populate it
-            GameObject container = Instantiate(groupContainerPrefab, groupDisplayParent.transform);
-            SetGroupLabel(container, group.name);
-            foreach (var player in groupPlayers)
+            foreach (var player in PlayerManager.GetPlayersWithGroupId(group.id))
                 CreateNameCard(player, container.transform);
         }
     }
 
-    private void SetGroupLabel(GameObject container, string label)
+    private void SetupGroupContainer(GameObject container, Group group)
     {
-        Transform titleTransform = container.transform.Find("Title");
-        if (titleTransform == null) return;
+        var nameTMP = FindTMP(container, "Group Name Container/Name");
+        if (nameTMP != null) nameTMP.text = group.name;
 
-        var tmp = titleTransform.GetComponent<TextMeshProUGUI>();
-        if (tmp != null) tmp.text = label;
-    }
+        var positionTMP = FindTMP(container, "Group Name Container/Position");
+        if (positionTMP != null) positionTMP.text = PositionLabel(group.position);
 
-    private void CreateNameCard(Player player, Transform parent)
-    {
-        GameObject card = Instantiate(nameInGroupPrefab, parent);
-
-        Transform nameTransform = card.transform.Find("Name");
-        if (nameTransform == null) return;
-
-        var tmp = nameTransform.GetComponent<TextMeshProUGUI>();
-        if (tmp != null) tmp.text = player.name;
-    }
-
-    // -------------------- Switch Logic --------------------
-
-    private void SetupSwitch(GameObject switchObj, Group group)
-    {
-        TextMeshProUGUI forText = FindChildTMP(switchObj, "For");
-        TextMeshProUGUI againstText = FindChildTMP(switchObj, "Against");
-        Button swapButton = FindChildButton(switchObj, "Swap");
-
-        UpdateSwitchVisuals(forText, againstText, group.position);
-
+        var swapButton = FindButton(container, "Group Name Container/Swap Button");
         if (swapButton != null)
         {
             swapButton.onClick.RemoveAllListeners();
@@ -131,37 +89,32 @@ public class AssignPositionsController : MonoBehaviour
                     ? GameManager.Position.Against
                     : GameManager.Position.For;
                 PlayerManager.SwapPosition(group.id, newPosition);
-                UpdateSwitchVisuals(forText, againstText, newPosition);
+                if (positionTMP != null) positionTMP.text = PositionLabel(newPosition);
             });
         }
     }
 
-    private void UpdateSwitchVisuals(TextMeshProUGUI forText, TextMeshProUGUI againstText, GameManager.Position position)
+    private void CreateNameCard(Player player, Transform parent)
     {
-        if (forText != null)
-        {
-            Color forColor = forText.color;
-            forColor.a = position == GameManager.Position.For ? 1f : 0.5f;
-            forText.color = forColor;
-        }
-
-        if (againstText != null)
-        {
-            Color againstColor = againstText.color;
-            againstColor.a = position == GameManager.Position.Against ? 1f : 0.5f;
-            againstText.color = againstColor;
-        }
+        GameObject card = Instantiate(nameInGroupPrefab, parent);
+        Transform nameTransform = card.transform.Find("Name");
+        if (nameTransform == null) return;
+        var tmp = nameTransform.GetComponent<TextMeshProUGUI>();
+        if (tmp != null) tmp.text = player.name;
     }
 
-    private TextMeshProUGUI FindChildTMP(GameObject parent, string childName)
+    private static string PositionLabel(GameManager.Position position)
+        => position == GameManager.Position.For ? "For" : "Against";
+
+    private TextMeshProUGUI FindTMP(GameObject root, string path)
     {
-        Transform child = parent.transform.Find(childName);
-        return child != null ? child.GetComponent<TextMeshProUGUI>() : null;
+        Transform t = root.transform.Find(path);
+        return t != null ? t.GetComponent<TextMeshProUGUI>() : null;
     }
 
-    private Button FindChildButton(GameObject parent, string childName)
+    private Button FindButton(GameObject root, string path)
     {
-        Transform child = parent.transform.Find(childName);
-        return child != null ? child.GetComponent<Button>() : null;
+        Transform t = root.transform.Find(path);
+        return t != null ? t.GetComponent<Button>() : null;
     }
 }

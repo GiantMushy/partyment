@@ -24,6 +24,9 @@ public class AssignGroupsController : MonoBehaviour
     [Tooltip("Container with VerticalLayoutGroup + ContentSizeFitter. Has Group Name Container child with InputField and Edit Button.")]
     [SerializeField] private GameObject groupContainerPrefab;
 
+    [Tooltip("Display-only container. Group name is shown as static text (no input field). Used for the Discussion Moderator slot.")]
+    [SerializeField] private GameObject groupDisplayPrefab;
+
     [Tooltip("Name card with Name TMP, Field image, and Drag Icon (with DragHandle).")]
     [SerializeField] private GameObject nameInGroupPrefab;
 
@@ -33,9 +36,6 @@ public class AssignGroupsController : MonoBehaviour
     [Header("Layout References")]
     [Tooltip("Parent transform that holds all GroupContainerPrefab instances.")]
     public Transform groupsParent;
-
-    [Tooltip("Pre-placed scene object used as the Discussion Moderator container. If assigned, it is never destroyed and no new prefab is instantiated for the DM slot.")]
-    [SerializeField] private GameObject dmContainerOverride;
 
     [Tooltip("VerticalLayoutGroup panel at the bottom for unassigned / ejected players.")]
     public Transform unassignedArea;
@@ -196,18 +196,7 @@ public class AssignGroupsController : MonoBehaviour
     private void ClearScreen()
     {
         foreach (Transform child in groupsParent)
-        {
-            if (dmContainerOverride != null && child.gameObject == dmContainerOverride)
-            {
-                ClearPlayerCardsFrom(child);
-                continue;
-            }
             Destroy(child.gameObject);
-        }
-
-        // If the DM container lives outside groupsParent, still clear its cards
-        if (dmContainerOverride != null && dmContainerOverride.transform.parent != groupsParent)
-            ClearPlayerCardsFrom(dmContainerOverride.transform);
 
         foreach (Transform child in unassignedArea)
             Destroy(child.gameObject);
@@ -232,17 +221,16 @@ public class AssignGroupsController : MonoBehaviour
     }
 
     /// <summary>
-    /// Uses dmContainerOverride if assigned (the pre-placed scene object), otherwise
-    /// instantiates a new container from the prefab. Either way, it becomes groupContainers[0].
+    /// Instantiates the Group Display Prefab as the Discussion Moderator container (groupContainers[0]).
+    /// The group name is shown as static text — no input field or edit button.
     /// </summary>
     private GameObject SetupDMContainer()
     {
-        if (dmContainerOverride != null)
-        {
-            groupContainers.Add(dmContainerOverride);
-            return dmContainerOverride;
-        }
-        return CreateGroupContainer(0, "Discussion Moderator");
+        GameObject container = Instantiate(groupDisplayPrefab, groupsParent);
+        SetDisplayLabel(container, "Discussion Moderator");
+        Instantiate(emptyFieldInGroupPrefab, container.transform);
+        groupContainers.Add(container);
+        return container;
     }
 
     /// <summary>
@@ -364,7 +352,6 @@ public class AssignGroupsController : MonoBehaviour
         string placeholderLabel = overrideLabel ?? $"Group {groupNumber}";
         SetContainerPlaceholder(container, placeholderLabel);
         SetupEditButton(container);
-        if (groupNumber == 0) LockDMNameField(container);
         Instantiate(emptyFieldInGroupPrefab, container.transform);
         groupContainers.Add(container);
         return container;
@@ -382,6 +369,15 @@ public class AssignGroupsController : MonoBehaviour
         SetContainerPlaceholder(ghostGroupContainer, $"Group {ghostNumber}");
         SetupEditButton(ghostGroupContainer);
         Instantiate(emptyFieldInGroupPrefab, ghostGroupContainer.transform);
+    }
+
+    /// <summary>Sets the "Title" TextMeshProUGUI on a Group Display Prefab container.</summary>
+    private void SetDisplayLabel(GameObject container, string label)
+    {
+        Transform titleTransform = container.transform.Find("Title");
+        if (titleTransform == null) return;
+        var tmp = titleTransform.GetComponent<TextMeshProUGUI>();
+        if (tmp != null) tmp.text = label;
     }
 
     /// <summary>Sets the placeholder text of the TMP_InputField inside the Group Name Container.</summary>
@@ -447,23 +443,6 @@ public class AssignGroupsController : MonoBehaviour
             inputField.ActivateInputField();
             inputField.Select();
         });
-    }
-
-    /// <summary>
-    /// Makes the name field of the DM container non-editable: hides the Edit Button
-    /// and disables the InputField component so the placeholder always shows.
-    /// </summary>
-    private void LockDMNameField(GameObject container)
-    {
-        var editButtonGO = container.transform
-            .Find("Group Name Container/Edit Button")
-            ?.gameObject;
-        if (editButtonGO != null) editButtonGO.SetActive(false);
-
-        var inputField = container.transform
-            .Find("Group Name Container/InputField (TMP)")
-            ?.GetComponent<TMP_InputField>();
-        if (inputField != null) inputField.enabled = false;
     }
 
     /// <summary>
