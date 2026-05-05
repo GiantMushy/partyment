@@ -60,7 +60,7 @@ public class AccusationController : MonoBehaviour
 
     private GameManager            gameManager;
     private PlayerManager          PlayerManager          => gameManager.playerManager;
-    private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
+    private CorruptionManager CorruptionManager => gameManager.corruptionManager;
 
     private enum AccusationState { Default, PlayerSelected }
     private AccusationState currentState = AccusationState.Default;
@@ -201,7 +201,7 @@ public class AccusationController : MonoBehaviour
         // Update description
         if (descriptionText != null) descriptionText.text = playerSelectedDescription;
 
-        // Style all other visible buttons: red + point icon, disable those without a SecretObjective
+        // Style all other visible buttons: red + point icon, disable those without a corruption
         for (int i = 0; i < playerButtons.Length; i++)
         {
             if (i == accusingButtonIndex)   continue; // Leave the selected button alone
@@ -217,12 +217,12 @@ public class AccusationController : MonoBehaviour
             if (ui.iconImage != null && pointIcon != null)
                 ui.iconImage.sprite = pointIcon;
 
-            // Players without an active SecretObjective cannot be correctly accused —
+            // Players without an active corruption cannot be correctly accused —
             // disable their button so the DM cannot select them as a valid target.
             int pid = buttonPlayerIds[i];
-            bool hasSecretObjective = PlayerManager.players.ContainsKey(pid)
-                                   && PlayerManager.players[pid].secretObjectiveId >= 0;
-            ui.button.interactable = hasSecretObjective;
+            bool hasCorruption = PlayerManager.players.ContainsKey(pid)
+                              && PlayerManager.players[pid].corruptionId >= 0;
+            ui.button.interactable = hasCorruption;
         }
 
         // Reveal the Incorrect button
@@ -239,8 +239,8 @@ public class AccusationController : MonoBehaviour
     // ===================================================================
 
     /// <summary>
-    /// The accusing player correctly identified the accused player's Secret Objective target.
-    /// They steal that objective's points.
+    /// The accusing player correctly identified the accused player's corruption.
+    /// They steal that corruption's points.
     /// </summary>
     private void ResolveCorrectAccusation(int accusingButtonIndex, int accusedButtonIndex)
     {
@@ -249,7 +249,7 @@ public class AccusationController : MonoBehaviour
 
         // ----------------------------------------------------------------
         //  POINT CALCULATION — Correct Accusation
-        //  ▶ Currently: accusing player steals ALL SecretObjective.points
+        //  ▶ Currently: accusing player steals ALL Corruption.points
         //    from the accused player.
         //
         //  TO ADJUST, change `stolenPoints` here. Options:
@@ -257,7 +257,7 @@ public class AccusationController : MonoBehaviour
         //    Half points:  stolenPoints = accusedObjective.points / 2
         //    Flat reward:  stolenPoints = flatAccusationReward             (add SerializeField)
         // ----------------------------------------------------------------
-        SecretObjective accusedObjective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(accusedPlayerId);
+        Corruption accusedObjective = CorruptionManager.GetCorruptionByPlayerId(accusedPlayerId);
         int stolenPoints = accusedObjective != null ? accusedObjective.points : 0;
 
         // Deduct from accused player's score

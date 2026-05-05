@@ -30,7 +30,7 @@ public class AssignPositionsController : MonoBehaviour
 
     public void Next()
     {
-        gameManager.StartSecretObjectiveSequence();
+        gameManager.StartCorruptionSequence();
     }
 
     public void Back()

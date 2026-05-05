@@ -160,7 +160,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5702433838657894472}
-        m_TargetAssemblyTypeName: SecObjCardController, Assembly-CSharp
+        m_TargetAssemblyTypeName: CorruptionCardController, Assembly-CSharp
         m_MethodName: ToggleComplete
         m_Mode: 1
         m_Arguments:
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the description of the Active Secret Objective. Achieve the highest
+  m_text: This is the description of the Active Corruption. Achieve the highest
     form of enlightenment
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 9101356537800567927}
   - component: {fileID: 456564397283819228}
   m_Layer: 5
-  m_Name: SecObj Card
+  m_Name: Corruption Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

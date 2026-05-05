@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SecObjCardController : MonoBehaviour
+public class CorruptionCardController : MonoBehaviour
 {
     [Header("References")]
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
-    private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
-    private SecretObjective objective;
+    private CorruptionManager CorruptionManager => gameManager.corruptionManager;
+    private Corruption objective;
     private Player player;
 
     [Header("UI Elements")]
@@ -50,10 +50,10 @@ public class SecObjCardController : MonoBehaviour
         if (gameManager == null) gameManager = GameManager.Instance;
 
         player = PlayerManager.players[playerId];
-        objective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(player.id);
+        objective = CorruptionManager.GetCorruptionByPlayerId(player.id);
         if (objective == null)
         {
-            Debug.LogError($"No secret objective found for player ID {playerId}");
+            Debug.LogError($"No corruption found for player ID {playerId}");
             return;
         }
 
@@ -71,16 +71,16 @@ public class SecObjCardController : MonoBehaviour
     private void SetValues()
     {
         if (typeText != null) typeText.text = objective.type.ToString();
-        else Debug.LogError("SecObjCardController: typeText is not assigned in prefab!");
+        else Debug.LogError("CorruptionCardController: typeText is not assigned in prefab!");
 
         if (descriptionText != null) descriptionText.text = objective.description;
-        else Debug.LogError("SecObjCardController: descriptionText is not assigned in prefab!");
+        else Debug.LogError("CorruptionCardController: descriptionText is not assigned in prefab!");
 
         if (pointsText != null) pointsText.text = $"{objective.points} Points";
-        else Debug.LogError("SecObjCardController: pointsText is not assigned in prefab!");
+        else Debug.LogError("CorruptionCardController: pointsText is not assigned in prefab!");
 
         if (nameText != null) nameText.text = player.name;
-        else Debug.LogError("SecObjCardController: nameText is not assigned in prefab!");
+        else Debug.LogError("CorruptionCardController: nameText is not assigned in prefab!");
     }
 
     private void SetSprites()
@@ -90,17 +90,17 @@ public class SecObjCardController : MonoBehaviour
 
         switch (objective.type)
         {
-            case GameManager.SecretObjectiveType.Speech:
+            case GameManager.CorruptionType.Speech:
                 if (speechFrame != null) img.sprite = speechFrame;
-                else Debug.LogWarning("SecObjCardController: speechFrame sprite not assigned in prefab!");
+                else Debug.LogWarning("CorruptionCardController: speechFrame sprite not assigned in prefab!");
                 break;
-            case GameManager.SecretObjectiveType.Interruption:
+            case GameManager.CorruptionType.Interruption:
                 if (interruptionFrame != null) img.sprite = interruptionFrame;
-                else Debug.LogWarning("SecObjCardController: interruptionFrame sprite not assigned in prefab!");
+                else Debug.LogWarning("CorruptionCardController: interruptionFrame sprite not assigned in prefab!");
                 break;
-            case GameManager.SecretObjectiveType.Betrayal:
+            case GameManager.CorruptionType.Betrayal:
                 if (betrayalFrame != null) img.sprite = betrayalFrame;
-                else Debug.LogWarning("SecObjCardController: betrayalFrame sprite not assigned in prefab!");
+                else Debug.LogWarning("CorruptionCardController: betrayalFrame sprite not assigned in prefab!");
                 break;
         }
     }

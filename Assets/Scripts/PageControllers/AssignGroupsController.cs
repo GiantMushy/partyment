@@ -109,7 +109,7 @@ public class AssignGroupsController : MonoBehaviour
     public void Next()
     {
         CommitGroupAssignments();
-        gameManager.secretObjectiveManager.AssignSecretObjectivesToPlayers(PlayerManager.players, dmId);
+        gameManager.corruptionManager.AssignCorruptionsToPlayers(PlayerManager.players, dmId);
         gameManager.PlayTransition("Game Is Starting!", () =>
         {
             gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);

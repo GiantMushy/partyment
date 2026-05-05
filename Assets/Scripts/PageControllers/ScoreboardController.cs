@@ -13,7 +13,7 @@ public class ScoreboardController : MonoBehaviour
     [Header("UI Elements")]
     
     [SerializeField] private List<GameObject> groupScoreDisplays = new List<GameObject>(7);
-    [SerializeField] private List<GameObject> secObjScoreDisplays = new List<GameObject>(7);
+    [SerializeField] private List<GameObject> corruptionScoreDisplays = new List<GameObject>(7);
     [SerializeField] private List<TextMeshProUGUI> totalScoreDisplays = new List<TextMeshProUGUI>(7);
     [SerializeField] private List<GameObject> nameDisplays = new List<GameObject>(7);
 
@@ -42,7 +42,7 @@ public class ScoreboardController : MonoBehaviour
                 int groupScore = 0;
                 if (p.group_id >= 0 && PlayerManager.groups.ContainsKey(p.group_id))
                     groupScore = PlayerManager.groups[p.group_id].score;
-                int secObjScore = p.score;
+                int corruptionScore = p.score;
 
                 // Resize group score bar (height = groupScore * 2)
                 if (i < groupScoreDisplays.Count && groupScoreDisplays[i] != null)
@@ -52,17 +52,17 @@ public class ScoreboardController : MonoBehaviour
                     groupScoreDisplays[i].SetActive(true);
                 }
 
-                // Resize secret objective score bar (height = secObjScore * 2)
-                if (i < secObjScoreDisplays.Count && secObjScoreDisplays[i] != null)
+                // Resize corruption score bar (height = corruptionScore * 2)
+                if (i < corruptionScoreDisplays.Count && corruptionScoreDisplays[i] != null)
                 {
-                    var rt = secObjScoreDisplays[i].GetComponent<RectTransform>();
-                    rt.sizeDelta = new Vector2(rt.sizeDelta.x, secObjScore * 2);
-                    secObjScoreDisplays[i].SetActive(true);
+                    var rt = corruptionScoreDisplays[i].GetComponent<RectTransform>();
+                    rt.sizeDelta = new Vector2(rt.sizeDelta.x, corruptionScore * 2);
+                    corruptionScoreDisplays[i].SetActive(true);
                 }
 
                 // Set total score text
                 if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)                {
-                    totalScoreDisplays[i].text = (groupScore + secObjScore).ToString();
+                    totalScoreDisplays[i].text = (groupScore + corruptionScore).ToString();
                     totalScoreDisplays[i].gameObject.SetActive(true);
                 }
 
@@ -79,8 +79,8 @@ public class ScoreboardController : MonoBehaviour
                 // Hide unused slots
                 if (i < groupScoreDisplays.Count && groupScoreDisplays[i] != null)
                     groupScoreDisplays[i].SetActive(false);
-                if (i < secObjScoreDisplays.Count && secObjScoreDisplays[i] != null)
-                    secObjScoreDisplays[i].SetActive(false);
+                if (i < corruptionScoreDisplays.Count && corruptionScoreDisplays[i] != null)
+                    corruptionScoreDisplays[i].SetActive(false);
                 if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)
                     totalScoreDisplays[i].gameObject.SetActive(false);
                 if (i < nameDisplays.Count && nameDisplays[i] != null)

@@ -11,7 +11,7 @@ public class Player
     public int stolenScore = 0;  // Points earned by successfully accusing another player
     public int penaltyScore = 0; // Points lost from incorrect accusations (cumulative across rounds)
     public int group_id = -1; // -1 means unassigned
-    public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
+    public int corruptionId = -1; // ID of the assigned corruption, -1 if none
     public bool hasAccused = false; // True once this player has made an accusation this round
     public bool isAccused = false;  // True once this player has been successfully accused this round
 }
@@ -23,7 +23,7 @@ public class Group
     public string name = "";
     public int score = 0;
     public GameManager.Position position; // For or Against
-    public int secretObjectiveId = -1; // ID of the assigned secret objective, -1 if none
+    public int corruptionId = -1; // ID of the assigned corruption, -1 if none
     public int votingPhasePoints = 0; // Accumulated local vote points during the voting phase
 }
 
@@ -184,18 +184,18 @@ public class PlayerManager : MonoBehaviour
         return 0;
     }
 
-    public int GetGroupSecObjId(int groupId)
+    public int GetGroupCorruptionId(int groupId)
     {
         if (groups.ContainsKey(groupId))
-            return groups[groupId].secretObjectiveId;
+            return groups[groupId].corruptionId;
         Debug.LogWarning($"Group with ID {groupId} does not exist.");
         return -1;
     }
 
-    public int GetPlayerSecObjId(int playerId)
+    public int GetPlayerCorruptionId(int playerId)
     {
         if (players.ContainsKey(playerId))
-            return players[playerId].secretObjectiveId;
+            return players[playerId].corruptionId;
         Debug.LogWarning($"Player with ID {playerId} does not exist.");
         return -1;
     }
@@ -233,7 +233,7 @@ public class PlayerManager : MonoBehaviour
 
     /// <summary>
     /// Marks <paramref name="playerId"/> as successfully accused this round,
-    /// preventing their secret objective toggle from awarding further points.
+    /// preventing their corruption toggle from awarding further points.
     /// </summary>
     public void SetPlayerAccused(int playerId)
     {

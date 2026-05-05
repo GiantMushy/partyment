@@ -6779,7 +6779,7 @@ GameObject:
   - component: {fileID: 419532995}
   - component: {fileID: 419532994}
   m_Layer: 5
-  m_Name: SecObj Score 5
+  m_Name: Corruption Score 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6944,7 +6944,7 @@ GameObject:
   - component: {fileID: 442942215}
   - component: {fileID: 442942214}
   m_Layer: 5
-  m_Name: SecObj Score 4
+  m_Name: Corruption Score 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8485,7 +8485,7 @@ MonoBehaviour:
   currentRound: 1
   playerManager: {fileID: 840409766}
   topicManager: {fileID: 1045916292}
-  secretObjectiveManager: {fileID: 1296881307}
+  corruptionManager: {fileID: 1296881307}
   developmentMode: 0
   startingState: 7
   selectedLanguage: 0
@@ -8508,7 +8508,7 @@ MonoBehaviour:
   metricSelection: {fileID: 2041114197}
   assignPositions: {fileID: 2023861221}
   playerMutex: {fileID: 1942680767}
-  secretObjectiveDisplay: {fileID: 633501018}
+  corruptionDisplay: {fileID: 633501018}
   dmDisplay: {fileID: 1803850207}
   voting: {fileID: 1592148103}
   scoreboard: {fileID: 713119575}
@@ -10985,7 +10985,7 @@ GameObject:
   - component: {fileID: 633501019}
   - component: {fileID: 633501020}
   m_Layer: 5
-  m_Name: SecretObjectiveDisplay
+  m_Name: CorruptionDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11290,7 +11290,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a60a282d528b5465eb0a44a9b26f070f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SecretObjectiveDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::CorruptionDatabase
   corruptionsCSV: {fileID: 4900000, guid: c2ecae01a43bf41c89cac5b2223ec6c1, type: 3}
 --- !u!4 &653746344
 Transform:
@@ -12610,7 +12610,7 @@ MonoBehaviour:
   - {fileID: 523782689}
   - {fileID: 2110915722}
   - {fileID: 1848440979}
-  secObjScoreDisplays:
+  corruptionScoreDisplays:
   - {fileID: 1716924623}
   - {fileID: 1863883280}
   - {fileID: 1062615038}
@@ -12749,7 +12749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876674388372724454, guid: 38e0a5c54238fbc4699967683de48751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SecretObjectiveDisplayController, Assembly-CSharp
+      value: CorruptionDisplayController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17691,7 +17691,7 @@ GameObject:
   - component: {fileID: 1062615041}
   - component: {fileID: 1062615040}
   m_Layer: 5
-  m_Name: SecObj Score 3
+  m_Name: Corruption Score 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22689,10 +22689,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49bf9cfb488f24e209110bb642077356, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SecretObjectiveManager
-  secretObjectiveDatabase: {fileID: 653746343}
-  allSecretObjectives: []
-  usedSecretObjectiveIds: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorruptionManager
+  corruptionDatabase: {fileID: 653746343}
+  allCorruptions: []
+  usedCorruptionIds: 
 --- !u!1 &1298100920
 GameObject:
   m_ObjectHideFlags: 0
@@ -23332,7 +23332,7 @@ GameObject:
   - component: {fileID: 1355468474}
   - component: {fileID: 1355468473}
   m_Layer: 5
-  m_Name: SecObj Score 6
+  m_Name: Corruption Score 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29767,7 +29767,7 @@ GameObject:
   - component: {fileID: 1716924626}
   - component: {fileID: 1716924625}
   m_Layer: 5
-  m_Name: SecObj Score 1
+  m_Name: Corruption Score 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30541,7 +30541,7 @@ MonoBehaviour:
   slideTrack: {fileID: 1658954161}
   activeObjectiveContainer: {fileID: 806287339}
   inactiveObjectiveContainer: {fileID: 1178212931}
-  secretObjectivePrefab: {fileID: 8648961093083843107, guid: 91d9e8ea9ac29435f8f71670dc41b41c, type: 3}
+  corruptionPrefab: {fileID: 8648961093083843107, guid: 91d9e8ea9ac29435f8f71670dc41b41c, type: 3}
   objectivesSlideOffset: 1000
   objectivesSlideSpeed: 8
   timerText: {fileID: 1488301107}
@@ -31222,7 +31222,7 @@ GameObject:
   - component: {fileID: 1863883283}
   - component: {fileID: 1863883282}
   m_Layer: 5
-  m_Name: SecObj Score 2
+  m_Name: Corruption Score 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31834,7 +31834,7 @@ GameObject:
   - component: {fileID: 1918627268}
   - component: {fileID: 1918627267}
   m_Layer: 5
-  m_Name: SecObj Score 7
+  m_Name: Corruption Score 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33134,11 +33134,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

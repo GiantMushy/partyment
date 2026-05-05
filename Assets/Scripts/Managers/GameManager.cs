@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public PlayerManager playerManager;
     public TopicManager topicManager;
-    public SecretObjectiveManager secretObjectiveManager;
+    public CorruptionManager corruptionManager;
 
     [Header("Dev Values")]
     public bool developmentMode = true;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         // Global States
         None, LoadingScreen, PackSelection, Settings, Rulebook,
         // Local Game States
-        LocalVsOnline, StartLocalGame, AssignGroups, TopicSelection, MetricSelection, AssignPositions, PlayerMutex, SecretObjectiveDisplay, DMDisplay, Voting, Scoreboard,
+        LocalVsOnline, StartLocalGame, AssignGroups, TopicSelection, MetricSelection, AssignPositions, PlayerMutex, CorruptionDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
         HostVsJoin, HostOnlineGame, JoinOnlineGame
     }
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
     public List<Pack> OwnedPacks = new List<Pack>() { Pack.Default }; // This should be set based on actual owned packs in a real implementation
     public enum Position { For, Against }
-    public enum SecretObjectiveType { Civilian, Speech, Interruption, Betrayal }
+    public enum CorruptionType { Civilian, Speech, Interruption, Betrayal }
     public static Pack selectedPack = Pack.Default;
     public int selectedSeriousnessLevel = 2; // 0 = Silly, 2 = Balanced, 4 = Serious
 
@@ -56,10 +56,10 @@ public class GameManager : MonoBehaviour
     // Networking Variables
     private string currentRoomCode;
 
-    // Secret Objective Sequence — controls the order players view their objectives
-    // Edit this ordering logic in StartSecretObjectiveSequence() to change player order
-    private List<Player> secretObjectiveOrder = new List<Player>();
-    private int secretObjectiveIndex = 0;
+    // Corruption Sequence — controls the order players view their corruptions
+    // Edit this ordering logic in StartCorruptionSequence() to change player order
+    private List<Player> corruptionOrder = new List<Player>();
+    private int corruptionIndex = 0;
 
     // Voting Sequence — controls the order groups vote, then the DM votes metrics
     private List<Group> votingGroupOrder = new List<Group>();
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     public GameObject metricSelection;
     public GameObject assignPositions;
     public GameObject playerMutex;
-    public GameObject secretObjectiveDisplay;
+    public GameObject corruptionDisplay;
     public GameObject dmDisplay;
     public GameObject voting;
     public GameObject scoreboard;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
             { GameState.MetricSelection, metricSelection },
             { GameState.AssignPositions, assignPositions },
             { GameState.PlayerMutex, playerMutex },
-            { GameState.SecretObjectiveDisplay, secretObjectiveDisplay },
+            { GameState.CorruptionDisplay, corruptionDisplay },
             { GameState.DMDisplay, dmDisplay },
             { GameState.Voting, voting },
             { GameState.Scoreboard, scoreboard },
@@ -212,11 +212,11 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Debug.Log("Starting a New Game");
-        // Reset Metrics, Topic Selection, Secret Objectives, and Player Groups
+        // Reset Metrics, Topic Selection, Corruptions, and Player Groups
         selectedMetrics.Clear();
         selectedPack = Pack.Default;
         topicManager.ResetTopicSelection();
-        secretObjectiveManager.ResetSecretObjectives();
+        corruptionManager.ResetCorruptions();
         playerManager.ResetPlayerGroups();
         assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
 
@@ -318,9 +318,9 @@ public class GameManager : MonoBehaviour
         // Set up the target state before transitioning
         switch (nextState)
         {
-            case GameState.SecretObjectiveDisplay:
-                var currentPlayer = secretObjectiveOrder[secretObjectiveIndex];
-                secretObjectiveDisplay.GetComponent<SecretObjectiveDisplayController>().SetPlayer(currentPlayer);
+            case GameState.CorruptionDisplay:
+                var currentPlayer = corruptionOrder[corruptionIndex];
+                corruptionDisplay.GetComponent<CorruptionDisplayController>().SetPlayer(currentPlayer);
                 break;
             case GameState.DMDisplay:
                 break;
@@ -337,7 +337,7 @@ public class GameManager : MonoBehaviour
         SetState(nextState);
     }
 
-    // -------------------- Secret Objective Sequence --------------------
+    // -------------------- Corruption Sequence --------------------
 
     /// <summary>
     /// Starts a new round: advances round counter, resets round-specific state, and moves to topic selection.
@@ -349,7 +349,7 @@ public class GameManager : MonoBehaviour
             currentRound++;
             selectedMetrics.Clear();
             playerManager.ResetAccusations();
-            secretObjectiveManager.AssignSecretObjectivesToPlayers(playerManager.players, playerManager.dmId);
+            corruptionManager.AssignCorruptionsToPlayers(playerManager.players, playerManager.dmId);
             SetState(GameState.TopicSelection);
         }
         else if (currentRound == totalRounds)
@@ -361,22 +361,22 @@ public class GameManager : MonoBehaviour
     /// Players are shown in ascending player ID order (excluding the DM).
     /// Edit the OrderBy below to change the player ordering.
     /// </summary>
-    public void StartSecretObjectiveSequence()
+    public void StartCorruptionSequence()
     {
         int dmId = playerManager.dmId;
 
         // ---- Player ordering logic (edit here to change order) ----
-        secretObjectiveOrder = playerManager.players.Values
+        corruptionOrder = playerManager.players.Values
             .Where(p => p.id != dmId)
             .OrderBy(p => p.id)
             .ToList();
         // -----------------------------------------------------------
 
-        secretObjectiveIndex = 0;
+        corruptionIndex = 0;
 
-        if (secretObjectiveOrder.Count > 0)
+        if (corruptionOrder.Count > 0)
         {
-            StartMutex(secretObjectiveOrder[0], GameState.SecretObjectiveDisplay);
+            StartMutex(corruptionOrder[0], GameState.CorruptionDisplay);
         }
         else
         {
@@ -386,22 +386,22 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Advances to the next player in the secret objective sequence,
+    /// Advances to the next player in the corruption sequence,
     /// or hands the phone to the DM if all players have seen theirs.
     /// </summary>
-    public void AdvanceSecretObjectiveSequence()
+    public void AdvanceCorruptionSequence()
     {
-        secretObjectiveIndex++;
+        corruptionIndex++;
         int dmId = playerManager.dmId;
 
-        if (secretObjectiveIndex < secretObjectiveOrder.Count)
+        if (corruptionIndex < corruptionOrder.Count)
         {
             // Next player's mutex
-            StartMutex(secretObjectiveOrder[secretObjectiveIndex], GameState.SecretObjectiveDisplay);
+            StartMutex(corruptionOrder[corruptionIndex], GameState.CorruptionDisplay);
         }
         else
         {
-            // All players have seen their objectives — hand to DM
+            // All players have seen their corruptions — hand to DM
             StartMutex(playerManager.players[dmId], GameState.DMDisplay);
         }
     }

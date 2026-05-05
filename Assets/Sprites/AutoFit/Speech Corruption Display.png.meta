@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9b5f0a6e691484d69aa6ca01dc37e399
+guid: db6157d06ee1944ccae1e5c5dcfd95c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8811080724530298509
-    second: SecObj Score Bar_0
+      213: 1238630523256190887
+    second: Speech Corruption Display_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 20, y: 20, z: 20, w: 20}
+  spriteBorder: {x: 115, y: 115, z: 115, w: 115}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SecObj Score Bar_0
+      name: Speech Corruption Display_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 120
-        height: 120
+        width: 280
+        height: 280
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8e7be06c3f374a70800000000000000
-      internalID: 8811080724530298509
+      spriteID: 7a734aaf5ef703110800000000000000
+      internalID: 1238630523256190887
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SecObj Score Bar_0: 8811080724530298509
+      Speech Corruption Display_0: 1238630523256190887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

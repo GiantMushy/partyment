@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Partyment** is a Unity 6 (6000.3.1f1) party debate game. Players split into groups, debate topics chosen by a Discussion Moderator (DM), and vote on group performance. Each round may include Secret Objectives that players secretly complete for bonus points.
+**Partyment** is a Unity 6 (6000.3.1f1) party debate game. Players split into groups, debate topics chosen by a Discussion Moderator (DM), and vote on group performance. Each round may include Corruptions that players secretly complete for bonus points.
 
 The project uses **Universal Render Pipeline (URP)**, **TextMeshPro**, and **Unity Localization** (English + Icelandic).
 
@@ -34,14 +34,14 @@ All three managers are MonoBehaviours held as fields on the `GameManager` GameOb
 | Manager | Responsibility |
 |---|---|
 | `PlayerManager` | Players (`Dictionary<int, Player>`) and Groups (`Dictionary<int, Group>`). The DM is always the player with the lowest ID unless explicitly set. |
-| `TopicManager` | Loads topics from `TopicDatabase`, filters by selected `Pack` and `seriousness` level (0–5 scale). |
-| `SecretObjectiveManager` | Assigns weighted-random objectives each round (40% Speech, 15% Interruption, 5% Betrayal, ~40% Civilian/none). |
+| `TopicManager` | Loads topics from `Topics.csv` via `TopicDatabase`, filters by selected `Pack` and `seriousness` level (0–5 scale). Tracks seen topics to avoid repeats. |
+| `CorruptionManager` | Assigns weighted-random objectives each round (40% Speech, 15% Interruption, 5% Betrayal, ~40% Civilian/none). Loads from `Corruptions.csv`. |
 
 ### Game Flow (Local)
 
 ```
 PackSelection → StartLocalGame → AssignGroups → TopicSelection → MetricSelection
-→ AssignPositions → [PlayerMutex → SecretObjectiveDisplay] × N → [PlayerMutex → DMDisplay]
+→ AssignPositions → [PlayerMutex → CorruptionDisplay] × N → [PlayerMutex → DMDisplay]
 → [PlayerMutex → Voting] × groups + DM → Scoreboard → (repeat or new game)
 ```
 
@@ -56,9 +56,43 @@ Each `GameState` has a corresponding controller in `Assets/Scripts/PageControlle
 - Re-initialize in `OnEnable()`, not `Start()`, because panels are toggled active/inactive repeatedly.
 - Never call `SetState()` directly — they call semantic methods on `GameManager` (e.g. `gameManager.AdvanceVotingSequence()`).
 
+#### StartLocalGameController
+
+Player name registration screen (`Assets/Scripts/PageControllers/StartLocalGameController.cs`):
+- Supports 3–16 players (configurable in `PlayerManager`). Next button disabled until ≥ 3 players are entered.
+- Players added via an input field (max 12 characters; field auto-hides at max capacity).
+- Each player entry supports inline name editing and deletion.
+- `OnDefaultInputEndEdit()` adds the player on input submit; `UpdateNextButtonState()` gates the Next button.
+
+#### AssignGroupsController
+
+Drag-and-drop group assignment screen (`Assets/Scripts/PageControllers/AssignGroupsController.cs`):
+- The player with the lowest ID is placed in a fixed **Discussion Moderator** container (non-draggable label).
+- Remaining players are distributed into 2+ debate groups, initially named "Group 1", "Group 2", etc. Group names are editable via `InputField`.
+- **Drag & Drop:** Players drag cards between group containers. A "ghost" group at the bottom auto-creates a new group when a card is dropped on it; groups auto-delete when emptied.
+- **Randomize button:** Reshuffles non-DM players across the current number of groups.
+- Next button enabled only when: ≥ 2 real debate groups exist, no unassigned players remain, and the DM container has exactly 1 player.
+- `BuildScreen()` sets the initial layout; `RebuildScreenPreservingLayout()` re-renders while preserving custom names and positions; `CommitGroupAssignments()` writes the final layout to `PlayerManager`.
+
+#### TopicSelectionController
+
+DM topic selection screen (`Assets/Scripts/PageControllers/TopicSelectionController.cs`):
+- Displays two topic types the DM can toggle between: **Versus** ("This or That" style) and **Scenarios** (longer debate prompts).
+- Topics are filtered by `gameManager.selectedSeriousnessLevel` (0 = Silly, 2 = Balanced, 4 = Serious) within ±1 tolerance.
+- DM can shuffle the displayed topic up to `startingNumOfShuffles` times per round (default 1).
+- `LoadRandomTopics()` fetches one random Versus and one random Scenario from `TopicManager`; `OnSelectClicked()` commits `topicManager.currentTopic` and advances to MetricSelection.
+
+#### AssignPositionsController
+
+Position assignment screen (`Assets/Scripts/PageControllers/AssignPositionsController.cs`):
+- Randomly assigns **For** or **Against** positions to each debate group (alternating, starting from a random side).
+- Each group card shows the group name, position label, and a list of its players.
+- **Swap Button** on each group card lets the DM manually toggle that group's position.
+- `Next()` calls `gameManager.StartCorruptionSequence()` to begin the secret objective reveal sequence.
+
 ### Drag & Drop System
 
-Metric selection and voting use a custom drag-and-drop system:
+Metric selection, group assignment, and voting use custom drag-and-drop systems:
 - `MetricDragHandler` / `VotingDragHandler` — attached to draggable cards; handle both click-to-toggle and drag gestures.
 - Drop targets implement `IMetricDropTarget` / `IVotingDropTarget`.
 - The drag ghost is parented to `dragLayer` (a top-level Canvas `RectTransform`) so it renders above all UI.
@@ -66,10 +100,34 @@ Metric selection and voting use a custom drag-and-drop system:
 
 ### Data / Content
 
-Topics and Secret Objectives are hardcoded in `Assets/Scripts/DevModeDatabase/`. These are the dev-mode data source. Production packs/content will eventually replace or supplement these.
+Topics and Corruptions are loaded from **CSV files** in `Assets/Database/`. The loader classes live in `Assets/Scripts/DevModeDatabase/` but read from CSV rather than hardcoded data.
 
-- **Topics**: organized by `Pack` (Default, Icelandic, EighteenPlus, Political, PopCulture), `TopicType` (Short/Medium/Long), and `seriousness` (0–5). The random selector matches topics within ±1 seriousness of the player-chosen level.
-- **Secret Objectives**: types are `Civilian` (no objective), `Speech`, `Interruption`, `Betrayal`.
+#### Topics.csv (`Assets/Database/Topics.csv`)
+
+| Column | Description |
+|---|---|
+| `id` | Unique integer |
+| `Pack` | General, Icelandic, EighteenPlus, Political, PopCulture |
+| `Length` | `"This or That"` (Versus) or `"Scenarios"` |
+| `Description Enska` | English topic text |
+| `Description Íslenska` | Icelandic topic text |
+| `This` / `That` | English option labels (Versus only) |
+| `Hitt` / `Þetta` | Icelandic option labels (Versus only) |
+
+Loaded by `TopicDatabase.LoadTopics()` which parses RFC 4180 CSV, maps `Length` to `TopicType` (Versus/Scenarios), and skips rows with missing English descriptions. `seriousness` defaults to 2 (Balanced) since it is not yet a CSV column.
+
+#### Corruptions.csv (`Assets/Database/Corruptions.csv`)
+
+| Column | Description |
+|---|---|
+| `id` | Unique integer |
+| `points` | Point value (defaults to 60 if missing) |
+| `Pack` | Pack grouping |
+| `Type` | Speech, Interruption, Betrayal, Civilian |
+| `Title` / `Description` / `Short Description` | English strings |
+| `Title(IS)` / `Description(IS)` / `Short Description(IS)` | Icelandic strings |
+
+Loaded by `CorruptionDatabase.LoadCorruptions()`. Civilian type = no active objective. Current data: ~48 objectives spanning all types.
 
 ### Scoring
 
@@ -90,10 +148,10 @@ Topics and Secret Objectives are hardcoded in `Assets/Scripts/DevModeDatabase/`.
 - Any non-DM player may accuse once per round (`hasAccused` gates this; their button is disabled after use).
 - **Correct accusation**: stolen points = accused player's `SecretObjective.points`. Points are deducted from the accused via `SubtractScore` and added to the accuser via `AddStolenScore`. `SetPlayerAccused(accusedId)` is then called, which sets `isAccused = true` and prevents their objective toggle from awarding points going forward.
 - **Incorrect accusation**: `AddPenaltyScore(accusingId, incorrectPenalty)` records the deduction in `penaltyScore` and subtracts from `score` in one call. Default penalty is 20 points (Inspector-configurable).
-- Players with no secret objective (`secretObjectiveId == -1`) have their accusation-target buttons disabled during the `PlayerSelected` state.
+- Players with no secret objective (`corruptionId == -1`) have their accusation-target buttons disabled during the `PlayerSelected` state.
 
-**Secret Objective toggle** (`SecObjCardController`): when a player's `isAccused` flag becomes true, `Update()` immediately disables their toggle. If the toggle was already checked, it is silently unchecked and `objective.completeted` is cleared — the score is already correct because the accusation's `SubtractScore` handled the transfer.
+**Secret Objective toggle** (`CorruptionCardController`): when a player's `isAccused` flag becomes true, `Update()` immediately disables their toggle. If the toggle was already checked, it is silently unchecked and `objective.completeted` is cleared — the score is already correct because the accusation's `SubtractScore` handled the transfer.
 
 ### Localization
 
-Language is set via `GameManager.SetLanguage("en"/"is")` which records the enum, and `SettingsController` also calls `LocalizationSettings.SelectedLocale` via the Unity Localization package to switch UI strings.
+Language is set via `GameManager.SetLanguage("en"/"is")` which records the enum, and `SettingsController` also calls `LocalizationSettings.SelectedLocale` via the Unity Localization package to switch UI strings. CSV content is bilingual — English and Icelandic columns are loaded together and the correct one is selected at display time.

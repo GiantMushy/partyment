@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections;
 
-public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [Header("References")]
     private GameManager gameManager;
-    private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
+    private CorruptionManager CorruptionManager => gameManager.corruptionManager;
     private Player player;
     [SerializeField] private GameObject cardHidden;
     [SerializeField] private GameObject cardRevealed;
@@ -37,8 +37,8 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     [SerializeField] private float flipDuration = 0.2f;
 
     [Header("Variables")]
-    private GameManager.SecretObjectiveType objectiveType;
-    private string secretObjectiveText;
+    private GameManager.CorruptionType objectiveType;
+    private string corruptionText;
     private int score;
 
     private bool isRevealed = false;
@@ -200,7 +200,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     // -------------------- Player & Card Setup --------------------
 
     /// <summary>
-    /// Sets the player and populates the card with their assigned secret objective.
+    /// Sets the player and populates the card with their assigned corruption.
     /// Call this before showing the display.
     /// </summary>
     public void SetPlayer(Player player)
@@ -217,7 +217,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
         ShowHiddenSide();
 
-        SecretObjective objective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(player.id);
+        Corruption objective = CorruptionManager.GetCorruptionByPlayerId(player.id);
 
         if (objective != null)
             PopulateCard(objective);
@@ -235,10 +235,10 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
             rect.localScale = cardRevealedOriginalScale;
     }
 
-    private void PopulateCard(SecretObjective objective)
+    private void PopulateCard(Corruption objective)
     {
         objectiveType = objective.type;
-        secretObjectiveText = objective.description;
+        corruptionText = objective.description;
         score = objective.points;
 
         if (cardImage != null)
@@ -249,25 +249,25 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         {
             switch (objective.type)
             {
-                case GameManager.SecretObjectiveType.Interruption:
+                case GameManager.CorruptionType.Interruption:
                     spyIconImage.gameObject.SetActive(true);
                     civilianIconImage.gameObject.SetActive(false);
                     spyIconImage.sprite = spyIconSprite;
                     spyIconImage.color = GetSpyIconColorForType(objective.type);
                     break;
-                case GameManager.SecretObjectiveType.Betrayal:
+                case GameManager.CorruptionType.Betrayal:
                     spyIconImage.gameObject.SetActive(true);
                     civilianIconImage.gameObject.SetActive(false);
                     spyIconImage.sprite = spyIconSprite;
                     spyIconImage.color = GetSpyIconColorForType(objective.type);
                     break;
-                case GameManager.SecretObjectiveType.Speech:
+                case GameManager.CorruptionType.Speech:
                     spyIconImage.gameObject.SetActive(true);
                     civilianIconImage.gameObject.SetActive(false);
                     spyIconImage.sprite = spyIconSprite;
                     spyIconImage.color = GetSpyIconColorForType(objective.type);
                     break;
-                case GameManager.SecretObjectiveType.Civilian:
+                case GameManager.CorruptionType.Civilian:
                 default:
                     spyIconImage.gameObject.SetActive(false);
                     civilianIconImage.gameObject.SetActive(true);
@@ -293,8 +293,8 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
     private void PopulateCivilianCard()
     {
-        objectiveType = GameManager.SecretObjectiveType.Civilian;
-        secretObjectiveText = "You have no secret objective. Debate honestly!";
+        objectiveType = GameManager.CorruptionType.Civilian;
+        corruptionText = "You have no corruption. Debate honestly!";
         score = 0;
 
         if (cardImage != null)
@@ -308,7 +308,7 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         }
 
         if (descriptionText != null)
-            descriptionText.text = secretObjectiveText;
+            descriptionText.text = corruptionText;
 
         if (pointsText != null)
             pointsText.text = "";
@@ -316,49 +316,43 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
         if (typeText != null)
             typeText.text = "Civilian";
 
-        Color textColor = GetTextColorForType(GameManager.SecretObjectiveType.Civilian);
+        Color textColor = GetTextColorForType(GameManager.CorruptionType.Civilian);
         if (descriptionText != null) descriptionText.color = textColor;
         if (pointsText != null)      pointsText.color      = textColor;
         if (typeText != null)        typeText.color        = textColor;
     }
-    /// <summary>
-    /// Returns the color for the spy icon based on the secret objective type.
-    /// </summary>
-    private Color GetSpyIconColorForType(GameManager.SecretObjectiveType type)
+
+    private Color GetSpyIconColorForType(GameManager.CorruptionType type)
     {
         return type switch
         {
-            GameManager.SecretObjectiveType.Speech => spySpeechColor,
-            GameManager.SecretObjectiveType.Interruption => spyInterruptionColor,
-            GameManager.SecretObjectiveType.Betrayal => spyBetrayalColor,
+            GameManager.CorruptionType.Speech => spySpeechColor,
+            GameManager.CorruptionType.Interruption => spyInterruptionColor,
+            GameManager.CorruptionType.Betrayal => spyBetrayalColor,
             _ => Color.white,
         };
     }
 
-    private Sprite GetSpriteForType(GameManager.SecretObjectiveType type)
+    private Sprite GetSpriteForType(GameManager.CorruptionType type)
     {
         return type switch
         {
-            GameManager.SecretObjectiveType.Speech => speechDisplaySprite,
-            GameManager.SecretObjectiveType.Interruption => interruptionDisplaySprite,
-            GameManager.SecretObjectiveType.Betrayal => betrayalDisplaySprite,
-            GameManager.SecretObjectiveType.Civilian => civilianDisplaySprite,
+            GameManager.CorruptionType.Speech => speechDisplaySprite,
+            GameManager.CorruptionType.Interruption => interruptionDisplaySprite,
+            GameManager.CorruptionType.Betrayal => betrayalDisplaySprite,
+            GameManager.CorruptionType.Civilian => civilianDisplaySprite,
             _ => civilianDisplaySprite
         };
     }
 
-    /// <summary>
-    /// Interruption and Betrayal use the spy icon.
-    /// Speech uses the secObj icon. Civilian uses the civilian icon.
-    /// </summary>
-    private Sprite GetIconForType(GameManager.SecretObjectiveType type)
+    private Sprite GetIconForType(GameManager.CorruptionType type)
     {
         return type switch
         {
-            GameManager.SecretObjectiveType.Interruption => spyIconSprite,
-            GameManager.SecretObjectiveType.Betrayal     => spyIconSprite,
-            GameManager.SecretObjectiveType.Speech       => spyIconSprite,
-            GameManager.SecretObjectiveType.Civilian     => civilianIconSprite,
+            GameManager.CorruptionType.Interruption => spyIconSprite,
+            GameManager.CorruptionType.Betrayal     => spyIconSprite,
+            GameManager.CorruptionType.Speech       => spyIconSprite,
+            GameManager.CorruptionType.Civilian     => civilianIconSprite,
         };
     }
 
@@ -366,13 +360,13 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
     /// Betrayal and Interruption use #DDF4E7 (light green).
     /// Speech and Civilian use #282828 (near-black).
     /// </summary>
-    private Color GetTextColorForType(GameManager.SecretObjectiveType type)
+    private Color GetTextColorForType(GameManager.CorruptionType type)
     {
         return type switch
         {
-            GameManager.SecretObjectiveType.Betrayal      => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
-            GameManager.SecretObjectiveType.Interruption  => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
-            _                                              => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
+            GameManager.CorruptionType.Betrayal      => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
+            GameManager.CorruptionType.Interruption  => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
+            _                                        => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
         };
     }
 
@@ -380,6 +374,6 @@ public class SecretObjectiveDisplayController : MonoBehaviour, IPointerDownHandl
 
     public void Next()
     {
-        gameManager.AdvanceSecretObjectiveSequence();
+        gameManager.AdvanceCorruptionSequence();
     }
 }

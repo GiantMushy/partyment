@@ -15,7 +15,7 @@ public class DMDisplayController : MonoBehaviour
     [Header("Managers (auto-assigned)")]
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
-    private SecretObjectiveManager SecretObjectiveManager => gameManager.secretObjectiveManager;
+    private CorruptionManager CorruptionManager => gameManager.corruptionManager;
     private TopicManager TopicManager => gameManager.topicManager;
 
     [Header("UI Elements")]
@@ -33,7 +33,7 @@ public class DMDisplayController : MonoBehaviour
     [SerializeField] private Transform activeObjectiveContainer;
     [Tooltip("Right child of objectivesContainer — Speech(all other groups) + Interruption(current group).")]
     [SerializeField] private Transform inactiveObjectiveContainer;
-    [SerializeField] private GameObject secretObjectivePrefab;
+    [SerializeField] private GameObject corruptionPrefab;
 
     [Header("Objectives Slide Settings")]
     [Tooltip("How many pixels the container shifts left to bring the inactive panel into view.")]
@@ -130,7 +130,7 @@ public class DMDisplayController : MonoBehaviour
         DetermineGroupTurnOrder();
         currentGroupIndex = 0;
 
-        InstantiateSecretObjectiveCards();
+        InstantiateCorruptionCards();
 
         if (groupTurnOrder.Count > 0)
         {
@@ -175,22 +175,22 @@ public class DMDisplayController : MonoBehaviour
     }
 
     // ===================================================================
-    //  Secret Objective Cards
+    //  Corruption Cards
     // ===================================================================
 
     /// <summary>
-    /// Instantiates one SecObjCardController card per non-DM player that has a
-    /// Speech or Interruption objective and stores it in the tracking dictionaries.
-    /// Betrayal objectives are intentionally omitted from the DM screen.
+    /// Instantiates one CorruptionCardController card per non-DM player that has a
+    /// Speech or Interruption corruption and stores it in the tracking dictionaries.
+    /// Betrayal corruptions are intentionally omitted from the DM screen.
     /// </summary>
-    private void InstantiateSecretObjectiveCards()
+    private void InstantiateCorruptionCards()
     {
         CleanupCards();
 
         int dmId = PlayerManager.dmId;
         int playerCount = PlayerManager.players.Count;
-        Debug.Log($"DMDisplay: InstantiateSecretObjectiveCards — {playerCount} player(s), dmId={dmId}");
-        Debug.Log($"DMDisplay: activeObjectiveContainer={(activeObjectiveContainer != null ? activeObjectiveContainer.name : "NULL")}, secretObjectivePrefab={(secretObjectivePrefab != null ? secretObjectivePrefab.name : "NULL")}");
+        Debug.Log($"DMDisplay: InstantiateCorruptionCards — {playerCount} player(s), dmId={dmId}");
+        Debug.Log($"DMDisplay: activeObjectiveContainer={(activeObjectiveContainer != null ? activeObjectiveContainer.name : "NULL")}, corruptionPrefab={(corruptionPrefab != null ? corruptionPrefab.name : "NULL")}");
 
         int cardsCreated = 0;
 
@@ -201,24 +201,24 @@ public class DMDisplayController : MonoBehaviour
                 Debug.Log($"DMDisplay: Skipping DM player {player.name} (ID {player.id})");
                 continue;
             }
-            if (player.secretObjectiveId < 0)
+            if (player.corruptionId < 0)
             {
-                Debug.Log($"DMDisplay: Skipping {player.name} (ID {player.id}) — no objective (Civilian)");
+                Debug.Log($"DMDisplay: Skipping {player.name} (ID {player.id}) — no corruption (Civilian)");
                 continue;
             }
 
-            SecretObjective objective = SecretObjectiveManager.GetSecretObjectiveByPlayerId(player.id);
+            Corruption objective = CorruptionManager.GetCorruptionByPlayerId(player.id);
             if (objective == null)
             {
-                Debug.LogWarning($"DMDisplay: Skipping {player.name} (ID {player.id}) — GetSecretObjectiveByPlayerId returned null despite secretObjectiveId={player.secretObjectiveId}");
+                Debug.LogWarning($"DMDisplay: Skipping {player.name} (ID {player.id}) — GetCorruptionByPlayerId returned null despite corruptionId={player.corruptionId}");
                 continue;
             }
 
-            Debug.Log($"DMDisplay: Player {player.name} has objective '{objective.title}' type={objective.type} group={player.group_id}");
+            Debug.Log($"DMDisplay: Player {player.name} has corruption '{objective.title}' type={objective.type} group={player.group_id}");
 
             switch (objective.type)
             {
-                case GameManager.SecretObjectiveType.Speech:
+                case GameManager.CorruptionType.Speech:
                 {
                     GameObject card = CreateCard(player);
                     if (card == null) break;
@@ -228,7 +228,7 @@ public class DMDisplayController : MonoBehaviour
                     cardsCreated++;
                     break;
                 }
-                case GameManager.SecretObjectiveType.Interruption:
+                case GameManager.CorruptionType.Interruption:
                 {
                     GameObject card = CreateCard(player);
                     if (card == null) break;
@@ -239,19 +239,19 @@ public class DMDisplayController : MonoBehaviour
                     break;
                 }
                 default:
-                    Debug.Log($"DMDisplay: Skipping {player.name} — objective type {objective.type} not shown on DM screen");
+                    Debug.Log($"DMDisplay: Skipping {player.name} — corruption type {objective.type} not shown on DM screen");
                     break;
             }
         }
 
-        Debug.Log($"DMDisplay: Created {cardsCreated} objective card(s). Speech groups: {speechCardsByGroupId.Count}, Interruption groups: {interruptionCardsByGroupId.Count}");
+        Debug.Log($"DMDisplay: Created {cardsCreated} corruption card(s). Speech groups: {speechCardsByGroupId.Count}, Interruption groups: {interruptionCardsByGroupId.Count}");
     }
 
     private GameObject CreateCard(Player player)
     {
-        if (secretObjectivePrefab == null)
+        if (corruptionPrefab == null)
         {
-            Debug.LogError("DMDisplayController: secretObjectivePrefab is NULL!");
+            Debug.LogError("DMDisplayController: corruptionPrefab is NULL!");
             return null;
         }
         if (activeObjectiveContainer == null)
@@ -262,13 +262,13 @@ public class DMDisplayController : MonoBehaviour
 
         try
         {
-            GameObject card = Instantiate(secretObjectivePrefab, activeObjectiveContainer);
+            GameObject card = Instantiate(corruptionPrefab, activeObjectiveContainer);
             card.SetActive(true);
 
-            var controller = card.GetComponent<SecObjCardController>();
+            var controller = card.GetComponent<CorruptionCardController>();
             if (controller == null)
             {
-                Debug.LogError($"DMDisplay: Instantiated prefab has no SecObjCardController! Prefab name: {secretObjectivePrefab.name}");
+                Debug.LogError($"DMDisplay: Instantiated prefab has no CorruptionCardController! Prefab name: {corruptionPrefab.name}");
                 return card;
             }
 

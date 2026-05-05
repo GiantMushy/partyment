@@ -2,23 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Loads secret objectives from a CSV TextAsset (Assets/Database/Corruptions.csv).
+/// Loads corruptions from a CSV TextAsset (Assets/Database/Corruptions.csv).
 /// Expected columns: id, points, Pack, Type, Title, Description, Short Description,
 ///                   Title (IS), Description (IS), Short Description (IS)
 /// Rows with an empty Title are skipped (incomplete data).
 /// </summary>
-public class SecretObjectiveDatabase : MonoBehaviour
+public class CorruptionDatabase : MonoBehaviour
 {
     [Tooltip("Drag Assets/Database/Corruptions.csv here.")]
     [SerializeField] private TextAsset corruptionsCSV;
 
-    public List<SecretObjective> LoadDevSecretObjectives()
+    public List<Corruption> LoadCorruptions()
     {
-        var objectives = new List<SecretObjective>();
+        var objectives = new List<Corruption>();
 
         if (corruptionsCSV == null)
         {
-            Debug.LogError("SecretObjectiveDatabase: corruptionsCSV is not assigned. No objectives loaded.");
+            Debug.LogError("CorruptionDatabase: corruptionsCSV is not assigned. No corruptions loaded.");
             return objectives;
         }
 
@@ -37,7 +37,7 @@ public class SecretObjectiveDatabase : MonoBehaviour
             if (string.IsNullOrWhiteSpace(title)) continue;
 
             string typeStr = Get(fields, 3);
-            if (!TryParseObjectiveType(typeStr, out GameManager.SecretObjectiveType type)) continue;
+            if (!TryParseCorruptionType(typeStr, out GameManager.CorruptionType type)) continue;
 
             if (!int.TryParse(Get(fields, 1), out int points) || points <= 0)
                 points = 60; // sensible fallback
@@ -46,7 +46,7 @@ public class SecretObjectiveDatabase : MonoBehaviour
                 id = nextId;
             nextId = id + 1;
 
-            objectives.Add(new SecretObjective
+            objectives.Add(new Corruption
             {
                 id               = id,
                 title            = title,
@@ -61,20 +61,20 @@ public class SecretObjectiveDatabase : MonoBehaviour
             });
         }
 
-        Debug.Log($"SecretObjectiveDatabase: Loaded {objectives.Count} secret objectives from CSV.");
+        Debug.Log($"CorruptionDatabase: Loaded {objectives.Count} corruptions from CSV.");
         return objectives;
     }
 
     // -------------------- Parsing Helpers --------------------
 
-    private static bool TryParseObjectiveType(string s, out GameManager.SecretObjectiveType type)
+    private static bool TryParseCorruptionType(string s, out GameManager.CorruptionType type)
     {
         switch (s.Trim())
         {
-            case "Speech":       type = GameManager.SecretObjectiveType.Speech;       return true;
-            case "Interruption": type = GameManager.SecretObjectiveType.Interruption; return true;
-            case "Betrayal":     type = GameManager.SecretObjectiveType.Betrayal;     return true;
-            default:             type = GameManager.SecretObjectiveType.Civilian;     return false;
+            case "Speech":       type = GameManager.CorruptionType.Speech;       return true;
+            case "Interruption": type = GameManager.CorruptionType.Interruption; return true;
+            case "Betrayal":     type = GameManager.CorruptionType.Betrayal;     return true;
+            default:             type = GameManager.CorruptionType.Civilian;     return false;
         }
     }
 
