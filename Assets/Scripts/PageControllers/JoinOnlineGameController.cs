@@ -1,13 +1,17 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Online-game join screen. Validates the player's name and a 6-digit numeric room code
+/// before calling <see cref="GameManager.JoinOnlineGame"/>. Networking itself is not yet
+/// implemented — the validate methods are the contract for when it lands.
+/// </summary>
 public class JoinOnlineGameController : MonoBehaviour
 {
     private GameManager gameManager;
     [SerializeField] private TMP_InputField roomCodeInputField;
     [SerializeField] private TMP_InputField nameInputField;
 
-    // Awake is called when the script instance is being loaded
     void Start()
     {
         gameManager = GameManager.Instance;

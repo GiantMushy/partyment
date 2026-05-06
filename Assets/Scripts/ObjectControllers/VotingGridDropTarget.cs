@@ -15,11 +15,16 @@ using UnityEngine;
 /// </summary>
 public class VotingGridDropTarget : MonoBehaviour, IVotingDropTarget
 {
+    /// <summary>Set automatically by <see cref="VotingController.InitializeHandlers"/>.</summary>
     [HideInInspector] public VotingController controller;
 
+    /// <summary>No visual feedback when hovering the grid.</summary>
     public void OnDragHoverEnter(VotingDragHandler dragHandler) { }
+
+    /// <summary>No visual feedback when leaving the grid.</summary>
     public void OnDragHoverExit() { }
 
+    /// <summary>Return the dragged card to the grid and clear its slot.</summary>
     public void OnVotingDropped(VotingDragHandler dragHandler)
     {
         controller?.ReturnToGrid(dragHandler);

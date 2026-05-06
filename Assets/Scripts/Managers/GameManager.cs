@@ -212,12 +212,14 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Debug.Log("Starting a New Game");
-        // Reset Metrics, Topic Selection, Corruptions, and Player Groups
+        // Reset Metrics, Topic Selection, Corruptions, Player Groups, and ALL scores
         selectedMetrics.Clear();
         selectedPack = Pack.Default;
         topicManager.ResetTopicSelection();
         corruptionManager.ResetCorruptions();
+        playerManager.ResetAllScores();
         playerManager.ResetPlayerGroups();
+        currentRound = 1;
         assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
 
         // Go back to Pack Selection
@@ -346,6 +348,10 @@ public class GameManager : MonoBehaviour
     {
         if (currentRound < totalRounds)
         {
+            // Fold this round's earnings into each player's oldScore BEFORE incrementing the
+            // round counter. The Scoreboard has already finished animating at this point.
+            playerManager.CommitRoundScores();
+
             currentRound++;
             selectedMetrics.Clear();
             playerManager.ResetAccusations();

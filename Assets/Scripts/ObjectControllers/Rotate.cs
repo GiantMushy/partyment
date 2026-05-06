@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Spins the GameObject around its Z-axis at a constant rate. Drop on any UI element
+/// or sprite that needs a continuous spinning effect (e.g. loading indicators).
+/// </summary>
 public class Rotate : MonoBehaviour
 {
     [SerializeField] private bool clockwise = true;

@@ -1,6 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Slide-out side menu available from anywhere in the game. Toggled by a corner button
+/// that itself slides slightly while the menu is open. Sets <see cref="GameManager.menuOpen"/>
+/// while open so <see cref="GameManager.SetState"/> blocks state changes underneath.
+/// Menu items: New Game, Settings, Rulebook, Feedback, Data Privacy.
+/// </summary>
 public class MenuController : MonoBehaviour
 {
     private GameManager gameManager;
@@ -19,7 +25,6 @@ public class MenuController : MonoBehaviour
 
     private bool isMenuOpen = false;
 
-    // Awake is called when the script instance is being loaded
     void Start()
     {
         gameManager = GameManager.Instance;

@@ -2,6 +2,15 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Privacy hand-off screen shown whenever the device passes between players (e.g. before
+/// each player views their secret corruption, or before a group casts its votes). Displays
+/// "<i>name</i>" and a button labelled "<i>prefix + name</i>" (e.g. "I am Þorri"); pressing
+/// it advances to the configured <see cref="GameManager.GameState"/> via
+/// <see cref="GameManager.ExitMutex"/>.
+/// Configure with <see cref="SetNameAndNextState(string, GameManager.GameState)"/>
+/// (defaults the prefix to "I am ") or the overload that accepts a custom prefix.
+/// </summary>
 public class PlayerMutexController : MonoBehaviour
 {
     [Header("References")]

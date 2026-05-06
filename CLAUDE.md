@@ -131,26 +131,58 @@ Loaded by `CorruptionDatabase.LoadCorruptions()`. Civilian type = no active obje
 
 ### Scoring
 
-- **Group score** (`Group.score`): awarded during voting phase finalization and DM metric awards.
-- **Player score** (`Player.score`): net total — can go negative.
+Scoring is **per-round**: every score field on `Player` and `Group` represents earnings for the *current* round only. At the end of each round, `PlayerManager.CommitRoundScores()` rolls each round's net into the player's `oldScore` and zeroes the per-round counters. `oldScore` is the only field that accumulates across rounds.
 
 **Player score fields** (all on `Player` in `PlayerManager.cs`):
 
 | Field | Type | Resets each round | Description |
 |---|---|---|---|
-| `score` | `int` | No | Net total score |
-| `stolenScore` | `int` | No | Points earned by correctly accusing another player |
-| `penaltyScore` | `int` | No | Points lost from incorrect accusations (use to display deductions separately) |
-| `hasAccused` | `bool` | Yes | True once this player has made an accusation this round |
-| `isAccused` | `bool` | Yes | True once this player has been successfully accused this round |
+| `score` | `int` | Yes (commit) | Personal running net for the **current round**: +corruption +stolen −penalty −points lost when correctly accused. Group score is *not* included here. |
+| `roundCorruptionScore` | `int` | Yes (commit) | Gross corruption earned this round via the toggle. **Never** decreased by accusations — used by the Scoreboard's "Corruption" bar so the player still sees what they completed before getting caught. |
+| `stolenScore` | `int` | Yes (commit) | Points earned this round by correctly accusing another player. |
+| `penaltyScore` | `int` | Yes (commit) | Points lost this round from incorrect accusations (use to display deductions separately). |
+| `oldScore` | `int` | **No** — committed at end of round | Sum of all *previous* rounds' net earnings (group + corruption + stolen − penalty − accusedLoss). The Scoreboard's animation start point in rounds 2+. |
+| `hasAccused` | `bool` | Yes | True once this player has made an accusation this round. |
+| `isAccused` | `bool` | Yes | True once this player has been successfully accused this round. |
+
+**Group score field**:
+- `Group.score` (`int`) — also **per-round**. Reset by `CommitRoundScores()` along with `Group.votingPhasePoints`.
+
+**Round commit lifecycle** (`PlayerManager.CommitRoundScores()`):
+- For each player: `oldScore += groupScore + score`, then zero `score`, `roundCorruptionScore`, `stolenScore`, `penaltyScore`.
+- For each group: zero `score` and `votingPhasePoints`.
+- **Called by `GameManager.StartNextRound()`** as the first step (after the Scoreboard is dismissed via the Next-Round button, before `currentRound++`).
+
+**New-game reset** (`PlayerManager.ResetAllScores()`):
+- Wipes ALL score state — both per-round counters and `oldScore` — on every player and group. Called by `GameManager.NewGame()` along with `currentRound = 1`.
+
+**Score manipulation methods** (`PlayerManager`):
+- `AddScore` / `SubtractScore` — direct mutations of `score` (used internally by the methods below; rarely called externally).
+- `AddRoundCorruptionScore` / `SubtractRoundCorruptionScore` — used by `CorruptionCardController` toggle. Updates **both** `score` and `roundCorruptionScore` so the gross corruption bar stays in sync. **Never call `score += points` directly for corruption** — bypassing this means `roundCorruptionScore` won't track and the bar will be wrong.
+- `AddStolenScore(accuserId, amount)` — increments `stolenScore` AND adds to `score`.
+- `AddPenaltyScore(playerId, amount)` — increments `penaltyScore` AND subtracts from `score`.
 
 **Accusation mechanic** — managed by `AccusationController` (a sub-panel of `DMDisplay`):
 - Any non-DM player may accuse once per round (`hasAccused` gates this; their button is disabled after use).
-- **Correct accusation**: stolen points = accused player's `SecretObjective.points`. Points are deducted from the accused via `SubtractScore` and added to the accuser via `AddStolenScore`. `SetPlayerAccused(accusedId)` is then called, which sets `isAccused = true` and prevents their objective toggle from awarding points going forward.
+- **Correct accusation**: stolen points = accused player's `SecretObjective.points`. Points are deducted from the accused via `SubtractScore` (`score` only — `roundCorruptionScore` is intentionally left intact so the gross corruption bar still shows what they completed) and added to the accuser via `AddStolenScore`. `SetPlayerAccused(accusedId)` then sets `isAccused = true` to prevent further objective toggles from awarding points.
 - **Incorrect accusation**: `AddPenaltyScore(accusingId, incorrectPenalty)` records the deduction in `penaltyScore` and subtracts from `score` in one call. Default penalty is 20 points (Inspector-configurable).
 - Players with no secret objective (`corruptionId == -1`) have their accusation-target buttons disabled during the `PlayerSelected` state.
 
-**Secret Objective toggle** (`CorruptionCardController`): when a player's `isAccused` flag becomes true, `Update()` immediately disables their toggle. If the toggle was already checked, it is silently unchecked and `objective.completeted` is cleared — the score is already correct because the accusation's `SubtractScore` handled the transfer.
+**Secret Objective toggle** (`CorruptionCardController`): when a player's `isAccused` flag becomes true, `Update()` immediately disables their toggle. If the toggle was already checked, it is silently unchecked and `objective.completeted` is cleared — the score is already correct because the accusation's `SubtractScore` handled the transfer. Note: `roundCorruptionScore` is *not* decremented here either; it remains as the gross corruption display value.
+
+#### ScoreboardController
+
+End-of-round score reveal screen (`Assets/Scripts/PageControllers/ScoreboardController.cs`):
+- **Four stacked bars per player slot** (bottom → top in the `VerticalLayoutGroup` with `ReverseArrangement = 1`):
+  1. **Old Score** (hidden in Round 1) — `Player.oldScore`
+  2. **Group Score** — `Group.score` for the player's group
+  3. **Corruption Score** — `Player.roundCorruptionScore` (gross — unaffected by accusations)
+  4. **Stolen Score** — `Player.stolenScore`
+- **Inspector lists** — one entry per player slot (7 max), parallel-indexed: `groupScoreDisplays`, `corruptionScoreDisplays`, `stolenScoreDisplays`, `oldScoreDisplays`, `totalScoreDisplays`, `nameDisplays`, `penaltyFloatTexts`.
+- **Dynamic scaling**: `pixelsPerPoint = barContainerHeight / currentMaxScore`. Starts at `initialMaxScore = 300`, grows in `maxScoreStep = 200` increments (300 → 500 → 700 …) when any player's animated total exceeds the ceiling. Scale never shrinks — bars don't rebound.
+- **Two-phase animation** on `OnEnable`:
+  - **Phase ① "Earn"** (`earnDuration`, ease-out cubic): bars grow from start (0 in R1, `oldScore` in R2+) up to gross values (`oldScore + group + roundCorruptionScore + stolenScore`); the total counter ticks up at the same rate.
+  - **Phase ② "Deduct"** (`deductDuration`, ease-in-out): for any player whose actual total (`oldScore + group + score`) is below gross, the deficit is carved off the top of the stack (stolen → corruption → group → old) and a `-N` floating text from `penaltyFloatTexts` is shown briefly. The deduction is computed implicitly as `gross − actual`, so it covers both the incorrect-accusation penalty and the points lost when correctly accused — no separate field needed.
 
 ### Localization
 

@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// First real screen of the game. Presents the five Pack options (Default, Icelandic,
+/// 18+, Political, PopCulture); buttons for packs not in <see cref="GameManager.OwnedPacks"/>
+/// are disabled. Selecting a pack records it on <see cref="GameManager"/>, asks
+/// <see cref="TopicManager.LoadTopicsFromPack"/> to filter the topic list, and advances
+/// to <see cref="GameManager.GameState.LocalVsOnline"/>.
+/// </summary>
 public class PackSelectionController : MonoBehaviour
 {
     private GameManager gameManager;
@@ -10,7 +17,7 @@ public class PackSelectionController : MonoBehaviour
     [SerializeField] private Button eighteenPlusPackButton;
     [SerializeField] private Button politicalPackButton;
     [SerializeField] private Button popCulturePackButton;
-    // Awake is called when the script instance is being loaded
+
     void Start()
     {
         gameManager = GameManager.Instance;

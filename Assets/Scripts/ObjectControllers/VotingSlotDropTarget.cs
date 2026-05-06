@@ -21,9 +21,12 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
     [Tooltip("Which vote slot this represents (1 = first, 2 = second, 3 = third).")]
     public int slotIndex = 1;
 
+    /// <summary>Set automatically by <see cref="VotingController.InitializeHandlers"/>.</summary>
     [HideInInspector] public VotingController controller;
 
+    /// <summary>Alpha applied to the CanvasGroup while a card hovers over this slot.</summary>
     private const float HoverAlpha = 0.55f;
+
     private CanvasGroup canvasGroup;
     private float idleAlpha;
 
@@ -33,16 +36,22 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
         idleAlpha   = canvasGroup != null ? canvasGroup.alpha : 1f;
     }
 
+    /// <summary>Dim the slot to signal it is a valid drop target.</summary>
     public void OnDragHoverEnter(VotingDragHandler dragHandler)
     {
         if (canvasGroup != null) canvasGroup.alpha = HoverAlpha;
     }
 
+    /// <summary>Restore original alpha when the drag leaves.</summary>
     public void OnDragHoverExit()
     {
         if (canvasGroup != null) canvasGroup.alpha = idleAlpha;
     }
 
+    /// <summary>
+    /// Revert the hover highlight, then ask the controller to place the
+    /// dragged group card into this slot (handling swaps and DM clones automatically).
+    /// </summary>
     public void OnVotingDropped(VotingDragHandler dragHandler)
     {
         OnDragHoverExit();

@@ -3,6 +3,12 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Full-screen fade-in / hold / fade-out overlay used between major state changes
+/// (start of a new round, new game, etc). Triggered via <see cref="GameManager.PlayTransition"/>:
+/// <see cref="Setup"/> stores the action to invoke while the overlay is fully opaque,
+/// then enabling the GameObject runs the animation.
+/// </summary>
 public class TransitionController : MonoBehaviour
 {
     [Header("UI Elements")]

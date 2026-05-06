@@ -116,12 +116,14 @@ public class CorruptionCardController : MonoBehaviour
         if (shouldBeCompleted && !objective.completeted)
         {
             objective.completeted = true;
-            player.score += objective.points;
+            // Updates BOTH score and roundCorruptionScore so the Scoreboard's gross "Corruption" bar
+            // can be displayed independently of stolen/penalty manipulations on `score`.
+            PlayerManager.AddRoundCorruptionScore(player.id, objective.points);
         }
         else if (!shouldBeCompleted && objective.completeted)
         {
             objective.completeted = false;
-            player.score -= objective.points;
+            PlayerManager.SubtractRoundCorruptionScore(player.id, objective.points);
         }
     }
 }

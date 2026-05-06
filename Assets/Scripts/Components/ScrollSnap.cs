@@ -1,5 +1,12 @@
-
 using UnityEngine;
+
+/// <summary>
+/// ⚠️ <b>BROKEN — does not actually snap.</b> Intended to attach to a <see cref="UnityEngine.UI.ScrollRect"/>
+/// and snap its normalized position to one of <c>numSnapPositions</c> evenly-spaced points
+/// when the user releases the drag. The current implementation never produces a snap;
+/// rewrite with a better model (e.g. detect drag-end via <see cref="UnityEngine.EventSystems.IEndDragHandler"/>
+/// and lerp explicitly instead of polling velocity).
+/// </summary>
 // TODO: THIS DOES NOT WORK AT ALL, NO SNAPING OCCURS, FIX WITH BETTER MODEL
 public class ScrollSnap : MonoBehaviour
 {

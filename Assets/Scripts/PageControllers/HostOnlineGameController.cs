@@ -3,6 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Host's lobby screen for online play. Displays the generated room code, the host's name
+/// input, and a live list of joined players (max 16, min 3 to start). The Next button is
+/// gated on a valid host name plus ≥3 joined players. Networking itself is stubbed —
+/// <see cref="DevModeAddRandomPlayer"/> is used to fake joiners during local testing.
+/// </summary>
 public class HostOnlineGameController : MonoBehaviour
 {
     private GameManager gameManager;
@@ -21,7 +27,6 @@ public class HostOnlineGameController : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    // Awake is called when the script instance is being loaded
     void Start()
     {
         if (gameManager == null) gameManager = GameManager.Instance;

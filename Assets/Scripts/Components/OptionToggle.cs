@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Three-button radio-style toggle. Exactly one option is "selected" at a time;
+/// a highlight Image lerps to whichever button is currently chosen. Each option fires
+/// its own <see cref="UnityEvent"/> on selection. Defaults to option 2 (middle) on Start.
+/// Used for things like seriousness-level pickers in <c>SettingsController</c>.
+/// </summary>
 public class OptionToggle : MonoBehaviour
 {
-    // Controller for the functionality of a toggle. There are three buttons, one Image that highlights the "selected" button.
-    // The buttons are set up so that only one can be selected at a time, and the highlight image moves to the selected button.
     [Header("References")]
     [SerializeField] private GameObject highlightImage;
     [SerializeField] private GameObject option1Button;
