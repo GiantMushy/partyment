@@ -37,6 +37,11 @@ public class Player
     public bool isAccused = false;  // True once this player has been successfully accused this round
 }
 
+/// <summary>
+/// One debate group. Players reference their group by <see cref="id"/>; the DM is NOT in
+/// any group. <see cref="score"/> and <see cref="votingPhasePoints"/> are per-round values —
+/// reset by <see cref="PlayerManager.CommitRoundScores"/>.
+/// </summary>
 [System.Serializable]
 public class Group
 {
@@ -48,6 +53,20 @@ public class Group
     public int votingPhasePoints = 0; // Accumulated local vote points during the voting phase
 }
 
+/// <summary>
+/// Owns the game's <see cref="Player"/> and <see cref="Group"/> dictionaries. The DM is
+/// always the player with the lowest ID unless explicitly overridden via <see cref="dmId"/>.
+///
+/// Score model: every score field on Player and Group is per-round and zeroed by
+/// <see cref="CommitRoundScores"/> at the end of each round; the only field that
+/// accumulates across rounds is <see cref="Player.oldScore"/>. See CLAUDE.md → Scoring
+/// for the full breakdown and the helper methods that keep <c>score</c> /
+/// <c>roundCorruptionScore</c> / <c>stolenScore</c> / <c>penaltyScore</c> consistent.
+///
+/// Always mutate scores through the helper methods (<see cref="AddRoundCorruptionScore"/>,
+/// <see cref="AddStolenScore"/>, <see cref="AddPenaltyScore"/>) — bypassing them desyncs
+/// the breakdown bars on the Scoreboard.
+/// </summary>
 public class PlayerManager : MonoBehaviour
 {
     public Dictionary<int, Player> players = new Dictionary<int, Player>();

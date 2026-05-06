@@ -7,6 +7,29 @@ using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Persistent singleton (<c>DontDestroyOnLoad</c>) that owns the game's high-level state.
+/// Every screen transition flows through <see cref="SetState"/>, which uses
+/// <see cref="stateDictionary"/> to map <see cref="GameState"/> values onto the GameObject
+/// panels assigned in the Inspector.
+///
+/// Responsibilities:
+///   • <b>State machine</b> — activate/deactivate panels; reset Selectable animators on
+///     the outgoing panel so buttons don't re-enter in a stale Pressed/Selected state.
+///   • <b>Round / sequence orchestration</b> —
+///     <see cref="StartCorruptionSequence"/> + <see cref="AdvanceCorruptionSequence"/>
+///     walk every non-DM player through PlayerMutex → CorruptionDisplay before handing to
+///     the DM; <see cref="StartVotingSequence"/> + <see cref="AdvanceVotingSequence"/> do
+///     the same for group voting → DM metric voting; <see cref="StartNextRound"/> commits
+///     scores via <see cref="PlayerManager.CommitRoundScores"/> and resets per-round state.
+///   • <b>Manager refs</b> — <see cref="playerManager"/> / <see cref="topicManager"/> /
+///     <see cref="corruptionManager"/> are MonoBehaviours on the same GameObject.
+///   • <b>Helpers</b> — language switching, transitions
+///     (<see cref="PlayTransition"/>), pack selection, online-game stubs.
+///
+/// Page controllers should never call <see cref="SetState"/> directly for game-flow
+/// transitions; call the semantic methods (Start/Advance sequences) instead.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     [Header("Game Rounds")]

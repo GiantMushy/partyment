@@ -4,6 +4,15 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections;
 
+/// <summary>
+/// Per-player secret corruption reveal screen, shown one player at a time after each
+/// <see cref="GameManager.GameState.PlayerMutex"/> hand-off. The card is hidden by default;
+/// holding the pointer down flips it to the revealed face (X-axis scale flip via
+/// <see cref="FlipCoroutine"/>), releasing flips it back. The Next button only appears
+/// after the first reveal, ensuring the player actually saw their objective.
+/// Civilian players (no objective) get a generic card. Card art and colors vary by
+/// corruption type — see <see cref="GetSpriteForType"/> / <see cref="GetTextColorForType"/>.
+/// </summary>
 public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [Header("References")]

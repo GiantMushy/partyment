@@ -2,6 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// One debate-topic row loaded from <c>Topics.csv</c>. Always carries both English
+/// (<see cref="description"/>) and Icelandic (<see cref="descriptionIs"/>) text;
+/// for Versus topics the option labels are filled in too.
+/// </summary>
 [System.Serializable]
 public class Topic
 {
@@ -18,6 +23,18 @@ public class Topic
     public int seriousness;            // 0-5 scale
 }
 
+/// <summary>
+/// Owns the master list of <see cref="Topic"/> rows loaded from CSV via
+/// <see cref="TopicDatabase"/>, the active pack subset, and the seen-topic history.
+///
+/// Filtering for the DM's topic-selection screen:
+///   • Pack — set by <see cref="LoadTopicsFromPack"/> from <see cref="GameManager.selectedPack"/>.
+///   • Type — Versus ("This or That") vs Scenarios, picked separately.
+///   • Seriousness — within ±1 of <see cref="GameManager.selectedSeriousnessLevel"/>.
+///   • Unseen — already-displayed topics are tracked in <see cref="seenTopics"/>;
+///     when a type runs out, only that type's history resets so the player keeps
+///     getting fresh topics.
+/// </summary>
 public class TopicManager : MonoBehaviour
 {
     [Header("References")]

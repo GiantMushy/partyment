@@ -5,6 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Player-name registration screen for local play. Players are added one-at-a-time via the
+/// default <see cref="TMP_InputField"/> at the top of a scrollable list; each accepted name
+/// becomes a row with its own inline edit field and delete button. Names are clamped to
+/// <see cref="MaxNameLength"/> (12 chars). Player count is bounded by
+/// <see cref="PlayerManager.maxPlayers"/> — when reached, the input field hides itself.
+/// The Next button stays disabled until at least 3 players are registered.
+/// </summary>
 public class StartLocalGameController : MonoBehaviour
 {
     [Header("References")]

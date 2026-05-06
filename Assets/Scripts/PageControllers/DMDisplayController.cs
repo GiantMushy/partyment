@@ -6,6 +6,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// Discussion-Moderator screen shown after every non-DM player has seen their corruption.
+/// Owns three responsibilities:
+///
+///   1. <b>Group turn order &amp; timer</b> — groups present in <c>id</c> order; each turn
+///      uses an Idle/Running/Paused/Expired/AllGroupsDone state machine driving the Start /
+///      Pause / Stop buttons. After the last group, Stop becomes "Next" → Voting.
+///   2. <b>Corruption card layout</b> — instantiates one <see cref="CorruptionCardController"/>
+///      per non-DM player with a Speech or Interruption corruption (Betrayal is hidden from
+///      the DM). Cards re-parent each turn:
+///         • Active panel   = Speech(current group)  + Interruption(other groups)
+///         • Inactive panel = Speech(other groups)   + Interruption(current group)
+///   3. <b>Three-way slide</b> — a horizontally-scrolling track holds Accusation (left),
+///      Active (centre), and Inactive (right) panels. Buttons lerp <see cref="slideTrack"/>
+///      to the requested offset; the parent VerticalLayoutGroup owns
+///      <see cref="objectivesContainer"/>'s position, so we slide the inner track instead.
+///
+/// Accusation logic itself lives on a child <see cref="AccusationController"/>.
+/// </summary>
 public class DMDisplayController : MonoBehaviour
 {
     // ===================================================================

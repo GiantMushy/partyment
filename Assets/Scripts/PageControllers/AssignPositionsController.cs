@@ -3,6 +3,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// For/Against assignment screen, shown after Metric Selection. On every entry
+/// (re-)randomises positions: alternating starting from a coin-flip, so adjacent groups
+/// always have opposing positions. Each group card shows the name, current position, its
+/// player roster, and a Swap button that flips that single group's stance. Pressing Next
+/// invokes <see cref="GameManager.StartCorruptionSequence"/> to begin private corruption reveals.
+/// </summary>
 public class AssignPositionsController : MonoBehaviour
 {
     [Header("References")]

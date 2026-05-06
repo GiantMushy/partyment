@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// One secret-objective row loaded from <c>Corruptions.csv</c>. The DM never sees Betrayal
+/// objectives on screen (excluded by <see cref="DMDisplayController.InstantiateCorruptionCards"/>).
+/// </summary>
 [System.Serializable]
 public class Corruption
 {
@@ -17,6 +21,21 @@ public class Corruption
     public GameManager.CorruptionType type;
 }
 
+/// <summary>
+/// Owns the master list of <see cref="Corruption"/> objectives loaded from CSV via
+/// <see cref="CorruptionDatabase"/>, and the per-round weighted-random assignment
+/// to non-DM players.
+///
+/// Type weights (per non-DM player):
+///   • 40% Speech
+///   • 15% Interruption
+///   •  5% Betrayal
+///   • ~40% Civilian (no objective; <c>player.corruptionId = -1</c>)
+///
+/// Used IDs are tracked across rounds in <see cref="usedCorruptionIds"/> so the same
+/// objective never appears twice in a single game. Reset between games via
+/// <see cref="ResetCorruptions"/>.
+/// </summary>
 public class CorruptionManager : MonoBehaviour
 {
     [Header("References")]

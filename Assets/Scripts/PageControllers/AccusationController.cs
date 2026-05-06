@@ -5,12 +5,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Controls the Accusation sub-panel on the DMDisplay page.
+/// Accusation sub-panel on the DMDisplay page (left slide). A non-DM player taps their
+/// own button to declare they're accusing someone, then taps a second player's button to
+/// finger them — or taps "Incorrect" to admit they got it wrong.
+///
+/// Resolution flow:
+///   • Default → <see cref="EnterPlayerSelected"/>: dim other buttons red and reveal the
+///     "Incorrect" button. Buttons for players without an active corruption are disabled
+///     since they can't be a valid accusation target.
+///   • Correct accusation → <see cref="ResolveCorrectAccusation"/>: stolen points equal
+///     the accused's <c>Corruption.points</c>. Accuser gets +stolen via
+///     <see cref="PlayerManager.AddStolenScore"/>; accused loses the same via
+///     <see cref="PlayerManager.SubtractScore"/> (NOT <c>SubtractRoundCorruptionScore</c> —
+///     the gross "Corruption" bar on the Scoreboard intentionally still shows what they
+///     completed, so the loss only renders as a deduction during the animation phase).
+///     <see cref="PlayerManager.SetPlayerAccused"/> then prevents further toggle awards.
+///   • Incorrect accusation → <see cref="ResolveIncorrectAccusation"/>: accuser pays
+///     <see cref="incorrectPenalty"/> (default 20) via
+///     <see cref="PlayerManager.AddPenaltyScore"/>.
+///
+/// Each non-DM player can accuse exactly once per round (<c>Player.hasAccused</c>).
+///
 /// Attach to the root of the VerticalLayoutGroup that contains:
 ///   [0] Header (TMP)
 ///   [1] Description (TMP)
 ///   [2-9] Button (Player1-Player8)
-///   [10] Button (Incorrect)  — disabled by default
+///   [10] Button (Incorrect)  — hidden by default via CanvasGroup alpha
 /// </summary>
 public class AccusationController : MonoBehaviour
 {
