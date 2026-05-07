@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 66aaab58121964590ade1c4aa543caac
+guid: b96f67707b33045cb8c1f9ac6d511655
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -445145248658514062
-    second: play_icon_0
+      213: -5106509935654687035
+    second: Rectangle 124_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +51,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 180
+  spriteBorder: {x: 75, y: 75, z: 75, w: 75}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: play_icon_0
+      name: Rectangle 124_0
       rect:
         serializedVersion: 2
-        x: 24
+        x: 0
         y: 0
-        width: 464
-        height: 512
+        width: 280
+        height: 296
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f914c31c682d9f0800000000000000
-      internalID: -445145248658514062
+      spriteID: 5ceac4bd4480229b0800000000000000
+      internalID: -5106509935654687035
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      play_icon_0: -445145248658514062
+      Rectangle 124_0: -5106509935654687035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

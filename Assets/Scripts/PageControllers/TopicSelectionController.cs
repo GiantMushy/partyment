@@ -10,7 +10,7 @@ using TMPro;
 /// also wire them in the Inspector or they will fire twice.
 ///
 /// Inspector wiring required:
-///   Toggle Buttons  → versusButton / scenariosButton
+///   Toggle Buttons  → versusToggle / scenariosToggle (ToggleButton components)
 ///   Topic Display   → bodyText (Body/Text TMP), topicTypeText (Header/Topic Type TMP),
 ///                     topicIcon (Header/Icon Image), versusIcon + scenariosIcon (Sprites)
 ///   Shuffle         → shuffleButton, shuffleCountText (its TMP child)
@@ -22,8 +22,8 @@ public class TopicSelectionController : MonoBehaviour
     private GameManager gameManager;
 
     [Header("Toggle Buttons")]
-    [SerializeField] private Button versusButton;
-    [SerializeField] private Button scenariosButton;
+    [SerializeField] private ToggleButton versusToggle;
+    [SerializeField] private ToggleButton scenariosToggle;
 
     [Header("Topic Description — Body")]
     [SerializeField] private TextMeshProUGUI bodyText;
@@ -59,8 +59,8 @@ public class TopicSelectionController : MonoBehaviour
         gameManager = GameManager.Instance;
 
         // Register callbacks in code — do NOT also wire these in the Inspector.
-        if (versusButton   != null) versusButton.onClick.AddListener(OnVersusClicked);
-        if (scenariosButton != null) scenariosButton.onClick.AddListener(OnScenariosClicked);
+        versusToggle?.Button.onClick.AddListener(OnVersusClicked);
+        scenariosToggle?.Button.onClick.AddListener(OnScenariosClicked);
         if (shuffleButton  != null) shuffleButton.onClick.AddListener(OnShuffleClicked);
         if (selectButton   != null) selectButton.onClick.AddListener(OnSelectClicked);
     }
@@ -103,12 +103,8 @@ public class TopicSelectionController : MonoBehaviour
 
     private void RefreshUI()
     {
-        // Drive "Selected" animator state on the active toggle via EventSystem selection.
-        // The other button returns to "Normal" automatically when it loses selection.
-        if (versusSelected)
-            versusButton?.Select();
-        else
-            scenariosButton?.Select();
+        versusToggle?.SetToggled(versusSelected);
+        scenariosToggle?.SetToggled(!versusSelected);
 
         // Topic description
         Topic displayed = versusSelected ? versusTopic : scenarioTopic;
