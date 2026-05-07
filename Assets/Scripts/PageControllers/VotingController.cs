@@ -603,6 +603,7 @@ public class VotingController : MonoBehaviour
         }
         else // DM metric voting
         {
+            // Slot 0 → metric1Score, slot 1 → metric2Score (matches gameManager.selectedMetrics[0/1]).
             for (int i = 0; i < maxSelections; i++)
             {
                 if (slotOccupants[i] == null) continue;
@@ -611,7 +612,12 @@ public class VotingController : MonoBehaviour
                 {
                     int groupId = activeGroups[groupIdx].id;
                     if (PlayerManager.groups.ContainsKey(groupId))
-                        PlayerManager.groups[groupId].score += metricPoints;
+                    {
+                        var g = PlayerManager.groups[groupId];
+                        if (i == 0) g.metric1Score += metricPoints;
+                        else        g.metric2Score += metricPoints;
+                        g.score += metricPoints;
+                    }
                 }
             }
         }
@@ -639,7 +645,7 @@ public class VotingController : MonoBehaviour
             // Only two groups: 1st gets secondPlacePoints, 2nd gets 0
             if (groupCount > 0)
             {
-                rankedGroups[0].score += secondPlacePoints;
+                AwardVotePoints(rankedGroups[0], secondPlacePoints);
                 Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
             }
             if (groupCount > 1)
@@ -652,12 +658,12 @@ public class VotingController : MonoBehaviour
             // Three groups: 1st gets secondPlacePoints, 2nd gets thirdPlacePoints, 3rd gets 0
             if (groupCount > 0)
             {
-                rankedGroups[0].score += secondPlacePoints;
+                AwardVotePoints(rankedGroups[0], secondPlacePoints);
                 Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
             }
             if (groupCount > 1)
             {
-                rankedGroups[1].score += thirdPlacePoints;
+                AwardVotePoints(rankedGroups[1], thirdPlacePoints);
                 Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes — awarded {thirdPlacePoints} points");
             }
             if (groupCount > 2)
@@ -671,13 +677,24 @@ public class VotingController : MonoBehaviour
             int[] finalPoints = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
             for (int i = 0; i < rankedGroups.Count && i < finalPoints.Length; i++)
             {
-                rankedGroups[i].score += finalPoints[i];
+                AwardVotePoints(rankedGroups[i], finalPoints[i]);
                 Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes — awarded {finalPoints[i]} points");
             }
         }
 
         foreach (var group in PlayerManager.groups.Values)
             group.votingPhasePoints = 0;
+    }
+
+    /// <summary>
+    /// Adds <paramref name="points"/> to a group's vote-rank component AND its rolling total,
+    /// so the Scoreboard can break out group-voting points from metric awards.
+    /// </summary>
+    private static void AwardVotePoints(Group g, int points)
+    {
+        if (points <= 0) return;
+        g.voteScore += points;
+        g.score     += points;
     }
 
     // ===================================================================

@@ -47,7 +47,22 @@ public class Group
 {
     public int id;
     public string name = "";
+
+    /// <summary>
+    /// Total round score for this group. Always equal to <c>voteScore + metric1Score + metric2Score</c>;
+    /// kept as a stand-alone field so existing code paths (commit, queries) need no changes.
+    /// </summary>
     public int score = 0;
+
+    /// <summary>Points earned this round from the group-voting phase ranking (1st/2nd/3rd place).</summary>
+    public int voteScore = 0;
+
+    /// <summary>Points awarded by the DM for the FIRST chosen metric this round.</summary>
+    public int metric1Score = 0;
+
+    /// <summary>Points awarded by the DM for the SECOND chosen metric this round.</summary>
+    public int metric2Score = 0;
+
     public GameManager.Position position; // For or Against
     public int corruptionId = -1; // ID of the assigned corruption, -1 if none
     public int votingPhasePoints = 0; // Accumulated local vote points during the voting phase
@@ -338,10 +353,13 @@ public class PlayerManager : MonoBehaviour
             p.penaltyScore         = 0;
         }
 
-        // Per-group: reset accumulator fields.
+        // Per-group: reset accumulator fields (including the breakdown components).
         foreach (var g in groups.Values)
         {
             g.score             = 0;
+            g.voteScore         = 0;
+            g.metric1Score      = 0;
+            g.metric2Score      = 0;
             g.votingPhasePoints = 0;
         }
 
@@ -407,6 +425,9 @@ public class PlayerManager : MonoBehaviour
         foreach (var g in groups.Values)
         {
             g.score             = 0;
+            g.voteScore         = 0;
+            g.metric1Score      = 0;
+            g.metric2Score      = 0;
             g.votingPhasePoints = 0;
         }
         SyncPlayersList();

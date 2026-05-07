@@ -145,12 +145,14 @@ Scoring is **per-round**: every score field on `Player` and `Group` represents e
 | `hasAccused` | `bool` | Yes | True once this player has made an accusation this round. |
 | `isAccused` | `bool` | Yes | True once this player has been successfully accused this round. |
 
-**Group score field**:
-- `Group.score` (`int`) — also **per-round**. Reset by `CommitRoundScores()` along with `Group.votingPhasePoints`.
+**Group score fields**:
+- `Group.score` (`int`) — total round score; always equal to `voteScore + metric1Score + metric2Score`. Reset by `CommitRoundScores()` along with the breakdown components and `votingPhasePoints`.
+- `Group.voteScore` (`int`) — points earned from the group-voting-phase ranking (1st/2nd/3rd place). Written by `VotingController.FinalizeGroupVoting` via the `AwardVotePoints` helper.
+- `Group.metric1Score` / `Group.metric2Score` (`int`) — DM metric awards. Slot 0 maps to `gameManager.selectedMetrics[0]`, slot 1 to `selectedMetrics[1]`. Written by `VotingController.ApplyVotes` in DM-metric mode. The Scoreboard animates these as separate "Points for {metric}" phases.
 
 **Round commit lifecycle** (`PlayerManager.CommitRoundScores()`):
 - For each player: `oldScore += groupScore + score`, then zero `score`, `roundCorruptionScore`, `stolenScore`, `penaltyScore`.
-- For each group: zero `score` and `votingPhasePoints`.
+- For each group: zero `score`, `voteScore`, `metric1Score`, `metric2Score`, and `votingPhasePoints`.
 - **Called by `GameManager.StartNextRound()`** as the first step (after the Scoreboard is dismissed via the Next-Round button, before `currentRound++`).
 
 **New-game reset** (`PlayerManager.ResetAllScores()`):
@@ -173,16 +175,24 @@ Scoring is **per-round**: every score field on `Player` and `Group` represents e
 #### ScoreboardController
 
 End-of-round score reveal screen (`Assets/Scripts/PageControllers/ScoreboardController.cs`):
-- **Four stacked bars per player slot** (bottom → top in the `VerticalLayoutGroup` with `ReverseArrangement = 1`):
+- **Three stacked bars per player slot** (bottom → top in the `VerticalLayoutGroup` with `ReverseArrangement = 1`):
   1. **Old Score** (hidden in Round 1) — `Player.oldScore`
-  2. **Group Score** — `Group.score` for the player's group
-  3. **Corruption Score** — `Player.roundCorruptionScore` (gross — unaffected by accusations)
-  4. **Stolen Score** — `Player.stolenScore`
-- **Inspector lists** — one entry per player slot (7 max), parallel-indexed: `groupScoreDisplays`, `corruptionScoreDisplays`, `stolenScoreDisplays`, `oldScoreDisplays`, `totalScoreDisplays`, `nameDisplays`, `penaltyFloatTexts`.
-- **Dynamic scaling**: `pixelsPerPoint = barContainerHeight / currentMaxScore`. Starts at `initialMaxScore = 300`, grows in `maxScoreStep = 200` increments (300 → 500 → 700 …) when any player's animated total exceeds the ceiling. Scale never shrinks — bars don't rebound.
-- **Two-phase animation** on `OnEnable`:
-  - **Phase ① "Earn"** (`earnDuration`, ease-out cubic): bars grow from start (0 in R1, `oldScore` in R2+) up to gross values (`oldScore + group + roundCorruptionScore + stolenScore`); the total counter ticks up at the same rate.
-  - **Phase ② "Deduct"** (`deductDuration`, ease-in-out): for any player whose actual total (`oldScore + group + score`) is below gross, the deficit is carved off the top of the stack (stolen → corruption → group → old) and a `-N` floating text from `penaltyFloatTexts` is shown briefly. The deduction is computed implicitly as `gross − actual`, so it covers both the incorrect-accusation penalty and the points lost when correctly accused — no separate field needed.
+  2. **Group Score** — `Group.score` for the player's group (animated in three sub-passes: voteScore → metric1Score → metric2Score)
+  3. **Corruption + Stolen** — `Player.roundCorruptionScore` first, then `Player.stolenScore` stacked into the same bar
+- **Top-of-screen phase label** — `pointTypeDisplay` (TMP_Text) shows the current phase ("Group Votes", "Points for Comedy", "Corruptions", "Stolen Points", "Penalties").
+- **Per-player Score Incrementer** — `scoreIncrementerDisplays` (one TMP_Text per player slot, formerly named `penaltyFloatTexts` / "Penalty Score N"). Visible **only while a row is actively being incremented** in the current phase (rows with a zero amount stay hidden); flashes "+N" during earn phases, "-N" during the penalty phase, hidden between phases. Inspector references survive the rename via `[FormerlySerializedAs("penaltyFloatTexts")]`.
+- **Inspector lists** — one entry per player slot (7 max), parallel-indexed: `groupScoreDisplays`, `corruptionScoreDisplays`, `oldScoreDisplays`, `totalScoreDisplays`, `nameDisplays`, `scoreIncrementerDisplays`. The legacy `stolenScoreDisplays` list is kept for back-compat but always disabled at runtime — stolen points stack into the corruption bar visually.
+- **Dynamic scaling**: `pixelsPerPoint = barContainerHeight / currentMaxScore`. Starts at `initialMaxScore = 300`, grows in `maxScoreStep = 200` increments (300 → 500 → 700 …) when any player's animated total exceeds the ceiling. Scale never shrinks — bars don't rebound. The **Scoarboard Background's** `VerticalLayoutGroup.spacing` is rescaled in lock step (`UpdateBackgroundSpacing`) so the marker lines (0, 50, 100, …) stay aligned with the values they advertise.
+- **Multi-phase animation** on `OnEnable` — each phase is skipped if no row has a non-zero amount in it:
+  - **⓪ Init** (instant): old-score bar pre-fills to `oldScore` in R2+; total counter starts at `oldScore`.
+  - **① Group Votes** (`perPhaseDuration`, ease-out cubic): group bar grows by `Group.voteScore`. Score Incrementer = `+voteScore`.
+  - **② Metric 1**: group bar grows by `Group.metric1Score`. Phase label = `"Points for {selectedMetrics[0]}"`.
+  - **③ Metric 2**: group bar grows by `Group.metric2Score`. Phase label = `"Points for {selectedMetrics[1]}"`.
+  - **④ Corruptions**: corruption bar grows by `roundCorruptionScore`.
+  - **⑤ Stolen Points**: corruption bar continues growing by `stolenScore` (stacked above the corruption portion).
+  - **⑥ Penalties** (`deductDuration`, ease-in-out): for any player whose actual total is below gross, the deficit is drained in priority order **GROUP → CORRUPTION → OLD**. Score Incrementer shows `-N`. If the deduction exceeds everything the player has (gross is already 0, or penalty > gross), the leftover lives in `animOverflowDeduct[i]` and is subtracted from the displayed total counter — bars stay flat at 0 and the score text just goes negative. The deduction itself is computed implicitly as `gross − actual`, so it covers both incorrect-accusation penalties and points lost when correctly accused.
+
+  Between phases the Score Incrementer is hidden (Inspector-tunable `interPhaseDelay`).
 
 ### Localization
 
