@@ -274,6 +274,21 @@ public class MetricSelectionController : MonoBehaviour
         if (firstSlotDropTarget  != null) { firstSlotDropTarget.controller  = this; firstSlotDropTarget.slotIndex  = 1; }
         if (secondSlotDropTarget != null) { secondSlotDropTarget.controller = this; secondSlotDropTarget.slotIndex = 2; }
         if (gridDropTarget       != null)   gridDropTarget.controller       = this;
+
+        // Attach a proxy to each empty-slot placeholder so it acts as a direct-hit drop
+        // target when the slot is vacant. The proxy stays on the object permanently;
+        // it is harmless when the placeholder is inactive (raycasts ignore inactive objects).
+        SetupPlaceholderProxy(firstVoteEmpty,  1);
+        SetupPlaceholderProxy(secondVoteEmpty, 2);
+    }
+
+    private void SetupPlaceholderProxy(GameObject placeholder, int oneBasedSlotIndex)
+    {
+        if (placeholder == null) return;
+        var proxy = placeholder.GetComponent<MetricSlotDropProxy>();
+        if (proxy == null) proxy = placeholder.AddComponent<MetricSlotDropProxy>();
+        proxy.controller = this;
+        proxy.slotIndex  = oneBasedSlotIndex;
     }
 
     // ================================================================
@@ -285,9 +300,8 @@ public class MetricSelectionController : MonoBehaviour
     {
         for (int i = 0; i < slotOccupants.Length; i++)
         {
-            if (slotOccupants[i] == null) continue;
-            slotOccupants[i].transform.position = slotOccupants[i].homePosition;
-            slotOccupants[i] = null;
+            var occupant = slotOccupants[i];
+            if (occupant != null) MoveToGrid(occupant);
         }
         UpdatePlaceholders();
         UpdateNextButton();
@@ -297,8 +311,15 @@ public class MetricSelectionController : MonoBehaviour
 
     private void MoveToSlot(MetricDragHandler handler, int slotIdx)
     {
-        slotOccupants[slotIdx]       = handler;
-        handler.transform.position   = GetSlotWorldPosition(slotIdx);
+        slotOccupants[slotIdx]     = handler;
+        handler.transform.position = GetSlotWorldPosition(slotIdx);
+
+        // Attach (or update) a proxy so the card itself is a direct-hit drop target
+        // while it occupies this slot.
+        var proxy = handler.gameObject.GetComponent<MetricSlotDropProxy>();
+        if (proxy == null) proxy = handler.gameObject.AddComponent<MetricSlotDropProxy>();
+        proxy.controller = this;
+        proxy.slotIndex  = slotIdx + 1; // 1-based
     }
 
     private void MoveToGrid(MetricDragHandler handler)
@@ -307,9 +328,25 @@ public class MetricSelectionController : MonoBehaviour
             if (slotOccupants[i] == handler) slotOccupants[i] = null;
 
         handler.transform.position = handler.homePosition;
+
+        // Remove the slot proxy — card is back in the grid and no longer a drop target.
+        var proxy = handler.gameObject.GetComponent<MetricSlotDropProxy>();
+        if (proxy != null) Destroy(proxy);
     }
 
     // ---- Query helpers ----
+
+    /// <summary>Returns the handler currently occupying the given 0-based slot, or null if empty.</summary>
+    public MetricDragHandler GetSlotOccupant(int zeroBasedIdx) =>
+        (zeroBasedIdx >= 0 && zeroBasedIdx < slotOccupants.Length) ? slotOccupants[zeroBasedIdx] : null;
+
+    /// <summary>Returns the empty-placeholder GameObject for the given 0-based slot.</summary>
+    public GameObject GetSlotEmptyPlaceholder(int zeroBasedIdx)
+    {
+        if (zeroBasedIdx == 0) return firstVoteEmpty;
+        if (zeroBasedIdx == 1) return secondVoteEmpty;
+        return null;
+    }
 
     /// <summary>Returns the 0-based slot index of <paramref name="handler"/>, or -1 if it is in the grid.</summary>
     private int IndexOf(MetricDragHandler handler)

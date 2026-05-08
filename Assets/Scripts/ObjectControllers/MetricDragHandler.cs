@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using Metric = GameManager.Metric;
 
@@ -69,6 +70,10 @@ public class MetricDragHandler : MonoBehaviour,
 
     private CanvasGroup   canvasGroup;
     private RectTransform rectTransform;
+    private Image         cardImage;
+    private Color         originalCardColor;
+
+    private static readonly Color DisplacedTint = new Color(0.82f, 0.82f, 0.82f);
 
     /// <summary>Semi-transparent clone parented to the drag layer during a drag.</summary>
     private RectTransform ghostRect;
@@ -97,6 +102,18 @@ public class MetricDragHandler : MonoBehaviour,
     {
         canvasGroup   = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
+        cardImage     = GetComponent<Image>();
+        if (cardImage != null) originalCardColor = cardImage.color;
+    }
+
+    /// <summary>
+    /// Tints the card to indicate it will be displaced when another card is hovering
+    /// over the slot it currently occupies.  Called by <see cref="VoteSlotDropTarget"/>.
+    /// </summary>
+    public void SetDisplacedVisual(bool displaced)
+    {
+        if (cardImage != null)
+            cardImage.color = displaced ? DisplacedTint : originalCardColor;
     }
 
     void OnDisable()
@@ -202,18 +219,28 @@ public class MetricDragHandler : MonoBehaviour,
         var hits = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, hits);
 
+        // Two-pass detection prevents a false-positive: metric cards placed in slots are
+        // still parented under the MetricGrid, so GetComponentInParent from a card would
+        // climb up to MetricGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
+        //
+        // Pass 1 — direct hits only (VoteSlotDropTarget is always directly on its GameObject).
         IMetricDropTarget newTarget = null;
         foreach (var hit in hits)
         {
-            // Ignore the ghost itself so it never self-targets.
             if (ghostRect != null && hit.gameObject.transform.IsChildOf(ghostRect)) continue;
+            var direct = hit.gameObject.GetComponent<IMetricDropTarget>();
+            if (direct != null) { newTarget = direct; break; }
+        }
 
-            // Walk the hit object's hierarchy for an IMetricDropTarget implementation.
-            var comp = hit.gameObject.GetComponentInParent(typeof(IMetricDropTarget));
-            if (comp is IMetricDropTarget target)
+        // Pass 2 — parent-walk fallback (catches MetricGridDropTarget when the ghost is
+        //           over empty grid space that has no metric card directly under the pointer).
+        if (newTarget == null)
+        {
+            foreach (var hit in hits)
             {
-                newTarget = target;
-                break;
+                if (ghostRect != null && hit.gameObject.transform.IsChildOf(ghostRect)) continue;
+                var comp = hit.gameObject.GetComponentInParent(typeof(IMetricDropTarget));
+                if (comp is IMetricDropTarget target) { newTarget = target; break; }
             }
         }
 

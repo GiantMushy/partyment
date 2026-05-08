@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Attach to each vote-slot area GameObject on the Voting screen (the region
@@ -7,9 +8,8 @@ using UnityEngine;
 /// Setup checklist
 /// ───────────────
 /// • The GameObject needs an Image (or any raycast-receiving Graphic) so the
-///   EventSystem detects pointer hits.  Set it transparent if you only want an
-///   invisible hit area.
-/// • A CanvasGroup is required — the component highlights it on hover.
+///   EventSystem detects pointer hits.
+/// • A CanvasGroup is kept for legacy compat but is no longer used for highlighting.
 /// • Set <see cref="slotIndex"/> to 1, 2, or 3 directly in the Inspector,
 ///   OR let <see cref="VotingController.InitializeHandlers"/> inject it.
 /// • <see cref="controller"/> is injected automatically by the controller.
@@ -24,36 +24,54 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
     /// <summary>Set automatically by <see cref="VotingController.InitializeHandlers"/>.</summary>
     [HideInInspector] public VotingController controller;
 
-    /// <summary>Alpha applied to the CanvasGroup while a card hovers over this slot.</summary>
-    private const float HoverAlpha = 0.55f;
+    private static readonly Color SlotHoverTint = new Color(0.8f, 0.95f, 1f);
 
-    private CanvasGroup canvasGroup;
-    private float idleAlpha;
+    private VotingDragHandler highlightedOccupant;
+    private Image             highlightedPlaceholder;
+    private Color             placeholderOriginalColor;
 
-    void Awake()
-    {
-        canvasGroup = GetComponent<CanvasGroup>();
-        idleAlpha   = canvasGroup != null ? canvasGroup.alpha : 1f;
-    }
-
-    /// <summary>Dim the slot to signal it is a valid drop target.</summary>
     public void OnDragHoverEnter(VotingDragHandler dragHandler)
     {
-        if (canvasGroup != null) canvasGroup.alpha = HoverAlpha;
+        var occupant = controller?.GetSlotOccupant(slotIndex - 1);
+
+        if (occupant != null && occupant != dragHandler)
+        {
+            // Slot is occupied by a different card — tint it to show it will be displaced.
+            highlightedOccupant = occupant;
+            highlightedOccupant.SetDisplacedVisual(true);
+        }
+        else if (occupant == null)
+        {
+            // Slot is empty — tint the placeholder so it lights up as a drop target.
+            var placeholder = controller?.GetSlotEmptyPlaceholder(slotIndex - 1);
+            if (placeholder != null)
+            {
+                highlightedPlaceholder = placeholder.GetComponent<Image>();
+                if (highlightedPlaceholder != null)
+                {
+                    placeholderOriginalColor = highlightedPlaceholder.color;
+                    highlightedPlaceholder.color = SlotHoverTint;
+                }
+            }
+        }
     }
 
-    /// <summary>Restore original alpha when the drag leaves.</summary>
     public void OnDragHoverExit()
     {
-        if (canvasGroup != null) canvasGroup.alpha = idleAlpha;
+        highlightedOccupant?.SetDisplacedVisual(false);
+        highlightedOccupant = null;
+
+        if (highlightedPlaceholder != null)
+        {
+            highlightedPlaceholder.color = placeholderOriginalColor;
+            highlightedPlaceholder = null;
+        }
     }
 
-    /// <summary>
-    /// Revert the hover highlight, then ask the controller to place the
-    /// dragged group card into this slot (handling swaps and DM clones automatically).
-    /// </summary>
     public void OnVotingDropped(VotingDragHandler dragHandler)
     {
+        // OnDragHoverExit was already called by VotingDragHandler.ClearHover; call again
+        // defensively so visuals are always reset before the state change.
         OnDragHoverExit();
         controller?.PlaceGroupInSlot(dragHandler, slotIndex);
     }

@@ -32860,6 +32860,7 @@ MonoBehaviour:
   activeObjectiveContainer: {fileID: 806287339}
   inactiveObjectiveContainer: {fileID: 1178212931}
   corruptionPrefab: {fileID: 8648961093083843107, guid: 91d9e8ea9ac29435f8f71670dc41b41c, type: 3}
+  noCorruptionsPrefab: {fileID: 8648961093083843107, guid: 635c1235b0e8e47b69abf5633f7c5618, type: 3}
   objectivesSlideOffset: 1000
   objectivesSlideSpeed: 8
 --- !u!1 &1810919013

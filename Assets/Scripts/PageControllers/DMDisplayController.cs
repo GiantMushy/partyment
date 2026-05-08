@@ -81,6 +81,7 @@ public class DMDisplayController : MonoBehaviour
     [Tooltip("Inactive panel: Speech(all other groups) + Interruption(current group).")]
     [SerializeField] private Transform inactiveObjectiveContainer;
     [SerializeField] private GameObject corruptionPrefab;
+    [SerializeField] private GameObject noCorruptionsPrefab;
 
     [Header("Objectives Slide Settings")]
     [Tooltip("Pixels the slide track shifts per panel (left = Inactive, right = Accusation).")]
@@ -105,6 +106,7 @@ public class DMDisplayController : MonoBehaviour
     private Dictionary<int, List<GameObject>> speechCardsByGroupId       = new Dictionary<int, List<GameObject>>();
     private Dictionary<int, List<GameObject>> interruptionCardsByGroupId = new Dictionary<int, List<GameObject>>();
     private List<GameObject> allInstantiatedCards = new List<GameObject>();
+    private GameObject noCorruptionsCardInstance;
 
     private Vector2 defaultAnchoredPos;
     private Vector2 targetAnchoredPos;
@@ -624,6 +626,12 @@ public class DMDisplayController : MonoBehaviour
         }
 
         Debug.Log($"DMDisplay: Created {cardsCreated} corruption card(s).");
+
+        if (noCorruptionsPrefab != null && activeObjectiveContainer != null)
+        {
+            noCorruptionsCardInstance = Instantiate(noCorruptionsPrefab, activeObjectiveContainer);
+            noCorruptionsCardInstance.SetActive(false);
+        }
     }
 
     private GameObject CreateCorruptionCard(Player player)
@@ -672,6 +680,7 @@ public class DMDisplayController : MonoBehaviour
 
         EnforceCardOrder(activeObjectiveContainer);
         EnforceCardOrder(inactiveObjectiveContainer);
+        RefreshNoCorruptionsCard();
     }
 
     /// <summary>Reorders children so Speech cards always precede Interruption cards within a container.</summary>
@@ -696,6 +705,15 @@ public class DMDisplayController : MonoBehaviour
         foreach (var card in interruptionCards)  card.SetSiblingIndex(idx++);
     }
 
+    private void RefreshNoCorruptionsCard()
+    {
+        if (noCorruptionsCardInstance == null) return;
+        int realCards = 0;
+        foreach (Transform child in activeObjectiveContainer)
+            if (child.gameObject != noCorruptionsCardInstance) realCards++;
+        noCorruptionsCardInstance.SetActive(realCards == 0);
+    }
+
     private void CleanupCorruptionCards()
     {
         foreach (var card in allInstantiatedCards)
@@ -703,6 +721,12 @@ public class DMDisplayController : MonoBehaviour
         allInstantiatedCards.Clear();
         speechCardsByGroupId.Clear();
         interruptionCardsByGroupId.Clear();
+
+        if (noCorruptionsCardInstance != null)
+        {
+            Destroy(noCorruptionsCardInstance);
+            noCorruptionsCardInstance = null;
+        }
 
         DestroyAllChildren(activeObjectiveContainer);
         DestroyAllChildren(inactiveObjectiveContainer);

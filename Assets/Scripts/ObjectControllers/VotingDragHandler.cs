@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 /// <summary>
@@ -61,9 +62,14 @@ public class VotingDragHandler : MonoBehaviour,
     //  Private state
     // ================================================================
 
-    private CanvasGroup   canvasGroup;
-    private RectTransform rectTransform;
-    private RectTransform ghostRect;
+    private CanvasGroup       canvasGroup;
+    private RectTransform     rectTransform;
+    private Image             cardImage;
+    private Color             originalCardColor;
+
+    private static readonly Color DisplacedTint = new Color(0.82f, 0.82f, 0.82f);
+
+    private RectTransform     ghostRect;
     private IVotingDropTarget hoveredTarget;
     private bool isDragging;
     private bool wasDrag;
@@ -77,6 +83,18 @@ public class VotingDragHandler : MonoBehaviour,
     {
         canvasGroup   = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
+        cardImage     = GetComponent<Image>();
+        if (cardImage != null) originalCardColor = cardImage.color;
+    }
+
+    /// <summary>
+    /// Tints the card to indicate it will be displaced when another card is hovering
+    /// over the slot it currently occupies.  Called by <see cref="VotingSlotDropTarget"/>.
+    /// </summary>
+    public void SetDisplacedVisual(bool displaced)
+    {
+        if (cardImage != null)
+            cardImage.color = displaced ? DisplacedTint : originalCardColor;
     }
 
     void OnDisable()
@@ -169,16 +187,28 @@ public class VotingDragHandler : MonoBehaviour,
         var hits = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, hits);
 
+        // Two-pass detection prevents a false-positive: group cards placed in slots are
+        // still parented under the button grid, so GetComponentInParent from a card would
+        // climb up to VotingGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
+        //
+        // Pass 1 — direct hits only (VotingSlotDropTarget is always directly on its GameObject).
         IVotingDropTarget newTarget = null;
         foreach (var hit in hits)
         {
             if (ghostRect != null && hit.gameObject.transform.IsChildOf(ghostRect)) continue;
+            var direct = hit.gameObject.GetComponent<IVotingDropTarget>();
+            if (direct != null) { newTarget = direct; break; }
+        }
 
-            var comp = hit.gameObject.GetComponentInParent(typeof(IVotingDropTarget));
-            if (comp is IVotingDropTarget target)
+        // Pass 2 — parent-walk fallback (catches VotingGridDropTarget when the ghost is
+        //           over empty grid space that has no group card directly under the pointer).
+        if (newTarget == null)
+        {
+            foreach (var hit in hits)
             {
-                newTarget = target;
-                break;
+                if (ghostRect != null && hit.gameObject.transform.IsChildOf(ghostRect)) continue;
+                var comp = hit.gameObject.GetComponentInParent(typeof(IVotingDropTarget));
+                if (comp is IVotingDropTarget target) { newTarget = target; break; }
             }
         }
 

@@ -7,14 +7,12 @@ using UnityEngine.UI;
 /// Setup checklist
 /// ───────────────
 /// • The GameObject needs an Image (or any raycast-receiving Graphic) so the
-///   EventSystem detects pointer hits.  The same Image can also be made
-///   transparent (alpha = 0) if you don't want a visible background.
-/// • A CanvasGroup is required — the component highlights it on hover.
+///   EventSystem detects pointer hits.
+/// • A CanvasGroup is kept for legacy compat but is no longer used for highlighting.
 /// • Set <see cref="slotIndex"/> to 1 for the first slot and 2 for the second
 ///   directly in the Inspector, OR let <see cref="MetricSelectionController"/>
 ///   inject it via <c>InitializeHandlers()</c>.
-/// • <see cref="controller"/> is injected automatically by the controller;
-///   you do not need to set it in the Inspector.
+/// • <see cref="controller"/> is injected automatically by the controller.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
 public class VoteSlotDropTarget : MonoBehaviour, IMetricDropTarget
@@ -32,42 +30,60 @@ public class VoteSlotDropTarget : MonoBehaviour, IMetricDropTarget
 
     // ---- Constants ----
 
-    /// <summary>Alpha applied to the CanvasGroup while a card hovers over this slot.</summary>
-    private const float HoverAlpha = 0.55f;
+    private static readonly Color SlotHoverTint = new Color(0.8f, 0.95f, 1f);
 
-    // ---- Private ----
+    // ---- State ----
 
-    private CanvasGroup canvasGroup;
-    private float idleAlpha;
-
-    void Awake()
-    {
-        canvasGroup = GetComponent<CanvasGroup>();
-        idleAlpha   = canvasGroup != null ? canvasGroup.alpha : 1f;
-    }
+    private MetricDragHandler highlightedOccupant;
+    private Image             highlightedPlaceholder;
+    private Color             placeholderOriginalColor;
 
     // ================================================================
     //  IMetricDropTarget
     // ================================================================
 
-    /// <summary>Dim the slot to signal it is a valid drop target.</summary>
     public void OnDragHoverEnter(MetricDragHandler dragHandler)
     {
-        if (canvasGroup != null) canvasGroup.alpha = HoverAlpha;
+        var occupant = controller?.GetSlotOccupant(slotIndex - 1);
+
+        if (occupant != null && occupant != dragHandler)
+        {
+            // Slot is occupied by a different card — tint it to show it will be displaced.
+            highlightedOccupant = occupant;
+            highlightedOccupant.SetDisplacedVisual(true);
+        }
+        else if (occupant == null)
+        {
+            // Slot is empty — tint the placeholder so it lights up as a drop target.
+            var placeholder = controller?.GetSlotEmptyPlaceholder(slotIndex - 1);
+            if (placeholder != null)
+            {
+                highlightedPlaceholder = placeholder.GetComponent<Image>();
+                if (highlightedPlaceholder != null)
+                {
+                    placeholderOriginalColor = highlightedPlaceholder.color;
+                    highlightedPlaceholder.color = SlotHoverTint;
+                }
+            }
+        }
     }
 
-    /// <summary>Restore original alpha when the drag leaves.</summary>
     public void OnDragHoverExit()
     {
-        if (canvasGroup != null) canvasGroup.alpha = idleAlpha;
+        highlightedOccupant?.SetDisplacedVisual(false);
+        highlightedOccupant = null;
+
+        if (highlightedPlaceholder != null)
+        {
+            highlightedPlaceholder.color = placeholderOriginalColor;
+            highlightedPlaceholder = null;
+        }
     }
 
-    /// <summary>
-    /// Revert the hover highlight, then ask the controller to place the
-    /// dragged metric into this slot (handling swaps automatically).
-    /// </summary>
     public void OnMetricDropped(MetricDragHandler dragHandler)
     {
+        // OnDragHoverExit was already called by MetricDragHandler.ClearHover; call again
+        // defensively so visuals are always reset before the state change.
         OnDragHoverExit();
         controller?.PlaceMetricInSlot(dragHandler, slotIndex);
     }

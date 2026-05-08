@@ -203,6 +203,19 @@ public class VotingController : MonoBehaviour
         if (secondSlotDropTarget != null) { secondSlotDropTarget.controller = this; secondSlotDropTarget.slotIndex = 2; }
         if (thirdSlotDropTarget  != null) { thirdSlotDropTarget.controller  = this; thirdSlotDropTarget.slotIndex  = 3; }
         if (gridDropTarget       != null)   gridDropTarget.controller       = this;
+
+        SetupPlaceholderProxy(firstVoteEmpty,  1);
+        SetupPlaceholderProxy(secondVoteEmpty, 2);
+        SetupPlaceholderProxy(thirdVoteEmpty,  3);
+    }
+
+    private void SetupPlaceholderProxy(GameObject placeholder, int oneBasedSlotIndex)
+    {
+        if (placeholder == null) return;
+        var proxy = placeholder.GetComponent<VotingSlotDropProxy>();
+        if (proxy == null) proxy = placeholder.AddComponent<VotingSlotDropProxy>();
+        proxy.controller = this;
+        proxy.slotIndex  = oneBasedSlotIndex;
     }
 
     // ===================================================================
@@ -413,6 +426,8 @@ public class VotingController : MonoBehaviour
         {
             if (slotOccupants[i] == null) continue;
             slotOccupants[i].transform.position = slotOccupants[i].homePosition;
+            var proxy = slotOccupants[i].gameObject.GetComponent<VotingSlotDropProxy>();
+            if (proxy != null) Destroy(proxy);
             slotOccupants[i] = null;
         }
 
@@ -424,8 +439,14 @@ public class VotingController : MonoBehaviour
 
     private void MoveToSlot(VotingDragHandler handler, int slotIdx)
     {
-        slotOccupants[slotIdx]       = handler;
-        handler.transform.position   = GetSlotWorldPosition(slotIdx);
+        slotOccupants[slotIdx]     = handler;
+        handler.transform.position = GetSlotWorldPosition(slotIdx);
+
+        // Attach (or update) a proxy so the card itself is a direct-hit drop target.
+        var proxy = handler.gameObject.GetComponent<VotingSlotDropProxy>();
+        if (proxy == null) proxy = handler.gameObject.AddComponent<VotingSlotDropProxy>();
+        proxy.controller = this;
+        proxy.slotIndex  = slotIdx + 1; // 1-based
 
         // DM mode: spawn a clone at the home position so the same group can be picked again
         if (currentPhase == VotingPhase.DMMetricVoting && !handler.isClone)
@@ -446,7 +467,7 @@ public class VotingController : MonoBehaviour
                 int origIdx = handler.slotIndex;
                 if (dmClones.ContainsKey(origIdx) && dmClones[origIdx] == handler)
                     dmClones.Remove(origIdx);
-                Destroy(handler.gameObject);
+                Destroy(handler.gameObject); // proxy destroyed with the object
                 return;
             }
             else
@@ -457,6 +478,10 @@ public class VotingController : MonoBehaviour
         }
 
         handler.transform.position = handler.homePosition;
+
+        // Remove the slot proxy — card is back in the grid.
+        var proxy = handler.gameObject.GetComponent<VotingSlotDropProxy>();
+        if (proxy != null) Destroy(proxy);
     }
 
     // ---- DM Clone Management ----
@@ -482,6 +507,11 @@ public class VotingController : MonoBehaviour
         cloneHandler.isClone      = true;
 
         dmClones[original.slotIndex] = cloneHandler;
+
+        // The clone is at the grid (homePosition), not in a slot — strip any proxy
+        // that was copied from the original during Instantiate.
+        var cloneProxy = cloneObj.GetComponent<VotingSlotDropProxy>();
+        if (cloneProxy != null) Destroy(cloneProxy);
     }
 
     /// <summary>Destroys the DM clone for a given slotIndex, if one exists.</summary>
@@ -515,6 +545,19 @@ public class VotingController : MonoBehaviour
     }
 
     // ---- Query helpers ----
+
+    /// <summary>Returns the handler currently occupying the given 0-based slot, or null if empty.</summary>
+    public VotingDragHandler GetSlotOccupant(int zeroBasedIdx) =>
+        (zeroBasedIdx >= 0 && zeroBasedIdx < slotOccupants.Length) ? slotOccupants[zeroBasedIdx] : null;
+
+    /// <summary>Returns the empty-placeholder GameObject for the given 0-based slot.</summary>
+    public GameObject GetSlotEmptyPlaceholder(int zeroBasedIdx) => zeroBasedIdx switch
+    {
+        0 => firstVoteEmpty,
+        1 => secondVoteEmpty,
+        2 => thirdVoteEmpty,
+        _ => null
+    };
 
     private int IndexOf(VotingDragHandler handler)
     {
