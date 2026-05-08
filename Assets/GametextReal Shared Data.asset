@@ -316,12 +316,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10559633301434368
-    m_Key: 'This is where players can accuse each other of Corruption. If they guess
-      correctly, they steal the corruption points
-
-
-      Click on the player that
-      is accusing'
+    m_Key: First Accusation Directions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13926200606420992
+    m_Key: Second Accusation Directions
     m_Metadata:
       m_Items: []
   - m_Id: 10560036592152576

@@ -28,9 +28,13 @@ using UnityEngine.UI;
 ///
 /// Attach to the root of the VerticalLayoutGroup that contains:
 ///   [0] Header (TMP)
-///   [1] Description (TMP)
-///   [2-9] Button (Player1-Player8)
-///   [10] Button (Incorrect)  — hidden by default via CanvasGroup alpha
+///   [1] Default description (TMP, localized)        — visible while in <see cref="AccusationState.Default"/>
+///   [2] Player-selected description (TMP, localized) — visible while in <see cref="AccusationState.PlayerSelected"/>
+///   [3-10] Button (Player1-Player8)
+///   [11] Button (Incorrect)  — hidden by default via CanvasGroup alpha
+///
+/// The two description text boxes each own their own LocalizeStringEvent — instead of swapping
+/// strings on a single text box (which fights the localizer), we toggle which GameObject is active.
 /// </summary>
 public class AccusationController : MonoBehaviour
 {
@@ -54,17 +58,18 @@ public class AccusationController : MonoBehaviour
 
     [Header("Layout Elements")]
     [SerializeField] private TextMeshProUGUI headerText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
+    [Tooltip("Description shown in the Default state (\"Click on the player who is accusing\"). " +
+             "Owns its own LocalizeStringEvent — toggled active/inactive instead of having its text overwritten.")]
+    [SerializeField] private GameObject defaultDescription;
+    [Tooltip("Description shown in the PlayerSelected state (\"Someone is Accusing!…\"). " +
+             "Owns its own LocalizeStringEvent — toggled active/inactive instead of having its text overwritten.")]
+    [SerializeField] private GameObject playerSelectedDescription;
     [SerializeField] private Button          incorrectButton;
     /// <summary>Cached CanvasGroup on incorrectButton — used to show/hide without SetActive (which dirties the layout).</summary>
     private CanvasGroup incorrectButtonGroup;
 
     [Header("Player Buttons (assign Player1 → Player8 in order)")]
     [SerializeField] private PlayerButtonUI[] playerButtons = new PlayerButtonUI[8];
-
-    [Header("Descriptions")]
-    [SerializeField] private string defaultDescription         = "Select a player to begin an accusation.";
-    [SerializeField] private string playerSelectedDescription  = "Select the player you believe this player is accusing of Corruption. Tap the selected player again to cancel.";
 
     [Header("Visuals")]
     [Tooltip("Icon displayed on non-selected player buttons while a player is selected.")]
@@ -174,10 +179,24 @@ public class AccusationController : MonoBehaviour
             HideIncorrectButton();
         }
 
-        if (descriptionText != null) descriptionText.text = defaultDescription;
+        ShowDefaultDescription();
 
         currentState        = AccusationState.Default;
         selectedButtonIndex = -1;
+    }
+
+    /// <summary>Activates the Default-state description and hides the PlayerSelected one.</summary>
+    private void ShowDefaultDescription()
+    {
+        if (defaultDescription        != null) defaultDescription.SetActive(true);
+        if (playerSelectedDescription != null) playerSelectedDescription.SetActive(false);
+    }
+
+    /// <summary>Activates the PlayerSelected-state description and hides the Default one.</summary>
+    private void ShowPlayerSelectedDescription()
+    {
+        if (defaultDescription        != null) defaultDescription.SetActive(false);
+        if (playerSelectedDescription != null) playerSelectedDescription.SetActive(true);
     }
 
     // ===================================================================
@@ -218,8 +237,7 @@ public class AccusationController : MonoBehaviour
         currentState        = AccusationState.PlayerSelected;
         selectedButtonIndex = accusingButtonIndex;
 
-        // Update description
-        if (descriptionText != null) descriptionText.text = playerSelectedDescription;
+        ShowPlayerSelectedDescription();
 
         // Style all other visible buttons: red + point icon, disable those without a corruption
         for (int i = 0; i < playerButtons.Length; i++)
@@ -325,7 +343,7 @@ public class AccusationController : MonoBehaviour
     {
         currentState = AccusationState.Default;
 
-        if (descriptionText != null) descriptionText.text = defaultDescription;
+        ShowDefaultDescription();
 
         RestoreAllButtons();
 
