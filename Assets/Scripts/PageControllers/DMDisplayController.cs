@@ -22,7 +22,7 @@ using UnityEngine.UI;
 ///      Active, Inactive, and Accusation panels on a horizontal <see cref="slideTrack"/>.
 ///
 /// Inspector wiring required:
-///   Topic Display   → topicTypeText, topicDescriptionText, topicTypeIcon, versusSprite, scenarioSprite
+///   Topic Display   → topicTypeVersus, topicTypeScenario, topicDescriptionText, topicTypeIcon, versusSprite, scenarioSprite
 ///   Group Card      → groupCardArea (RectTransform parent), groupCardPrefab, slideInCurve
 ///   Timer           → timerText, playToggle, pauseToggle, stopToggle (ToggleButton), nextButton
 ///   Objectives      → objectivesContainer, slideTrack, activeObjectiveContainer,
@@ -40,7 +40,10 @@ public class DMDisplayController : MonoBehaviour
     private TopicManager TopicManager => gameManager.topicManager;
 
     [Header("Topic Display")]
-    [SerializeField] private TextMeshProUGUI topicTypeText;
+    [Tooltip("GameObject shown only when the active topic is a Versus topic. Owns its own LocalizeStringEvent.")]
+    [SerializeField] private GameObject topicTypeVersus;
+    [Tooltip("GameObject shown only when the active topic is a Scenario topic. Owns its own LocalizeStringEvent.")]
+    [SerializeField] private GameObject topicTypeScenario;
     [SerializeField] private TextMeshProUGUI topicDescriptionText;
     [SerializeField] private Image topicTypeIcon;
     [SerializeField] private Sprite versusSprite;
@@ -212,22 +215,25 @@ public class DMDisplayController : MonoBehaviour
 
     private void DisplayActiveTopic()
     {
-        // Disable any LocalizeStringEvent on these objects so our runtime text isn't overwritten.
-        DisableLocalizer(topicTypeText);
+        // Description is still set at runtime, so its LocalizeStringEvent must stay disabled.
+        // The Versus / Scenario type labels each have their own LocalizeStringEvent and are now
+        // selected by toggling the correct GameObject — no override needed.
         DisableLocalizer(topicDescriptionText);
 
         Topic topic = TopicManager.currentTopic;
         if (topic == null)
         {
             if (topicDescriptionText != null) topicDescriptionText.text = "No topic selected.";
-            if (topicTypeText != null)        topicTypeText.text        = "";
+            if (topicTypeVersus      != null) topicTypeVersus.SetActive(false);
+            if (topicTypeScenario    != null) topicTypeScenario.SetActive(false);
             Debug.LogWarning("DMDisplayController: No active topic found.");
             return;
         }
 
         bool isVersus = topic.type == global::TopicManager.TopicType.Versus;
         if (topicDescriptionText != null) topicDescriptionText.text  = topic.description;
-        if (topicTypeText        != null) topicTypeText.text         = isVersus ? "Versus" : "Scenarios";
+        if (topicTypeVersus      != null) topicTypeVersus.SetActive(isVersus);
+        if (topicTypeScenario    != null) topicTypeScenario.SetActive(!isVersus);
         if (topicTypeIcon        != null) topicTypeIcon.sprite       = isVersus ? versusSprite : scenarioSprite;
     }
 
