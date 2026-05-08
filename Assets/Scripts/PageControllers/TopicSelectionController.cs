@@ -11,7 +11,8 @@ using TMPro;
 ///
 /// Inspector wiring required:
 ///   Toggle Buttons  → versusToggle / scenariosToggle (ToggleButton components)
-///   Topic Display   → bodyText (Body/Text TMP), topicTypeText (Header/Topic Type TMP),
+///   Topic Display   → bodyText (Body/Text TMP), topicTypeVersusObject / topicTypeScenariosObject
+///                     (GameObjects for the two localized topic-type labels),
 ///                     topicIcon (Header/Icon Image), versusIcon + scenariosIcon (Sprites)
 ///   Shuffle         → shuffleButton, shuffleCountText (its TMP child)
 ///   Confirm         → selectButton
@@ -29,7 +30,8 @@ public class TopicSelectionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bodyText;
 
     [Header("Topic Description — Header")]
-    [SerializeField] private TextMeshProUGUI topicTypeText;
+    [SerializeField] private GameObject topicTypeVersusObject;
+    [SerializeField] private GameObject topicTypeScenariosObject;
     [SerializeField] private Image topicIcon;
     [SerializeField] private Sprite versusIcon;
     [SerializeField] private Sprite scenariosIcon;
@@ -111,8 +113,8 @@ public class TopicSelectionController : MonoBehaviour
         if (bodyText != null)
             bodyText.text = displayed != null ? displayed.description : "No topic available";
 
-        if (topicTypeText != null)
-            topicTypeText.text = versusSelected ? "Versus" : "Scenarios";
+        if (topicTypeVersusObject   != null) topicTypeVersusObject.SetActive(versusSelected);
+        if (topicTypeScenariosObject != null) topicTypeScenariosObject.SetActive(!versusSelected);
 
         if (topicIcon != null)
             topicIcon.sprite = versusSelected ? versusIcon : scenariosIcon;

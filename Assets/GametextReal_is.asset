@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2921026268950528
-    m_Localized: "3+ S\xEDmi"
+    m_Localized: "3+ S\xEDmar"
     m_Metadata:
       m_Items: []
   - m_Id: 2921050226814976
@@ -91,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2927303892135936
-    m_Localized: "\xDEing Stj\xF3ri"
+    m_Localized: "\xDEingstj\xF3ri"
     m_Metadata:
       m_Items: []
   - m_Id: 2928417928638464
@@ -104,27 +104,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2929931501957120
-    m_Localized: Stutt Frumvarp
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2930197299195904
-    m_Localized: "\xDEetta er stutt l\xFDsing \xE1 frumvarpinu"
+    m_Localized: "Einv\xEDgi"
     m_Metadata:
       m_Items: []
   - m_Id: 2930716407230464
-    m_Localized: "Mi\xF0lungs Frumvarp"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2931270000832512
-    m_Localized: "\xDEetta er mi\xF0lungs l\xFDsing \xE1 frumvarpinu"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932441201504256
-    m_Localized: Langt Frumvarp
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932930764861440
-    m_Localized: "\xDEetta er l\xF6ng l\xFDsing \xE1 frumvarpinu"
+    m_Localized: "A\xF0st\xE6\xF0ur"
     m_Metadata:
       m_Items: []
   - m_Id: 2933479123972096
@@ -325,11 +309,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10559150285385728
-    m_Localized: "Me\xF0"
+    m_Localized: "ME\xD0"
     m_Metadata:
       m_Items: []
   - m_Id: 10559172997541888
-    m_Localized: "\xC1 m\xF3ti"
+    m_Localized: "\xC1 M\xD3TI"
     m_Metadata:
       m_Items: []
   - m_Id: 10559488207876096

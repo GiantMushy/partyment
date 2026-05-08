@@ -63,7 +63,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2920950347853824
-    m_Localized: 1 Phone
+    m_Localized: Local
     m_Metadata:
       m_Items: []
   - m_Id: 2920951136382976
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2921026268950528
-    m_Localized: 3+ Phone
+    m_Localized: Online
     m_Metadata:
       m_Items: []
   - m_Id: 2921050226814976
@@ -99,31 +99,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2929375169474560
-    m_Localized: "Pick a topic and announce it\u2014or let the group decide!"
+    m_Localized: Pick a topic and announce it - or let the group decide!
     m_Metadata:
       m_Items: []
   - m_Id: 2929931501957120
-    m_Localized: Short Bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2930197299195904
-    m_Localized: This is a short discription of the bill
+    m_Localized: Versus
     m_Metadata:
       m_Items: []
   - m_Id: 2930716407230464
-    m_Localized: Medium Bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2931270000832512
-    m_Localized: This is a medium discription of the bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932441201504256
-    m_Localized: Long Bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932930764861440
-    m_Localized: This is a long discription of the bill
+    m_Localized: Scenario
     m_Metadata:
       m_Items: []
   - m_Id: 2933479123972096
@@ -251,7 +235,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10519730853244928
-    m_Localized: 'I_am [name]'
+    m_Localized: 'I am [name]'
     m_Metadata:
       m_Items: []
   - m_Id: 10520027818356736
@@ -329,7 +313,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10559172997541888
-    m_Localized: Against
+    m_Localized: AGAINST
     m_Metadata:
       m_Items: []
   - m_Id: 10559488207876096

@@ -481,6 +481,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static event Action OnLanguageChanged;
+
     public void SetLanguage(string langCode)
     {
         switch (langCode)
@@ -496,6 +498,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         Debug.Log($"Selected Language: {selectedLanguage}");
+        OnLanguageChanged?.Invoke();
     }
 
     // ------------------------ Networking ------------------------

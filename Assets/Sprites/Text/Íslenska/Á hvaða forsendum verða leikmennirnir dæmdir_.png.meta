@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 570f355af96e54255ae5e8962ff92241
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2657956624719607670
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__0"
+  - first:
+      213: 3255549899097029568
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__1"
+  - first:
+      213: 5437248228155680862
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__2"
+  - first:
+      213: -1388164495277046605
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__3"
+  - first:
+      213: 6320349295161191258
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__4"
+  - first:
+      213: 6508420254779401873
+    second: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__5"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 106
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677feccb775f2e420800000000000000
+      internalID: 2657956624719607670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__1"
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 187
+        width: 334
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cbbc3472690e2d20800000000000000
+      internalID: 3255549899097029568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__2"
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 168
+        width: 571
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5867daa47cf47b40800000000000000
+      internalID: 5437248228155680862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__3"
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 187
+        width: 306
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4c3311fbf3cbce0800000000000000
+      internalID: -1388164495277046605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__4"
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 753
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b2972823466b750800000000000000
+      internalID: 6320349295161191258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__5"
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 482
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19665171dbd825a50800000000000000
+      internalID: 6508420254779401873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__0": 2657956624719607670
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__1": 3255549899097029568
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__2": 5437248228155680862
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__3": -1388164495277046605
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__4": 6320349295161191258
+      "A\u0301 hva\xF0a forsendum ver\xF0a leikmennirnir d\xE6mdir__5": 6508420254779401873
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

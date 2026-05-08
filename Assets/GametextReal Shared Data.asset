@@ -100,27 +100,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2929931501957120
-    m_Key: Short_bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2930197299195904
-    m_Key: Short_description_of_the_bill
+    m_Key: Versus
     m_Metadata:
       m_Items: []
   - m_Id: 2930716407230464
-    m_Key: Medium_bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2931270000832512
-    m_Key: Medium_discription_of_the_bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932441201504256
-    m_Key: Long_bill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2932930764861440
-    m_Key: Long_discription_of_the_bill
+    m_Key: Scenario
     m_Metadata:
       m_Items: []
   - m_Id: 2933479123972096
