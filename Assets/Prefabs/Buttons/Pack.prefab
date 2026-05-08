@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 5361616944526967850}
   - component: {fileID: 2017037289261919355}
   - component: {fileID: 3673406836090870999}
+  - component: {fileID: 3642204542463113266}
   m_Layer: 5
   m_Name: Pack
   m_TagString: Untagged
@@ -415,6 +416,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3642204542463113266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871941348788482912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f23368e62fe43f383715219fd32602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonDragFix
 --- !u!1 &8531501249610099432
 GameObject:
   m_ObjectHideFlags: 0
