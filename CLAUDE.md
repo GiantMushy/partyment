@@ -107,7 +107,7 @@ Topics and Corruptions are loaded from **CSV files** in `Assets/Database/`. The 
 | Column | Description |
 |---|---|
 | `id` | Unique integer |
-| `Pack` | General, Icelandic, EighteenPlus, Political, PopCulture |
+| `Pack` | Classic, Icelandic, EighteenPlus, Political, PopCulture |
 | `Length` | `"This or That"` (Versus) or `"Scenarios"` |
 | `Description Enska` | English topic text |
 | `Description Íslenska` | Icelandic topic text |

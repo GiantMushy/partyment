@@ -124,10 +124,10 @@ public class DMDisplayController : MonoBehaviour
         if (slideInCurve == null || slideInCurve.length == 0)
             slideInCurve = BuildDefaultBounceCurve();
 
-        // A LayoutGroup on groupCardArea overrides anchoredPosition every frame, breaking
-        // the slide animation. Disable it automatically and warn so it can be removed.
         if (groupCardArea != null)
         {
+            // A LayoutGroup on groupCardArea overrides anchoredPosition every frame, breaking
+            // the slide animation. Disable it automatically and warn so it can be removed.
             var lg = groupCardArea.GetComponent<LayoutGroup>();
             if (lg != null)
             {
@@ -135,6 +135,11 @@ public class DMDisplayController : MonoBehaviour
                 Debug.LogWarning("DMDisplay: groupCardArea has a LayoutGroup — it has been disabled at runtime. " +
                                  "Remove it from the scene to clean this up.");
             }
+
+            // RectMask2D clips cards to the groupCardArea bounds so the horizontal slide
+            // animation is visible even inside the scroll view's masked viewport.
+            if (groupCardArea.GetComponent<RectMask2D>() == null)
+                groupCardArea.gameObject.AddComponent<RectMask2D>();
         }
     }
 
@@ -188,6 +193,7 @@ public class DMDisplayController : MonoBehaviour
         if (groupTurnOrder.Count > 0)
         {
             currentGroupCard = BuildGroupCard(groupTurnOrder[0]);
+            ApplyGroupCardAreaHeight(MeasureCardHeight(currentGroupCard.GetComponent<RectTransform>()));
             DistributeCardsForCurrentGroup();
         }
 
@@ -199,10 +205,15 @@ public class DMDisplayController : MonoBehaviour
         UpdateTimerText(timerDuration);
         currentTimerState = TimerState.Stopped;
         SelectToggle(stopToggle);
+        SetTimerInteractable(true);
     }
 
     private void DisplayActiveTopic()
     {
+        // Disable any LocalizeStringEvent on these objects so our runtime text isn't overwritten.
+        DisableLocalizer(topicTypeText);
+        DisableLocalizer(topicDescriptionText);
+
         Topic topic = TopicManager.currentTopic;
         if (topic == null)
         {
@@ -216,6 +227,13 @@ public class DMDisplayController : MonoBehaviour
         if (topicDescriptionText != null) topicDescriptionText.text  = topic.description;
         if (topicTypeText        != null) topicTypeText.text         = isVersus ? "Versus" : "Scenarios";
         if (topicTypeIcon        != null) topicTypeIcon.sprite       = isVersus ? versusSprite : scenarioSprite;
+    }
+
+    private static void DisableLocalizer(TextMeshProUGUI tmp)
+    {
+        if (tmp == null) return;
+        var loc = tmp.GetComponent<LocalizeStringEvent>();
+        if (loc != null) loc.enabled = false;
     }
 
     // ===================================================================
@@ -247,9 +265,13 @@ public class DMDisplayController : MonoBehaviour
         var rt = card.GetComponent<RectTransform>();
         if (rt != null)
         {
-            rt.anchorMin        = Vector2.zero;
-            rt.anchorMax        = Vector2.one;
-            rt.sizeDelta        = Vector2.zero;
+            // X: stretch across the full parent width (enables anchoredPosition.x slide).
+            // Y: top-anchored so ContentSizeFitter can set sizeDelta.y = actual content height.
+            //    Full-stretch on Y would make the card's height = parent height, preventing resize.
+            rt.anchorMin        = new Vector2(0f, 1f);
+            rt.anchorMax        = new Vector2(1f, 1f);
+            rt.pivot            = new Vector2(0.5f, 1f);
+            rt.sizeDelta        = new Vector2(0f, 0f);
             rt.anchoredPosition = Vector2.zero;
         }
 
@@ -268,16 +290,21 @@ public class DMDisplayController : MonoBehaviour
         if (groupNameTmp != null) groupNameTmp.text = group.name;
 
         // Player name rows — use the prefab's existing field for the first player,
-        // then instantiate copies for each additional player (VLG + ContentSizeFitter expand to fit).
+        // then instantiate copies for each additional player.
+        // A LayoutElement is added to each row so the parent VLG (childControlHeight=0)
+        // can correctly measure row heights when computing the card's total preferred height.
         Transform firstField = card.transform.Find("Content/Player Name Field");
         if (firstField != null)
         {
             List<Player> players = PlayerManager.GetPlayersWithGroupId(group.id);
             if (players.Count > 0)
             {
+                float fieldHeight = firstField.GetComponent<RectTransform>().sizeDelta.y;
                 SetPlayerNameField(firstField, players[0].name);
+                EnsureLayoutElementHeight(firstField.gameObject, fieldHeight);
                 for (int i = 1; i < players.Count; i++)
                 {
+                    // Instantiate clones the LayoutElement, so preferredHeight is already set.
                     GameObject copy = Instantiate(firstField.gameObject, firstField.parent);
                     SetPlayerNameField(copy.transform, players[i].name);
                 }
@@ -401,6 +428,7 @@ public class DMDisplayController : MonoBehaviour
         {
             currentTimerState = TimerState.AllGroupsDone;
             SelectToggle(stopToggle);
+            SetTimerInteractable(false);
             if (nextButton != null) nextButton.SetActive(true);
             Debug.Log("DMDisplay: All groups have presented. Next button enabled.");
         }
@@ -417,15 +445,22 @@ public class DMDisplayController : MonoBehaviour
         currentTimerState = TimerState.Stopped;
         SelectToggle(stopToggle);
 
+        // Use the card area's live width so cards slide exactly one panel-width and stay
+        // within the RectMask2D boundary rather than starting outside the masked viewport.
+        float slideWidth = groupCardArea != null && groupCardArea.rect.width > 0f
+            ? groupCardArea.rect.width
+            : groupCardSlideDistance;
+
         GameObject newCard = BuildGroupCard(groupTurnOrder[nextIndex]);
         RectTransform newRT = newCard.GetComponent<RectTransform>();
-        newRT.anchoredPosition = new Vector2(groupCardSlideDistance, 0f);
+        newRT.anchoredPosition = new Vector2(slideWidth, 0f);
 
         RectTransform oldRT = currentGroupCard != null
             ? currentGroupCard.GetComponent<RectTransform>()
             : null;
 
-        float elapsed           = 0f;
+        float newCardHeight      = MeasureCardHeight(newRT);
+        float elapsed            = 0f;
         float startTimeRemaining = timeRemaining;
 
         while (elapsed < slideDuration)
@@ -435,14 +470,14 @@ public class DMDisplayController : MonoBehaviour
             float eased = slideInCurve.Evaluate(t);
 
             if (oldRT != null)
-                oldRT.anchoredPosition = new Vector2(Mathf.Lerp(0f, -groupCardSlideDistance, t), 0f);
+                oldRT.anchoredPosition = new Vector2(Mathf.Lerp(0f, -slideWidth, t), 0f);
 
             newRT.anchoredPosition = new Vector2(
-                Mathf.Lerp(groupCardSlideDistance, 0f, eased),
+                Mathf.Lerp(slideWidth, 0f, eased),
                 0f
             );
 
-            // Rewind timer display while the cassette slides in
+            // Rewind timer display while the card slides in
             timeRemaining = Mathf.Lerp(startTimeRemaining, timerDuration, t);
             UpdateTimerText(timeRemaining);
 
@@ -451,9 +486,10 @@ public class DMDisplayController : MonoBehaviour
 
         // Settle
         if (currentGroupCard != null) Destroy(currentGroupCard);
-        currentGroupCard        = newCard;
-        newRT.anchoredPosition  = Vector2.zero;
-        timeRemaining           = timerDuration;
+        currentGroupCard       = newCard;
+        newRT.anchoredPosition = Vector2.zero;
+        ApplyGroupCardAreaHeight(newCardHeight);
+        timeRemaining          = timerDuration;
         UpdateTimerText(timerDuration);
 
         currentGroupIndex = nextIndex;
@@ -463,6 +499,38 @@ public class DMDisplayController : MonoBehaviour
         slideCoroutine  = null;
         isTransitioning = false;
         Debug.Log($"DMDisplay: Now showing group '{groupTurnOrder[currentGroupIndex].name}'.");
+    }
+
+    /// <summary>
+    /// Returns the card's preferred height. Two rebuild passes are used because TMP text
+    /// components may defer their size calculation to the second pass.
+    /// </summary>
+    private float MeasureCardHeight(RectTransform cardRT)
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cardRT);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cardRT);
+        float h = LayoutUtility.GetPreferredHeight(cardRT);
+        return h > 0f ? h : cardRT.sizeDelta.y;
+    }
+
+    /// <summary>
+    /// Sets groupCardArea's height directly via sizeDelta.y (groupCardArea uses fixed-point
+    /// anchors so sizeDelta.y IS the absolute height), then rebuilds the scroll content so
+    /// the parent VLG re-stacks all children at the new size.
+    /// </summary>
+    private void ApplyGroupCardAreaHeight(float height)
+    {
+        if (groupCardArea == null) return;
+        groupCardArea.sizeDelta = new Vector2(groupCardArea.sizeDelta.x, height);
+        var contentParent = groupCardArea.parent as RectTransform;
+        if (contentParent != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentParent);
+    }
+
+    private static void EnsureLayoutElementHeight(GameObject go, float height)
+    {
+        var le = go.GetComponent<LayoutElement>() ?? go.AddComponent<LayoutElement>();
+        le.preferredHeight = height;
     }
 
     private void UpdateTimerText(float seconds)
@@ -478,6 +546,13 @@ public class DMDisplayController : MonoBehaviour
         if (timerCoroutine == null) return;
         StopCoroutine(timerCoroutine);
         timerCoroutine = null;
+    }
+
+    private void SetTimerInteractable(bool on)
+    {
+        if (playToggle  != null) playToggle.interactable  = on;
+        if (pauseToggle != null) pauseToggle.interactable = on;
+        if (stopToggle  != null) stopToggle.interactable  = on;
     }
 
     /// <summary>Toggles <paramref name="active"/> on and the other two off.</summary>

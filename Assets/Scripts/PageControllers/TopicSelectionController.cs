@@ -59,8 +59,8 @@ public class TopicSelectionController : MonoBehaviour
         gameManager = GameManager.Instance;
 
         // Register callbacks in code — do NOT also wire these in the Inspector.
-        versusToggle?.Button.onClick.AddListener(OnVersusClicked);
-        scenariosToggle?.Button.onClick.AddListener(OnScenariosClicked);
+        versusToggle?.onClick.AddListener(OnVersusClicked);
+        scenariosToggle?.onClick.AddListener(OnScenariosClicked);
         if (shuffleButton  != null) shuffleButton.onClick.AddListener(OnShuffleClicked);
         if (selectButton   != null) selectButton.onClick.AddListener(OnSelectClicked);
     }
