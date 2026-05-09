@@ -363,6 +363,30 @@ MonoBehaviour:
     m_Key: Menu_Sound
     m_Metadata:
       m_Items: []
+  - m_Id: 14104880280465408
+    m_Key: New_game_confirmation_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105024811986944
+    m_Key: New_game_confirmation_answer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105977652998144
+    m_Key: Language_EN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106041444167680
+    m_Key: Language_IS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106119298838528
+    m_Key: Language_DE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106168728711168
+    m_Key: Language_ES
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

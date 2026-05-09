@@ -372,6 +372,30 @@ MonoBehaviour:
     m_Localized: "Hlj\xF3\xF0"
     m_Metadata:
       m_Items: []
+  - m_Id: 14104880280465408
+    m_Localized: Ertu viss?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105024811986944
+    m_Localized: "J\xE1!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105977652998144
+    m_Localized: Enska
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106041444167680
+    m_Localized: "\xCDslenska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106119298838528
+    m_Localized: "\xDE\xFDska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106168728711168
+    m_Localized: "Sp\xE6nska"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

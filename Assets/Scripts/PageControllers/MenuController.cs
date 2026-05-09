@@ -28,6 +28,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private RectTransform languageContentInner;
     [SerializeField] private RectTransform rulebookContent;
     [SerializeField] private RectTransform rulebookContentInner;
+    [SerializeField] private ScrollRect rulebookScrollRect;
     [SerializeField] private RectTransform newGameContent;
     [SerializeField] private RectTransform newGameContentInner;
     [SerializeField] private float dropdownOpenDuration = 0.2f;
@@ -137,6 +138,8 @@ public class MenuController : MonoBehaviour
         else
         {
             CloseOtherDropdowns(closeRulebook: false);
+            if (rulebookScrollRect != null)
+                rulebookScrollRect.verticalNormalizedPosition = 1f;
             rulebookAnim = StartCoroutine(OpenDropdown(rulebookContent, rulebookContentInner, rulebookH, () => rulebookAnim = null));
             rulebookOpen = true;
         }
