@@ -6,6 +6,8 @@ using System.Threading;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 /// <summary>
 /// Persistent singleton (<c>DontDestroyOnLoad</c>) that owns the game's high-level state.
@@ -162,6 +164,7 @@ public class GameManager : MonoBehaviour
         };
         
         DisableAllStates();
+        StartCoroutine(ApplySelectedLanguageLocale());
         if (developmentMode)
         {
             Debug.Log("Development Mode: ON");
@@ -479,6 +482,17 @@ public class GameManager : MonoBehaviour
             Player dm = playerManager.players[dmId];
             StartMutex(dm.name, "I am ", GameState.Voting);
         }
+    }
+
+    private IEnumerator ApplySelectedLanguageLocale()
+    {
+        yield return LocalizationSettings.InitializationOperation;
+        string code = selectedLanguage == Language.Icelandic ? "is" : "en";
+        Locale locale = LocalizationSettings.AvailableLocales.GetLocale(code);
+        if (locale != null)
+            LocalizationSettings.SelectedLocale = locale;
+        else
+            Debug.LogWarning($"Locale not found for language: {selectedLanguage}");
     }
 
     public static event Action OnLanguageChanged;

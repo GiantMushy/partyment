@@ -360,8 +360,16 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13926200606420992
     m_Localized: "Einhver er a\xF0 \xE1saka!\nVeldu leikmanninn sem hann \xE1sakar
-      A\xD0EINS ef \xE1giskunin er r\xE9tt. Ef \xE1giskunin er r\xF6ng e\xF0a
-      ekki n\xF3gu n\xE1kv\xE6m, smelltu \xE1 \u201CVitlaust\u201D hnappinn"
+      A\xD0EINS ef \xE1giskunin er r\xE9tt. Ef \xE1giskunin er r\xF6ng e\xF0a ekki
+      n\xF3gu n\xE1kv\xE6m, smelltu \xE1 \u201CVitlaust\u201D hnappinn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952925918785536
+    m_Localized: "Tungum\xE1l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952998668988416
+    m_Localized: "Hlj\xF3\xF0"
     m_Metadata:
       m_Items: []
   references:
