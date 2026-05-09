@@ -38,6 +38,12 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Sprite soundOnSprite;
     [SerializeField] private Sprite soundOffSprite;
 
+    [Header("Language Selector")]
+    [SerializeField] private RectTransform languageSelector;
+    [SerializeField] private RectTransform englishButtonRect;
+    [SerializeField] private RectTransform icelandicButtonRect;
+    [SerializeField] private float selectorLerpSpeed = 5f;
+
     private Vector3 buttonClosedLocalPos;
     private bool isMenuOpen = false;
 
@@ -45,6 +51,7 @@ public class MenuController : MonoBehaviour
     private bool langOpen, rulebookOpen, newGameOpen;
     private Coroutine langAnim, rulebookAnim, newGameAnim;
     private bool soundEnabled = true;
+    private Coroutine selectorAnim;
 
     void Start()
     {
@@ -74,10 +81,10 @@ public class MenuController : MonoBehaviour
 
         if (backdrop != null) backdrop.SetActive(isMenuOpen);
 
-        if (!isMenuOpen) CloseAllInstant();
-
         StopAllCoroutines();
-        StartCoroutine(SmoothMove(isMenuOpen ? menuOpenPosition : menuClosedPosition));
+        selectorAnim = null;
+        System.Action onSlideComplete = isMenuOpen ? null : (System.Action)CloseAllInstant;
+        StartCoroutine(SmoothMove(isMenuOpen ? menuOpenPosition : menuClosedPosition, onSlideComplete));
 
         if (menuToggleButton != null)
         {
@@ -106,6 +113,14 @@ public class MenuController : MonoBehaviour
         else
         {
             CloseOtherDropdowns(closeLanguage: false);
+            // Expand to full height so the VerticalLayoutGroup computes correct button
+            // world positions, snap the selector, then reset to 0 for the open animation.
+            // Everything runs in one frame before rendering — no visual flash.
+            languageContent.gameObject.SetActive(true);
+            languageContent.sizeDelta = new Vector2(languageContent.sizeDelta.x, langH);
+            Canvas.ForceUpdateCanvases();
+            SnapSelectorInstant();
+            languageContent.sizeDelta = new Vector2(languageContent.sizeDelta.x, 0f);
             langAnim = StartCoroutine(OpenDropdown(languageContent, languageContentInner, langH, () => langAnim = null));
             langOpen = true;
         }
@@ -165,12 +180,14 @@ public class MenuController : MonoBehaviour
     {
         gameManager.SetLanguage("en");
         StartCoroutine(SetLocale("en"));
+        MoveSelectorTo(englishButtonRect);
     }
 
     public void SetIcelandic()
     {
         gameManager.SetLanguage("is");
         StartCoroutine(SetLocale("is"));
+        MoveSelectorTo(icelandicButtonRect);
     }
 
     private IEnumerator SetLocale(string code)
@@ -181,6 +198,54 @@ public class MenuController : MonoBehaviour
             LocalizationSettings.SelectedLocale = locale;
         else
             Debug.LogWarning("Locale not found: " + code);
+    }
+
+    // --- Language Selector ---
+
+    private void SnapSelectorInstant()
+    {
+        if (languageSelector == null) return;
+        RectTransform target = gameManager.selectedLanguage == GameManager.Language.Icelandic
+            ? icelandicButtonRect : englishButtonRect;
+        if (target != null)
+            languageSelector.anchoredPosition = SelectorTargetPos(target);
+    }
+
+    private void MoveSelectorTo(RectTransform target)
+    {
+        if (languageSelector == null || target == null) return;
+        if (selectorAnim != null) StopCoroutine(selectorAnim);
+        selectorAnim = StartCoroutine(LerpSelector(target));
+    }
+
+    private IEnumerator LerpSelector(RectTransform target)
+    {
+        while (true)
+        {
+            Vector2 goal = SelectorTargetPos(target);
+            if (Vector2.Distance(languageSelector.anchoredPosition, goal) < 0.5f)
+            {
+                languageSelector.anchoredPosition = goal;
+                break;
+            }
+            languageSelector.anchoredPosition = Vector2.Lerp(
+                languageSelector.anchoredPosition,
+                goal,
+                Time.deltaTime * selectorLerpSpeed
+            );
+            yield return null;
+        }
+        selectorAnim = null;
+    }
+
+    private Vector2 SelectorTargetPos(RectTransform buttonRect)
+    {
+        Vector3 local = languageContentInner.InverseTransformPoint(buttonRect.position);
+        // languageContentInner's pivot is at (0.5, 0) — bottom-centre, not middle-centre.
+        // anchoredPosition on a child anchored at (0.5, 0.5) is measured from the visual
+        // centre, so subtract the gap between the pivot row and the anchor row.
+        float anchorOffsetY = (0.5f - languageContentInner.pivot.y) * languageContentInner.rect.height;
+        return new Vector2(languageSelector.anchoredPosition.x, local.y - anchorOffsetY);
     }
 
     // --- External links (kept for existing scene wiring) ---
@@ -282,7 +347,7 @@ public class MenuController : MonoBehaviour
         onDone?.Invoke();
     }
 
-    private IEnumerator SmoothMove(Vector3 targetPosition)
+    private IEnumerator SmoothMove(Vector3 targetPosition, System.Action onComplete = null)
     {
         while (Vector3.Distance(parentTransform.localPosition, targetPosition) > 0.01f)
         {
@@ -290,6 +355,7 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
         parentTransform.localPosition = targetPosition;
+        onComplete?.Invoke();
     }
 
     private IEnumerator SmoothMoveButton(Vector3 targetPosition)
