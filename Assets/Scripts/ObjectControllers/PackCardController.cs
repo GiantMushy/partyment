@@ -17,6 +17,7 @@ public class PackCardController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Button selectButton;
     [SerializeField] private Image body;          // optional visual; safe to leave unassigned
+    [SerializeField] private Image packIcon;      // optional; overridden per-pack by PackSelectionController
     [SerializeField] private GameObject lockedOverlay; // optional; shown for packs not in OwnedPacks
 
     /// <summary>Cached RectTransform for the controller to drive position/scale.</summary>
@@ -72,5 +73,12 @@ public class PackCardController : MonoBehaviour
     public void SetBodyColor(Color color)
     {
         if (body != null) body.color = color;
+    }
+
+    /// <summary>Overrides the Pack Icon sprite. Pass null to leave the prefab default.</summary>
+    public void SetIcon(Sprite sprite)
+    {
+        if (packIcon == null || sprite == null) return;
+        packIcon.sprite = sprite;
     }
 }

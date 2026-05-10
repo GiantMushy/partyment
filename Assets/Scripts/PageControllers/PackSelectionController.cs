@@ -31,6 +31,7 @@ public class PackSelectionController : MonoBehaviour,
         public string title;
         [TextArea(2, 4)] public string description;
         public Color backgroundColor = Color.white;
+        public Sprite packIcon;
     }
 
     [Header("References")]
@@ -154,6 +155,7 @@ public class PackSelectionController : MonoBehaviour,
 
             int captured = i;
             card.Bind(entry.pack, entry.title, entry.description, () => OnSelect(captured));
+            card.SetIcon(entry.packIcon);
             // Body fill = pack's screen tint, slightly darker, so the card reads as "of this pack"
             // without losing contrast against the matching backdrop.
             Color bodyColor = entry.backgroundColor * cardBodyDarken;
