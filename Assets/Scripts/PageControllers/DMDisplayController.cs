@@ -156,11 +156,13 @@ public class DMDisplayController : MonoBehaviour
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
+        GameManager.OnLanguageChanged += RefreshTopicText;
         InitializeDisplay();
     }
 
     void OnDisable()
     {
+        GameManager.OnLanguageChanged -= RefreshTopicText;
         CleanupCorruptionCards();
         StopTimerCoroutine();
         if (slideCoroutine != null) { StopCoroutine(slideCoroutine); slideCoroutine = null; }
@@ -231,10 +233,26 @@ public class DMDisplayController : MonoBehaviour
         }
 
         bool isVersus = topic.type == global::TopicManager.TopicType.Versus;
-        if (topicDescriptionText != null) topicDescriptionText.text  = topic.description;
+        if (topicDescriptionText != null) topicDescriptionText.text  = GetLocalizedTopicDescription(topic);
         if (topicTypeVersus      != null) topicTypeVersus.SetActive(isVersus);
         if (topicTypeScenario    != null) topicTypeScenario.SetActive(!isVersus);
         if (topicTypeIcon        != null) topicTypeIcon.sprite       = isVersus ? versusSprite : scenarioSprite;
+    }
+
+    /// <summary>Updates only the topic description text to match the current language.</summary>
+    private void RefreshTopicText()
+    {
+        Topic topic = TopicManager.currentTopic;
+        if (topic == null || topicDescriptionText == null) return;
+        topicDescriptionText.text = GetLocalizedTopicDescription(topic);
+    }
+
+    private string GetLocalizedTopicDescription(Topic topic)
+    {
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+            && !string.IsNullOrEmpty(topic.descriptionIs))
+            return topic.descriptionIs;
+        return topic.description;
     }
 
     private static void DisableLocalizer(TextMeshProUGUI tmp)

@@ -29,6 +29,31 @@ public class CorruptionCardController : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
+    void OnEnable()
+    {
+        GameManager.OnLanguageChanged += OnLanguageChanged;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnLanguageChanged -= OnLanguageChanged;
+    }
+
+    private void OnLanguageChanged()
+    {
+        if (objective == null) return;
+        if (descriptionText != null)
+            descriptionText.text = GetLocalizedDescription();
+    }
+
+    private string GetLocalizedDescription()
+    {
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+            && !string.IsNullOrEmpty(objective.descriptionIs))
+            return objective.descriptionIs;
+        return objective.description;
+    }
+
     void Update()
     {
         if (player == null || completedToggle == null || !player.isAccused) return;
@@ -36,8 +61,8 @@ public class CorruptionCardController : MonoBehaviour
 
         completedToggle.interactable = false;
 
-        // If the toggle was already checked when the accusation landed, undo the completion
-        // so the data model matches — the accusation's SubtractScore already handled the points.
+        // Sync the UI if the toggle was still visually on — the accusation handler already
+        // reversed the score via SubtractRoundCorruptionScore and cleared objective.completeted.
         if (completedToggle.isOn)
         {
             completedToggle.SetIsOnWithoutNotify(false);
@@ -73,7 +98,7 @@ public class CorruptionCardController : MonoBehaviour
         if (typeText != null) typeText.text = objective.type.ToString();
         else Debug.LogError("CorruptionCardController: typeText is not assigned in prefab!");
 
-        if (descriptionText != null) descriptionText.text = objective.description;
+        if (descriptionText != null) descriptionText.text = GetLocalizedDescription();
         else Debug.LogError("CorruptionCardController: descriptionText is not assigned in prefab!");
 
         if (pointsText != null) pointsText.text = $"{objective.points} Points";

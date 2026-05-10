@@ -3,8 +3,10 @@ using UnityEngine;
 
 /// <summary>
 /// Loads topics from a CSV TextAsset (Assets/Database/Topics.csv).
-/// Expected columns: id, Pack, Length, Description Enska, Description Íslenska,
-///                   This, That, Hitt, Þetta
+/// Column layout (0-indexed):
+///   0=id, 1=Ready 4 Publish, 2=Pack, 3=Length, 4=Description Enska,
+///   5=Description Íslenska, 6=This, 7=That, 8=Hitt, 9=Þetta
+/// Rows where Ready 4 Publish != TRUE are skipped.
 /// Rows with an empty English description are skipped (incomplete data).
 /// </summary>
 public class TopicDatabase : MonoBehaviour
@@ -31,16 +33,20 @@ public class TopicDatabase : MonoBehaviour
             if (fields.Length < 4) continue;
             if (Get(fields, 0) == "id") continue; // column-header row
 
-            string packStr = Get(fields, 1);
-            string typeStr = Get(fields, 2);
-            string descEn  = Get(fields, 3);
+            // Skip rows not marked as ready to publish
+            string readyStr = Get(fields, 1);
+            if (!string.Equals(readyStr, "TRUE", System.StringComparison.OrdinalIgnoreCase)) continue;
+
+            string packStr = Get(fields, 2);
+            string typeStr = Get(fields, 3);
+            string descEn  = Get(fields, 4);
 
             // Skip rows with missing required fields
-            if (string.IsNullOrWhiteSpace(descEn))   continue;
-            if (string.IsNullOrWhiteSpace(packStr))   continue;
-            if (string.IsNullOrWhiteSpace(typeStr))   continue;
+            if (string.IsNullOrWhiteSpace(descEn))  continue;
+            if (string.IsNullOrWhiteSpace(packStr))  continue;
+            if (string.IsNullOrWhiteSpace(typeStr))  continue;
 
-            if (!TryParsePack(packStr, out GameManager.Pack pack))       continue;
+            if (!TryParsePack(packStr, out GameManager.Pack pack))            continue;
             if (!TryParseTopicType(typeStr, out TopicManager.TopicType type)) continue;
 
             // Parse optional id; fall back to auto-increment
@@ -50,16 +56,16 @@ public class TopicDatabase : MonoBehaviour
 
             topics.Add(new Topic
             {
-                id           = id,
-                pack         = pack,
-                type         = type,
-                description  = descEn,
-                descriptionIs = Get(fields, 4),
-                optionA      = Get(fields, 5),
-                optionB      = Get(fields, 6),
-                optionAIs    = Get(fields, 7),
-                optionBIs    = Get(fields, 8),
-                seriousness  = 2,   // CSV has no seriousness column yet; default to mid-scale
+                id            = id,
+                pack          = pack,
+                type          = type,
+                description   = descEn,
+                descriptionIs = Get(fields, 5),
+                optionA       = Get(fields, 6),
+                optionB       = Get(fields, 7),
+                optionAIs     = Get(fields, 8),
+                optionBIs     = Get(fields, 9),
+                seriousness   = 2,
             });
         }
 

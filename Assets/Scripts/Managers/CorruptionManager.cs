@@ -12,13 +12,19 @@ public class Corruption
     public int id;
     public int assignedPlayerId = -1; // -1 means unassigned
     public string title;
+    public string titleIs;
     public string description;
+    public string descriptionIs;
     public string shortDescription;
+    public string shortDescriptionIs;
     public int points;
-    public int? neededCount; // How many times the player needs to achieve this objective, if applicable (null if not count-based)
-    public int? achievedCount; // How many times the player has achieved this objective so far (null if not count-based)
+    public int? neededCount;
+    public int? achievedCount;
     public bool completeted;
     public GameManager.CorruptionType type;
+    public bool requiresTeammate;
+    /// <summary>True when completing this betrayal requires the player's group to receive zero vote points this round.</summary>
+    public bool requiresZeroGroupVotes;
 }
 
 /// <summary>
@@ -27,10 +33,10 @@ public class Corruption
 /// to non-DM players.
 ///
 /// Type weights (per non-DM player):
-///   • 40% Speech
+///   • 42% Speech
 ///   • 15% Interruption
-///   •  5% Betrayal
-///   • ~40% Civilian (no objective; <c>player.corruptionId = -1</c>)
+///   •  3% Betrayal
+///   • 40% Civilian (no objective; <c>player.corruptionId = -1</c>)
 ///
 /// Used IDs are tracked across rounds in <see cref="usedCorruptionIds"/> so the same
 /// objective never appears twice in a single game. Reset between games via
@@ -77,14 +83,14 @@ public class CorruptionManager : MonoBehaviour
                 continue;
             }
 
-            // Pick a weighted random type: 40% Speech, 15% Interruption, 40% Civilian, 5% Betrayal
+            // Civilian=40%, Speech=42%, Interruption=15%, Betrayal=3%
             float roll = Random.value;
             GameManager.CorruptionType randomType;
-            if (roll < 0.4f)
+            if (roll < 0.42f)
                 randomType = GameManager.CorruptionType.Speech;
-            else if (roll < 0.55f)
+            else if (roll < 0.57f)
                 randomType = GameManager.CorruptionType.Interruption;
-            else if (roll < 0.6f)
+            else if (roll < 0.60f)
                 randomType = GameManager.CorruptionType.Betrayal;
             else
             {
@@ -93,7 +99,11 @@ public class CorruptionManager : MonoBehaviour
                 continue;
             }
 
-            var objective = GetRandomUnusedCorruption(randomType);
+            // Solo group players cannot receive corruptions that require a teammate
+            bool isSoloGroup = player.group_id >= 0
+                && players.Values.Count(p => p.group_id == player.group_id) <= 1;
+
+            var objective = GetRandomUnusedCorruption(randomType, isSoloGroup);
 
             if (objective != null)
             {
@@ -113,10 +123,11 @@ public class CorruptionManager : MonoBehaviour
 
     // -------------------- Query --------------------
 
-    public Corruption GetRandomUnusedCorruption(GameManager.CorruptionType type)
+    public Corruption GetRandomUnusedCorruption(GameManager.CorruptionType type, bool soloPlayer = false)
     {
         var candidates = allCorruptions
             .Where(o => o.type == type && !usedCorruptionIds.Contains(o.id))
+            .Where(o => !soloPlayer || !o.requiresTeammate)
             .ToList();
 
         if (candidates.Count == 0)

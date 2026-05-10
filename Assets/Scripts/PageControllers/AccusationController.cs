@@ -298,10 +298,15 @@ public class AccusationController : MonoBehaviour
         Corruption accusedObjective = CorruptionManager.GetCorruptionByPlayerId(accusedPlayerId);
         int stolenPoints = accusedObjective != null ? accusedObjective.points : 0;
 
-        // Deduct from accused player's score
-        PlayerManager.SubtractScore(accusedPlayerId, stolenPoints);
+        // If the accused already claimed their corruption points via the toggle, reverse exactly
+        // those points so they don't keep them — but don't penalise them beyond that.
+        if (accusedObjective != null && accusedObjective.completeted)
+        {
+            PlayerManager.SubtractRoundCorruptionScore(accusedPlayerId, stolenPoints);
+            accusedObjective.completeted = false;
+        }
 
-        // Add stolen points to accusing player (tracked separately as stolenScore, also added to regular score)
+        // Accuser always earns the corruption's point value for the correct identification.
         PlayerManager.AddStolenScore(accusingPlayerId, stolenPoints);
 
         Debug.Log($"[Accusation] {PlayerManager.players[accusingPlayerId].name} correctly accused " +

@@ -678,6 +678,17 @@ public class VotingController : MonoBehaviour
     /// </summary>
     public void FinalizeGroupVoting()
     {
+        // Zero out vote points for any group whose player completed a "Double Agent"-style
+        // Betrayal corruption and was not caught (isAccused == false).
+        foreach (var group in PlayerManager.groups.Values)
+        {
+            if (GroupHasCompletedVoteKillingBetrayal(group.id))
+            {
+                Debug.Log($"[Betrayal] '{group.name}' had an active vote-sabotage betrayal — resetting their vote points to 0.");
+                group.votingPhasePoints = 0;
+            }
+        }
+
         var rankedGroups = PlayerManager.groups.Values
             .OrderByDescending(g => g.votingPhasePoints)
             .ToList();
@@ -743,6 +754,22 @@ public class VotingController : MonoBehaviour
     // ===================================================================
     //  HELPERS
     // ===================================================================
+
+    /// <summary>
+    /// Returns true when at least one non-accused player in the group has completed a
+    /// Betrayal corruption that requires the group to receive zero vote points.
+    /// </summary>
+    private bool GroupHasCompletedVoteKillingBetrayal(int groupId)
+    {
+        foreach (var player in PlayerManager.GetPlayersWithGroupId(groupId))
+        {
+            if (player.isAccused) continue;
+            var corruption = gameManager.corruptionManager.GetCorruptionByPlayerId(player.id);
+            if (corruption != null && corruption.requiresZeroGroupVotes && corruption.completeted)
+                return true;
+        }
+        return false;
+    }
 
     private Sprite GetMetricSprite(GameManager.Metric metric)
     {

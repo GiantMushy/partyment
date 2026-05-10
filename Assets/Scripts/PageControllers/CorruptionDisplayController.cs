@@ -87,6 +87,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
+        GameManager.OnLanguageChanged += OnLanguageChanged;
         ShowHiddenSide();
         hasBeenRevealed = false;
         if (nextButton != null) nextButton.SetActive(false);
@@ -94,6 +95,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
 
     void OnDisable()
     {
+        GameManager.OnLanguageChanged -= OnLanguageChanged;
         // Stop any in-progress flip so scales aren't left at zero
         if (flipCoroutine != null)
         {
@@ -103,6 +105,23 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         ResetCardScale(cardHidden);
         ResetCardScale(cardRevealed);
         isRevealed = false;
+    }
+
+    private void OnLanguageChanged()
+    {
+        if (player == null) return;
+        Corruption obj = CorruptionManager.GetCorruptionByPlayerId(player.id);
+        if (obj != null)
+        {
+            if (descriptionText != null)
+                descriptionText.text = GetLocalizedDescription(obj);
+        }
+        else
+        {
+            // Civilian card — refresh the hardcoded text
+            if (descriptionText != null)
+                descriptionText.text = GetCivilianText();
+        }
     }
 
     // -------------------- Pointer Events (Hold to Reveal) --------------------
@@ -286,7 +305,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         }
 
         if (descriptionText != null)
-            descriptionText.text = objective.description;
+            descriptionText.text = GetLocalizedDescription(objective);
 
         if (pointsText != null)
             pointsText.text = $"{objective.points} pts";
@@ -300,10 +319,25 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (typeText != null)        typeText.color        = textColor;
     }
 
+    private string GetLocalizedDescription(Corruption obj)
+    {
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+            && !string.IsNullOrEmpty(obj.descriptionIs))
+            return obj.descriptionIs;
+        return obj.description;
+    }
+
+    private string GetCivilianText()
+    {
+        return gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+            ? "Þú hefur enga spillingu. Rökræddu heiðarlega!"
+            : "You have no corruption. Debate honestly!";
+    }
+
     private void PopulateCivilianCard()
     {
         objectiveType = GameManager.CorruptionType.Civilian;
-        corruptionText = "You have no corruption. Debate honestly!";
+        corruptionText = GetCivilianText();
         score = 0;
 
         if (cardImage != null)
@@ -317,7 +351,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         }
 
         if (descriptionText != null)
-            descriptionText.text = corruptionText;
+            descriptionText.text = GetCivilianText();
 
         if (pointsText != null)
             pointsText.text = "";

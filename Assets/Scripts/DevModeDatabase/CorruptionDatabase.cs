@@ -3,9 +3,11 @@ using UnityEngine;
 
 /// <summary>
 /// Loads corruptions from a CSV TextAsset (Assets/Database/Corruptions.csv).
-/// Expected columns: id, points, Pack, Type, Title, Description, Short Description,
-///                   Title (IS), Description (IS), Short Description (IS)
-/// Rows with an empty Title are skipped (incomplete data).
+/// Column layout (0-indexed):
+///   0=id, 1=Ready 4 Publish, 2=Requires Teammate, 3=points, 4=Pack, 5=Type,
+///   6=Title(EN), 7=Description(EN), 8=Short Description(EN),
+///   9=Title(IS), 10=Description(IS), 11=Short Description(IS)
+/// Rows where Ready 4 Publish != TRUE are skipped.
 /// </summary>
 public class CorruptionDatabase : MonoBehaviour
 {
@@ -27,37 +29,52 @@ public class CorruptionDatabase : MonoBehaviour
 
         foreach (var fields in rows)
         {
-            if (fields.Length < 5) continue;
+            if (fields.Length < 6) continue;
 
             // Skip header rows
             string firstField = Get(fields, 0);
             if (firstField == "id" || firstField == "Properties") continue;
 
-            string title = Get(fields, 4);
+            // Skip rows not marked as ready to publish
+            string readyStr = Get(fields, 1);
+            if (!string.Equals(readyStr, "TRUE", System.StringComparison.OrdinalIgnoreCase)) continue;
+
+            string title = Get(fields, 6);
             if (string.IsNullOrWhiteSpace(title)) continue;
 
-            string typeStr = Get(fields, 3);
+            string typeStr = Get(fields, 5);
             if (!TryParseCorruptionType(typeStr, out GameManager.CorruptionType type)) continue;
 
-            if (!int.TryParse(Get(fields, 1), out int points) || points <= 0)
-                points = 60; // sensible fallback
+            if (!int.TryParse(Get(fields, 3), out int points) || points <= 0)
+                points = 60;
 
             if (!int.TryParse(firstField, out int id))
                 id = nextId;
             nextId = id + 1;
 
+            bool requiresTeammate = string.Equals(Get(fields, 2), "TRUE", System.StringComparison.OrdinalIgnoreCase);
+
+            string descEn = Get(fields, 7);
+            bool requiresZeroGroupVotes = type == GameManager.CorruptionType.Betrayal
+                && descEn.IndexOf("zero votes", System.StringComparison.OrdinalIgnoreCase) >= 0;
+
             objectives.Add(new Corruption
             {
-                id               = id,
-                title            = title,
-                description      = Get(fields, 5),
-                shortDescription = Get(fields, 6),
-                points           = points,
-                type             = type,
-                assignedPlayerId = -1,
-                neededCount      = null,
-                achievedCount    = null,
-                completeted      = false,
+                id                    = id,
+                title                 = title,
+                titleIs               = Get(fields, 9),
+                description           = descEn,
+                descriptionIs         = Get(fields, 10),
+                shortDescription      = Get(fields, 8),
+                shortDescriptionIs    = Get(fields, 11),
+                points                = points,
+                type                  = type,
+                requiresTeammate      = requiresTeammate,
+                requiresZeroGroupVotes = requiresZeroGroupVotes,
+                assignedPlayerId      = -1,
+                neededCount           = null,
+                achievedCount         = null,
+                completeted           = false,
             });
         }
 

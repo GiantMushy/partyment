@@ -76,11 +76,18 @@ public class TopicSelectionController : MonoBehaviour
             return;
         }
 
+        GameManager.OnLanguageChanged += RefreshUI;
+
         shufflesRemaining = startingNumOfShuffles;
         versusSelected    = true;
 
         LoadRandomTopics();
         RefreshUI();
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnLanguageChanged -= RefreshUI;
     }
 
     // ================================================================
@@ -108,10 +115,10 @@ public class TopicSelectionController : MonoBehaviour
         versusToggle?.SetToggled(versusSelected);
         scenariosToggle?.SetToggled(!versusSelected);
 
-        // Topic description
+        // Topic description — use Icelandic text when the game language is Icelandic
         Topic displayed = versusSelected ? versusTopic : scenarioTopic;
         if (bodyText != null)
-            bodyText.text = displayed != null ? displayed.description : "No topic available";
+            bodyText.text = displayed != null ? GetLocalizedDescription(displayed) : "No topic available";
 
         if (topicTypeVersusObject   != null) topicTypeVersusObject.SetActive(versusSelected);
         if (topicTypeScenariosObject != null) topicTypeScenariosObject.SetActive(!versusSelected);
@@ -154,6 +161,14 @@ public class TopicSelectionController : MonoBehaviour
         shufflesRemaining--;
         LoadRandomTopics();
         RefreshUI();
+    }
+
+    private string GetLocalizedDescription(Topic topic)
+    {
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+            && !string.IsNullOrEmpty(topic.descriptionIs))
+            return topic.descriptionIs;
+        return topic.description;
     }
 
     public void OnSelectClicked()
