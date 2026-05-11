@@ -152,84 +152,8 @@ MonoBehaviour:
     m_Localized: Trufflun
     m_Metadata:
       m_Items: []
-  - m_Id: 10517073245761536
-    m_Localized: 10 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517087133102080
-    m_Localized: 20 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517088492056576
-    m_Localized: 30 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517090299801600
-    m_Localized: 40 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517521574916096
-    m_Localized: 50 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517542819065856
-    m_Localized: 60 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517565237620736
-    m_Localized: 70 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517597923831808
-    m_Localized: 80 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517629674713088
-    m_Localized: 90 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517651531231232
-    m_Localized: 100 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517683223392256
-    m_Localized: 110 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517722570158080
-    m_Localized: 120 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10517743109664768
-    m_Localized: 130 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518334737215488
-    m_Localized: 140 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518427209035776
-    m_Localized: 150 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518530732847104
-    m_Localized: 160 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518594729537536
-    m_Localized: 170 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518688124104704
-    m_Localized: 180 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518812900454400
-    m_Localized: 190 Stig
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10518864326815744
-    m_Localized: 200 Stig
+  - m_Id: 14823489520263168
+    m_Localized: Stg
     m_Metadata:
       m_Items: []
   - m_Id: 10519024050106368
@@ -394,6 +318,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 14106168728711168
     m_Localized: "Sp\xE6nska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823565923704832
+    m_Localized: Stig
     m_Metadata:
       m_Items: []
   references:

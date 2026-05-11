@@ -101,7 +101,7 @@ public class CorruptionCardController : MonoBehaviour
         if (descriptionText != null) descriptionText.text = GetLocalizedDescription();
         else Debug.LogError("CorruptionCardController: descriptionText is not assigned in prefab!");
 
-        if (pointsText != null) pointsText.text = $"{objective.points} Points";
+        if (pointsText != null) pointsText.text = $"{objective.points}";
         else Debug.LogError("CorruptionCardController: pointsText is not assigned in prefab!");
 
         if (nameText != null) nameText.text = player.name;
