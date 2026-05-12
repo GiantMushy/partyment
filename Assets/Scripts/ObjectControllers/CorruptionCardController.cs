@@ -1,4 +1,3 @@
-using GLTFast.Schema;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -23,6 +22,16 @@ public class CorruptionCardController : MonoBehaviour
     [SerializeField] private Sprite speechFrame;
     [SerializeField] private Sprite interruptionFrame;
     [SerializeField] private Sprite betrayalFrame;
+
+    [Header("Toggle Container Colors")]
+    [SerializeField] private Image toggleBorder;
+    [SerializeField] private Image toggleBackground;
+    [SerializeField] private Image checkmark;
+
+    [SerializeField] private Color speechBorderColor = new Color(0.003921569f, 0.5803922f, 0.023529412f, 1f);
+    [SerializeField] private Color speechBackgroundColor = new Color(0.3764706f, 0.9843137f, 0.5529412f, 1f);
+    [SerializeField] private Color interruptionBorderColor = new Color(0.23921569f, 0f, 0.65098039f, 1f);
+    [SerializeField] private Color interruptionBackgroundColor = new Color(0.5333333f, 0.32549020f, 0.93725490f, 1f);
 
     void Start()
     {
@@ -118,16 +127,25 @@ public class CorruptionCardController : MonoBehaviour
             case GameManager.CorruptionType.Speech:
                 if (speechFrame != null) img.sprite = speechFrame;
                 else Debug.LogWarning("CorruptionCardController: speechFrame sprite not assigned in prefab!");
+                SetToggleColors(speechBorderColor, speechBackgroundColor);
                 break;
             case GameManager.CorruptionType.Interruption:
                 if (interruptionFrame != null) img.sprite = interruptionFrame;
                 else Debug.LogWarning("CorruptionCardController: interruptionFrame sprite not assigned in prefab!");
+                SetToggleColors(interruptionBorderColor, interruptionBackgroundColor);
                 break;
             case GameManager.CorruptionType.Betrayal:
                 if (betrayalFrame != null) img.sprite = betrayalFrame;
                 else Debug.LogWarning("CorruptionCardController: betrayalFrame sprite not assigned in prefab!");
                 break;
         }
+    }
+
+    private void SetToggleColors(Color borderColor, Color backgroundColor)
+    {
+        if (toggleBorder != null) toggleBorder.color = borderColor;
+        if (toggleBackground != null) toggleBackground.color = backgroundColor;
+        if (checkmark != null) checkmark.color = borderColor;
     }
 
     public void ToggleComplete()

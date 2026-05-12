@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6838165000071131059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: 0}
-  m_SizeDelta: {x: -12.4844, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 4.2}
+  m_SizeDelta: {x: 90, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5494285872791461003
 CanvasRenderer:
@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  m_Color: {r: 0.003921569, g: 0.5803922, b: 0.023529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85c86db8363b7438c9e4d302c428470f, type: 3}
+  m_Sprite: {fileID: 5371412345509669250, guid: c57443a8f773749088b2199c87b2dcb3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1088,6 +1088,13 @@ MonoBehaviour:
   speechFrame: {fileID: 21300000, guid: ef5b48e5d5351470fa2b2ddaf50f7c32, type: 3}
   interruptionFrame: {fileID: 21300000, guid: 4778bf01efc1546119b2b22441a9f3e5, type: 3}
   betrayalFrame: {fileID: 21300000, guid: 3608efa8b38304ed8ac3fc232ea219f4, type: 3}
+  toggleBorder: {fileID: 7001783791307436379}
+  toggleBackground: {fileID: 9146269197946452281}
+  checkmark: {fileID: 1819405318517382666}
+  speechBorderColor: {r: 0.003921569, g: 0.5803922, b: 0.023529412, a: 1}
+  speechBackgroundColor: {r: 0.3764706, g: 0.9843137, b: 0.5529412, a: 1}
+  interruptionBorderColor: {r: 0.23921569, g: 0, b: 0.6509804, a: 1}
+  interruptionBackgroundColor: {r: 0.5333333, g: 0.3254902, b: 0.9372549, a: 1}
 --- !u!222 &9101356537800567927
 CanvasRenderer:
   m_ObjectHideFlags: 0

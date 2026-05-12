@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 901cd962c67bd48008c55d560204aa49
+guid: c57443a8f773749088b2199c87b2dcb3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3339086251608560636
-    second: iPhone 16 - Crisis Select_0
+      213: 5371412345509669250
+    second: check_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: iPhone 16 - Crisis Select_0
+      name: check_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1572
-        height: 6436
+        width: 108
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40c2b72debe29a1d0800000000000000
-      internalID: -3339086251608560636
+      spriteID: 289604cb1171b8a40800000000000000
+      internalID: 5371412345509669250
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      iPhone 16 - Crisis Select_0: -3339086251608560636
+      check_0: 5371412345509669250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
