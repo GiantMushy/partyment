@@ -19,14 +19,11 @@ public class PackCardController : MonoBehaviour
     [SerializeField] private Image packIcon;
     [SerializeField] private GameObject lockedOverlay;
 
-    public RectTransform Rect { get; private set; }
-    public CanvasGroup CanvasGroup { get; private set; }
+    private RectTransform _rect;
+    private CanvasGroup _canvasGroup;
 
-    void Awake()
-    {
-        Rect = (RectTransform)transform;
-        CanvasGroup = GetComponent<CanvasGroup>();
-    }
+    public RectTransform Rect => _rect != null ? _rect : (_rect = (RectTransform)transform);
+    public CanvasGroup CanvasGroup => _canvasGroup != null ? _canvasGroup : (_canvasGroup = GetComponent<CanvasGroup>());
 
     /// <summary>
     /// Wires the runtime Select callback without touching any scene-authored text or visuals.

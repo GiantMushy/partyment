@@ -45,8 +45,8 @@ id,,Pack,Length,Description Enska,Description Íslenska,This,That,Hitt,Þetta
 42,,General,Scenarios,"A monster destroys something you love, so you hunt it down for revenge. But after you kill it, you discover it was only acting in self-defense. Is it justice?",,For,Against,Með,Á Móti
 43,,General,Scenarios,"People say: ""People who live in glass houses shouldn't throw stones"", but does that mean that People who live in stone houses should throw glass?",,For,Against,Með,Á Móti
 44,,General,Scenarios,"Fish have no concept of words, but if they would. Would they consider their swimming as walking?",,For,Against,Með,Á Móti
-45,TRUE,General,Scenarios,A fortune teller wants to tell you the date that you will die. Do you listen?,,For,Against,Með,Á Móti
-46,TRUE,General,Scenarios,Social Medias has reduced empathy in people,,For,Against,Með,Á Móti
+45,FALSE,General,Scenarios,A fortune teller wants to tell you the date that you will die. Do you listen?,,For,Against,Með,Á Móti
+46,FALSE,General,Scenarios,Social Medias has reduced empathy in people,,For,Against,Með,Á Móti
 47,,General,Scenarios,,,For,Against,Með,Á Móti
 48,,General,Scenarios,,,For,Against,Með,Á Móti
 49,,General,Scenarios,,,For,Against,Með,Á Móti

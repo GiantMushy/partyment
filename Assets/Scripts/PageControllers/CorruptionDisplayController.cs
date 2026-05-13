@@ -36,6 +36,8 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI typeText;
+    [SerializeField] private GameObject pointsNumObject;
+    [SerializeField] private GameObject pointsStringObject;
 
     [Header("Spy Icon Colors")]
     [SerializeField] private Color spySpeechColor = Color.white;
@@ -307,8 +309,12 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (descriptionText != null)
             descriptionText.text = GetLocalizedDescription(objective);
 
+        bool showPoints = objective.type != GameManager.CorruptionType.Civilian;
+        if (pointsNumObject != null) pointsNumObject.SetActive(showPoints);
+        if (pointsStringObject != null) pointsStringObject.SetActive(showPoints);
+
         if (pointsText != null)
-            pointsText.text = $"{objective.points} pts";
+            pointsText.text = $"{objective.points}";
 
         if (typeText != null)
             typeText.text = objective.type.ToString();
@@ -353,8 +359,8 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (descriptionText != null)
             descriptionText.text = GetCivilianText();
 
-        if (pointsText != null)
-            pointsText.text = "";
+        if (pointsNumObject != null) pointsNumObject.SetActive(false);
+        if (pointsStringObject != null) pointsStringObject.SetActive(false);
 
         if (typeText != null)
             typeText.text = "Civilian";
