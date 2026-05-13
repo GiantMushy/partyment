@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2577921242034176
-    m_Localized: Almennt efni
+    m_Localized: "Klass\xEDskt"
     m_Metadata:
       m_Items: []
   - m_Id: 2577958852358144
@@ -80,10 +80,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2925169553436672
     m_Localized: "Nafn \xE1 spilurunum"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2925689563246592
-    m_Localized: Nafn...
     m_Metadata:
       m_Items: []
   - m_Id: 2926184658890752
@@ -330,6 +326,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15565102735417344
     m_Localized: "Sl\xE1\xF0u inn nafn..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Localized: "Upprunulega Safni\xF0! Almenn og \xF6rugg Umr\xE6\xF0uefni og Spillingar,
+      fullkomi\xF0 fyrir alla h\xF3pa. Byrji\xF0 h\xE9r ef \xFEetta er fyrsti leikurinn
+      :)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Localized: "Einungis fyrir okkur \xCDslendinga!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Localized: "Hva\xF0a s\xF6gnvari er s\xFA besti? Hva\xF0a \xE1hryfavaldur hefur
+      mest \xE1hryf? "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Localized: "Alv\xF6runni p\xF3lits\xEDkt efni. Passi\xF0 vel upp\xE1 hvern
+      \xFEi\xF0 spili\xF0 me\xF0!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Localized: Hush Hush
     m_Metadata:
       m_Items: []
   references:

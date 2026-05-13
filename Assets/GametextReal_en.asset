@@ -82,10 +82,6 @@ MonoBehaviour:
     m_Localized: Enter the names of the players
     m_Metadata:
       m_Items: []
-  - m_Id: 2925689563246592
-    m_Localized: Enter Name...
-    m_Metadata:
-      m_Items: []
   - m_Id: 2926184658890752
     m_Localized: Next
     m_Metadata:
@@ -333,6 +329,29 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15565102735417344
     m_Localized: Enter name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Localized: "The original mix. Broad debates and corruptions for any party!\nStart
+      here if you\u2019re not sure"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Localized: For Icelandic eyes only!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Localized: Which singer sings the best? Who's the most influentual influencer?
+      Who can reference the best movie quotes?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Localized: Get into heated debates about real-world political topics. Choose
+      your friends wisely, try not to lose them!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Localized: Naughty Naughty
     m_Metadata:
       m_Items: []
   references:

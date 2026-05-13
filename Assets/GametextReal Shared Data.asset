@@ -79,10 +79,6 @@ MonoBehaviour:
     m_Key: Name_of_players
     m_Metadata:
       m_Items: []
-  - m_Id: 2925689563246592
-    m_Key: Enter_Name...
-    m_Metadata:
-      m_Items: []
   - m_Id: 2926184658890752
     m_Key: Next
     m_Metadata:
@@ -321,6 +317,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15565102735417344
     m_Key: Enter_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Key: Pack_Description_Classic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Key: Pack_Description_Iceland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Key: Pack_Description_PopCulture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Key: Pack_Description_Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Key: Pack_Description_EighteenPlus
     m_Metadata:
       m_Items: []
   m_Metadata:
