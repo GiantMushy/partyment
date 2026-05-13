@@ -48,6 +48,7 @@ public class AssignGroupsController : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button nextButton;
+    [SerializeField] private GameObject errorDisplay;
 
     // -------------------- Runtime State --------------------
 
@@ -75,6 +76,8 @@ public class AssignGroupsController : MonoBehaviour
 
     /// <summary>Tracks whether the screen has been built at least once this game session.</summary>
     private bool hasBeenInitialized = false;
+
+    private bool hasDuplicateGroupName = false;
 
     // ================================================================
     //  Unity Lifecycle
@@ -204,6 +207,8 @@ public class AssignGroupsController : MonoBehaviour
         groupContainers.Clear();
         cardToPlayerId.Clear();
         ghostGroupContainer = null;
+        hasDuplicateGroupName = false;
+        if (errorDisplay != null) errorDisplay.SetActive(false);
     }
 
     /// <summary>Removes all player name-cards and empty placeholders from a container without destroying the container itself.</summary>
@@ -444,6 +449,8 @@ public class AssignGroupsController : MonoBehaviour
             inputField.ActivateInputField();
             inputField.Select();
         });
+
+        inputField.onValueChanged.AddListener(_ => RefreshButtons());
     }
 
     /// <summary>
@@ -796,8 +803,20 @@ public class AssignGroupsController : MonoBehaviour
 
     private void RefreshButtons()
     {
+        CheckForDuplicateGroupNames();
         if (nextButton != null)
-            nextButton.interactable = IsLayoutValid();
+            nextButton.interactable = IsLayoutValid() && !hasDuplicateGroupName;
+    }
+
+    private void CheckForDuplicateGroupNames()
+    {
+        var names = new List<string>();
+        for (int i = 1; i < groupContainers.Count; i++)
+            names.Add(GetContainerEffectiveName(groupContainers[i]).ToLowerInvariant());
+
+        bool hasDup = names.Count != names.Distinct().Count();
+        hasDuplicateGroupName = hasDup;
+        if (errorDisplay != null) errorDisplay.SetActive(hasDup);
     }
 
     /// <summary>
