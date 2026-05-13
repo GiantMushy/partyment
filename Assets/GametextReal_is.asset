@@ -263,7 +263,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10560685098659840
-    m_Localized: Byrja Leik
+    m_Localized: "Hle\xF0ur..."
     m_Metadata:
       m_Items: []
   - m_Id: 10888662424481792
@@ -322,6 +322,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 14823565923704832
     m_Localized: Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15564877014753280
+    m_Localized: "Sl\xE1\xF0u inn n\xF6fn leikmanna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15565102735417344
+    m_Localized: "Sl\xE1\xF0u inn nafn..."
     m_Metadata:
       m_Items: []
   references:

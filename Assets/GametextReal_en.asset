@@ -266,7 +266,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10560685098659840
-    m_Localized: Starting Game Setup
+    m_Localized: Loading...
     m_Metadata:
       m_Items: []
   - m_Id: 10888662424481792
@@ -325,6 +325,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 14823565923704832
     m_Localized: Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15564877014753280
+    m_Localized: Enter the names of the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15565102735417344
+    m_Localized: Enter name...
     m_Metadata:
       m_Items: []
   references:

@@ -285,8 +285,9 @@ public class AssignGroupsController : MonoBehaviour
         {
             var container = CreateGroupContainer(g);
 
-            // Restore custom name only if it differs from the default placeholder
-            if (groupCustomNames.TryGetValue(g, out string savedName) && savedName != $"Group {g}")
+            // Restore custom name only if it differs from both English and Icelandic defaults
+            if (groupCustomNames.TryGetValue(g, out string savedName)
+                && savedName != $"Group {g}" && savedName != $"Hópur {g}")
                 SetContainerCustomName(container, savedName);
 
             foreach (var kvp in playerToGroup)
@@ -349,7 +350,7 @@ public class AssignGroupsController : MonoBehaviour
     private GameObject CreateGroupContainer(int groupNumber, string overrideLabel = null)
     {
         GameObject container = Instantiate(groupContainerPrefab, groupsParent);
-        string placeholderLabel = overrideLabel ?? $"Group {groupNumber}";
+        string placeholderLabel = overrideLabel ?? GroupLabel(groupNumber);
         SetContainerPlaceholder(container, placeholderLabel);
         SetupEditButton(container);
         Instantiate(emptyFieldInGroupPrefab, container.transform);
@@ -366,7 +367,7 @@ public class AssignGroupsController : MonoBehaviour
         // ghostNumber = how many real groups exist (excluding DM), +1
         int ghostNumber = groupContainers.Count; // [DM, G1, G2] → count=3 → ghost = Group 3
         ghostGroupContainer = Instantiate(groupContainerPrefab, groupsParent);
-        SetContainerPlaceholder(ghostGroupContainer, $"Group {ghostNumber}");
+        SetContainerPlaceholder(ghostGroupContainer, GroupLabel(ghostNumber));
         SetupEditButton(ghostGroupContainer);
         Instantiate(emptyFieldInGroupPrefab, ghostGroupContainer.transform);
     }
@@ -453,9 +454,9 @@ public class AssignGroupsController : MonoBehaviour
     private void RenumberGroups()
     {
         for (int i = 1; i < groupContainers.Count; i++)
-            SetContainerPlaceholder(groupContainers[i], $"Group {i}");
+            SetContainerPlaceholder(groupContainers[i], GroupLabel(i));
         if (ghostGroupContainer != null)
-            SetContainerPlaceholder(ghostGroupContainer, $"Group {groupContainers.Count}");
+            SetContainerPlaceholder(ghostGroupContainer, GroupLabel(groupContainers.Count));
     }
 
     /// <summary>
@@ -869,6 +870,17 @@ public class AssignGroupsController : MonoBehaviour
                     PlayerManager.UpdatePlayerGroup(playerId, group.id);
             }
         }
+    }
+
+    // ================================================================
+    //  Localization Helpers
+    // ================================================================
+
+    private string GroupLabel(int number)
+    {
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic)
+            return $"Hópur {number}";
+        return $"Group {number}";
     }
 
     // ================================================================
