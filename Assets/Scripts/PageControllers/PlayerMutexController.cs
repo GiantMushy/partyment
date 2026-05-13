@@ -36,8 +36,14 @@ public class PlayerMutexController : MonoBehaviour
     private IEnumerator ApplyTextNextFrame()
     {
         yield return null;
+        string localizedPrefix = pendingPrefix;
+        if (gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic)
+        {
+            if (pendingPrefix == "I am ") localizedPrefix = "Ég er ";
+            else if (pendingPrefix == "We are ") localizedPrefix = "Við erum ";
+        }
         if (nameDisplay != null) nameDisplay.text = pendingName;
-        if (buttonText != null) buttonText.text = pendingPrefix + pendingName;
+        if (buttonText != null) buttonText.text = localizedPrefix + pendingName;
     }
 
     public void SetNameAndNextState(string name, GameManager.GameState nextState)
