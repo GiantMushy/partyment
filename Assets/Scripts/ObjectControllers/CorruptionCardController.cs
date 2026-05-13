@@ -115,6 +115,22 @@ public class CorruptionCardController : MonoBehaviour
 
         if (nameText != null) nameText.text = player.name;
         else Debug.LogError("CorruptionCardController: nameText is not assigned in prefab!");
+
+        Color textColor = GetTextColorForType(objective.type);
+        if (typeText != null)        typeText.color        = textColor;
+        if (descriptionText != null) descriptionText.color = textColor;
+        if (pointsText != null)      pointsText.color      = textColor;
+        if (nameText != null)        nameText.color        = textColor;
+    }
+
+    private Color GetTextColorForType(GameManager.CorruptionType type)
+    {
+        return type switch
+        {
+            GameManager.CorruptionType.Interruption => new Color(0xF5 / 255f, 0xF5 / 255f, 0xF5 / 255f),
+            GameManager.CorruptionType.Betrayal     => new Color(0xF5 / 255f, 0xF5 / 255f, 0xF5 / 255f),
+            _                                       => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
+        };
     }
 
     private void SetSprites()

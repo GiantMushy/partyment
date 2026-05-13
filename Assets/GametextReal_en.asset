@@ -354,6 +354,10 @@ MonoBehaviour:
     m_Localized: Naughty Naughty
     m_Metadata:
       m_Items: []
+  - m_Id: 15628095171059712
+    m_Localized: No duplicate names allowed!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

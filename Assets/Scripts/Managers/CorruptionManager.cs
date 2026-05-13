@@ -33,10 +33,13 @@ public class Corruption
 /// to non-DM players.
 ///
 /// Type weights (per non-DM player):
-///   • 42% Speech
-///   • 15% Interruption
-///   •  3% Betrayal
-///   • 40% Civilian (no objective; <c>player.corruptionId = -1</c>)
+///   • 40% Speech
+///   • 20% Interruption
+///   •  5% Betrayal
+///   • 35% Civilian (no objective; <c>player.corruptionId = -1</c>)
+///
+/// After assignment a coverage check ensures at least 25% (floor) of non-DM players have
+/// an objective; skipped entirely when there are only 2 non-DM players (3-player game).
 ///
 /// Used IDs are tracked across rounds in <see cref="usedCorruptionIds"/> so the same
 /// objective never appears twice in a single game. Reset between games via
@@ -83,14 +86,14 @@ public class CorruptionManager : MonoBehaviour
                 continue;
             }
 
-            // Civilian=40%, Speech=42%, Interruption=15%, Betrayal=3%
+            // Speech=40%, Interruption=20%, Betrayal=5%, Civilian=35%
             float roll = Random.value;
             GameManager.CorruptionType randomType;
-            if (roll < 0.42f)
+            if (roll < 0.40f)
                 randomType = GameManager.CorruptionType.Speech;
-            else if (roll < 0.57f)
-                randomType = GameManager.CorruptionType.Interruption;
             else if (roll < 0.60f)
+                randomType = GameManager.CorruptionType.Interruption;
+            else if (roll < 0.65f)
                 randomType = GameManager.CorruptionType.Betrayal;
             else
             {
@@ -118,6 +121,78 @@ public class CorruptionManager : MonoBehaviour
                 Debug.LogWarning($"No unused corruption of type {randomType} available for player {player.name}.");
                 player.corruptionId = -1;
             }
+        }
+
+        EnsureMinimumCorruptionCoverage(players, dmId);
+    }
+
+    /// <summary>
+    /// If fewer than 20% of non-DM players have an objective, back-fills random players
+    /// until the threshold is met. Civilian is never assigned in this pass.
+    /// </summary>
+    private void EnsureMinimumCorruptionCoverage(Dictionary<int, Player> players, int dmId)
+    {
+        var nonDmPlayers = players.Values.Where(p => p.id != dmId).ToList();
+        int total = nonDmPlayers.Count;
+        if (total <= 2) return;
+
+        int withCorruption = nonDmPlayers.Count(p => p.corruptionId >= 0);
+        int targetCount = Mathf.FloorToInt(total * 0.25f);
+        if (withCorruption >= targetCount) return;
+
+        int needed = targetCount - withCorruption;
+        Debug.Log($"CorruptionManager: Coverage {withCorruption}/{total} below 20% threshold — assigning {needed} more.");
+
+        var candidates = nonDmPlayers
+            .Where(p => p.corruptionId < 0)
+            .OrderBy(_ => Random.value)
+            .Take(needed)
+            .ToList();
+
+        // Non-civilian relative weights: Speech 40, Interruption 20, Betrayal 5 (total 65)
+        GameManager.CorruptionType[] fallbackOrder = {
+            GameManager.CorruptionType.Speech,
+            GameManager.CorruptionType.Interruption,
+            GameManager.CorruptionType.Betrayal,
+        };
+
+        foreach (var player in candidates)
+        {
+            bool isSoloGroup = player.group_id >= 0
+                && players.Values.Count(p => p.group_id == player.group_id) <= 1;
+
+            float roll = Random.value;
+            GameManager.CorruptionType type;
+            if (roll < (40f / 65f))
+                type = GameManager.CorruptionType.Speech;
+            else if (roll < (60f / 65f))
+                type = GameManager.CorruptionType.Interruption;
+            else
+                type = GameManager.CorruptionType.Betrayal;
+
+            var objective = GetRandomUnusedCorruption(type, isSoloGroup);
+
+            if (objective == null)
+            {
+                foreach (var fallback in fallbackOrder)
+                {
+                    if (fallback == type) continue;
+                    objective = GetRandomUnusedCorruption(fallback, isSoloGroup);
+                    if (objective != null) break;
+                }
+            }
+
+            if (objective == null)
+            {
+                Debug.LogWarning($"CorruptionManager: No unused corruption available for coverage back-fill of player {player.name}.");
+                continue;
+            }
+
+            objective.assignedPlayerId = player.id;
+            player.corruptionId = objective.id;
+            playerAssignments[player.id] = objective;
+            usedCorruptionIds.Add(objective.id);
+            Debug.Log($"[Coverage] Assigned \"{objective.title}\" ({objective.type}) to player {player.name}");
         }
     }
 

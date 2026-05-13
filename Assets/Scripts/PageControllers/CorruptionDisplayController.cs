@@ -38,6 +38,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] private TextMeshProUGUI typeText;
     [SerializeField] private GameObject pointsNumObject;
     [SerializeField] private GameObject pointsStringObject;
+    [SerializeField] private TextMeshProUGUI pointsStringText;
 
     [Header("Spy Icon Colors")]
     [SerializeField] private Color spySpeechColor = Color.white;
@@ -320,9 +321,10 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
             typeText.text = objective.type.ToString();
 
         Color textColor = GetTextColorForType(objective.type);
-        if (descriptionText != null) descriptionText.color = textColor;
-        if (pointsText != null)      pointsText.color      = textColor;
-        if (typeText != null)        typeText.color        = textColor;
+        if (descriptionText != null)  descriptionText.color  = textColor;
+        if (pointsText != null)       pointsText.color       = textColor;
+        if (typeText != null)         typeText.color         = textColor;
+        if (pointsStringText != null) pointsStringText.color = textColor;
     }
 
     private string GetLocalizedDescription(Corruption obj)
@@ -405,16 +407,12 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         };
     }
 
-    /// <summary>
-    /// Betrayal and Interruption use #DDF4E7 (light green).
-    /// Speech and Civilian use #282828 (near-black).
-    /// </summary>
     private Color GetTextColorForType(GameManager.CorruptionType type)
     {
         return type switch
         {
-            GameManager.CorruptionType.Betrayal      => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
-            GameManager.CorruptionType.Interruption  => new Color(0xDD / 255f, 0xF4 / 255f, 0xE7 / 255f),
+            GameManager.CorruptionType.Betrayal      => new Color(0xF5 / 255f, 0xF5 / 255f, 0xF5 / 255f),
+            GameManager.CorruptionType.Interruption  => new Color(0xF5 / 255f, 0xF5 / 255f, 0xF5 / 255f),
             _                                        => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
         };
     }

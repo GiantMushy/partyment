@@ -63,7 +63,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2920950347853824
-    m_Localized: "1 S\xEDmi"
+    m_Localized: "Sta\xF0bundinn"
     m_Metadata:
       m_Items: []
   - m_Id: 2920951136382976
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2921026268950528
-    m_Localized: "3+ S\xEDmar"
+    m_Localized: Netleikur
     m_Metadata:
       m_Items: []
   - m_Id: 2921050226814976
@@ -350,6 +350,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15590069527109632
     m_Localized: Hush Hush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15628095171059712
+    m_Localized: "Banna\xF0 a\xF0 hafa eins n\xF6fn!"
     m_Metadata:
       m_Items: []
   references:
