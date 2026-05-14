@@ -3,9 +3,8 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// One debate-topic row loaded from <c>Topics.csv</c>. Always carries both English
-/// (<see cref="description"/>) and Icelandic (<see cref="descriptionIs"/>) text;
-/// for Versus topics the option labels are filled in too.
+/// One debate-topic row loaded from <c>Topics.csv</c>. Carries English and Icelandic
+/// text; Versus topics also include the option labels.
 /// </summary>
 [System.Serializable]
 public class Topic
@@ -13,27 +12,22 @@ public class Topic
     public int id;
     public string title;
     public string description;
-    public string descriptionIs;       // Icelandic description
-    public string optionA;             // "This" label (English)
-    public string optionB;             // "That" label (English)
-    public string optionAIs;           // "Hitt" label (Icelandic)
-    public string optionBIs;           // "Þetta" label (Icelandic)
+    public string descriptionIs;
+    public string optionA;
+    public string optionB;
+    public string optionAIs;
+    public string optionBIs;
     public GameManager.Pack pack;
     public TopicManager.TopicType type;
-    public int seriousness;            // 0-5 scale
+    public int seriousness;
 }
 
 /// <summary>
 /// Owns the master list of <see cref="Topic"/> rows loaded from CSV via
 /// <see cref="TopicDatabase"/>, the active pack subset, and the seen-topic history.
-///
-/// Filtering for the DM's topic-selection screen:
-///   • Pack — set by <see cref="LoadTopicsFromPack"/> from <see cref="GameManager.selectedPack"/>.
-///   • Type — Versus ("This or That") vs Scenarios, picked separately.
-///   • Seriousness — within ±1 of <see cref="GameManager.selectedSeriousnessLevel"/>.
-///   • Unseen — already-displayed topics are tracked in <see cref="seenTopics"/>;
-///     when a type runs out, only that type's history resets so the player keeps
-///     getting fresh topics.
+/// Topic selection filters by pack, type, and seriousness within ±1 of
+/// <see cref="GameManager.selectedSeriousnessLevel"/>. When a type runs out of unseen
+/// topics, only that type's history is reset.
 /// </summary>
 public class TopicManager : MonoBehaviour
 {
@@ -72,8 +66,6 @@ public class TopicManager : MonoBehaviour
         currentTopic = null;
     }
 
-    // -------------------- Public Getters --------------------
-
     public Topic GetRandomVersusTopic(int seriousnessLevel)
     {
         return GetRandomTopic(TopicType.Versus, seriousnessLevel);
@@ -83,8 +75,6 @@ public class TopicManager : MonoBehaviour
     {
         return GetRandomTopic(TopicType.Scenarios, seriousnessLevel);
     }
-
-    // -------------------- Internal Logic --------------------
 
     private Topic GetRandomTopic(TopicType type, int seriousnessLevel)
     {

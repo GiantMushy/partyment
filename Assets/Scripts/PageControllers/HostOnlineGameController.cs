@@ -48,12 +48,11 @@ public class HostOnlineGameController : MonoBehaviour
     public void Next()
     {
         Debug.Log("Host has pressed the Start Button");
-        // Validate Host Name
         string hostName = ValidateNameInput(hostNameInputField.text);
-        if (hostName == null) return; // Invalid name, error already logged
+        if (hostName == null) return;
         playerNames[nextPlayerId] = hostName;
         nextPlayerId++;
-        
+
         gameManager.AddPlayersToOnlineGame(new List<string>(playerNames.Values));
         gameManager.SetState(GameManager.GameState.AssignGroups);
     }
@@ -71,7 +70,7 @@ public class HostOnlineGameController : MonoBehaviour
     public void AddPlayer(string playerName)
     {
         string validatedName = ValidateNameInput(playerName);
-        if (validatedName == null) return; // Invalid name, error already logged
+        if (validatedName == null) return;
         playerNames[nextPlayerId] = validatedName;
         nextPlayerId++;
 
@@ -122,8 +121,8 @@ public class HostOnlineGameController : MonoBehaviour
             Debug.LogError("Player Name Prefab is missing a TMP_Text component.");
         }
 
-        // Connect the Kick button to KickPlayer with the current player ID
-        int playerId = nextPlayerId - 1; // ID was just incremented in AddPlayer()
+        // Wires the Kick button for the player just added.
+        int playerId = nextPlayerId - 1;
         playerEntries[playerId] = newPlayerEntry;
         Button kickButton = newPlayerEntry.GetComponentInChildren<Button>();
         if (kickButton != null)

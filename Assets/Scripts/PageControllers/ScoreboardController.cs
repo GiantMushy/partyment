@@ -7,108 +7,60 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
-/// Renders the per-player score breakdown at the end of a round.
-///
-/// Each player has THREE stacked bars (bottom → top, in display order):
-///   1. Old Score              — committed totals from previous rounds (hidden in Round 1)
-///   2. Group Score            — vote-rank + metric1 + metric2 awards earned this round
-///   3. Corruption + Stolen    — gross corruption completed plus points stolen via accusation
-///
-/// Plus a total-score TMP_Text, a player-name display, and a per-player
-/// "Score Incrementer" TMP_Text that flashes the +N (or −N) being added at each phase.
-/// A single <see cref="pointTypeDisplay"/> at the top of the screen labels the current
-/// phase ("Group Votes", "Points for Comedy", "Corruptions", "Penalties", …).
-///
-/// ──────────────────────────────────────────────────────────────────
-///  Dynamic Scaling
-/// ──────────────────────────────────────────────────────────────────
-/// The bar container has a fixed pixel height (read from <see cref="barContainerHeight"/>,
-/// or auto-detected). The pixels-per-point ratio is recomputed each frame based on
-/// the current largest player total — starting at <see cref="initialMaxScore"/> (300)
-/// and stepping up by <see cref="maxScoreStep"/> (200) when any player's animated
-/// total exceeds the current ceiling.
-///
-/// The Scoarboard Background (vertical layout of "Marker N" lines) is rescaled in lock
-/// step: its <see cref="VerticalLayoutGroup.spacing"/> is recomputed each frame from
-/// <c>markerStepValue * pixelsPerPoint − markerLineHeight</c>, so the marker labels stay
-/// aligned with the values they advertise no matter how high the ceiling has grown.
-///
-/// ──────────────────────────────────────────────────────────────────
-///  Animation choreography
-/// ──────────────────────────────────────────────────────────────────
-///   ⓪ Init (instant)        — Old-Score bar pre-fills to oldScore in R2+, total counter
-///                              starts at oldScore. All other bars at 0.
-///   ① Group Votes           — group bar grows by Group.voteScore.        Point Type = "Group Votes"
-///   ② Metric 1              — group bar grows by Group.metric1Score.     Point Type = "Points for {metric1}"
-///   ③ Metric 2              — group bar grows by Group.metric2Score.     Point Type = "Points for {metric2}"
-///   ④ Corruptions           — corruption bar grows by roundCorruptionScore. Point Type = "Corruptions"
-///   ⑤ Stolen Points         — corruption bar continues growing by stolenScore. Point Type = "Stolen Points"
-///   ⑥ Penalties (optional)  — for any player whose actual score is below gross, the
-///                              deficit is carved off the GROUP bar (then corruption if needed).
-///                              Score Incrementer shows "-N". Point Type = "Penalties"
-///
-/// Each phase shows its per-player +N (or −N) in the player's Score Incrementer slot;
-/// inter-phase delays reset the slot back to "+0" so the next phase can flash again.
+/// Renders the per-player score breakdown at the end of a round. Each player has three
+/// stacked bars (bottom to top): old score, group score, and corruption stacked with
+/// stolen points. A top-of-screen phase label and per-player score-incrementer text
+/// flash the points being added or removed in each animation phase. The bar container
+/// has a fixed pixel height and the pixels-per-point ratio scales dynamically: the
+/// ceiling starts at <see cref="initialMaxScore"/> and steps up by
+/// <see cref="maxScoreStep"/> when any player's total exceeds it. Marker spacing on
+/// the background layout is updated each frame so labels stay aligned. The animation
+/// runs through six phases: init, group votes, metric 1, metric 2, corruptions,
+/// stolen points, and penalties.
 /// </summary>
 public class ScoreboardController : MonoBehaviour
 {
-    // ─────────────────────────────────────────────────────────────────
-    //  References
-    // ─────────────────────────────────────────────────────────────────
-
     [Header("References")]
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
-
-    // ─────────────────────────────────────────────────────────────────
-    //  UI Elements
-    // ─────────────────────────────────────────────────────────────────
 
     [Header("Per-Player Score Bars (index 0..6 = player slot 1..7)")]
     [SerializeField] private List<GameObject>      groupScoreDisplays      = new List<GameObject>(7);
     [Tooltip("Combined Corruption + Stolen bar. Stolen points stack on top of corruption in the same box.")]
     [SerializeField] private List<GameObject>      corruptionScoreDisplays = new List<GameObject>(7);
-    [Tooltip("DEPRECATED — stolen points are now folded into the corruption bar. Left in case the prefab still references it; always kept disabled at runtime.")]
+    [Tooltip("Deprecated. Stolen points are folded into the corruption bar; kept disabled at runtime for legacy prefabs.")]
     [SerializeField] private List<GameObject>      stolenScoreDisplays     = new List<GameObject>(7);
     [SerializeField] private List<GameObject>      oldScoreDisplays        = new List<GameObject>(7);
     [SerializeField] private List<TextMeshProUGUI> totalScoreDisplays      = new List<TextMeshProUGUI>(7);
     [SerializeField] private List<GameObject>      nameDisplays            = new List<GameObject>(7);
 
     [Header("Score Incrementer (one per player)")]
-    [Tooltip("Per-player TMP_Text that flashes '+N' (or '-N' on penalties) for the points being added in the current animation phase. Renamed from the old 'Penalty Score #' boxes.")]
+    [Tooltip("Per-player TMP_Text that flashes the points being added or removed in the current animation phase.")]
     [FormerlySerializedAs("penaltyFloatTexts")]
     [SerializeField] private List<TextMeshProUGUI> scoreIncrementerDisplays = new List<TextMeshProUGUI>(7);
 
     [Header("Phase Label")]
-    [Tooltip("Top-of-screen TMP_Text labelling the current animation phase (e.g. 'Group Votes', 'Points for Comedy', 'Corruptions', 'Penalties').")]
+    [Tooltip("Top-of-screen TMP_Text labelling the current animation phase.")]
     [SerializeField] private TextMeshProUGUI pointTypeDisplay;
 
     [Header("Scoreboard Background")]
-    [Tooltip("VerticalLayoutGroup on the 'Scoarboard Background' object holding the marker lines. Its spacing is rescaled to match the dynamic pixels-per-point each frame.")]
+    [Tooltip("VerticalLayoutGroup holding the marker lines. Spacing is rescaled each frame to match the dynamic pixels-per-point.")]
     [SerializeField] private VerticalLayoutGroup scoreboardBackground;
-    [Tooltip("Score interval between adjacent marker lines (e.g. 50 if markers are at 0, 50, 100, 150…).")]
+    [Tooltip("Score interval between adjacent marker lines.")]
     [SerializeField] private int markerStepValue = 50;
-    [Tooltip("Pixel height of one marker line (the line image itself, not its label). Subtracted from the per-step pixel distance to derive VerticalLayoutGroup spacing.")]
+    [Tooltip("Pixel height of one marker line image. Subtracted from the per-step pixel distance to derive VerticalLayoutGroup spacing.")]
     [SerializeField] private float markerLineHeight = 8f;
 
     [Header("Round UI")]
     [SerializeField] private TMP_Text roundButtonText;
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Scaling
-    // ─────────────────────────────────────────────────────────────────
-
     [Header("Dynamic Scaling")]
-    [Tooltip("Initial max-score the bars represent in Round 1. Bar fully fills the container at this value.")]
+    [Tooltip("Initial max-score the bars represent in Round 1.")]
     [SerializeField] private int   initialMaxScore   = 300;
-    [Tooltip("How much the max-score grows when exceeded (300 → 500 → 700 → ...).")]
+    [Tooltip("How much the max-score grows when exceeded.")]
     [SerializeField] private int   maxScoreStep      = 200;
     [Tooltip("Container height in pixels. If 0, auto-detected from the first assigned group bar's parent.")]
     [SerializeField] private float barContainerHeight = 0f;
-
-    // ─────────────────────────────────────────────────────────────────
-    //  Animation
-    // ─────────────────────────────────────────────────────────────────
 
     [Header("Animation")]
     [Tooltip("Seconds for ONE earn phase (group-votes, metric1, metric2, corruption, or stolen) to lerp its bar.")]
@@ -127,30 +79,25 @@ public class ScoreboardController : MonoBehaviour
     [SerializeField] private string stolenPointsLabel  = "Stolen Points";
     [SerializeField] private string penaltiesLabel     = "Penalties";
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Runtime State
-    // ─────────────────────────────────────────────────────────────────
-
     /// <summary>One row of resolved score data per visible player slot.</summary>
     private class PlayerRow
     {
         public Player player;
-        public int    groupScore;     // total group score (= voteScore + metric1Score + metric2Score)
-        public int    voteScore;      // group component: voting-rank points
-        public int    metric1Score;   // group component: DM's first metric award
-        public int    metric2Score;   // group component: DM's second metric award
+        public int    groupScore;
+        public int    voteScore;
+        public int    metric1Score;
+        public int    metric2Score;
         public int    oldScore;
-        public int    grossTotal;     // oldScore + group + roundCorruption + stolen
-        public int    actualTotal;    // gross − penaltyScore − accusedLoss
-        public int    penalty;        // ONLY the incorrect-accusation penalty (= Player.penaltyScore, fixed −20 by default)
-        public int    accusedLoss;    // points lost because this player was correctly accused; NOT shown in penalty phase
+        public int    grossTotal;
+        public int    actualTotal;
+        public int    penalty;
+        public int    accusedLoss;
     }
 
     private readonly List<PlayerRow> rows = new List<PlayerRow>();
     private Coroutine animationRoutine;
     private int currentMaxScore;
 
-    // Per-row values currently being driven by the animation, used to compute the running max for scaling.
     private float[] animOldVals;
     private float[] animGroupVals;
     private float[] animCorrVals;
@@ -158,17 +105,11 @@ public class ScoreboardController : MonoBehaviour
     private int[]   animDisplayedTotals;
 
     /// <summary>
-    /// Per-row "negative overflow": amount the deduction phase asked to remove that
-    /// no bar could absorb (because all of old+group+corruption had already been
-    /// drained to zero). Subtracted from <see cref="animDisplayedTotals"/> so the
-    /// total counter ticks below zero — bars stay flat at 0 since there's nothing
-    /// left to drain visually.
+    /// Per-row negative overflow: amount the deduction phase asked to remove that no
+    /// bar could absorb. Subtracted from <see cref="animDisplayedTotals"/> so the
+    /// total counter ticks below zero while bars stay flat at 0.
     /// </summary>
     private float[] animOverflowDeduct;
-
-    // ─────────────────────────────────────────────────────────────────
-    //  Unity Lifecycle
-    // ─────────────────────────────────────────────────────────────────
 
     void Start()
     {
@@ -191,20 +132,15 @@ public class ScoreboardController : MonoBehaviour
             StopCoroutine(animationRoutine);
             animationRoutine = null;
         }
-        // Hide all incrementers so they don't flash a stale value on next entry.
         for (int i = 0; i < scoreIncrementerDisplays.Count; i++)
             if (scoreIncrementerDisplays[i] != null)
                 scoreIncrementerDisplays[i].gameObject.SetActive(false);
         if (pointTypeDisplay != null) pointTypeDisplay.text = string.Empty;
     }
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Setup
-    // ─────────────────────────────────────────────────────────────────
-
     /// <summary>
-    /// Auto-detect the bar-container height from the first assigned group-bar's parent
-    /// (so designers don't have to remember to set it). Falls back to a sane default if nothing is wired.
+    /// Auto-detects the bar-container height from the first assigned group bar's
+    /// parent. Falls back to a default if no bars are wired.
     /// </summary>
     private void EnsureContainerHeight()
     {
@@ -217,18 +153,18 @@ public class ScoreboardController : MonoBehaviour
             var parent = bar.transform.parent as RectTransform;
             if (parent != null)
             {
-                // Auto-detected from the layout group rect. Subtract a margin so the
-                // total-score TMP_Text (a sibling at the top of the stack) keeps its space.
+                // Reserves a margin so the total-score TMP_Text at the top of the stack
+                // keeps its space.
                 barContainerHeight = parent.rect.height * 0.9f;
                 if (barContainerHeight > 0f) return;
             }
         }
-        barContainerHeight = 1000f; // legacy default — close to (1100 - text margin)
+        barContainerHeight = 1000f;
     }
 
     /// <summary>
-    /// Resolves the four score components per non-DM player and writes them into <see cref="rows"/>,
-    /// ordered the same as the existing scoreboard (by player ID ascending).
+    /// Resolves the score components per non-DM player and writes them into
+    /// <see cref="rows"/> in ascending player-ID order.
     /// </summary>
     private void BuildRows()
     {
@@ -251,14 +187,14 @@ public class ScoreboardController : MonoBehaviour
             int metric1Score = g != null ? g.metric1Score : 0;
             int metric2Score = g != null ? g.metric2Score : 0;
 
-            // Gross = sum of all positive bars. Actual = what the player really has.
+            // Gross is the sum of all positive bars. Actual is what the player has;
+            // p.score already nets penalty and accusedLoss.
             int gross  = p.oldScore + groupScore + p.roundCorruptionScore + p.stolenScore;
-            int actual = p.oldScore + groupScore + p.score;       // p.score already nets penalty + accusedLoss
-            // Split the loss into its two distinct sources:
-            //   • penalty     = the explicit penaltyScore from a WRONG accusation (fixed −20 by default).
-            //   • accusedLoss = points this player lost because someone correctly accused THEM. The corruption
-            //                   bar deliberately keeps showing gross (CLAUDE.md → Scoring), so we never flash
-            //                   accusedLoss in the penalty phase — it's parked on the total counter via overflow.
+            int actual = p.oldScore + groupScore + p.score;
+            // penalty: the explicit penaltyScore from an incorrect accusation.
+            // accusedLoss: points lost from being correctly accused; not flashed in the
+            // penalty phase because the corruption bar keeps showing the gross value.
+            // The leftover is parked on the total counter via overflow.
             int penalty     = p.penaltyScore;
             int accusedLoss = Mathf.Max(0, gross - actual - penalty);
 
@@ -277,7 +213,6 @@ public class ScoreboardController : MonoBehaviour
             });
         }
 
-        // Allocate animation-tracking arrays sized for the current row count.
         int n = rows.Count;
         animOldVals          = new float[n];
         animGroupVals        = new float[n];
@@ -286,8 +221,8 @@ public class ScoreboardController : MonoBehaviour
         animDisplayedTotals  = new int[n];
         animOverflowDeduct   = new float[n];
 
-        // Hide unused slots up front. The standalone stolen bar is always hidden — its
-        // points are visualised by extending the corruption bar in phase ⑤.
+        // The standalone stolen bar stays hidden; its points are stacked into the
+        // corruption bar during the stolen-points phase.
         for (int i = 0; i < 7; i++)
         {
             bool active = i < rows.Count;
@@ -298,19 +233,16 @@ public class ScoreboardController : MonoBehaviour
             if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)
                 totalScoreDisplays[i].gameObject.SetActive(active);
 
-            // Score Incrementer: hidden by default — only shown for the rows actively
-            // gaining/losing points in the current animation phase.
             if (i < scoreIncrementerDisplays.Count && scoreIncrementerDisplays[i] != null)
                 scoreIncrementerDisplays[i].gameObject.SetActive(false);
 
-            // Old-score bar: only visible from Round 2 onward, AND only for assigned slots.
+            // Old-score bar is visible from Round 2 onward.
             bool oldActive = active && (gameManager != null && gameManager.currentRound > 1);
             SetActiveSafe(oldScoreDisplays, i, oldActive);
         }
 
         if (pointTypeDisplay != null) pointTypeDisplay.text = string.Empty;
 
-        // Set names once.
         for (int i = 0; i < rows.Count; i++)
         {
             if (i < nameDisplays.Count && nameDisplays[i] != null)
@@ -321,10 +253,6 @@ public class ScoreboardController : MonoBehaviour
         }
     }
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Animation
-    // ─────────────────────────────────────────────────────────────────
-
     private void StartScoreboardAnimation()
     {
         if (animationRoutine != null) StopCoroutine(animationRoutine);
@@ -333,11 +261,10 @@ public class ScoreboardController : MonoBehaviour
 
     /// <summary>
     /// Drives the multi-phase animation across all visible player rows.
-    /// See the class summary for the phase order.
     /// </summary>
     private IEnumerator RunScoreboardAnimation()
     {
-        // ── ⓪ Init: pre-fill old score, all other bars at 0, total = oldScore ──
+        // Init phase: pre-fill old score, all other bars at 0, total = oldScore.
         currentMaxScore = initialMaxScore;
         for (int i = 0; i < rows.Count; i++)
         {
@@ -357,7 +284,6 @@ public class ScoreboardController : MonoBehaviour
         if (initialHoldDelay > 0f)
             yield return new WaitForSecondsRealtime(initialHoldDelay);
 
-        // Build per-row delta arrays for each "earn" phase.
         int n = rows.Count;
         int[] voteDelta    = new int[n];
         int[] metric1Delta = new int[n];
@@ -373,7 +299,7 @@ public class ScoreboardController : MonoBehaviour
             stolenDelta[i]  = rows[i].player.stolenScore;
         }
 
-        // ── ① Group Votes → group bar ──
+        // Phase 1: Group Votes (group bar).
         if (HasAny(voteDelta))
         {
             SetPointType(groupVotesLabel);
@@ -383,7 +309,7 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // ── ② Metric 1 → group bar ──
+        // Phase 2: Metric 1 (group bar).
         if (HasAny(metric1Delta))
         {
             SetPointType(string.Format(metricLabelFormat, GetSelectedMetricName(0)));
@@ -393,7 +319,7 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // ── ③ Metric 2 → group bar ──
+        // Phase 3: Metric 2 (group bar).
         if (HasAny(metric2Delta))
         {
             SetPointType(string.Format(metricLabelFormat, GetSelectedMetricName(1)));
@@ -403,7 +329,7 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // ── ④ Corruptions → corruption bar ──
+        // Phase 4: Corruptions (corruption bar).
         if (HasAny(corrDelta))
         {
             SetPointType(corruptionsLabel);
@@ -413,7 +339,7 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // ── ⑤ Stolen Points → corruption bar (stacked on top of corruption) ──
+        // Phase 5: Stolen Points (stacked into the corruption bar).
         if (HasAny(stolenDelta))
         {
             SetPointType(stolenPointsLabel);
@@ -423,11 +349,10 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // ── ⑥ Penalties → carve out of group → corruption → old, overflow goes negative ──
-        // Only the WRONG-accusation penalty (Player.penaltyScore) is animated here — fixed
-        // −20 by default. accusedLoss (when this player was caught) is intentionally NOT
-        // shown as a deduction; it's applied silently to the overflow counter below so
-        // the final total still matches actualTotal.
+        // Phase 6: Penalties. Drains group, corruption, and old in that order; any
+        // remainder overflows into the negative counter. Only the incorrect-accusation
+        // penalty is animated here; accusedLoss is applied silently below so the final
+        // total matches actualTotal without flashing as a deduction.
         int[] penalties = rows.Select(r => r.penalty).ToArray();
         if (HasAny(penalties))
         {
@@ -437,9 +362,9 @@ public class ScoreboardController : MonoBehaviour
             HideAllIncrementers();
         }
 
-        // Park each row's accusedLoss on the overflow counter so the displayed total
+        // Parks each row's accusedLoss on the overflow counter so the displayed total
         // catches up to actualTotal without flashing a deduction. The corruption bar
-        // keeps showing the gross corruption, by design.
+        // continues to show the gross corruption value.
         for (int i = 0; i < n; i++)
         {
             if (rows[i].accusedLoss > 0)
@@ -486,7 +411,6 @@ public class ScoreboardController : MonoBehaviour
             yield return null;
         }
 
-        // Snap to exact final values for this phase.
         for (int i = 0; i < n; i++)
         {
             float v = startVals[i] + delta[i];
@@ -500,11 +424,10 @@ public class ScoreboardController : MonoBehaviour
     }
 
     /// <summary>
-    /// Carves <paramref name="deductions"/>[i] off each row over <paramref name="duration"/>
-    /// seconds, draining bars in priority order GROUP → CORRUPTION → OLD. If the requested
-    /// deduction exceeds everything the player has, the excess is recorded in
-    /// <see cref="animOverflowDeduct"/> so the displayed total counter still ticks below zero
-    /// even though no bar can shrink further.
+    /// Carves <paramref name="deductions"/>[i] off each row over the given duration,
+    /// draining bars in priority order: Group, Corruption, then Old. Any excess beyond
+    /// the available bar values is recorded in <see cref="animOverflowDeduct"/> so the
+    /// displayed total can tick below zero.
     /// </summary>
     private IEnumerator AnimateDeductFromBars(int[] deductions, float duration)
     {
@@ -537,7 +460,6 @@ public class ScoreboardController : MonoBehaviour
             yield return null;
         }
 
-        // Snap to exact final per-row state.
         for (int i = 0; i < n; i++)
         {
             if (deductions[i] <= 0) continue;
@@ -551,9 +473,8 @@ public class ScoreboardController : MonoBehaviour
 
     /// <summary>
     /// Removes <paramref name="amount"/> points from row <paramref name="i"/> by draining
-    /// GROUP → CORRUPTION → OLD in that order; any leftover after all three are exhausted
-    /// is recorded as <see cref="animOverflowDeduct"/>[i] so the total counter can show
-    /// it as a negative without leaving the bars in a weird state.
+    /// Group, Corruption, then Old. Any leftover is stored in
+    /// <see cref="animOverflowDeduct"/> so the total counter can display a negative value.
     /// </summary>
     private void ApplyDeductionCascade(int i, float amount,
                                        float startGroup, float startCorr, float startOld)
@@ -572,7 +493,7 @@ public class ScoreboardController : MonoBehaviour
         remaining -= (startOld - oldAfter);
         animOldVals[i] = oldAfter;
 
-        animOverflowDeduct[i] = remaining; // ≥ 0 — leftover the bars couldn't absorb
+        animOverflowDeduct[i] = remaining;
     }
 
     /// <summary>Recomputes <see cref="animDisplayedTotals"/>[i] from the current bar values minus overflow.</summary>
@@ -587,10 +508,6 @@ public class ScoreboardController : MonoBehaviour
         for (int i = 0; i < arr.Length; i++) if (arr[i] != 0) return true;
         return false;
     }
-
-    // ─────────────────────────────────────────────────────────────────
-    //  Phase Label & Score Incrementer Helpers
-    // ─────────────────────────────────────────────────────────────────
 
     private void SetPointType(string text)
     {
@@ -615,9 +532,9 @@ public class ScoreboardController : MonoBehaviour
     }
 
     /// <summary>
-    /// Configures the per-player Score Incrementers for one phase: visible only on rows
-    /// whose amount is non-zero. Pass <paramref name="isDeduction"/> true to render
-    /// "-N" (penalty phase); otherwise renders "+N".
+    /// Configures the per-player Score Incrementers for one phase. Only rows with a
+    /// non-zero amount are shown. Renders as -N when <paramref name="isDeduction"/>
+    /// is true, otherwise as +N.
     /// </summary>
     private void SetIncrementersForPhase(int[] perRowAmount, bool isDeduction)
     {
@@ -639,14 +556,10 @@ public class ScoreboardController : MonoBehaviour
         return metrics[index].ToString();
     }
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Bar Sizing & Scaling
-    // ─────────────────────────────────────────────────────────────────
-
     /// <summary>
-    /// Recomputes <see cref="currentMaxScore"/> by stepping up from the previous value
-    /// in <see cref="maxScoreStep"/> increments until the largest currently-displayed
-    /// total fits beneath the ceiling. Never shrinks (so the bars don't visually rebound).
+    /// Recomputes <see cref="currentMaxScore"/>, stepping up in
+    /// <see cref="maxScoreStep"/> increments until the largest displayed total fits
+    /// under the ceiling. Never shrinks, so the bars do not visually rebound.
     /// </summary>
     private void RecomputeMaxScore()
     {
@@ -667,10 +580,8 @@ public class ScoreboardController : MonoBehaviour
         currentMaxScore <= 0 ? 0f : barContainerHeight / currentMaxScore;
 
     /// <summary>
-    /// Rescales the Scoarboard Background's VerticalLayoutGroup so each marker line
-    /// sits at exactly its labelled point value (50, 100, 150, …) under the current
-    /// pixels-per-point. Without this, the markers stay calibrated to the original
-    /// 500-point ceiling and drift out of sync once the dynamic ceiling grows.
+    /// Rescales the scoreboard background's VerticalLayoutGroup so each marker line
+    /// sits at its labelled point value under the current pixels-per-point ratio.
     /// </summary>
     private void UpdateBackgroundSpacing()
     {
@@ -711,17 +622,9 @@ public class ScoreboardController : MonoBehaviour
         if (list[idx] != null) list[idx].SetActive(active);
     }
 
-    // ─────────────────────────────────────────────────────────────────
-    //  Easing
-    // ─────────────────────────────────────────────────────────────────
-
     private static float EaseOutCubic(float u)  { float v = 1f - u; return 1f - v * v * v; }
     private static float EaseInOutCubic(float u) =>
         u < 0.5f ? 4f * u * u * u : 1f - Mathf.Pow(-2f * u + 2f, 3f) * 0.5f;
-
-    // ─────────────────────────────────────────────────────────────────
-    //  Round Button
-    // ─────────────────────────────────────────────────────────────────
 
     private void UpdateRoundButton()
     {

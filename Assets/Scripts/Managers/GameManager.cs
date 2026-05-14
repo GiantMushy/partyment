@@ -10,27 +10,10 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
 /// <summary>
-/// Persistent singleton (<c>DontDestroyOnLoad</c>) that owns the game's high-level state.
-/// Every screen transition flows through <see cref="SetState"/>, which uses
-/// <see cref="stateDictionary"/> to map <see cref="GameState"/> values onto the GameObject
-/// panels assigned in the Inspector.
-///
-/// Responsibilities:
-///   • <b>State machine</b> — activate/deactivate panels; reset Selectable animators on
-///     the outgoing panel so buttons don't re-enter in a stale Pressed/Selected state.
-///   • <b>Round / sequence orchestration</b> —
-///     <see cref="StartCorruptionSequence"/> + <see cref="AdvanceCorruptionSequence"/>
-///     walk every non-DM player through PlayerMutex → CorruptionDisplay before handing to
-///     the DM; <see cref="StartVotingSequence"/> + <see cref="AdvanceVotingSequence"/> do
-///     the same for group voting → DM metric voting; <see cref="StartNextRound"/> commits
-///     scores via <see cref="PlayerManager.CommitRoundScores"/> and resets per-round state.
-///   • <b>Manager refs</b> — <see cref="playerManager"/> / <see cref="topicManager"/> /
-///     <see cref="corruptionManager"/> are MonoBehaviours on the same GameObject.
-///   • <b>Helpers</b> — language switching, transitions
-///     (<see cref="PlayTransition"/>), pack selection, online-game stubs.
-///
-/// Page controllers should never call <see cref="SetState"/> directly for game-flow
-/// transitions; call the semantic methods (Start/Advance sequences) instead.
+/// Persistent singleton that owns the game's high-level state. Screen transitions flow
+/// through <see cref="SetState"/>, which maps <see cref="GameState"/> values onto the
+/// GameObject panels assigned in the Inspector. Also orchestrates the per-round
+/// corruption and voting sequences and exposes the shared manager references.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -38,7 +21,6 @@ public class GameManager : MonoBehaviour
     [SerializeField, Tooltip("Number of rounds per game")] public int totalRounds = 3;
     [HideInInspector] public int currentRound = 1;
 
-    // Singleton pattern
     public static GameManager Instance { get; private set; }
     public PlayerManager playerManager;
     public TopicManager topicManager;
@@ -63,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     // Game Settings
     public enum Pack { Default, Icelandic, EighteenPlus, Political, PopCulture }
-    public List<Pack> OwnedPacks = new List<Pack>() { Pack.Default }; // This should be set based on actual owned packs in a real implementation
+    public List<Pack> OwnedPacks = new List<Pack>() { Pack.Default };
     public enum Position { For, Against }
     public enum CorruptionType { Civilian, Speech, Interruption, Betrayal }
     public static Pack selectedPack = Pack.Default;
@@ -81,12 +63,11 @@ public class GameManager : MonoBehaviour
     // Networking Variables
     private string currentRoomCode;
 
-    // Corruption Sequence — controls the order players view their corruptions
-    // Edit this ordering logic in StartCorruptionSequence() to change player order
+    // Order players view their corruptions in.
     private List<Player> corruptionOrder = new List<Player>();
     private int corruptionIndex = 0;
 
-    // Voting Sequence — controls the order groups vote, then the DM votes metrics
+    // Order groups vote in, followed by the DM's metric vote.
     private List<Group> votingGroupOrder = new List<Group>();
     private int votingGroupIndex = 0;
     [HideInInspector] public bool isDMMetricVoting = false;
@@ -122,7 +103,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton initialization
         if (Instance == null)
         {
             Instance = this;
@@ -178,18 +158,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ------------------------------ Helper Functions ------------------------------
     private static readonly string[] ButtonTriggers = { "Normal", "Highlighted", "Pressed", "Selected", "Disabled" };
 
     public void SetState(GameState newState)
     {
         if (menuOpen) return;
 
-        // Disable the current state (skip on first call when currentState is None)
         if (currentState != GameState.None && stateDictionary.ContainsKey(currentState))
             DisableState(stateDictionary[currentState]);
 
-        // Enable the desired state
         if (stateDictionary.ContainsKey(newState))
         {
             stateDictionary[newState].SetActive(true);
@@ -203,9 +180,9 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets only button/Selectable animators to "Normal", then deactivates the panel.
-    /// Scoped to Selectables so we don't hit StateAnimator or other custom animators
-    /// that don't have a "Normal" state.
+    /// Resets Selectable animators on the panel to the Normal state, then deactivates
+    /// the panel. Scoped to Selectables to avoid touching custom animators that lack
+    /// a Normal state.
     /// </summary>
     private void DisableState(GameObject state)
     {
@@ -238,7 +215,6 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Debug.Log("Starting a New Game");
-        // Reset Metrics, Topic Selection, Corruptions, Player Groups, and ALL scores
         selectedMetrics.Clear();
         selectedPack = Pack.Default;
         topicManager.ResetTopicSelection();
@@ -248,7 +224,6 @@ public class GameManager : MonoBehaviour
         currentRound = 1;
         assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
 
-        // Go back to Pack Selection
         SetState(GameState.PackSelection);
     }
 
@@ -322,10 +297,8 @@ public class GameManager : MonoBehaviour
     
     public IEnumerator LoadingSequence(GameState nextState = GameState.PackSelection)
     {
-        // Start in the LoadingScreen state
         SetState(GameState.LoadingScreen);
         yield return new WaitForSeconds(fakeLoadingTime);
-
         SetState(nextState);
     }
 
@@ -343,7 +316,6 @@ public class GameManager : MonoBehaviour
 
     public void ExitMutex(GameState nextState)
     {
-        // Set up the target state before transitioning
         switch (nextState)
         {
             case GameState.CorruptionDisplay:
@@ -365,17 +337,15 @@ public class GameManager : MonoBehaviour
         SetState(nextState);
     }
 
-    // -------------------- Corruption Sequence --------------------
-
     /// <summary>
-    /// Starts a new round: advances round counter, resets round-specific state, and moves to topic selection.
+    /// Commits the current round's scores, advances the round counter, resets per-round
+    /// state, and moves to topic selection. On the final round, transitions to the
+    /// Scoreboard instead.
     /// </summary>
     public void StartNextRound()
     {
         if (currentRound < totalRounds)
         {
-            // Fold this round's earnings into each player's oldScore BEFORE incrementing the
-            // round counter. The Scoreboard has already finished animating at this point.
             playerManager.CommitRoundScores();
 
             currentRound++;
@@ -386,23 +356,22 @@ public class GameManager : MonoBehaviour
         }
         else if (currentRound == totalRounds)
         {
-            // Already at last round, go to scoreboard or finish
             SetState(GameState.Scoreboard);
         }
     }
-    /// Players are shown in ascending player ID order (excluding the DM).
-    /// Edit the OrderBy below to change the player ordering.
+
+    /// <summary>
+    /// Starts the corruption reveal sequence. Players are shown in ascending player ID
+    /// order, excluding the DM.
     /// </summary>
     public void StartCorruptionSequence()
     {
         int dmId = playerManager.dmId;
 
-        // ---- Player ordering logic (edit here to change order) ----
         corruptionOrder = playerManager.players.Values
             .Where(p => p.id != dmId)
             .OrderBy(p => p.id)
             .ToList();
-        // -----------------------------------------------------------
 
         corruptionIndex = 0;
 
@@ -412,14 +381,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // No non-DM players, go straight to DM
             StartMutex(playerManager.players[dmId], GameState.DMDisplay);
         }
     }
 
     /// <summary>
-    /// Advances to the next player in the corruption sequence,
-    /// or hands the phone to the DM if all players have seen theirs.
+    /// Advances to the next player in the corruption sequence, or hands the device to
+    /// the DM once every player has seen their corruption.
     /// </summary>
     public void AdvanceCorruptionSequence()
     {
@@ -428,21 +396,17 @@ public class GameManager : MonoBehaviour
 
         if (corruptionIndex < corruptionOrder.Count)
         {
-            // Next player's mutex
             StartMutex(corruptionOrder[corruptionIndex], GameState.CorruptionDisplay);
         }
         else
         {
-            // All players have seen their corruptions — hand to DM
             StartMutex(playerManager.players[dmId], GameState.DMDisplay);
         }
     }
 
-    // -------------------- Voting Sequence --------------------
-
     /// <summary>
-    /// Starts the voting sequence: each group votes for top groups,
-    /// then the DM assigns metrics. Uses PlayerMutex between each voter.
+    /// Starts the voting sequence. Each group votes in turn, separated by PlayerMutex
+    /// handoffs, followed by the DM's metric vote.
     /// </summary>
     public void StartVotingSequence()
     {
@@ -459,8 +423,8 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Advances to the next group's vote, or to the DM's metric vote
-    /// if all groups have voted.
+    /// Advances to the next group's vote, or finalizes group voting and hands off to the
+    /// DM's metric vote once every group has voted.
     /// </summary>
     public void AdvanceVotingSequence()
     {
@@ -468,15 +432,12 @@ public class GameManager : MonoBehaviour
 
         if (votingGroupIndex < votingGroupOrder.Count)
         {
-            // More groups to vote
             StartMutex(votingGroupOrder[votingGroupIndex].name, "We are ", GameState.Voting);
         }
         else
         {
-            // All groups have voted — finalize group voting scores
             voting.GetComponent<VotingController>().FinalizeGroupVoting();
 
-            // Hand to DM for metric voting
             isDMMetricVoting = true;
             int dmId = playerManager.dmId;
             Player dm = playerManager.players[dmId];
@@ -515,14 +476,12 @@ public class GameManager : MonoBehaviour
         OnLanguageChanged?.Invoke();
     }
 
-    // ------------------------ Networking ------------------------
-
     public string GetRoomCode() => currentRoomCode;
 
     public void JoinOnlineGame(int port, string playerName)
     {
         Debug.Log($"Attempting to join online game on port {port} as {playerName}");
-        // TODO: Implement actual networking logic to connect to the host and join the game
+        // TODO: Implement networking logic to connect to the host and join the game.
     }
 
     public void HostOnlineGame()
@@ -549,10 +508,9 @@ public class GameManager : MonoBehaviour
 
     public void GenerateRoomCode()
     {
-        // PLACEHOLDER FOR FUTURE CODE GENERATION LOGIC
-
+        // TODO: Replace with the final room-code generation scheme.
         System.Random rand = new System.Random();
-        int roomCode = rand.Next(100000, 999999); // Generate a random 6-digit code
+        int roomCode = rand.Next(100000, 999999);
         Debug.Log($"Generated Room Code: {roomCode}");
         currentRoomCode = roomCode.ToString();
     }

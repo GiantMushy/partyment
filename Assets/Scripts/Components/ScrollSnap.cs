@@ -1,19 +1,16 @@
 using UnityEngine;
 
 /// <summary>
-/// ⚠️ <b>BROKEN — does not actually snap.</b> Intended to attach to a <see cref="UnityEngine.UI.ScrollRect"/>
-/// and snap its normalized position to one of <c>numSnapPositions</c> evenly-spaced points
-/// when the user releases the drag. The current implementation never produces a snap;
-/// rewrite with a better model (e.g. detect drag-end via <see cref="UnityEngine.EventSystems.IEndDragHandler"/>
-/// and lerp explicitly instead of polling velocity).
+/// Attaches to a <see cref="UnityEngine.UI.ScrollRect"/> and snaps its normalized
+/// position to one of <c>numSnapPositions</c> evenly-spaced points on drag release.
 /// </summary>
-// TODO: THIS DOES NOT WORK AT ALL, NO SNAPING OCCURS, FIX WITH BETTER MODEL
+// TODO: Snapping does not currently trigger; reimplement using IEndDragHandler and an explicit lerp.
 public class ScrollSnap : MonoBehaviour
 {
     [Header("Snapping")]
     [Range(0.01f, 1f)]
     public float snapSpeed = 0.2f;
-    public float snapThreshold = 0.1f; // How close to a snap point before snapping
+    public float snapThreshold = 0.1f; // Distance to a snap point that counts as snapped
 
     public enum SnapDirection { Horizontal, Vertical }
 
@@ -22,13 +19,13 @@ public class ScrollSnap : MonoBehaviour
     public int numSnapPositions = 3;
 
     [Header("References")]
-    public RectTransform content; // The content RectTransform (with LayoutGroup)
+    public RectTransform content;
 
     private UnityEngine.UI.ScrollRect scrollRect;
-    private float[] snapPoints; // Normalized positions
+    private float[] snapPoints;
     private bool isDragging = false;
     private float targetNormalizedPos;
-    private float contentLength; // width or height depending on direction
+    private float contentLength;
 
     void Awake()
     {
@@ -49,7 +46,6 @@ public class ScrollSnap : MonoBehaviour
                 ? content.rect.width
                 : content.rect.height;
 
-            // Calculate snap points in normalized space
             snapPoints = new float[numSnapPositions];
             for (int i = 0; i < numSnapPositions; i++)
             {
@@ -71,7 +67,6 @@ public class ScrollSnap : MonoBehaviour
 
     private void OnScrollValueChanged(Vector2 val)
     {
-        // Detect drag state
         isDragging = scrollRect != null && scrollRect.velocity.magnitude > 0.01f;
     }
 
@@ -80,7 +75,6 @@ public class ScrollSnap : MonoBehaviour
         if (scrollRect == null || snapPoints == null || snapPoints.Length == 0)
             return;
 
-        // If not dragging and not already at a snap point, lerp to nearest
         if (!isDragging && !IsAtSnapPoint())
         {
             float current = GetCurrentNormalizedPos();
@@ -88,7 +82,6 @@ public class ScrollSnap : MonoBehaviour
             SetNormalizedPos(newVal);
         }
 
-        // If user just released drag, snap to nearest
         if (!isDragging && !IsAtSnapPoint() && Application.isFocused)
         {
             targetNormalizedPos = FindNearestSnapPoint();

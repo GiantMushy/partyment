@@ -5,43 +5,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Accusation sub-panel on the DMDisplay page (left slide). A non-DM player taps their
-/// own button to declare they're accusing someone, then taps a second player's button to
-/// finger them — or taps "Incorrect" to admit they got it wrong.
-///
-/// Resolution flow:
-///   • Default → <see cref="EnterPlayerSelected"/>: dim other buttons red and reveal the
-///     "Incorrect" button. Buttons for players without an active corruption are disabled
-///     since they can't be a valid accusation target.
-///   • Correct accusation → <see cref="ResolveCorrectAccusation"/>: stolen points equal
-///     the accused's <c>Corruption.points</c>. Accuser gets +stolen via
-///     <see cref="PlayerManager.AddStolenScore"/>; accused loses the same via
-///     <see cref="PlayerManager.SubtractScore"/> (NOT <c>SubtractRoundCorruptionScore</c> —
-///     the gross "Corruption" bar on the Scoreboard intentionally still shows what they
-///     completed, so the loss only renders as a deduction during the animation phase).
-///     <see cref="PlayerManager.SetPlayerAccused"/> then prevents further toggle awards.
-///   • Incorrect accusation → <see cref="ResolveIncorrectAccusation"/>: accuser pays
-///     <see cref="incorrectPenalty"/> (default 20) via
-///     <see cref="PlayerManager.AddPenaltyScore"/>.
-///
-/// Each non-DM player can accuse exactly once per round (<c>Player.hasAccused</c>).
-///
-/// Attach to the root of the VerticalLayoutGroup that contains:
-///   [0] Header (TMP)
-///   [1] Default description (TMP, localized)        — visible while in <see cref="AccusationState.Default"/>
-///   [2] Player-selected description (TMP, localized) — visible while in <see cref="AccusationState.PlayerSelected"/>
-///   [3-10] Button (Player1-Player8)
-///   [11] Button (Incorrect)  — hidden by default via CanvasGroup alpha
-///
-/// The two description text boxes each own their own LocalizeStringEvent — instead of swapping
-/// strings on a single text box (which fights the localizer), we toggle which GameObject is active.
+/// Accusation sub-panel on the DMDisplay page. A non-DM player selects their own
+/// button to declare an accusation, then either selects another player to accuse or
+/// the Incorrect button to abort. Each non-DM player may accuse once per round, gated
+/// by <c>Player.hasAccused</c>. A correct accusation transfers points equal to the
+/// accused player's <c>Corruption.points</c> via <see cref="PlayerManager.AddStolenScore"/>;
+/// an incorrect accusation costs <see cref="incorrectPenalty"/> points via
+/// <see cref="PlayerManager.AddPenaltyScore"/>. The default and player-selected
+/// descriptions each own a separate LocalizeStringEvent and are toggled active rather
+/// than overwritten so localization stays consistent.
 /// </summary>
 public class AccusationController : MonoBehaviour
 {
-    // ===================================================================
-    //  Serialized Inner Type
-    // ===================================================================
-
     [System.Serializable]
     public class PlayerButtonUI
     {
@@ -52,20 +27,14 @@ public class AccusationController : MonoBehaviour
         public Image         iconImage;
     }
 
-    // ===================================================================
-    //  Inspector References
-    // ===================================================================
-
     [Header("Layout Elements")]
     [SerializeField] private TextMeshProUGUI headerText;
-    [Tooltip("Description shown in the Default state (\"Click on the player who is accusing\"). " +
-             "Owns its own LocalizeStringEvent — toggled active/inactive instead of having its text overwritten.")]
+    [Tooltip("Description shown in the Default state. Owns its own LocalizeStringEvent.")]
     [SerializeField] private GameObject defaultDescription;
-    [Tooltip("Description shown in the PlayerSelected state (\"Someone is Accusing!…\"). " +
-             "Owns its own LocalizeStringEvent — toggled active/inactive instead of having its text overwritten.")]
+    [Tooltip("Description shown in the PlayerSelected state. Owns its own LocalizeStringEvent.")]
     [SerializeField] private GameObject playerSelectedDescription;
     [SerializeField] private Button          incorrectButton;
-    /// <summary>Cached CanvasGroup on incorrectButton — used to show/hide without SetActive (which dirties the layout).</summary>
+    /// <summary>Cached CanvasGroup on incorrectButton. Used to hide the button without SetActive, which would dirty the layout.</summary>
     private CanvasGroup incorrectButtonGroup;
 
     [Header("Player Buttons (assign Player1 → Player8 in order)")]
@@ -79,10 +48,6 @@ public class AccusationController : MonoBehaviour
     [Tooltip("Points deducted from the accusing player on an incorrect accusation.")]
     [SerializeField] private int incorrectPenalty = 20;
 
-    // ===================================================================
-    //  Private State
-    // ===================================================================
-
     private GameManager            gameManager;
     private PlayerManager          PlayerManager          => gameManager.playerManager;
     private CorruptionManager CorruptionManager => gameManager.corruptionManager;
@@ -90,16 +55,11 @@ public class AccusationController : MonoBehaviour
     private enum AccusationState { Default, PlayerSelected }
     private AccusationState currentState = AccusationState.Default;
 
-    // Per-slot cached data (indexed parallel to playerButtons[])
-    private int[]    buttonPlayerIds; // actual Player.id, or -1 if slot unused
+    private int[]    buttonPlayerIds;
     private Color[]  originalTextColors;
     private Sprite[] originalIcons;
-    /// <summary>Index into playerButtons[] of the currently selected (accusing) player, or -1.</summary>
+    /// <summary>Index into playerButtons of the currently selected accusing player, or -1.</summary>
     private int selectedButtonIndex = -1;
-
-    // ===================================================================
-    //  Unity Lifecycle
-    // ===================================================================
 
     private void Awake()
     {
@@ -112,10 +72,6 @@ public class AccusationController : MonoBehaviour
         InitializePanel();
     }
 
-    // ===================================================================
-    //  Initialization
-    // ===================================================================
-
     private void InitializePanel()
     {
         if (gameManager == null) return;
@@ -125,7 +81,6 @@ public class AccusationController : MonoBehaviour
         originalTextColors = new Color[maxButtons];
         originalIcons      = new Sprite[maxButtons];
 
-        // Collect non-DM players sorted by ID
         int dmId = PlayerManager.dmId;
         var nonDmPlayers = new List<Player>();
         foreach (var player in PlayerManager.players.Values)
@@ -142,14 +97,11 @@ public class AccusationController : MonoBehaviour
                 Player p = nonDmPlayers[i];
                 buttonPlayerIds[i] = p.id;
 
-                // Populate name
                 if (ui.nameText != null) ui.nameText.text = p.name;
 
-                // Cache original visuals
                 originalTextColors[i] = ui.nameText  != null ? ui.nameText.color  : Color.black;
                 originalIcons[i]      = ui.iconImage  != null ? ui.iconImage.sprite : null;
 
-                // Show and wire click listener (remove old to avoid duplicates)
                 ui.button.gameObject.SetActive(true);
                 ui.button.interactable = !p.hasAccused;
                 GetAnimator(ui).SetBool("InCrossfire", false);
@@ -159,17 +111,15 @@ public class AccusationController : MonoBehaviour
             }
             else
             {
-                // No player for this slot — hide it
                 buttonPlayerIds[i] = -1;
                 ui.button.gameObject.SetActive(false);
             }
         }
 
-        // Setup Incorrect button
         if (incorrectButton != null)
         {
-            // Get or add a CanvasGroup so we can hide without SetActive (SetActive dirties the layout
-            // and causes the parent HorizontalLayoutGroup to reset/jerk).
+            // CanvasGroup hides the button without SetActive, which would dirty the
+            // parent HorizontalLayoutGroup.
             incorrectButtonGroup = incorrectButton.GetComponent<CanvasGroup>();
             if (incorrectButtonGroup == null)
                 incorrectButtonGroup = incorrectButton.gameObject.AddComponent<CanvasGroup>();
@@ -199,10 +149,6 @@ public class AccusationController : MonoBehaviour
         if (playerSelectedDescription != null) playerSelectedDescription.SetActive(true);
     }
 
-    // ===================================================================
-    //  Button Callbacks
-    // ===================================================================
-
     private void OnPlayerButtonClicked(int buttonIndex)
     {
         if (buttonPlayerIds == null || buttonPlayerIds[buttonIndex] < 0) return;
@@ -215,9 +161,9 @@ public class AccusationController : MonoBehaviour
 
             case AccusationState.PlayerSelected:
                 if (buttonIndex == selectedButtonIndex)
-                    CancelAccusation();           // Tap selected player again → cancel
+                    CancelAccusation();
                 else
-                    ResolveCorrectAccusation(selectedButtonIndex, buttonIndex); // Red button → correct accusation
+                    ResolveCorrectAccusation(selectedButtonIndex, buttonIndex);
                 break;
         }
     }
@@ -228,10 +174,6 @@ public class AccusationController : MonoBehaviour
         ResolveIncorrectAccusation(selectedButtonIndex);
     }
 
-    // ===================================================================
-    //  State Transitions
-    // ===================================================================
-
     private void EnterPlayerSelected(int accusingButtonIndex)
     {
         currentState        = AccusationState.PlayerSelected;
@@ -239,31 +181,28 @@ public class AccusationController : MonoBehaviour
 
         ShowPlayerSelectedDescription();
 
-        // Style all other visible buttons: red + point icon, disable those without a corruption
         for (int i = 0; i < playerButtons.Length; i++)
         {
-            if (i == accusingButtonIndex)   continue; // Leave the selected button alone
-            if (buttonPlayerIds[i] < 0)     continue; // Unused slot
+            if (i == accusingButtonIndex)   continue;
+            if (buttonPlayerIds[i] < 0)     continue;
 
             var ui = playerButtons[i];
             if (!ui.button.gameObject.activeSelf) continue;
 
-            // Drive red color via Crossfire animator layer
+            // Drives the red tint via the Crossfire animator layer.
             GetAnimator(ui).SetBool("InCrossfire", true);
 
-            // Swap icon to point icon
             if (ui.iconImage != null && pointIcon != null)
                 ui.iconImage.sprite = pointIcon;
 
-            // Players without an active corruption cannot be correctly accused —
-            // disable their button so the DM cannot select them as a valid target.
+            // Players without an active corruption cannot be correctly accused, so
+            // their button is disabled as a target.
             int pid = buttonPlayerIds[i];
             bool hasCorruption = PlayerManager.players.ContainsKey(pid)
                               && PlayerManager.players[pid].corruptionId >= 0;
             ui.button.interactable = hasCorruption;
         }
 
-        // Reveal the Incorrect button
         ShowIncorrectButton();
     }
 
@@ -272,41 +211,25 @@ public class AccusationController : MonoBehaviour
         FinishAndReturnToDefault();
     }
 
-    // ===================================================================
-    //  Accusation Resolution
-    // ===================================================================
-
     /// <summary>
-    /// The accusing player correctly identified the accused player's corruption.
-    /// They steal that corruption's points.
+    /// Resolves a correct accusation. The accusing player steals the accused player's
+    /// corruption points; if the accused already toggled their corruption complete,
+    /// those points are reversed on the accused.
     /// </summary>
     private void ResolveCorrectAccusation(int accusingButtonIndex, int accusedButtonIndex)
     {
         int accusingPlayerId = buttonPlayerIds[accusingButtonIndex];
         int accusedPlayerId  = buttonPlayerIds[accusedButtonIndex];
 
-        // ----------------------------------------------------------------
-        //  POINT CALCULATION — Correct Accusation
-        //  ▶ Currently: accusing player steals ALL Corruption.points
-        //    from the accused player.
-        //
-        //  TO ADJUST, change `stolenPoints` here. Options:
-        //    All points:   stolenPoints = accusedObjective.points          ← current
-        //    Half points:  stolenPoints = accusedObjective.points / 2
-        //    Flat reward:  stolenPoints = flatAccusationReward             (add SerializeField)
-        // ----------------------------------------------------------------
         Corruption accusedObjective = CorruptionManager.GetCorruptionByPlayerId(accusedPlayerId);
         int stolenPoints = accusedObjective != null ? accusedObjective.points : 0;
 
-        // If the accused already claimed their corruption points via the toggle, reverse exactly
-        // those points so they don't keep them — but don't penalise them beyond that.
         if (accusedObjective != null && accusedObjective.completeted)
         {
             PlayerManager.SubtractRoundCorruptionScore(accusedPlayerId, stolenPoints);
             accusedObjective.completeted = false;
         }
 
-        // Accuser always earns the corruption's point value for the correct identification.
         PlayerManager.AddStolenScore(accusingPlayerId, stolenPoints);
 
         Debug.Log($"[Accusation] {PlayerManager.players[accusingPlayerId].name} correctly accused " +
@@ -319,17 +242,13 @@ public class AccusationController : MonoBehaviour
     }
 
     /// <summary>
-    /// The accusing player made a wrong guess. They lose <see cref="incorrectPenalty"/> points.
+    /// Resolves an incorrect accusation. The accusing player loses
+    /// <see cref="incorrectPenalty"/> points.
     /// </summary>
     private void ResolveIncorrectAccusation(int accusingButtonIndex)
     {
         int accusingPlayerId = buttonPlayerIds[accusingButtonIndex];
 
-        // ----------------------------------------------------------------
-        //  POINT CALCULATION — Incorrect Accusation
-        //  ▶ Currently: accusing player loses `incorrectPenalty` points (default 20).
-        //    Adjust the "Incorrect Penalty" SerializeField in the Inspector.
-        // ----------------------------------------------------------------
         PlayerManager.AddPenaltyScore(accusingPlayerId, incorrectPenalty);
 
         Debug.Log($"[Accusation] {PlayerManager.players[accusingPlayerId].name} made an incorrect accusation " +
@@ -338,10 +257,6 @@ public class AccusationController : MonoBehaviour
         PlayerManager.players[accusingPlayerId].hasAccused = true;
         FinishAndReturnToDefault();
     }
-
-    // ===================================================================
-    //  Shared Cleanup
-    // ===================================================================
 
     /// <summary>Restores all button visuals and resets controller state to Default.</summary>
     private void FinishAndReturnToDefault()
@@ -366,31 +281,21 @@ public class AccusationController : MonoBehaviour
             var ui = playerButtons[i];
             if (!ui.button.gameObject.activeSelf) continue;
 
-            // Restore color via Crossfire animator layer
             GetAnimator(ui).SetBool("InCrossfire", false);
 
-            // Restore text color and icon
             if (ui.nameText  != null) ui.nameText.color    = originalTextColors[i];
             if (ui.iconImage != null) ui.iconImage.sprite  = originalIcons[i];
 
-            // Re-enable interactivity only if this player hasn't used their accusation this round
             int pid = buttonPlayerIds[i];
             bool canStillAccuse = PlayerManager.players.ContainsKey(pid) && !PlayerManager.players[pid].hasAccused;
             ui.button.interactable = canStillAccuse;
         }
     }
 
-    // ===================================================================
-    //  Animator Helper
-    // ===================================================================
-
     private Animator GetAnimator(PlayerButtonUI ui) => ui.button.GetComponent<Animator>();
 
-    // ===================================================================
-    //  Incorrect Button Visibility
-    //  Using CanvasGroup instead of SetActive so the button stays in the
-    //  VerticalLayoutGroup and never dirties the parent HorizontalLayoutGroup.
-    // ===================================================================
+    // CanvasGroup is used instead of SetActive so the Incorrect button stays in the
+    // VerticalLayoutGroup and never dirties the parent HorizontalLayoutGroup.
 
     private void ShowIncorrectButton()
     {

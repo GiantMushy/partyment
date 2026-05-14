@@ -26,8 +26,7 @@ public class PackCardController : MonoBehaviour
     public CanvasGroup CanvasGroup => _canvasGroup != null ? _canvasGroup : (_canvasGroup = GetComponent<CanvasGroup>());
 
     /// <summary>
-    /// Wires the runtime Select callback without touching any scene-authored text or visuals.
-    /// Call this instead of <see cref="Bind"/> when cards are pre-placed in the scene.
+    /// Wires the runtime Select callback without touching scene-authored text or visuals.
     /// </summary>
     public void BindSelectListener(UnityAction onSelect)
     {

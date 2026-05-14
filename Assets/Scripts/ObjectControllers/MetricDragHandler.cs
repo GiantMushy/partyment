@@ -5,68 +5,37 @@ using System.Collections.Generic;
 using Metric = GameManager.Metric;
 
 /// <summary>
-/// Attach to each metric card GameObject (Comedy, Creativity, OnTopic, Factual, Enthusiasm).
-///
-/// Handles both interactions:
-///   Click  — short press that never exceeds <see cref="ClickDistanceThreshold"/>.
-///            Calls <see cref="MetricSelectionController.OnMetricClicked"/> to toggle
-///            the card between the grid and the topmost free vote slot.
-///   Drag   — press that moves beyond the threshold before release.
-///            Spawns a semi-transparent ghost on the drag layer, moves it with the
-///            pointer, highlights any <see cref="IMetricDropTarget"/> underneath, and
-///            commits the drop (or snaps the card home) on release.
-///
-/// Setup checklist
-/// ───────────────
-/// • A CanvasGroup is required on this GameObject (enforced by RequireComponent).
-/// • Set <see cref="metric"/> in the Inspector to the correct GameManager.Metric value.
-/// • Remove any onClick listeners that were previously wired to Toggle* methods
-///   on <see cref="MetricSelectionController"/> — this handler owns click logic now.
-/// • <see cref="controller"/> and <see cref="homePosition"/> are injected at runtime
-///   by <see cref="MetricSelectionController.InitializeHandlers"/>; do not set them manually.
+/// Attached to each metric card. A short press (within <see cref="ClickDistanceThreshold"/>)
+/// is treated as a click and forwarded to
+/// <see cref="MetricSelectionController.OnMetricClicked"/>. A press that exceeds the
+/// threshold spawns a semi-transparent ghost on the drag layer, highlights any
+/// <see cref="IMetricDropTarget"/> beneath the pointer, and commits the drop on release
+/// or snaps back to the grid.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
 public class MetricDragHandler : MonoBehaviour,
     IPointerDownHandler, IPointerUpHandler,
     IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    // ================================================================
-    //  Inspector
-    // ================================================================
-
-    /// <summary>Which metric this card represents. Set this in the Inspector.</summary>
+    /// <summary>Which metric this card represents.</summary>
     [Tooltip("Which metric this card represents.")]
     public Metric metric;
 
-    // ================================================================
-    //  Injected at runtime by MetricSelectionController.InitializeHandlers()
-    // ================================================================
-
-    /// <summary>Owning controller — injected before first use.</summary>
     [HideInInspector] public MetricSelectionController controller;
 
     /// <summary>
-    /// World-space position of this card inside the grid.
-    /// Cached once in <see cref="MetricSelectionController.InitializeHandlers"/> and
-    /// used to snap the card home when it is deselected.
+    /// World-space position of this card inside the grid, cached by
+    /// <see cref="MetricSelectionController.InitializeHandlers"/> and used to snap the
+    /// card home when deselected.
     /// </summary>
     [HideInInspector] public Vector3 homePosition;
 
-    // ================================================================
-    //  Constants
-    // ================================================================
-
     /// <summary>
-    /// Screen-space pixel distance the pointer must travel before the interaction
-    /// is classified as a drag instead of a click.  Unity's own EventSystem drag
-    /// threshold must also be exceeded for OnBeginDrag to fire; this is an
-    /// additional guard used in OnPointerUp.
+    /// Pixel distance the pointer must travel before the interaction is classified as
+    /// a drag instead of a click. Used as a guard on top of Unity's own EventSystem
+    /// drag threshold.
     /// </summary>
     private const float ClickDistanceThreshold = 10f;
-
-    // ================================================================
-    //  Private state
-    // ================================================================
 
     private CanvasGroup   canvasGroup;
     private RectTransform rectTransform;
@@ -75,28 +44,18 @@ public class MetricDragHandler : MonoBehaviour,
 
     private static readonly Color DisplacedTint = new Color(0.82f, 0.82f, 0.82f);
 
-    /// <summary>Semi-transparent clone parented to the drag layer during a drag.</summary>
     private RectTransform ghostRect;
-
-    /// <summary>The <see cref="IMetricDropTarget"/> currently under the ghost; null if none.</summary>
     private IMetricDropTarget hoveredTarget;
-
-    /// <summary>True while a drag is in progress (set by OnBeginDrag, cleared by OnEndDrag).</summary>
     private bool isDragging;
 
     /// <summary>
-    /// Set true the moment OnBeginDrag fires and cleared on OnPointerDown.
-    /// Used by OnPointerUp to distinguish a completed drag from a pure click,
-    /// regardless of the event ordering between OnEndDrag and OnPointerUp.
+    /// Set when OnBeginDrag fires, cleared on the next OnPointerDown. Lets OnPointerUp
+    /// distinguish a completed drag from a click regardless of event ordering between
+    /// OnEndDrag and OnPointerUp.
     /// </summary>
     private bool wasDrag;
 
-    /// <summary>Screen position recorded on pointer-down for click/drag classification.</summary>
     private Vector2 pointerDownPosition;
-
-    // ================================================================
-    //  Unity lifecycle
-    // ================================================================
 
     void Awake()
     {
@@ -107,8 +66,8 @@ public class MetricDragHandler : MonoBehaviour,
     }
 
     /// <summary>
-    /// Tints the card to indicate it will be displaced when another card is hovering
-    /// over the slot it currently occupies.  Called by <see cref="VoteSlotDropTarget"/>.
+    /// Tints the card to indicate displacement when another card is hovering over the
+    /// slot it currently occupies. Invoked by <see cref="VoteSlotDropTarget"/>.
     /// </summary>
     public void SetDisplacedVisual(bool displaced)
     {
@@ -118,15 +77,10 @@ public class MetricDragHandler : MonoBehaviour,
 
     void OnDisable()
     {
-        // Safety net: if the screen is deactivated mid-drag, destroy the ghost
-        // and restore the card so nothing lingers on screen.
+        // Recovers ghost and visuals when the screen is deactivated mid-drag.
         ClearHover();
         CleanupDrag(restoreVisuals: true);
     }
-
-    // ================================================================
-    //  Pointer events
-    // ================================================================
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -136,9 +90,8 @@ public class MetricDragHandler : MonoBehaviour,
     }
 
     /// <summary>
-    /// Called by the EventSystem BEFORE OnEndDrag on the same frame the pointer
-    /// is released.  If a drag was in progress (<see cref="wasDrag"/> is true) we
-    /// skip click handling entirely — OnEndDrag will manage the drop.
+    /// Fires before OnEndDrag on the same frame as pointer release. Skips click
+    /// handling when a drag was in progress so OnEndDrag manages the drop.
     /// </summary>
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -149,24 +102,19 @@ public class MetricDragHandler : MonoBehaviour,
             controller?.OnMetricClicked(this);
     }
 
-    // ================================================================
-    //  Drag events
-    // ================================================================
-
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Belt-and-suspenders: ensure the pointer actually moved enough.
+        // Confirms the pointer moved far enough before initiating a drag.
         if (Vector2.Distance(eventData.position, pointerDownPosition) < ClickDistanceThreshold)
             return;
 
         isDragging = true;
         wasDrag    = true;
 
-        // Fade the original so the slot / grid position remains as a visual anchor.
+        // Fades the original so the slot or grid position remains as a visual anchor.
         canvasGroup.alpha          = 0.4f;
         canvasGroup.blocksRaycasts = false;
 
-        // Spawn the ghost on the drag layer so it renders above all other UI.
         ghostRect = CreateGhost();
 
         controller?.OnDragBegin(this);
@@ -176,7 +124,6 @@ public class MetricDragHandler : MonoBehaviour,
     {
         if (!isDragging || ghostRect == null || controller?.dragLayer == null) return;
 
-        // Move the ghost to follow the pointer in world space.
         Canvas rootCanvas = controller.dragLayer.GetComponentInParent<Canvas>()?.rootCanvas;
         if (rootCanvas != null)
         {
@@ -191,7 +138,6 @@ public class MetricDragHandler : MonoBehaviour,
             }
         }
 
-        // Highlight whatever IMetricDropTarget is under the ghost.
         UpdateHoveredTarget(eventData);
     }
 
@@ -199,31 +145,26 @@ public class MetricDragHandler : MonoBehaviour,
     {
         if (!isDragging) return;
 
-        // Capture target before ClearHover nulls it.
         IMetricDropTarget dropTarget = hoveredTarget;
         ClearHover();
         CleanupDrag(restoreVisuals: true);
 
         if (dropTarget != null)
-            dropTarget.OnMetricDropped(this);       // valid drop → delegate to target
+            dropTarget.OnMetricDropped(this);
         else
-            controller?.ReturnToHome(this);          // invalid drop → snap back
+            controller?.ReturnToHome(this);
     }
-
-    // ================================================================
-    //  Hover detection (called every frame during a drag)
-    // ================================================================
 
     private void UpdateHoveredTarget(PointerEventData eventData)
     {
         var hits = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, hits);
 
-        // Two-pass detection prevents a false-positive: metric cards placed in slots are
-        // still parented under the MetricGrid, so GetComponentInParent from a card would
-        // climb up to MetricGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
-        //
-        // Pass 1 — direct hits only (VoteSlotDropTarget is always directly on its GameObject).
+        // Two-pass detection avoids a false positive: metric cards placed in slots are
+        // still parented under the MetricGrid, so a parent-walk from a card would hit
+        // MetricGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
+
+        // Pass 1: direct hits only. VoteSlotDropTarget lives on its own GameObject.
         IMetricDropTarget newTarget = null;
         foreach (var hit in hits)
         {
@@ -232,8 +173,8 @@ public class MetricDragHandler : MonoBehaviour,
             if (direct != null) { newTarget = direct; break; }
         }
 
-        // Pass 2 — parent-walk fallback (catches MetricGridDropTarget when the ghost is
-        //           over empty grid space that has no metric card directly under the pointer).
+        // Pass 2: parent-walk fallback, catching MetricGridDropTarget when the ghost is
+        // over empty grid space.
         if (newTarget == null)
         {
             foreach (var hit in hits)
@@ -257,10 +198,6 @@ public class MetricDragHandler : MonoBehaviour,
         hoveredTarget = null;
     }
 
-    // ================================================================
-    //  Internal helpers
-    // ================================================================
-
     /// <summary>Destroys the ghost and optionally restores the original card's visuals.</summary>
     private void CleanupDrag(bool restoreVisuals)
     {
@@ -280,10 +217,10 @@ public class MetricDragHandler : MonoBehaviour,
     }
 
     /// <summary>
-    /// Creates a semi-transparent, non-interactive clone of this card parented
-    /// to the drag layer so it renders above all other UI panels.
-    /// All <see cref="MetricDragHandler"/> components and CanvasGroups are stripped
-    /// from the clone so it cannot itself initiate or receive drag events.
+    /// Creates a semi-transparent, non-interactive clone of this card on the drag
+    /// layer so it renders above all other UI. All MetricDragHandler and CanvasGroup
+    /// components are stripped from the clone so it cannot initiate or receive drag
+    /// events.
     /// </summary>
     private RectTransform CreateGhost()
     {
@@ -292,20 +229,16 @@ public class MetricDragHandler : MonoBehaviour,
         GameObject ghost = Instantiate(gameObject, controller.dragLayer);
         ghost.name = "MetricDragGhost";
 
-        // Strip logic that must not run on the clone.
         foreach (var handler in ghost.GetComponentsInChildren<MetricDragHandler>(includeInactive: true))
             DestroyImmediate(handler);
         foreach (var cg in ghost.GetComponentsInChildren<CanvasGroup>(includeInactive: true))
             DestroyImmediate(cg);
 
-        // Semi-transparent, passes all raycasts through so it never interferes
-        // with hover detection on the targets beneath it.
         CanvasGroup ghostCG = ghost.AddComponent<CanvasGroup>();
         ghostCG.alpha          = 0.75f;
         ghostCG.blocksRaycasts = false;
         ghostCG.interactable   = false;
 
-        // Match source card size and start at its current world position.
         RectTransform rt = ghost.GetComponent<RectTransform>();
         rt.sizeDelta = rectTransform.sizeDelta;
         rt.position  = rectTransform.position;

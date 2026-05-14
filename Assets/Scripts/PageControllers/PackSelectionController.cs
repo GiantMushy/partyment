@@ -4,17 +4,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// First real screen of the game. Presents the Pack options as a horizontal swipe carousel.
-///
-/// Cards are pre-placed in the scene as children of <see cref="carouselRoot"/> and assigned
-/// to <see cref="cards"/> in the Inspector — one per pack, in carousel order. Each card's
-/// <see cref="PackCardController.packType"/> and <see cref="PackCardController.backgroundColor"/>
-/// fields drive the game logic and screen background tint. All text, icons, and visual styling
-/// are authored directly on the scene objects so each can carry its own localization string events.
-///
-/// The visual position of the carousel is driven by a single float <see cref="displayIndex"/>:
-/// drag sets it directly, release seeds a damped spring that pulls it toward
-/// <see cref="currentIndex"/>. This unifies the drag and commit phases.
+/// First real screen of the game. Presents pack options as a horizontal swipe
+/// carousel. Cards are pre-placed in the scene and assigned to <see cref="cards"/> in
+/// carousel order; each card's pack type and background colour drive the game logic
+/// and screen tint. The carousel position is a single float <see cref="displayIndex"/>:
+/// dragging sets it directly, releasing seeds a damped spring that pulls it toward
+/// <see cref="currentIndex"/>.
 /// </summary>
 public class PackSelectionController : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -47,15 +42,15 @@ public class PackSelectionController : MonoBehaviour,
     [SerializeField] private float flickVelocityThreshold = 600f;
 
     [Header("Spring (commit & settle)")]
-    [Tooltip("Spring stiffness — higher = faster pull toward target. 80–200 typical.")]
+    [Tooltip("Spring stiffness. Higher pulls faster toward the target; 80–200 is typical.")]
     [SerializeField] private float springStiffness = 120f;
-    [Tooltip("Damping ratio. 1 = critically damped (no bounce), <1 = bouncy, >1 = sluggish. 0.5–0.8 is the sweet spot for fluid bounce.")]
+    [Tooltip("Damping ratio. 1 = critically damped, <1 bounces, >1 is sluggish.")]
     [SerializeField, Range(0.1f, 1.5f)] private float springDampingRatio = 0.6f;
-    [Tooltip("Cap on velocity (in index-units/sec) seeded from a flick. Prevents extreme overshoot on aggressive swipes.")]
+    [Tooltip("Cap on velocity seeded from a flick to prevent extreme overshoot.")]
     [SerializeField] private float maxSeedVelocity = 12f;
 
     [Header("Background Color Transition")]
-    [Tooltip("Exponent applied to the color-lerp t. 1 = linear (snappy), higher = more gradual / lags behind the cards.")]
+    [Tooltip("Exponent applied to the color-lerp t. Higher exponents lag the colour behind the cards.")]
     [SerializeField, Range(1f, 4f)] private float colorTransitionPower = 2f;
 
     private struct SlotPose
@@ -94,8 +89,6 @@ public class PackSelectionController : MonoBehaviour,
         displayVelocity = 0f;
     }
 
-    // ─── Init ─────────────────────────────────────────────────────────────────
-
     void InitCarousel()
     {
         for (int i = 0; i < cards.Count; i++)
@@ -103,7 +96,7 @@ public class PackSelectionController : MonoBehaviour,
             var card = cards[i];
             if (card == null) continue;
 
-            // Ensure centered anchors so anchoredPosition is a clean offset-from-center.
+            // Centred anchors keep anchoredPosition as a clean offset from centre.
             card.Rect.anchorMin = new Vector2(0.5f, 0.5f);
             card.Rect.anchorMax = new Vector2(0.5f, 0.5f);
             card.Rect.pivot    = new Vector2(0.5f, 0.5f);
@@ -113,8 +106,6 @@ public class PackSelectionController : MonoBehaviour,
             card.SetLocked(!gameManager.OwnedPacks.Contains(card.packType));
         }
     }
-
-    // ─── Layout ───────────────────────────────────────────────────────────────
 
     void UpdateLayout()
     {
@@ -210,8 +201,6 @@ public class PackSelectionController : MonoBehaviour,
             ordered[i].c.transform.SetAsLastSibling();
     }
 
-    // ─── Spring (Update tick) ────────────────────────────────────────────────
-
     void Update()
     {
         if (isDragging) return;
@@ -238,8 +227,6 @@ public class PackSelectionController : MonoBehaviour,
 
         UpdateLayout();
     }
-
-    // ─── Drag input ──────────────────────────────────────────────────────────
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -295,8 +282,6 @@ public class PackSelectionController : MonoBehaviour,
             return Mathf.Max(raw * boundaryRubberband, -boundaryRubberband);
         return Mathf.Clamp(raw, -1f, 1f);
     }
-
-    // ─── Selection ───────────────────────────────────────────────────────────
 
     void OnSelect(int packIndex)
     {

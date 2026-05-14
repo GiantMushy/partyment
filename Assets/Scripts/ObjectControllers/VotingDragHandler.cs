@@ -4,63 +4,36 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 /// <summary>
-/// Attach to each group button card in the Voting screen.
-///
-/// Handles both interactions:
-///   Click  — short press that never exceeds <see cref="ClickDistanceThreshold"/>.
-///            Calls <see cref="VotingController.OnGroupClicked"/> to toggle
-///            the card between the grid and the topmost free vote slot.
-///   Drag   — press that moves beyond the threshold before release.
-///            Spawns a semi-transparent ghost on the drag layer, moves it with the
-///            pointer, highlights any <see cref="IVotingDropTarget"/> underneath, and
-///            commits the drop (or snaps the card home) on release.
-///
-/// Setup checklist
-/// ───────────────
-/// • A CanvasGroup is required on this GameObject (enforced by RequireComponent).
-/// • <see cref="controller"/> and <see cref="homePosition"/> are injected at runtime
-///   by <see cref="VotingController.InitializeHandlers"/>; do not set them manually.
-/// • <see cref="slotIndex"/> identifies which group button (0-based) this handler
-///   represents in the active group list.
+/// Attached to each group button card on the Voting screen. A short press is treated
+/// as a click and forwarded to <see cref="VotingController.OnGroupClicked"/>. A press
+/// that moves beyond <see cref="ClickDistanceThreshold"/> spawns a ghost on the drag
+/// layer, highlights any <see cref="IVotingDropTarget"/> underneath, and commits the
+/// drop on release or snaps back to the grid.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
 public class VotingDragHandler : MonoBehaviour,
     IPointerDownHandler, IPointerUpHandler,
     IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    // ================================================================
-    //  Injected at runtime by VotingController.InitializeHandlers()
-    // ================================================================
-
-    /// <summary>Owning controller — injected before first use.</summary>
     [HideInInspector] public VotingController controller;
 
     /// <summary>
-    /// World-space position of this card inside the grid.
-    /// Cached once in <see cref="VotingController.InitializeHandlers"/> and
-    /// used to snap the card home when it is deselected.
+    /// World-space position of this card inside the grid, cached by
+    /// <see cref="VotingController.InitializeHandlers"/> and used to snap the card
+    /// home when deselected.
     /// </summary>
     [HideInInspector] public Vector3 homePosition;
 
-    /// <summary>0-based index into VotingController's active group list.</summary>
+    /// <summary>0-based index into the controller's active group list.</summary>
     [HideInInspector] public int slotIndex;
 
     /// <summary>
-    /// True if this handler is a DM-mode clone (instantiated so the same group
-    /// can be voted for a second time). Clones are destroyed when the original
-    /// voted copy is removed from its slot.
+    /// True if this handler is a DM-mode clone, instantiated so the same group can be
+    /// voted for twice. Clones are destroyed when the original voted copy leaves its slot.
     /// </summary>
     [HideInInspector] public bool isClone;
 
-    // ================================================================
-    //  Constants
-    // ================================================================
-
     private const float ClickDistanceThreshold = 10f;
-
-    // ================================================================
-    //  Private state
-    // ================================================================
 
     private CanvasGroup       canvasGroup;
     private RectTransform     rectTransform;
@@ -75,10 +48,6 @@ public class VotingDragHandler : MonoBehaviour,
     private bool wasDrag;
     private Vector2 pointerDownPosition;
 
-    // ================================================================
-    //  Unity lifecycle
-    // ================================================================
-
     void Awake()
     {
         canvasGroup   = GetComponent<CanvasGroup>();
@@ -88,8 +57,8 @@ public class VotingDragHandler : MonoBehaviour,
     }
 
     /// <summary>
-    /// Tints the card to indicate it will be displaced when another card is hovering
-    /// over the slot it currently occupies.  Called by <see cref="VotingSlotDropTarget"/>.
+    /// Tints the card to indicate displacement when another card is hovering over the
+    /// slot it currently occupies. Invoked by <see cref="VotingSlotDropTarget"/>.
     /// </summary>
     public void SetDisplacedVisual(bool displaced)
     {
@@ -102,10 +71,6 @@ public class VotingDragHandler : MonoBehaviour,
         ClearHover();
         CleanupDrag(restoreVisuals: true);
     }
-
-    // ================================================================
-    //  Pointer events
-    // ================================================================
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -122,10 +87,6 @@ public class VotingDragHandler : MonoBehaviour,
         if (distance < ClickDistanceThreshold)
             controller?.OnGroupClicked(this);
     }
-
-    // ================================================================
-    //  Drag events
-    // ================================================================
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -178,20 +139,16 @@ public class VotingDragHandler : MonoBehaviour,
             controller?.ReturnToHome(this);
     }
 
-    // ================================================================
-    //  Hover detection
-    // ================================================================
-
     private void UpdateHoveredTarget(PointerEventData eventData)
     {
         var hits = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, hits);
 
-        // Two-pass detection prevents a false-positive: group cards placed in slots are
-        // still parented under the button grid, so GetComponentInParent from a card would
-        // climb up to VotingGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
-        //
-        // Pass 1 — direct hits only (VotingSlotDropTarget is always directly on its GameObject).
+        // Two-pass detection avoids a false positive: group cards placed in slots are
+        // still parented under the button grid, so a parent-walk from a card would hit
+        // VotingGridDropTarget and fire ReturnToGrid instead of PlaceInSlot.
+
+        // Pass 1: direct hits only. VotingSlotDropTarget lives on its own GameObject.
         IVotingDropTarget newTarget = null;
         foreach (var hit in hits)
         {
@@ -200,8 +157,8 @@ public class VotingDragHandler : MonoBehaviour,
             if (direct != null) { newTarget = direct; break; }
         }
 
-        // Pass 2 — parent-walk fallback (catches VotingGridDropTarget when the ghost is
-        //           over empty grid space that has no group card directly under the pointer).
+        // Pass 2: parent-walk fallback, catching VotingGridDropTarget when the ghost is
+        // over empty grid space.
         if (newTarget == null)
         {
             foreach (var hit in hits)
@@ -224,10 +181,6 @@ public class VotingDragHandler : MonoBehaviour,
         hoveredTarget?.OnDragHoverExit();
         hoveredTarget = null;
     }
-
-    // ================================================================
-    //  Internal helpers
-    // ================================================================
 
     private void CleanupDrag(bool restoreVisuals)
     {

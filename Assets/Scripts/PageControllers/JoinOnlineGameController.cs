@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Online-game join screen. Validates the player's name and a 6-digit numeric room code
-/// before calling <see cref="GameManager.JoinOnlineGame"/>. Networking itself is not yet
-/// implemented — the validate methods are the contract for when it lands.
+/// Online-game join screen. Validates the player's name and a 6-digit numeric room
+/// code before calling <see cref="GameManager.JoinOnlineGame"/>. Networking is not yet
+/// implemented.
 /// </summary>
 public class JoinOnlineGameController : MonoBehaviour
 {
@@ -20,13 +20,12 @@ public class JoinOnlineGameController : MonoBehaviour
     public void Join()
     {
         Debug.Log("Second Join Button Pressed");
-        // Validate Name Input
         string playerName = ValidateNameInput(nameInputField.text);
-        if (playerName == null) return; // Invalid name, error already logged
+        if (playerName == null) return;
 
         int roomCode = ValudateRoomCode(roomCodeInputField.text);
-        if (roomCode == -1) return; // Invalid room code, error already logged
-        
+        if (roomCode == -1) return;
+
         gameManager.JoinOnlineGame(roomCode, playerName);
     }
 
@@ -48,7 +47,7 @@ public class JoinOnlineGameController : MonoBehaviour
             Debug.LogError("Player name cannot exceed 20 characters.");
             return null;
         }
-        // TODO: Maybe some profanity filter?
+        // TODO: Profanity filter on player names.
         return input.Trim();
     }
 
@@ -64,7 +63,7 @@ public class JoinOnlineGameController : MonoBehaviour
             Debug.LogError("Room code must be a valid positive integer.");
             return -1;
         }
-        if (roomCode < 100000 || roomCode > 999999) // room code must be 6 digits
+        if (roomCode < 100000 || roomCode > 999999)
         {
             Debug.LogError("Room code must be a 6-digit number.");
             return -1;

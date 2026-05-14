@@ -3,15 +3,13 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Dynamically attached to a group card while it occupies a vote slot, or to an
-/// empty-slot placeholder while that slot is vacant.
-///
-/// Mirrors <see cref="MetricSlotDropProxy"/> for the Voting screen.
-/// Managed entirely by VotingController — do not add manually in the Inspector.
+/// empty-slot placeholder while that slot is vacant. Managed by
+/// <see cref="VotingController"/>; not added in the Inspector.
 /// </summary>
 public class VotingSlotDropProxy : MonoBehaviour, IVotingDropTarget
 {
     [HideInInspector] public VotingController controller;
-    [HideInInspector] public int slotIndex; // 1-based
+    [HideInInspector] public int slotIndex;
 
     private static readonly Color SlotHoverTint = new Color(0.8f, 0.95f, 1f);
 

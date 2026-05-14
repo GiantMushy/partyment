@@ -101,8 +101,6 @@ public class MenuController : MonoBehaviour
         if (isMenuOpen) ToggleMenu();
     }
 
-    // --- Dropdowns ---
-
     public void ToggleLanguageDropdown()
     {
         if (langOpen)
@@ -114,9 +112,9 @@ public class MenuController : MonoBehaviour
         else
         {
             CloseOtherDropdowns(closeLanguage: false);
-            // Expand to full height so the VerticalLayoutGroup computes correct button
-            // world positions, snap the selector, then reset to 0 for the open animation.
-            // Everything runs in one frame before rendering — no visual flash.
+            // Expands to full height so the VerticalLayoutGroup resolves correct button
+            // positions, snaps the selector, then collapses back to 0 for the open
+            // animation. All in one frame before rendering.
             languageContent.gameObject.SetActive(true);
             languageContent.sizeDelta = new Vector2(languageContent.sizeDelta.x, langH);
             Canvas.ForceUpdateCanvases();
@@ -168,16 +166,12 @@ public class MenuController : MonoBehaviour
         gameManager.PlayTransition("Lets try this again...", () => gameManager.NewGame());
     }
 
-    // --- Sound ---
-
     public void ToggleSound()
     {
         soundEnabled = !soundEnabled;
         if (soundToggleImage != null)
             soundToggleImage.sprite = soundEnabled ? soundOnSprite : soundOffSprite;
     }
-
-    // --- Language ---
 
     public void SetEnglish()
     {
@@ -202,8 +196,6 @@ public class MenuController : MonoBehaviour
         else
             Debug.LogWarning("Locale not found: " + code);
     }
-
-    // --- Language Selector ---
 
     private void SnapSelectorInstant()
     {
@@ -244,14 +236,11 @@ public class MenuController : MonoBehaviour
     private Vector2 SelectorTargetPos(RectTransform buttonRect)
     {
         Vector3 local = languageContentInner.InverseTransformPoint(buttonRect.position);
-        // languageContentInner's pivot is at (0.5, 0) — bottom-centre, not middle-centre.
-        // anchoredPosition on a child anchored at (0.5, 0.5) is measured from the visual
-        // centre, so subtract the gap between the pivot row and the anchor row.
+        // languageContentInner uses a bottom-centre pivot, but the selector is anchored
+        // at the visual centre, so subtract the gap between pivot row and anchor row.
         float anchorOffsetY = (0.5f - languageContentInner.pivot.y) * languageContentInner.rect.height;
         return new Vector2(languageSelector.anchoredPosition.x, local.y - anchorOffsetY);
     }
-
-    // --- External links (kept for existing scene wiring) ---
 
     public void Feedback()
     {
@@ -264,8 +253,6 @@ public class MenuController : MonoBehaviour
         ToggleMenu();
         gameManager.OpenDataPrivacyPage();
     }
-
-    // --- Private helpers ---
 
     private void CloseAllInstant()
     {
@@ -319,7 +306,7 @@ public class MenuController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / dropdownOpenDuration);
-            float eased = 1f - Mathf.Pow(1f - t, 3f); // ease-out cubic
+            float eased = 1f - Mathf.Pow(1f - t, 3f);
             outer.sizeDelta = new Vector2(outer.sizeDelta.x, Mathf.Lerp(0f, targetH, eased));
             yield return null;
         }
@@ -335,10 +322,10 @@ public class MenuController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / dropdownCloseDuration);
-            float eased = t * t * t; // ease-in cubic (accelerates into close)
+            float eased = t * t * t;
             float currentH = Mathf.Lerp(fromH, 0f, eased);
             outer.sizeDelta = new Vector2(outer.sizeDelta.x, currentH);
-            // Scroll content upward so raise button rides to the top and disappears behind the button above
+            // Scrolls content upward so the bottom button hides behind the button above.
             if (inner != null)
                 inner.anchoredPosition = new Vector2(inner.anchoredPosition.x, Mathf.Lerp(0f, fromH, eased));
             yield return null;

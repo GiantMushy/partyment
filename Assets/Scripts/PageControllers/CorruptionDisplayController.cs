@@ -5,13 +5,11 @@ using TMPro;
 using System.Collections;
 
 /// <summary>
-/// Per-player secret corruption reveal screen, shown one player at a time after each
-/// <see cref="GameManager.GameState.PlayerMutex"/> hand-off. The card is hidden by default;
-/// holding the pointer down flips it to the revealed face (X-axis scale flip via
-/// <see cref="FlipCoroutine"/>), releasing flips it back. The Next button only appears
-/// after the first reveal, ensuring the player actually saw their objective.
-/// Civilian players (no objective) get a generic card. Card art and colors vary by
-/// corruption type — see <see cref="GetSpriteForType"/> / <see cref="GetTextColorForType"/>.
+/// Per-player corruption reveal screen, shown after each
+/// <see cref="GameManager.GameState.PlayerMutex"/> hand-off. The card starts hidden;
+/// a pointer-down flips it to the revealed face and release flips it back. The Next
+/// button appears only after the first reveal. Civilian players see a generic card.
+/// Card art and colors vary by corruption type.
 /// </summary>
 public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -30,9 +28,9 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     [SerializeField] private GameObject nextButton;
 
     [Header("Card Children")]
-    [SerializeField] private Image cardImage;       // Background image on the revealed side
-    [SerializeField] private Image spyIconImage;            // cardRevealed > Spy Icon
-    [SerializeField] private Image civilianIconImage;       // cardRevealed > Civilian Icon
+    [SerializeField] private Image cardImage;
+    [SerializeField] private Image spyIconImage;
+    [SerializeField] private Image civilianIconImage;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI typeText;
@@ -67,8 +65,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     }
 
     /// <summary>
-    /// Lazily captures the original card scales exactly once, before any code can modify them.
-    /// Safe to call whether or not Awake has run.
+    /// Captures the original card scales once, before any other code can modify them.
     /// </summary>
     private void CaptureOriginalScales()
     {
@@ -99,7 +96,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
     void OnDisable()
     {
         GameManager.OnLanguageChanged -= OnLanguageChanged;
-        // Stop any in-progress flip so scales aren't left at zero
+        // Stops any in-progress flip so scales aren't left at zero.
         if (flipCoroutine != null)
         {
             StopCoroutine(flipCoroutine);
@@ -121,13 +118,10 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         }
         else
         {
-            // Civilian card — refresh the hardcoded text
             if (descriptionText != null)
                 descriptionText.text = GetCivilianText();
         }
     }
-
-    // -------------------- Pointer Events (Hold to Reveal) --------------------
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -148,8 +142,6 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (isRevealed)
             FlipTo(revealed: false);
     }
-
-    // -------------------- Flip Animation --------------------
 
     private void FlipTo(bool revealed)
     {
@@ -172,7 +164,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         Vector3 scale = activeRect.localScale;
         float halfDuration = flipDuration * 0.5f;
 
-        // Phase 1: Scale active card X from current to 0 (card turns sideways)
+        // Phase 1: Scale the active card's X from current to 0 (turns sideways).
         float startX = scale.x;
         float elapsed = 0f;
 
@@ -187,15 +179,14 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         scale.x = 0f;
         activeRect.localScale = scale;
 
-        // Swap cards at the midpoint
+        // Swap cards at the midpoint.
         activeCard.SetActive(false);
         incomingCard.SetActive(true);
         isRevealed = toRevealed;
 
-        // Reset active card scale for next time
         activeRect.localScale = activeOrigScale;
 
-        // Phase 2: Scale incoming card X from 0 to original (new face appears)
+        // Phase 2: Scale the incoming card's X from 0 to its original value.
         scale = incomingOrigScale;
         scale.x = 0f;
         incomingRect.localScale = scale;
@@ -214,8 +205,6 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         flipCoroutine = null;
     }
 
-    // -------------------- Card Visibility --------------------
-
     private void ShowHiddenSide()
     {
         if (cardHidden != null) cardHidden.SetActive(true);
@@ -228,21 +217,18 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (cardRevealed != null) cardRevealed.SetActive(true);
     }
 
-    // -------------------- Player & Card Setup --------------------
-
     /// <summary>
-    /// Sets the player and populates the card with their assigned corruption.
-    /// Call this before showing the display.
+    /// Sets the player and populates the card with their assigned corruption. Called
+    /// before showing the display.
     /// </summary>
     public void SetPlayer(Player player)
     {
         if (gameManager == null) gameManager = GameManager.Instance;
-        CaptureOriginalScales(); // Ensure scales are captured before Awake may have run
+        CaptureOriginalScales();
 
         this.player = player;
         isRevealed = false;
 
-        // Reset card scales in case a flip was interrupted
         ResetCardScale(cardHidden);
         ResetCardScale(cardRevealed);
 
@@ -275,7 +261,6 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (cardImage != null)
             cardImage.sprite = GetSpriteForType(objective.type);
 
-        // Icon logic: enable/disable and set sprite/color
         if (spyIconImage != null && civilianIconImage != null)
         {
             switch (objective.type)
@@ -416,8 +401,6 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
             _                                        => new Color(0x28 / 255f, 0x28 / 255f, 0x28 / 255f),
         };
     }
-
-    // -------------------- Navigation --------------------
 
     public void Next()
     {

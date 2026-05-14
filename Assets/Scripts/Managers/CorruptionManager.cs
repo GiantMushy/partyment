@@ -3,14 +3,14 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// One secret-objective row loaded from <c>Corruptions.csv</c>. The DM never sees Betrayal
-/// objectives on screen (excluded by <see cref="DMDisplayController.InstantiateCorruptionCards"/>).
+/// One secret-objective row loaded from <c>Corruptions.csv</c>. Betrayal objectives are
+/// excluded from the DM display by <see cref="DMDisplayController.InstantiateCorruptionCards"/>.
 /// </summary>
 [System.Serializable]
 public class Corruption
 {
     public int id;
-    public int assignedPlayerId = -1; // -1 means unassigned
+    public int assignedPlayerId = -1;
     public string title;
     public string titleIs;
     public string description;
@@ -23,27 +23,18 @@ public class Corruption
     public bool completeted;
     public GameManager.CorruptionType type;
     public bool requiresTeammate;
-    /// <summary>True when completing this betrayal requires the player's group to receive zero vote points this round.</summary>
+    /// <summary>True when this betrayal requires the player's group to receive zero vote points this round.</summary>
     public bool requiresZeroGroupVotes;
 }
 
 /// <summary>
 /// Owns the master list of <see cref="Corruption"/> objectives loaded from CSV via
-/// <see cref="CorruptionDatabase"/>, and the per-round weighted-random assignment
-/// to non-DM players.
-///
-/// Type weights (per non-DM player):
-///   • 40% Speech
-///   • 20% Interruption
-///   •  5% Betrayal
-///   • 35% Civilian (no objective; <c>player.corruptionId = -1</c>)
-///
-/// After assignment a coverage check ensures at least 25% (floor) of non-DM players have
-/// an objective; skipped entirely when there are only 2 non-DM players (3-player game).
-///
-/// Used IDs are tracked across rounds in <see cref="usedCorruptionIds"/> so the same
-/// objective never appears twice in a single game. Reset between games via
-/// <see cref="ResetCorruptions"/>.
+/// <see cref="CorruptionDatabase"/> and performs the per-round weighted-random
+/// assignment to non-DM players. Type weights: 40% Speech, 20% Interruption,
+/// 5% Betrayal, 35% Civilian (no objective). After assignment a coverage check
+/// guarantees at least 25% of non-DM players have an objective unless the game has
+/// only two non-DM players. Used IDs are tracked in <see cref="usedCorruptionIds"/>
+/// so an objective never repeats within a game; cleared by <see cref="ResetCorruptions"/>.
 /// </summary>
 public class CorruptionManager : MonoBehaviour
 {
@@ -51,9 +42,8 @@ public class CorruptionManager : MonoBehaviour
     [SerializeField] private CorruptionDatabase corruptionDatabase;
 
     public List<Corruption> allCorruptions = new List<Corruption>();
-    public List<int> usedCorruptionIds = new List<int>(); // Track used corruptions by their IDs
+    public List<int> usedCorruptionIds = new List<int>();
 
-    // Map from playerId -> assigned Corruption for the current round
     private Dictionary<int, Corruption> playerAssignments = new Dictionary<int, Corruption>();
 
     void Start()
@@ -67,11 +57,9 @@ public class CorruptionManager : MonoBehaviour
         Debug.Log($"CorruptionManager: Loaded {allCorruptions.Count} corruptions.");
     }
 
-    // -------------------- Assignment --------------------
-
     /// <summary>
-    /// Assigns a random corruption to each non-DM player.
-    /// The DM (lowest player ID) is excluded and gets the Civilian type.
+    /// Assigns a random corruption to each non-DM player. The DM is excluded and
+    /// receives no objective.
     /// </summary>
     public void AssignCorruptionsToPlayers(Dictionary<int, Player> players, int dmId)
     {
@@ -81,7 +69,6 @@ public class CorruptionManager : MonoBehaviour
         {
             if (player.id == dmId)
             {
-                // DM gets no corruption
                 player.corruptionId = -1;
                 continue;
             }
@@ -97,12 +84,11 @@ public class CorruptionManager : MonoBehaviour
                 randomType = GameManager.CorruptionType.Betrayal;
             else
             {
-                // Civilian — no corruption
                 player.corruptionId = -1;
                 continue;
             }
 
-            // Solo group players cannot receive corruptions that require a teammate
+            // Solo-group players cannot receive corruptions that require a teammate.
             bool isSoloGroup = player.group_id >= 0
                 && players.Values.Count(p => p.group_id == player.group_id) <= 1;
 
@@ -127,8 +113,8 @@ public class CorruptionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// If fewer than 20% of non-DM players have an objective, back-fills random players
-    /// until the threshold is met. Civilian is never assigned in this pass.
+    /// Back-fills random players with non-Civilian objectives until at least 25% of
+    /// non-DM players have one. Skipped when there are only two non-DM players.
     /// </summary>
     private void EnsureMinimumCorruptionCoverage(Dictionary<int, Player> players, int dmId)
     {
@@ -141,7 +127,7 @@ public class CorruptionManager : MonoBehaviour
         if (withCorruption >= targetCount) return;
 
         int needed = targetCount - withCorruption;
-        Debug.Log($"CorruptionManager: Coverage {withCorruption}/{total} below 20% threshold — assigning {needed} more.");
+        Debug.Log($"CorruptionManager: Coverage {withCorruption}/{total} below 25% threshold; assigning {needed} more.");
 
         var candidates = nonDmPlayers
             .Where(p => p.corruptionId < 0)
@@ -149,7 +135,7 @@ public class CorruptionManager : MonoBehaviour
             .Take(needed)
             .ToList();
 
-        // Non-civilian relative weights: Speech 40, Interruption 20, Betrayal 5 (total 65)
+        // Non-Civilian relative weights: Speech 40, Interruption 20, Betrayal 5 (total 65).
         GameManager.CorruptionType[] fallbackOrder = {
             GameManager.CorruptionType.Speech,
             GameManager.CorruptionType.Interruption,
@@ -196,8 +182,6 @@ public class CorruptionManager : MonoBehaviour
         }
     }
 
-    // -------------------- Query --------------------
-
     public Corruption GetRandomUnusedCorruption(GameManager.CorruptionType type, bool soloPlayer = false)
     {
         var candidates = allCorruptions
@@ -215,14 +199,13 @@ public class CorruptionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the Corruption assigned to a given player for this round, or null.
+    /// Returns the Corruption assigned to the given player for this round, or null.
     /// </summary>
     public Corruption GetCorruptionByPlayerId(int playerId)
     {
         if (playerAssignments.TryGetValue(playerId, out var objective))
             return objective;
 
-        // Fallback: look up by player's stored corruptionId
         var player = GameManager.Instance.playerManager.players.ContainsKey(playerId)
             ? GameManager.Instance.playerManager.players[playerId]
             : null;
@@ -232,8 +215,6 @@ public class CorruptionManager : MonoBehaviour
 
         return null;
     }
-
-    // -------------------- Reset --------------------
 
     public void ResetCorruptions()
     {

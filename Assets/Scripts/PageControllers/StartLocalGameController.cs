@@ -6,13 +6,12 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Player-name registration screen for local play. Players are added one-at-a-time via the
-/// default <see cref="TMP_InputField"/> at the top of a scrollable list; each accepted name
-/// becomes a row with its own inline edit field and delete button. Names are clamped to
-/// <see cref="MaxNameLength"/> (12 chars). Player count is bounded by
-/// <see cref="PlayerManager.maxPlayers"/> — when reached, the input field hides itself.
-/// The Next button stays disabled until at least 3 players are registered and no duplicate
-/// name errors are active.
+/// Player-name registration screen for local play. Players are added one at a time via
+/// the input field at the top of a scrollable list; each accepted name becomes a row
+/// with its own inline edit field and delete button. Names are clamped to
+/// <see cref="MaxNameLength"/> characters and the player count is bounded by
+/// <see cref="PlayerManager.maxPlayers"/>. The Next button stays disabled until at
+/// least three players are registered and no duplicate-name errors are active.
 /// </summary>
 public class StartLocalGameController : MonoBehaviour
 {
@@ -65,8 +64,6 @@ public class StartLocalGameController : MonoBehaviour
         RefreshDisplayFromPlayerManager();
     }
 
-    // -------------------- Button Logic --------------------
-
     public void Next()
     {
         Debug.Log("Assign Groups Next Button Pressed");
@@ -78,8 +75,6 @@ public class StartLocalGameController : MonoBehaviour
         Debug.Log("Start Local Game Back Button Pressed");
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
-
-    // -------------------- Name Input Logic --------------------
 
     private void OnDefaultInputValueChanged(string value)
     {
@@ -241,8 +236,6 @@ public class StartLocalGameController : MonoBehaviour
         }
     }
 
-    // -------------------- Duplicate Detection --------------------
-
     private bool IsDuplicateName(string name, int excludePlayerId = -1)
     {
         if (string.IsNullOrWhiteSpace(name)) return false;
@@ -271,8 +264,6 @@ public class StartLocalGameController : MonoBehaviour
         if (errorDisplay != null) errorDisplay.SetActive(anyError);
         UpdateNextButtonState();
     }
-
-    // -------------------- Utility --------------------
 
     private void UpdateNextButtonState()
     {

@@ -70,8 +70,8 @@ public class CorruptionCardController : MonoBehaviour
 
         completedToggle.interactable = false;
 
-        // Sync the UI if the toggle was still visually on — the accusation handler already
-        // reversed the score via SubtractRoundCorruptionScore and cleared objective.completeted.
+        // Syncs the UI when the toggle was still visually on. The accusation handler
+        // has already reversed the score and cleared objective.completeted.
         if (completedToggle.isOn)
         {
             completedToggle.SetIsOnWithoutNotify(false);
@@ -94,7 +94,6 @@ public class CorruptionCardController : MonoBehaviour
         SetValues();
         SetSprites();
 
-        // Reset toggle to unchecked without firing the event
         if (completedToggle != null)
         {
             completedToggle.SetIsOnWithoutNotify(false);
@@ -169,14 +168,13 @@ public class CorruptionCardController : MonoBehaviour
         if (objective == null || player == null) return;
         if (player.isAccused) return;
 
-        // Sync with the toggle's actual state rather than blindly flipping
         bool shouldBeCompleted = completedToggle != null ? completedToggle.isOn : !objective.completeted;
 
         if (shouldBeCompleted && !objective.completeted)
         {
             objective.completeted = true;
-            // Updates BOTH score and roundCorruptionScore so the Scoreboard's gross "Corruption" bar
-            // can be displayed independently of stolen/penalty manipulations on `score`.
+            // Updates both score and roundCorruptionScore so the Scoreboard's gross
+            // corruption bar stays independent of stolen/penalty changes on score.
             PlayerManager.AddRoundCorruptionScore(player.id, objective.points);
         }
         else if (!shouldBeCompleted && objective.completeted)

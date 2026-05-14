@@ -20,8 +20,8 @@ public class TransitionController : MonoBehaviour
     private Action midTransitionAction;
 
     /// <summary>
-    /// Configures the transition text and the action to run mid-transition
-    /// (while the overlay is fully opaque). Call this before enabling the GameObject.
+    /// Configures the transition text and the action invoked while the overlay is
+    /// fully opaque. Must be called before enabling the GameObject.
     /// </summary>
     public void Setup(string text, Action onMidTransition)
     {
@@ -31,7 +31,6 @@ public class TransitionController : MonoBehaviour
 
     void OnEnable()
     {
-        // Ensure the overlay starts invisible
         if (transitionCanvasGroup != null)
             transitionCanvasGroup.alpha = 0f;
 
@@ -40,20 +39,16 @@ public class TransitionController : MonoBehaviour
 
     private IEnumerator TransitionEffect()
     {
-        // ---- Fade In ----
         yield return Fade(0f, 1f);
 
-        // ---- Mid-transition: invoke the state change while fully opaque ----
+        // Invoke the state change while the overlay is fully opaque.
         midTransitionAction?.Invoke();
         midTransitionAction = null;
 
-        // ---- Hold ----
         yield return new WaitForSeconds(holdDuration);
 
-        // ---- Fade Out ----
         yield return Fade(1f, 0f);
 
-        // Deactivate ourselves when done
         gameObject.SetActive(false);
     }
 

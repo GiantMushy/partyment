@@ -5,41 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Manages the Voting screen.  Supports both tap/click and drag-and-drop
-/// interactions, mirroring <see cref="MetricSelectionController"/>.
-///
-/// Two phases:
-///   GroupVoting     — each group votes for their top 2 or 3 groups.
-///   DMMetricVoting  — the DM assigns two metric awards to groups.
-///                     The DM may pick the SAME group for both metrics,
-///                     so a clone of the group card is spawned when one
-///                     is placed in a slot, and destroyed when removed.
-///
-/// Inspector setup
-/// ───────────────
-/// Vote Slots
-///   firstVoteSlot / secondVoteSlot / thirdVoteSlot
-///       — Transforms whose world positions mark where each slot's card lives.
-///   firstVoteEmpty / secondVoteEmpty / thirdVoteEmpty
-///       — Placeholder GameObjects shown when the corresponding slot is empty.
-///
-/// Drop Targets (each needs an Image + CanvasGroup for raycasts)
-///   firstSlotDropTarget / secondSlotDropTarget / thirdSlotDropTarget
-///       — <see cref="VotingSlotDropTarget"/> on each slot hit area.
-///   gridDropTarget
-///       — <see cref="VotingGridDropTarget"/> on the group button grid panel.
-///
-/// Group Buttons
-///   group1Button … group6Button — each MUST have a <see cref="VotingDragHandler"/>.
-///
-/// Navigation
-///   nextButton — disabled until all required slots are filled.
-///   dragLayer  — top-level RectTransform on the Canvas for drag ghosts.
-///
-/// Migration note
-/// ──────────────
-/// Remove any onClick listeners previously wired to ToggleGroup1–6.
-/// <see cref="VotingDragHandler"/> now owns click logic for group cards.
+/// Manages the Voting screen with click and drag-and-drop interactions. Operates in
+/// two phases: GroupVoting, where each group ranks the other groups, and
+/// DMMetricVoting, where the DM assigns two metric awards. In DM voting the same
+/// group may be picked for both metrics, so a clone is spawned when an original card
+/// enters a slot and destroyed when removed.
 /// </summary>
 public class VotingController : MonoBehaviour
 {
@@ -102,10 +72,6 @@ public class VotingController : MonoBehaviour
     [Tooltip("Top-level RectTransform on the Canvas; used to parent drag ghosts above all UI.")]
     public RectTransform dragLayer;
 
-    // ===================================================================
-    //  Runtime State
-    // ===================================================================
-
     public enum VotingPhase { GroupVoting, DMMetricVoting }
     private VotingPhase currentPhase;
     private int maxSelections;
@@ -120,17 +86,13 @@ public class VotingController : MonoBehaviour
     private readonly VotingDragHandler[] slotOccupants = new VotingDragHandler[3];
 
     /// <summary>
-    /// DM-mode clones: maps the original handler's slotIndex to its clone GameObject.
-    /// When the DM places a group in a slot, we spawn a clone at the original position
-    /// so the same group can be picked again for the other slot.
+    /// DM-mode clones, keyed by the original handler's slotIndex. When the DM places a
+    /// group in a slot, a clone is spawned at the home position so the same group can
+    /// be picked again for the other slot.
     /// </summary>
     private readonly Dictionary<int, VotingDragHandler> dmClones = new Dictionary<int, VotingDragHandler>();
 
     private bool isInitialized;
-
-    // ===================================================================
-    //  Unity Lifecycle
-    // ===================================================================
 
     void Start()
     {
@@ -156,10 +118,6 @@ public class VotingController : MonoBehaviour
         };
     }
 
-    // ===================================================================
-    //  SETUP — Called by GameManager before enabling this GameObject
-    // ===================================================================
-
     public void PrepareForGroupVoting()
     {
         currentPhase = VotingPhase.GroupVoting;
@@ -170,13 +128,9 @@ public class VotingController : MonoBehaviour
         currentPhase = VotingPhase.DMMetricVoting;
     }
 
-    // ===================================================================
-    //  HANDLER / DROP TARGET INITIALISATION
-    // ===================================================================
-
     /// <summary>
-    /// Ensures every group button has a VotingDragHandler, injects controller refs,
-    /// and wires up drop targets.
+    /// Wires every group button's VotingDragHandler with controller references and
+    /// initializes the drop targets.
     /// </summary>
     public void InitializeHandlers()
     {
@@ -189,8 +143,7 @@ public class VotingController : MonoBehaviour
             if (handler == null)
             {
                 Debug.LogWarning(
-                    $"[VotingController] '{btn.name}' has no VotingDragHandler — skipping. " +
-                    "Add the component in the Inspector.");
+                    $"[VotingController] '{btn.name}' has no VotingDragHandler component; skipping.");
                 continue;
             }
 
@@ -218,10 +171,6 @@ public class VotingController : MonoBehaviour
         proxy.slotIndex  = oneBasedSlotIndex;
     }
 
-    // ===================================================================
-    //  UI SETUP
-    // ===================================================================
-
     private void SetupUI()
     {
         ClearAllSelections();
@@ -239,7 +188,7 @@ public class VotingController : MonoBehaviour
                 var label = allGroupButtons[i].GetComponentInChildren<TextMeshProUGUI>();
                 if (label != null) label.text = activeGroups[i].name;
 
-                // Re-cache home positions (in case layout changed)
+                // Re-caches home positions in case the layout has changed.
                 var handler = allGroupButtons[i].GetComponent<VotingDragHandler>();
                 if (handler != null)
                 {
@@ -270,7 +219,6 @@ public class VotingController : MonoBehaviour
         if (secondVoteEmpty != null) secondVoteEmpty.SetActive(true);
         if (thirdVoteEmpty  != null) thirdVoteEmpty.SetActive(groupCount > 2);
 
-        // Show/hide third slot drop target
         if (thirdSlotDropTarget != null)
             thirdSlotDropTarget.gameObject.SetActive(groupCount > 2);
 
@@ -310,13 +258,9 @@ public class VotingController : MonoBehaviour
         }
     }
 
-    // ===================================================================
-    //  VotingDragHandler Callbacks
-    // ===================================================================
-
     /// <summary>
-    /// Called by <see cref="VotingDragHandler"/> on a short click.
-    /// Toggles the card between the grid and the topmost free vote slot.
+    /// Toggles a card between the grid and the topmost free vote slot. Invoked by
+    /// <see cref="VotingDragHandler"/> on a short click.
     /// </summary>
     public void OnGroupClicked(VotingDragHandler handler)
     {
@@ -324,12 +268,10 @@ public class VotingController : MonoBehaviour
 
         if (slotIdx >= 0)
         {
-            // Card is in a slot — return it to the grid.
             MoveToGrid(handler);
         }
         else
         {
-            // Card is in the grid — place it in the first empty slot.
             int emptySlot = FirstEmptySlot();
             if (emptySlot >= 0) MoveToSlot(handler, emptySlot);
         }
@@ -341,8 +283,8 @@ public class VotingController : MonoBehaviour
     public void OnDragBegin(VotingDragHandler handler) { }
 
     /// <summary>
-    /// Called when a drag ends with no valid drop target.
-    /// Snaps the card back to its logical position.
+    /// Snaps the card back to its logical position when a drag ends with no valid
+    /// drop target.
     /// </summary>
     public void ReturnToHome(VotingDragHandler handler)
     {
@@ -352,21 +294,12 @@ public class VotingController : MonoBehaviour
             : handler.homePosition;
     }
 
-    // ===================================================================
-    //  Drop Target Callbacks
-    // ===================================================================
-
     /// <summary>
-    /// Places <paramref name="handler"/> into <paramref name="slotIndex"/> (1-based).
-    ///
-    /// Drop rules (Group Voting — no duplicates allowed):
-    /// • Same slot → snap back.
-    /// • Target occupied, handler from another slot → swap.
-    /// • Target occupied, handler from grid → displace occupant to grid.
-    /// • Target empty → place.
-    ///
-    /// DM Metric Voting allows the same group in both slots, so swaps are
-    /// between clones and originals transparently.
+    /// Places <paramref name="handler"/> into a 1-based <paramref name="slotIndex"/>.
+    /// Group voting forbids duplicates: dropping onto an occupied slot from another
+    /// slot swaps, dropping from the grid displaces the occupant back to the grid.
+    /// DM metric voting allows the same group in both slots and uses clones to
+    /// represent the duplicate.
     /// </summary>
     public void PlaceGroupInSlot(VotingDragHandler handler, int slotIndex)
     {
@@ -375,27 +308,23 @@ public class VotingController : MonoBehaviour
 
         VotingDragHandler targetOccupant = slotOccupants[idx];
 
-        // Dropping on the slot already occupied by this very handler — snap back.
         if (targetOccupant == handler)
         {
             handler.transform.position = GetSlotWorldPosition(idx);
             return;
         }
 
-        // Vacate the handler's current slot before re-assigning.
         if (handlerCurrentSlot >= 0)
             slotOccupants[handlerCurrentSlot] = null;
 
-        // Resolve the target slot's current occupant.
         if (targetOccupant != null)
         {
             if (handlerCurrentSlot >= 0)
-                MoveToSlot(targetOccupant, handlerCurrentSlot); // swap
+                MoveToSlot(targetOccupant, handlerCurrentSlot);
             else
-                MoveToGrid(targetOccupant); // displace to grid
+                MoveToGrid(targetOccupant);
         }
 
-        // Place the dragged card in the target slot.
         MoveToSlot(handler, idx);
 
         UpdatePlaceholders();
@@ -403,8 +332,8 @@ public class VotingController : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns a handler to the grid and clears it from any slot.
-    /// Called by <see cref="VotingGridDropTarget.OnVotingDropped"/>.
+    /// Returns a handler to the grid and clears it from any slot. Invoked by
+    /// <see cref="VotingGridDropTarget.OnVotingDropped"/>.
     /// </summary>
     public void ReturnToGrid(VotingDragHandler handler)
     {
@@ -413,13 +342,8 @@ public class VotingController : MonoBehaviour
         UpdateNextButton();
     }
 
-    // ===================================================================
-    //  State Management
-    // ===================================================================
-
     private void ClearAllSelections()
     {
-        // Destroy any DM clones first
         DestroyAllDMClones();
 
         for (int i = 0; i < slotOccupants.Length; i++)
@@ -435,27 +359,23 @@ public class VotingController : MonoBehaviour
         UpdateNextButton();
     }
 
-    // ---- Low-level move primitives ----
-
     private void MoveToSlot(VotingDragHandler handler, int slotIdx)
     {
         slotOccupants[slotIdx]     = handler;
         handler.transform.position = GetSlotWorldPosition(slotIdx);
 
-        // Attach (or update) a proxy so the card itself is a direct-hit drop target.
+        // Attaches or updates the proxy so the card itself becomes a direct-hit drop target.
         var proxy = handler.gameObject.GetComponent<VotingSlotDropProxy>();
         if (proxy == null) proxy = handler.gameObject.AddComponent<VotingSlotDropProxy>();
         proxy.controller = this;
-        proxy.slotIndex  = slotIdx + 1; // 1-based
+        proxy.slotIndex  = slotIdx + 1;
 
-        // DM mode: spawn a clone at the home position so the same group can be picked again
         if (currentPhase == VotingPhase.DMMetricVoting && !handler.isClone)
             SpawnDMClone(handler);
     }
 
     private void MoveToGrid(VotingDragHandler handler)
     {
-        // Clear from any slot
         for (int i = 0; i < slotOccupants.Length; i++)
             if (slotOccupants[i] == handler) slotOccupants[i] = null;
 
@@ -463,39 +383,32 @@ public class VotingController : MonoBehaviour
         {
             if (handler.isClone)
             {
-                // A clone being returned to the grid should just be destroyed
                 int origIdx = handler.slotIndex;
                 if (dmClones.ContainsKey(origIdx) && dmClones[origIdx] == handler)
                     dmClones.Remove(origIdx);
-                Destroy(handler.gameObject); // proxy destroyed with the object
+                Destroy(handler.gameObject);
                 return;
             }
             else
             {
-                // Original being returned — destroy its clone if one exists
                 DestroyDMClone(handler.slotIndex);
             }
         }
 
         handler.transform.position = handler.homePosition;
 
-        // Remove the slot proxy — card is back in the grid.
         var proxy = handler.gameObject.GetComponent<VotingSlotDropProxy>();
         if (proxy != null) Destroy(proxy);
     }
 
-    // ---- DM Clone Management ----
-
     /// <summary>
-    /// Spawns a clone of the original group button at its home position so
-    /// the DM can pick the same group for the other metric slot.
+    /// Spawns a clone of the original group button at its home position so the DM
+    /// can pick the same group for the other metric slot.
     /// </summary>
     private void SpawnDMClone(VotingDragHandler original)
     {
-        // Don't spawn if a clone already exists for this group
         if (dmClones.ContainsKey(original.slotIndex)) return;
 
-        // Check if original is already occupying both slots (shouldn't happen, but guard)
         GameObject cloneObj = Instantiate(original.gameObject, original.transform.parent);
         cloneObj.name = original.gameObject.name + " (DMClone)";
         cloneObj.transform.position = original.homePosition;
@@ -508,20 +421,18 @@ public class VotingController : MonoBehaviour
 
         dmClones[original.slotIndex] = cloneHandler;
 
-        // The clone is at the grid (homePosition), not in a slot — strip any proxy
-        // that was copied from the original during Instantiate.
+        // Clone starts in the grid; strip any proxy copied from the original.
         var cloneProxy = cloneObj.GetComponent<VotingSlotDropProxy>();
         if (cloneProxy != null) Destroy(cloneProxy);
     }
 
-    /// <summary>Destroys the DM clone for a given slotIndex, if one exists.</summary>
+    /// <summary>Destroys the DM clone for the given slotIndex, if one exists.</summary>
     private void DestroyDMClone(int slotIndex)
     {
         if (!dmClones.ContainsKey(slotIndex)) return;
 
         var clone = dmClones[slotIndex];
 
-        // If the clone is currently in a vote slot, clear it
         for (int i = 0; i < slotOccupants.Length; i++)
             if (slotOccupants[i] == clone) slotOccupants[i] = null;
 
@@ -529,7 +440,7 @@ public class VotingController : MonoBehaviour
         if (clone != null) Destroy(clone.gameObject);
     }
 
-    /// <summary>Destroys all DM clones. Called on clear/reset.</summary>
+    /// <summary>Destroys every DM clone on clear or reset.</summary>
     private void DestroyAllDMClones()
     {
         foreach (var kvp in dmClones)
@@ -543,8 +454,6 @@ public class VotingController : MonoBehaviour
         }
         dmClones.Clear();
     }
-
-    // ---- Query helpers ----
 
     /// <summary>Returns the handler currently occupying the given 0-based slot, or null if empty.</summary>
     public VotingDragHandler GetSlotOccupant(int zeroBasedIdx) =>
@@ -585,8 +494,6 @@ public class VotingController : MonoBehaviour
         return anchor != null ? anchor.position : Vector3.zero;
     }
 
-    // ---- UI refresh ----
-
     private void UpdatePlaceholders()
     {
         if (firstVoteEmpty  != null) firstVoteEmpty.SetActive(slotOccupants[0]  == null);
@@ -609,10 +516,6 @@ public class VotingController : MonoBehaviour
         }
     }
 
-    // ===================================================================
-    //  NEXT BUTTON
-    // ===================================================================
-
     public void Next()
     {
         ApplyVotes();
@@ -622,10 +525,6 @@ public class VotingController : MonoBehaviour
         else
             gameManager.SetState(GameManager.GameState.Scoreboard);
     }
-
-    // ===================================================================
-    //  SCORING
-    // ===================================================================
 
     private void ApplyVotes()
     {
@@ -644,9 +543,9 @@ public class VotingController : MonoBehaviour
                 }
             }
         }
-        else // DM metric voting
+        else
         {
-            // Slot 0 → metric1Score, slot 1 → metric2Score (matches gameManager.selectedMetrics[0/1]).
+            // Slot 0 maps to metric1Score, slot 1 to metric2Score.
             for (int i = 0; i < maxSelections; i++)
             {
                 if (slotOccupants[i] == null) continue;
@@ -666,25 +565,21 @@ public class VotingController : MonoBehaviour
         }
     }
 
-    // ===================================================================
-    //  FINALIZE GROUP VOTING
-    // ===================================================================
-
     /// <summary>
-    /// Ranks groups by their accumulated votingPhasePoints and awards
-    /// the real firstPlacePoints / secondPlacePoints / thirdPlacePoints
-    /// to the top-ranked groups. Resets votingPhasePoints afterwards.
-    /// Called by GameManager after all groups have voted.
+    /// Ranks groups by their accumulated <c>votingPhasePoints</c> and awards the
+    /// configured first/second/third-place points to the top-ranked groups. Resets
+    /// <c>votingPhasePoints</c> afterwards. Invoked by GameManager after all groups
+    /// have voted.
     /// </summary>
     public void FinalizeGroupVoting()
     {
-        // Zero out vote points for any group whose player completed a "Double Agent"-style
-        // Betrayal corruption and was not caught (isAccused == false).
+        // Zero vote points for groups where an uncaught player completed a
+        // vote-sabotaging Betrayal corruption.
         foreach (var group in PlayerManager.groups.Values)
         {
             if (GroupHasCompletedVoteKillingBetrayal(group.id))
             {
-                Debug.Log($"[Betrayal] '{group.name}' had an active vote-sabotage betrayal — resetting their vote points to 0.");
+                Debug.Log($"[Betrayal] '{group.name}' had an active vote-sabotage betrayal; resetting vote points to 0.");
                 group.votingPhasePoints = 0;
             }
         }
@@ -696,43 +591,40 @@ public class VotingController : MonoBehaviour
         int groupCount = rankedGroups.Count;
         if (groupCount == 2)
         {
-            // Only two groups: 1st gets secondPlacePoints, 2nd gets 0
             if (groupCount > 0)
             {
                 AwardVotePoints(rankedGroups[0], secondPlacePoints);
-                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
+                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes, awarded {secondPlacePoints} points");
             }
             if (groupCount > 1)
             {
-                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes — awarded 0 points");
+                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes, awarded 0 points");
             }
         }
         else if (groupCount == 3)
         {
-            // Three groups: 1st gets secondPlacePoints, 2nd gets thirdPlacePoints, 3rd gets 0
             if (groupCount > 0)
             {
                 AwardVotePoints(rankedGroups[0], secondPlacePoints);
-                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes — awarded {secondPlacePoints} points");
+                Debug.Log($"Group '{rankedGroups[0].name}' finished #1 with {rankedGroups[0].votingPhasePoints} local votes, awarded {secondPlacePoints} points");
             }
             if (groupCount > 1)
             {
                 AwardVotePoints(rankedGroups[1], thirdPlacePoints);
-                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes — awarded {thirdPlacePoints} points");
+                Debug.Log($"Group '{rankedGroups[1].name}' finished #2 with {rankedGroups[1].votingPhasePoints} local votes, awarded {thirdPlacePoints} points");
             }
             if (groupCount > 2)
             {
-                Debug.Log($"Group '{rankedGroups[2].name}' finished #3 with {rankedGroups[2].votingPhasePoints} local votes — awarded 0 points");
+                Debug.Log($"Group '{rankedGroups[2].name}' finished #3 with {rankedGroups[2].votingPhasePoints} local votes, awarded 0 points");
             }
         }
         else
         {
-            // Four or more groups: normal scoring
             int[] finalPoints = { firstPlacePoints, secondPlacePoints, thirdPlacePoints };
             for (int i = 0; i < rankedGroups.Count && i < finalPoints.Length; i++)
             {
                 AwardVotePoints(rankedGroups[i], finalPoints[i]);
-                Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes — awarded {finalPoints[i]} points");
+                Debug.Log($"Group '{rankedGroups[i].name}' finished #{i + 1} with {rankedGroups[i].votingPhasePoints} local votes, awarded {finalPoints[i]} points");
             }
         }
 
@@ -741,8 +633,8 @@ public class VotingController : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds <paramref name="points"/> to a group's vote-rank component AND its rolling total,
-    /// so the Scoreboard can break out group-voting points from metric awards.
+    /// Adds <paramref name="points"/> to both the group's vote-rank component and its
+    /// rolling total so the Scoreboard can separate vote points from metric awards.
     /// </summary>
     private static void AwardVotePoints(Group g, int points)
     {
@@ -750,10 +642,6 @@ public class VotingController : MonoBehaviour
         g.voteScore += points;
         g.score     += points;
     }
-
-    // ===================================================================
-    //  HELPERS
-    // ===================================================================
 
     /// <summary>
     /// Returns true when at least one non-accused player in the group has completed a

@@ -4,18 +4,9 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Manages the Topic Selection screen.
-///
-/// Versus is selected by default. Callbacks are registered in Start() — do NOT
-/// also wire them in the Inspector or they will fire twice.
-///
-/// Inspector wiring required:
-///   Toggle Buttons  → versusToggle / scenariosToggle (ToggleButton components)
-///   Topic Display   → bodyText (Body/Text TMP), topicTypeVersusObject / topicTypeScenariosObject
-///                     (GameObjects for the two localized topic-type labels),
-///                     topicIcon (Header/Icon Image), versusIcon + scenariosIcon (Sprites)
-///   Shuffle         → shuffleButton, shuffleCountText (its TMP child)
-///   Confirm         → selectButton
+/// Manages the Topic Selection screen. Versus topics are selected by default.
+/// Button callbacks are registered in <see cref="Start"/> and must not also be wired
+/// in the Inspector.
 /// </summary>
 public class TopicSelectionController : MonoBehaviour
 {
@@ -45,22 +36,15 @@ public class TopicSelectionController : MonoBehaviour
     [Header("Navigation")]
     [SerializeField] private Button selectButton;
 
-    // -------------------- State --------------------
-
     private Topic versusTopic;
     private Topic scenarioTopic;
     private bool versusSelected = true;
     private int shufflesRemaining;
 
-    // ================================================================
-    //  Unity Lifecycle
-    // ================================================================
-
     void Start()
     {
         gameManager = GameManager.Instance;
 
-        // Register callbacks in code — do NOT also wire these in the Inspector.
         versusToggle?.onClick.AddListener(OnVersusClicked);
         scenariosToggle?.onClick.AddListener(OnScenariosClicked);
         if (shuffleButton  != null) shuffleButton.onClick.AddListener(OnShuffleClicked);
@@ -90,10 +74,6 @@ public class TopicSelectionController : MonoBehaviour
         GameManager.OnLanguageChanged -= RefreshUI;
     }
 
-    // ================================================================
-    //  Topic Loading
-    // ================================================================
-
     private void LoadRandomTopics()
     {
         var tm = gameManager.topicManager;
@@ -106,16 +86,11 @@ public class TopicSelectionController : MonoBehaviour
         Debug.Log($"TopicSelection — Versus: {versusTopic?.description}, Scenario: {scenarioTopic?.description}");
     }
 
-    // ================================================================
-    //  UI Refresh
-    // ================================================================
-
     private void RefreshUI()
     {
         versusToggle?.SetToggled(versusSelected);
         scenariosToggle?.SetToggled(!versusSelected);
 
-        // Topic description — use Icelandic text when the game language is Icelandic
         Topic displayed = versusSelected ? versusTopic : scenarioTopic;
         if (bodyText != null)
             bodyText.text = displayed != null ? GetLocalizedDescription(displayed) : "No topic available";
@@ -126,20 +101,14 @@ public class TopicSelectionController : MonoBehaviour
         if (topicIcon != null)
             topicIcon.sprite = versusSelected ? versusIcon : scenariosIcon;
 
-        // Shuffle button
         if (shuffleButton != null)
             shuffleButton.interactable = shufflesRemaining > 0;
         if (shuffleCountText != null)
             shuffleCountText.text = $"x{shufflesRemaining}";
 
-        // Select button disabled when there's no topic to pick
         if (selectButton != null)
             selectButton.interactable = displayed != null;
     }
-
-    // ================================================================
-    //  Button Callbacks  (registered in Start — do NOT wire in Inspector)
-    // ================================================================
 
     public void OnVersusClicked()
     {

@@ -73,8 +73,6 @@ public class TopicDatabase : MonoBehaviour
         return topics;
     }
 
-    // -------------------- Parsing Helpers --------------------
-
     private static bool TryParsePack(string s, out GameManager.Pack pack)
     {
         switch (s.Trim())
@@ -101,10 +99,8 @@ public class TopicDatabase : MonoBehaviour
     private static string Get(string[] fields, int index)
         => index < fields.Length ? fields[index].Trim() : string.Empty;
 
-    // -------------------- CSV Parser --------------------
-    // Handles RFC 4180 ("" escaped quotes) and backslash-escaped quotes (\")
-    // within double-quoted fields, and multiline quoted cells.
-
+    // Handles RFC 4180 escaped quotes (""), backslash-escaped quotes (\"),
+    // and multiline quoted cells.
     private static List<string[]> ParseCSV(string text)
     {
         var rows   = new List<string[]>();
@@ -119,21 +115,18 @@ public class TopicDatabase : MonoBehaviour
 
             if (inQuotes)
             {
-                // Backslash-escaped quote: \"
                 if (c == '\\' && i + 1 < text.Length && text[i + 1] == '"')
                 {
                     cur.Append('"');
                     i += 2;
                     continue;
                 }
-                // RFC 4180 double-quote escape: ""
                 if (c == '"' && i + 1 < text.Length && text[i + 1] == '"')
                 {
                     cur.Append('"');
                     i += 2;
                     continue;
                 }
-                // Closing quote
                 if (c == '"')
                 {
                     inQuotes = false;
@@ -161,7 +154,7 @@ public class TopicDatabase : MonoBehaviour
                 if (c == '\r')
                 {
                     i++;
-                    continue; // skip CR; LF handled below
+                    continue;
                 }
                 if (c == '\n')
                 {
@@ -178,7 +171,6 @@ public class TopicDatabase : MonoBehaviour
             }
         }
 
-        // Flush any trailing content
         if (cur.Length > 0 || fields.Count > 0)
         {
             fields.Add(cur.ToString());

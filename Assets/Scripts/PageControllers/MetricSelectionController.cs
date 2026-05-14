@@ -4,43 +4,11 @@ using System.Collections.Generic;
 using Metric = GameManager.Metric;
 
 /// <summary>
-/// Manages the Metric Selection screen.
-/// The DM selects exactly two metrics to judge players by using either taps/clicks
-/// or drag-and-drop.
-///
-/// Inspector setup
-/// ───────────────
-/// Vote Slots
-///   firstVoteSlot      — Transform whose world position marks where slot-1's card lives.
-///   secondVoteSlot     — Transform whose world position marks where slot-2's card lives.
-///   firstVoteEmpty     — Placeholder GameObject shown when slot 1 is empty.
-///   secondVoteEmpty    — Placeholder GameObject shown when slot 2 is empty.
-///
-/// Drop Targets (each needs an Image + CanvasGroup so raycasts register)
-///   firstSlotDropTarget  — VoteSlotDropTarget on the slot-1 hit area.
-///   secondSlotDropTarget — VoteSlotDropTarget on the slot-2 hit area.
-///   gridDropTarget       — MetricGridDropTarget on the metric grid panel.
-///
-/// Metric Buttons
-///   metricButtons — Array of all five metric card GameObjects.
-///                   Each MUST have a MetricDragHandler with its 'metric' field set.
-///
-/// Navigation
-///   nextButton — Disabled until both slots are filled.
-///   dragLayer  — Top-level RectTransform on the Canvas used to parent drag ghosts.
-///
-/// Migration note
-/// ──────────────
-/// Remove any onClick listeners previously wired to ToggleComedy / ToggleCreativity /
-/// ToggleOnTopic / ToggleFactual / ToggleEnthusiasm — MetricDragHandler now owns
-/// click logic for metric cards.
+/// Manages the Metric Selection screen. The DM selects exactly two metrics, either
+/// via clicks or drag-and-drop, before advancing to AssignPositions.
 /// </summary>
 public class MetricSelectionController : MonoBehaviour
 {
-    // ================================================================
-    //  Inspector References
-    // ================================================================
-
     [Header("Vote Slots")]
     [Tooltip("World-position anchor for the card placed in slot 1.")]
     [SerializeField] private Transform firstVoteSlot;
@@ -55,64 +23,44 @@ public class MetricSelectionController : MonoBehaviour
     [SerializeField] private GameObject secondVoteEmpty;
 
     [Header("Drop Targets")]
-    [Tooltip("VoteSlotDropTarget on the slot-1 hit area. Controller injects itself on Start.")]
     [SerializeField] private VoteSlotDropTarget firstSlotDropTarget;
-
-    [Tooltip("VoteSlotDropTarget on the slot-2 hit area. Controller injects itself on Start.")]
     [SerializeField] private VoteSlotDropTarget secondSlotDropTarget;
-
-    [Tooltip("MetricGridDropTarget on the metric grid panel. Controller injects itself on Start.")]
     [SerializeField] private MetricGridDropTarget gridDropTarget;
 
     [Header("Metric Buttons")]
-    [Tooltip("All five metric card GameObjects. Each must have a MetricDragHandler with 'metric' set.")]
+    [Tooltip("All five metric card GameObjects. Each needs a MetricDragHandler with its 'metric' field set.")]
     [SerializeField] private GameObject[] metricButtons;
 
     [Header("Navigation")]
     [Tooltip("Disabled until both vote slots contain a metric card.")]
     [SerializeField] private Button nextButton;
 
-    [Tooltip("Top-level RectTransform on the Canvas; used to parent drag ghosts above all UI.")]
+    [Tooltip("Top-level RectTransform on the Canvas used to parent drag ghosts above all UI.")]
     public RectTransform dragLayer;
-
-    // ================================================================
-    //  Runtime State
-    // ================================================================
 
     private GameManager gameManager;
 
     /// <summary>
-    /// slotOccupants[0] = handler in vote slot 1, slotOccupants[1] = handler in vote slot 2.
-    /// null means the slot is empty.
+    /// Indices 0 and 1 hold the handlers occupying vote slots 1 and 2. A null entry
+    /// means the slot is empty.
     /// </summary>
     private readonly MetricDragHandler[] slotOccupants = new MetricDragHandler[2];
 
-    /// <summary>True once Start() has run and handlers have been initialised.</summary>
     private bool isInitialized;
-
-    // ================================================================
-    //  Unity Lifecycle
-    // ================================================================
 
     void Start()
     {
         gameManager = GameManager.Instance;
         InitializeHandlers();
         isInitialized = true;
-        ClearAllSelections(); // set initial UI state after homePositions are cached
+        ClearAllSelections();
     }
 
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
-        // Start() will call ClearAllSelections on the very first enable;
-        // only do it ourselves for subsequent re-enables.
         if (isInitialized) ClearAllSelections();
     }
-
-    // ================================================================
-    //  Navigation  (wire to buttons in the Inspector)
-    // ================================================================
 
     /// <summary>Commits the two selected metrics and advances to AssignPositions.</summary>
     public void Next()
@@ -128,13 +76,9 @@ public class MetricSelectionController : MonoBehaviour
         gameManager.SetState(GameManager.GameState.TopicSelection);
     }
 
-    // ================================================================
-    //  MetricDragHandler Callbacks
-    // ================================================================
-
     /// <summary>
-    /// Called by <see cref="MetricDragHandler"/> when a short press-release is detected.
-    /// Toggles the card between the grid and the topmost free vote slot.
+    /// Toggles the card between the grid and the topmost free vote slot. Invoked by
+    /// <see cref="MetricDragHandler"/> on a short press-release.
     /// </summary>
     public void OnMetricClicked(MetricDragHandler handler)
     {
@@ -142,30 +86,22 @@ public class MetricSelectionController : MonoBehaviour
 
         if (slotIdx >= 0)
         {
-            // Card is in a slot — return it to the grid.
             MoveToGrid(handler);
         }
         else
         {
-            // Card is in the grid — place it in the first empty slot.
             int emptySlot = FirstEmptySlot();
             if (emptySlot >= 0) MoveToSlot(handler, emptySlot);
-            // Both slots full: ignore the click.
         }
 
         UpdatePlaceholders();
         UpdateNextButton();
     }
 
-    /// <summary>
-    /// Called by <see cref="MetricDragHandler"/> when a drag begins.
-    /// Currently a no-op; reserved for future drag-begin side effects (e.g. sound).
-    /// </summary>
     public void OnDragBegin(MetricDragHandler handler) { }
 
     /// <summary>
-    /// Called by <see cref="MetricDragHandler"/> when a drag ends with no valid drop target.
-    /// Snaps the card back to its logical position (slot or grid) without changing state.
+    /// Snaps the card back to its logical position when a drag ends with no valid drop target.
     /// </summary>
     public void ReturnToHome(MetricDragHandler handler)
     {
@@ -175,51 +111,37 @@ public class MetricSelectionController : MonoBehaviour
             : handler.homePosition;
     }
 
-    // ================================================================
-    //  Drop Target Callbacks  (called by VoteSlotDropTarget / MetricGridDropTarget)
-    // ================================================================
-
     /// <summary>
-    /// Places <paramref name="handler"/> into <paramref name="slotIndex"/> (1-based).
-    ///
-    /// Drop rules
-    /// ──────────
-    /// • Dropping on the same slot the card already occupies — snap back, no change.
-    /// • Target slot occupied, card came from the OTHER slot — swap the two cards.
-    /// • Target slot occupied, card came from the grid       — displace the occupant to the grid.
-    /// • Target slot empty                                   — place the card there.
+    /// Places <paramref name="handler"/> into a 1-based <paramref name="slotIndex"/>.
+    /// Dropping on the slot the card already occupies snaps it back; dropping on the
+    /// other occupied slot swaps the two cards; dropping from the grid on an occupied
+    /// slot displaces the occupant back to the grid.
     /// </summary>
     public void PlaceMetricInSlot(MetricDragHandler handler, int slotIndex)
     {
-        int idx      = slotIndex - 1; // convert to 0-based
+        int idx      = slotIndex - 1;
         int otherIdx = 1 - idx;
 
-        MetricDragHandler targetOccupant   = slotOccupants[idx];
-        int               handlerCurrentSlot = IndexOf(handler); // -1 if in the grid
+        MetricDragHandler targetOccupant     = slotOccupants[idx];
+        int               handlerCurrentSlot = IndexOf(handler);
 
-        // Dropping on the slot already occupied by this very card — just snap back.
         if (targetOccupant == handler)
         {
             handler.transform.position = GetSlotWorldPosition(idx);
             return;
         }
 
-        // Vacate the handler's current slot (if it was in one) BEFORE re-assigning.
         if (handlerCurrentSlot >= 0)
             slotOccupants[handlerCurrentSlot] = null;
 
-        // Resolve the target slot's current occupant.
         if (targetOccupant != null)
         {
             if (handlerCurrentSlot == otherIdx)
-                // Swap: send the displaced card to the slot the handler just left.
                 MoveToSlot(targetOccupant, otherIdx);
             else
-                // Handler came from the grid: return the occupant to the grid.
                 MoveToGrid(targetOccupant);
         }
 
-        // Place the dragged card in the target slot.
         MoveToSlot(handler, idx);
 
         UpdatePlaceholders();
@@ -227,8 +149,8 @@ public class MetricSelectionController : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns <paramref name="handler"/> to its grid home position and clears it from
-    /// any slot it occupied.  Called by <see cref="MetricGridDropTarget.OnMetricDropped"/>.
+    /// Returns the handler to its grid home position and clears it from any slot.
+    /// Invoked by <see cref="MetricGridDropTarget.OnMetricDropped"/>.
     /// </summary>
     public void ReturnToGrid(MetricDragHandler handler)
     {
@@ -237,17 +159,10 @@ public class MetricSelectionController : MonoBehaviour
         UpdateNextButton();
     }
 
-    // ================================================================
-    //  Initialisation
-    // ================================================================
-
     /// <summary>
-    /// For each entry in <see cref="metricButtons"/>:
-    ///   1. Ensures a <see cref="MetricDragHandler"/> component is present.
-    ///   2. Injects this controller reference.
-    ///   3. Caches the card's current world position as its <c>homePosition</c>.
-    ///
-    /// Also injects this controller into the three drop-target MonoBehaviours.
+    /// Wires every metric button's MetricDragHandler with this controller and caches
+    /// each card's world position as its home position. Also injects this controller
+    /// into the slot and grid drop targets.
     /// </summary>
     public void InitializeHandlers()
     {
@@ -261,8 +176,7 @@ public class MetricSelectionController : MonoBehaviour
                 if (handler == null)
                 {
                     Debug.LogWarning(
-                        $"[MetricSelectionController] '{btnObj.name}' has no MetricDragHandler — skipping. " +
-                        "Add the component and set its 'metric' field.");
+                        $"[MetricSelectionController] '{btnObj.name}' has no MetricDragHandler component; skipping.");
                     continue;
                 }
 
@@ -275,9 +189,8 @@ public class MetricSelectionController : MonoBehaviour
         if (secondSlotDropTarget != null) { secondSlotDropTarget.controller = this; secondSlotDropTarget.slotIndex = 2; }
         if (gridDropTarget       != null)   gridDropTarget.controller       = this;
 
-        // Attach a proxy to each empty-slot placeholder so it acts as a direct-hit drop
-        // target when the slot is vacant. The proxy stays on the object permanently;
-        // it is harmless when the placeholder is inactive (raycasts ignore inactive objects).
+        // Empty-slot placeholders carry a permanent proxy so they act as direct-hit
+        // drop targets when active; raycasts ignore them while inactive.
         SetupPlaceholderProxy(firstVoteEmpty,  1);
         SetupPlaceholderProxy(secondVoteEmpty, 2);
     }
@@ -291,11 +204,7 @@ public class MetricSelectionController : MonoBehaviour
         proxy.slotIndex  = oneBasedSlotIndex;
     }
 
-    // ================================================================
-    //  State Management
-    // ================================================================
-
-    /// <summary>Returns all selected metrics to the grid and clears both vote slots.</summary>
+    /// <summary>Returns every selected metric to the grid and clears both vote slots.</summary>
     private void ClearAllSelections()
     {
         for (int i = 0; i < slotOccupants.Length; i++)
@@ -307,19 +216,17 @@ public class MetricSelectionController : MonoBehaviour
         UpdateNextButton();
     }
 
-    // ---- Low-level move primitives (intentionally do not call UI updates) ----
-
     private void MoveToSlot(MetricDragHandler handler, int slotIdx)
     {
         slotOccupants[slotIdx]     = handler;
         handler.transform.position = GetSlotWorldPosition(slotIdx);
 
-        // Attach (or update) a proxy so the card itself is a direct-hit drop target
-        // while it occupies this slot.
+        // Attaches or updates the proxy so the card is a direct-hit drop target while
+        // occupying this slot.
         var proxy = handler.gameObject.GetComponent<MetricSlotDropProxy>();
         if (proxy == null) proxy = handler.gameObject.AddComponent<MetricSlotDropProxy>();
         proxy.controller = this;
-        proxy.slotIndex  = slotIdx + 1; // 1-based
+        proxy.slotIndex  = slotIdx + 1;
     }
 
     private void MoveToGrid(MetricDragHandler handler)
@@ -329,12 +236,9 @@ public class MetricSelectionController : MonoBehaviour
 
         handler.transform.position = handler.homePosition;
 
-        // Remove the slot proxy — card is back in the grid and no longer a drop target.
         var proxy = handler.gameObject.GetComponent<MetricSlotDropProxy>();
         if (proxy != null) Destroy(proxy);
     }
-
-    // ---- Query helpers ----
 
     /// <summary>Returns the handler currently occupying the given 0-based slot, or null if empty.</summary>
     public MetricDragHandler GetSlotOccupant(int zeroBasedIdx) =>
@@ -370,8 +274,6 @@ public class MetricSelectionController : MonoBehaviour
         Transform anchor = slotIdx == 0 ? firstVoteSlot : secondVoteSlot;
         return anchor != null ? anchor.position : Vector3.zero;
     }
-
-    // ---- UI refresh ----
 
     private void UpdatePlaceholders()
     {

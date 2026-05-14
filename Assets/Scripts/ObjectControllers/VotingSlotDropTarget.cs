@@ -2,17 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Attach to each vote-slot area GameObject on the Voting screen (the region
-/// the player drags a group card onto).
-///
-/// Setup checklist
-/// ───────────────
-/// • The GameObject needs an Image (or any raycast-receiving Graphic) so the
-///   EventSystem detects pointer hits.
-/// • A CanvasGroup is kept for legacy compat but is no longer used for highlighting.
-/// • Set <see cref="slotIndex"/> to 1, 2, or 3 directly in the Inspector,
-///   OR let <see cref="VotingController.InitializeHandlers"/> inject it.
-/// • <see cref="controller"/> is injected automatically by the controller.
+/// Drop target attached to each vote-slot region on the Voting screen. Requires a
+/// raycast-receiving Graphic on the GameObject. <see cref="slotIndex"/> identifies
+/// which slot the target represents; <see cref="controller"/> is injected by
+/// <see cref="VotingController.InitializeHandlers"/>.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
 public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
@@ -21,7 +14,6 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
     [Tooltip("Which vote slot this represents (1 = first, 2 = second, 3 = third).")]
     public int slotIndex = 1;
 
-    /// <summary>Set automatically by <see cref="VotingController.InitializeHandlers"/>.</summary>
     [HideInInspector] public VotingController controller;
 
     private static readonly Color SlotHoverTint = new Color(0.8f, 0.95f, 1f);
@@ -36,13 +28,13 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
 
         if (occupant != null && occupant != dragHandler)
         {
-            // Slot is occupied by a different card — tint it to show it will be displaced.
+            // Slot occupied by a different card; tint it to indicate displacement.
             highlightedOccupant = occupant;
             highlightedOccupant.SetDisplacedVisual(true);
         }
         else if (occupant == null)
         {
-            // Slot is empty — tint the placeholder so it lights up as a drop target.
+            // Slot empty; tint the placeholder to light it up as a drop target.
             var placeholder = controller?.GetSlotEmptyPlaceholder(slotIndex - 1);
             if (placeholder != null)
             {
@@ -70,8 +62,8 @@ public class VotingSlotDropTarget : MonoBehaviour, IVotingDropTarget
 
     public void OnVotingDropped(VotingDragHandler dragHandler)
     {
-        // OnDragHoverExit was already called by VotingDragHandler.ClearHover; call again
-        // defensively so visuals are always reset before the state change.
+        // Defensive: ClearHover already invoked this, but the second call guarantees
+        // visuals are reset before the state change.
         OnDragHoverExit();
         controller?.PlaceGroupInSlot(dragHandler, slotIndex);
     }

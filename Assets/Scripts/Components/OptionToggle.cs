@@ -2,10 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Three-button radio-style toggle. Exactly one option is "selected" at a time;
-/// a highlight Image lerps to whichever button is currently chosen. Each option fires
-/// its own <see cref="UnityEvent"/> on selection. Defaults to option 2 (middle) on Start.
-/// Used for things like seriousness-level pickers in <c>SettingsController</c>.
+/// Three-button radio-style toggle. Exactly one option is selected at a time;
+/// a highlight Image lerps to the chosen button. Each option fires its own
+/// <see cref="UnityEvent"/> on selection. Defaults to option 2 (middle) on Start.
 /// </summary>
 public class OptionToggle : MonoBehaviour
 {
@@ -45,7 +44,6 @@ public class OptionToggle : MonoBehaviour
 
     void Start()
     {
-        // Default to option 2 selected (middle option)
         currentSelectedButton = option2Button;
         MoveHighlightInstantly(currentSelectedButton);
     }
@@ -55,7 +53,7 @@ public class OptionToggle : MonoBehaviour
         if (highlightRect == null || currentSelectedButton == null)
             return;
 
-        // Keep tracking selected button position in UI space so it follows ScrollRect movement.
+        // Tracks selected button position in UI space to follow ScrollRect movement.
         highlightTargetAnchoredPosition = GetTargetAnchoredPosition(currentSelectedButton);
         highlightRect.anchoredPosition = Vector2.Lerp(
             highlightRect.anchoredPosition,
@@ -91,8 +89,6 @@ public class OptionToggle : MonoBehaviour
         highlightTargetAnchoredPosition = GetTargetAnchoredPosition(currentSelectedButton);
     }
 
-    // -------------------- Button Logic --------------------
-
     public void Option1()
     {
         if (currentSelectedButton == option1Button) return;
@@ -116,8 +112,6 @@ public class OptionToggle : MonoBehaviour
         UpdateHighlightTargetToSelected();
         onOption3Selected?.Invoke();
     }
-
-    // -------------------- Helpers --------------------
 
     private void MoveHighlightInstantly(GameObject target)
     {

@@ -8,32 +8,13 @@ using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 /// <summary>
-/// Discussion-Moderator screen shown after every non-DM player has seen their corruption.
-/// Owns three responsibilities:
-///
-///   1. <b>Group turn order &amp; card display</b> — one card per group is displayed at a time,
-///      sliding in from the right (with bounce) when Stop is pressed or the timer expires.
-///      The last group silently enables the Next button instead of animating.
-///   2. <b>Timer</b> — three always-visible buttons (Play / Pause / Stop) act as mutually-
-///      exclusive toggles via Unity's Selected animator state. Stop is toggled by default
-///      (between-rounds state). During the slide animation the timer display rewinds
-///      back to MaxTime simultaneously.
-///   3. <b>Corruption card layout</b> — same three-panel slide system as before:
-///      Active, Inactive, and Accusation panels on a horizontal <see cref="slideTrack"/>.
-///
-/// Inspector wiring required:
-///   Topic Display   → topicTypeVersus, topicTypeScenario, topicDescriptionText, topicTypeIcon, versusSprite, scenarioSprite
-///   Group Card      → groupCardArea (RectTransform parent), groupCardPrefab, slideInCurve
-///   Timer           → timerText, playToggle, pauseToggle, stopToggle (ToggleButton), nextButton
-///   Objectives      → objectivesContainer, slideTrack, activeObjectiveContainer,
-///                     inactiveObjectiveContainer, corruptionPrefab
+/// Discussion-Moderator screen shown after every non-DM player has seen their
+/// corruption. Owns the group turn order and card display, the per-group timer
+/// (Play, Pause, Stop as mutually exclusive toggles), and the three-panel objective
+/// slide layout (Active, Inactive, Accusation).
 /// </summary>
 public class DMDisplayController : MonoBehaviour
 {
-    // ===================================================================
-    //  Inspector References
-    // ===================================================================
-
     private GameManager gameManager;
     private PlayerManager PlayerManager => gameManager.playerManager;
     private CorruptionManager CorruptionManager => gameManager.corruptionManager;
@@ -55,33 +36,31 @@ public class DMDisplayController : MonoBehaviour
     [SerializeField] private GameObject groupCardPrefab;
     [Tooltip("Duration of the card slide-in animation in seconds.")]
     [SerializeField] private float slideDuration = 0.45f;
-    [Tooltip("Curve for the incoming card (x = time 0-1, y = position fraction 0-1). " +
-             "Overshoot y past 1.0 to produce a bounce/settle effect. Configured with a default bounce if left empty.")]
+    [Tooltip("Curve for the incoming card. Overshoot y past 1.0 for a bounce/settle effect; a default bounce is used if empty.")]
     [SerializeField] private AnimationCurve slideInCurve;
-    [Tooltip("Pixels the old card exits to the left (and the new card enters from the right). " +
-             "Set to roughly the card's canvas-unit width so it slides cleanly off-screen.")]
+    [Tooltip("Pixels the old card exits to the left and the new card enters from the right.")]
     [SerializeField] private float groupCardSlideDistance = 1200f;
 
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI timerText;
-    [Tooltip("Always visible. Toggled on while timer is running.")]
+    [Tooltip("Toggled on while the timer is running.")]
     [SerializeField] private ToggleButton playToggle;
-    [Tooltip("Always visible. Toggled on while timer is paused. Has no effect between rounds.")]
+    [Tooltip("Toggled on while the timer is paused.")]
     [SerializeField] private ToggleButton pauseToggle;
-    [Tooltip("Always visible. Toggled on by default (between rounds). Pressing it while Running or Paused advances to the next group.")]
+    [Tooltip("Toggled on between rounds. Pressing it while Running or Paused advances to the next group.")]
     [SerializeField] private ToggleButton stopToggle;
-    [Tooltip("Hidden until all groups have presented. Wire onClick to ProceedToVoting().")]
+    [Tooltip("Hidden until all groups have presented.")]
     [SerializeField] private GameObject nextButton;
     [SerializeField] private float timerDuration = 60f;
 
     [Header("Objective Containers")]
-    [Tooltip("RectTransform owned by the VerticalLayoutGroup — do NOT slide this directly.")]
+    [Tooltip("RectTransform owned by the parent VerticalLayoutGroup; do not slide directly.")]
     [SerializeField] private RectTransform objectivesContainer;
-    [Tooltip("Inner RectTransform that slides horizontally between Accusation / Active / Inactive panels.")]
+    [Tooltip("Inner RectTransform that slides horizontally between the Accusation, Active, and Inactive panels.")]
     [SerializeField] private RectTransform slideTrack;
-    [Tooltip("Active panel: Speech(current group) + Interruption(all other groups).")]
+    [Tooltip("Active panel: Speech for the current group plus Interruption for the others.")]
     [SerializeField] private Transform activeObjectiveContainer;
-    [Tooltip("Inactive panel: Speech(all other groups) + Interruption(current group).")]
+    [Tooltip("Inactive panel: Speech for the other groups plus Interruption for the current group.")]
     [SerializeField] private Transform inactiveObjectiveContainer;
     [SerializeField] private GameObject corruptionPrefab;
     [SerializeField] private GameObject noCorruptionsPrefab;
@@ -90,10 +69,6 @@ public class DMDisplayController : MonoBehaviour
     [Tooltip("Pixels the slide track shifts per panel (left = Inactive, right = Accusation).")]
     [SerializeField] private float objectivesSlideOffset = 800f;
     [SerializeField] private float objectivesSlideSpeed = 8f;
-
-    // ===================================================================
-    //  Private State
-    // ===================================================================
 
     private enum TimerState { Stopped, Running, Paused, AllGroupsDone }
     private TimerState currentTimerState = TimerState.Stopped;
@@ -114,10 +89,6 @@ public class DMDisplayController : MonoBehaviour
     private Vector2 defaultAnchoredPos;
     private Vector2 targetAnchoredPos;
 
-    // ===================================================================
-    //  Unity Lifecycle
-    // ===================================================================
-
     void Awake()
     {
         if (slideTrack != null)
@@ -131,18 +102,17 @@ public class DMDisplayController : MonoBehaviour
 
         if (groupCardArea != null)
         {
-            // A LayoutGroup on groupCardArea overrides anchoredPosition every frame, breaking
-            // the slide animation. Disable it automatically and warn so it can be removed.
+            // A LayoutGroup on groupCardArea overrides anchoredPosition every frame and
+            // breaks the slide animation; it is disabled at runtime with a warning.
             var lg = groupCardArea.GetComponent<LayoutGroup>();
             if (lg != null)
             {
                 lg.enabled = false;
-                Debug.LogWarning("DMDisplay: groupCardArea has a LayoutGroup — it has been disabled at runtime. " +
-                                 "Remove it from the scene to clean this up.");
+                Debug.LogWarning("DMDisplay: groupCardArea has a LayoutGroup; disabled at runtime. Remove it from the scene to clean this up.");
             }
 
-            // RectMask2D clips cards to the groupCardArea bounds so the horizontal slide
-            // animation is visible even inside the scroll view's masked viewport.
+            // RectMask2D clips the cards to the groupCardArea bounds so the horizontal
+            // slide stays inside the scroll view's masked viewport.
             if (groupCardArea.GetComponent<RectMask2D>() == null)
                 groupCardArea.gameObject.AddComponent<RectMask2D>();
         }
@@ -179,10 +149,6 @@ public class DMDisplayController : MonoBehaviour
         );
     }
 
-    // ===================================================================
-    //  Initialization
-    // ===================================================================
-
     private void InitializeDisplay()
     {
         isTransitioning = false;
@@ -217,9 +183,9 @@ public class DMDisplayController : MonoBehaviour
 
     private void DisplayActiveTopic()
     {
-        // Description is still set at runtime, so its LocalizeStringEvent must stay disabled.
-        // The Versus / Scenario type labels each have their own LocalizeStringEvent and are now
-        // selected by toggling the correct GameObject — no override needed.
+        // Description text is set at runtime so its LocalizeStringEvent stays disabled.
+        // The Versus and Scenario type labels each own their own LocalizeStringEvent and
+        // are selected by toggling the GameObject active.
         DisableLocalizer(topicDescriptionText);
 
         Topic topic = TopicManager.currentTopic;
@@ -262,10 +228,6 @@ public class DMDisplayController : MonoBehaviour
         if (loc != null) loc.enabled = false;
     }
 
-    // ===================================================================
-    //  Turn Order
-    // ===================================================================
-
     private void DetermineGroupTurnOrder()
     {
         groupTurnOrder = PlayerManager.groups.Values
@@ -274,13 +236,10 @@ public class DMDisplayController : MonoBehaviour
         Debug.Log($"DMDisplay: {groupTurnOrder.Count} group(s) in turn order.");
     }
 
-    // ===================================================================
-    //  Group Cards
-    // ===================================================================
-
     /// <summary>
-    /// Instantiates a group card for <paramref name="group"/>, stretches it to fill
-    /// <see cref="groupCardArea"/>, then populates position text, group name, and player rows.
+    /// Instantiates a group card for <paramref name="group"/>, stretches it across
+    /// <see cref="groupCardArea"/>, and populates the position label, group name, and
+    /// player rows.
     /// </summary>
     private GameObject BuildGroupCard(Group group)
     {
@@ -291,9 +250,9 @@ public class DMDisplayController : MonoBehaviour
         var rt = card.GetComponent<RectTransform>();
         if (rt != null)
         {
-            // X: stretch across the full parent width (enables anchoredPosition.x slide).
-            // Y: top-anchored so ContentSizeFitter can set sizeDelta.y = actual content height.
-            //    Full-stretch on Y would make the card's height = parent height, preventing resize.
+            // X stretches the full parent width to enable the horizontal slide.
+            // Y is top-anchored so ContentSizeFitter can resize the card to its
+            // actual content height; a full Y stretch would force the parent height.
             rt.anchorMin        = new Vector2(0f, 1f);
             rt.anchorMax        = new Vector2(1f, 1f);
             rt.pivot            = new Vector2(0.5f, 1f);
@@ -301,7 +260,7 @@ public class DMDisplayController : MonoBehaviour
             rt.anchoredPosition = Vector2.zero;
         }
 
-        // Position text — disable the prefab's hardcoded LocalizeStringEvent so we can set it dynamically.
+        // Position text is set dynamically, so the prefab's LocalizeStringEvent is disabled.
         Transform headerTextTransform = card.transform.Find("Header/Text");
         if (headerTextTransform != null)
         {
@@ -311,14 +270,12 @@ public class DMDisplayController : MonoBehaviour
             if (tmp != null) tmp.text = PositionLabel(group.position);
         }
 
-        // Group name
         var groupNameTmp = FindTMP(card, "Content/Group Name");
         if (groupNameTmp != null) groupNameTmp.text = group.name;
 
-        // Player name rows — use the prefab's existing field for the first player,
-        // then instantiate copies for each additional player.
-        // A LayoutElement is added to each row so the parent VLG (childControlHeight=0)
-        // can correctly measure row heights when computing the card's total preferred height.
+        // Reuses the prefab's first player-name field, then clones it per extra player.
+        // A LayoutElement on each row supplies a preferred height so the parent
+        // VerticalLayoutGroup (childControlHeight=0) measures the card correctly.
         Transform firstField = card.transform.Find("Content/Player Name Field");
         if (firstField != null)
         {
@@ -330,7 +287,6 @@ public class DMDisplayController : MonoBehaviour
                 EnsureLayoutElementHeight(firstField.gameObject, fieldHeight);
                 for (int i = 1; i < players.Count; i++)
                 {
-                    // Instantiate clones the LayoutElement, so preferredHeight is already set.
                     GameObject copy = Instantiate(firstField.gameObject, firstField.parent);
                     SetPlayerNameField(copy.transform, players[i].name);
                 }
@@ -360,14 +316,10 @@ public class DMDisplayController : MonoBehaviour
     private static string PositionLabel(GameManager.Position pos)
         => pos == GameManager.Position.For ? "For" : "Against";
 
-    // ===================================================================
-    //  Timer — Button Callbacks  (wire each Button's onClick in Inspector)
-    // ===================================================================
-
     /// <summary>
-    /// Starts the timer from full duration (Stopped) or resumes it from the paused time (Paused).
-    /// Has no effect between rounds while transitioning, when already Running, or when all groups are done.
-    /// Wire to the Play button's onClick event.
+    /// Starts the timer from full duration when Stopped, or resumes from the paused
+    /// time when Paused. Ignored while transitioning, already Running, or once all
+    /// groups have presented.
     /// </summary>
     public void OnPlayPressed()
     {
@@ -384,9 +336,7 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Pauses the running timer. Has no effect between rounds (Stopped) or when all groups are done —
-    /// the button stays un-toggled and clickable but is intentionally a no-op in those states.
-    /// Wire to the Pause button's onClick event.
+    /// Pauses the running timer. No-op in the Stopped or AllGroupsDone states.
     /// </summary>
     public void OnPausePressed()
     {
@@ -399,10 +349,9 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Ends the current group's turn and advances to the next, triggering the slide animation
-    /// and timer rewind. Has no effect while transitioning, when already Stopped, or when all
-    /// groups are done.
-    /// Wire to the Stop button's onClick event.
+    /// Ends the current group's turn and advances to the next, triggering the slide
+    /// animation and timer rewind. Ignored while transitioning, already Stopped, or
+    /// once all groups have presented.
     /// </summary>
     public void OnStopPressed()
     {
@@ -415,10 +364,6 @@ public class DMDisplayController : MonoBehaviour
             AdvanceToNextGroup();
         }
     }
-
-    // ===================================================================
-    //  Timer — Internal
-    // ===================================================================
 
     private void StartTimer()
     {
@@ -461,9 +406,9 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Slides the current group card out to the left while the next slides in from the right
-    /// (with bounce). The timer display rewinds back to MaxTime simultaneously.
-    /// After the animation the corruption objectives are redistributed for the new group.
+    /// Slides the current group card out to the left while the next card slides in
+    /// from the right. The timer display rewinds to MaxTime over the same interval.
+    /// After the animation, corruption objectives are redistributed for the new group.
     /// </summary>
     private IEnumerator SlideInNextGroup(int nextIndex)
     {
@@ -471,8 +416,8 @@ public class DMDisplayController : MonoBehaviour
         currentTimerState = TimerState.Stopped;
         SelectToggle(stopToggle);
 
-        // Use the card area's live width so cards slide exactly one panel-width and stay
-        // within the RectMask2D boundary rather than starting outside the masked viewport.
+        // The live card-area width keeps each slide exactly one panel wide and within
+        // the RectMask2D boundary.
         float slideWidth = groupCardArea != null && groupCardArea.rect.width > 0f
             ? groupCardArea.rect.width
             : groupCardSlideDistance;
@@ -503,14 +448,12 @@ public class DMDisplayController : MonoBehaviour
                 0f
             );
 
-            // Rewind timer display while the card slides in
             timeRemaining = Mathf.Lerp(startTimeRemaining, timerDuration, t);
             UpdateTimerText(timeRemaining);
 
             yield return null;
         }
 
-        // Settle
         if (currentGroupCard != null) Destroy(currentGroupCard);
         currentGroupCard       = newCard;
         newRT.anchoredPosition = Vector2.zero;
@@ -528,8 +471,8 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the card's preferred height. Two rebuild passes are used because TMP text
-    /// components may defer their size calculation to the second pass.
+    /// Returns the card's preferred height. Two rebuild passes are used because TMP
+    /// text components may defer their size calculation to the second pass.
     /// </summary>
     private float MeasureCardHeight(RectTransform cardRT)
     {
@@ -540,9 +483,8 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets groupCardArea's height directly via sizeDelta.y (groupCardArea uses fixed-point
-    /// anchors so sizeDelta.y IS the absolute height), then rebuilds the scroll content so
-    /// the parent VLG re-stacks all children at the new size.
+    /// Sets the group-card-area height via sizeDelta.y and rebuilds the scroll content
+    /// so the parent VerticalLayoutGroup re-stacks at the new size.
     /// </summary>
     private void ApplyGroupCardAreaHeight(float height)
     {
@@ -589,21 +531,16 @@ public class DMDisplayController : MonoBehaviour
         stopToggle?.SetToggled(active == stopToggle);
     }
 
-    /// <summary>Advances from the DM screen to the Voting sequence. Wire to the Next button's onClick.</summary>
+    /// <summary>Advances from the DM screen to the Voting sequence.</summary>
     public void ProceedToVoting()
     {
         Debug.Log("DMDisplay: Proceeding to Voting.");
         gameManager.StartVotingSequence();
     }
 
-    // ===================================================================
-    //  Corruption Cards
-    // ===================================================================
-
     /// <summary>
-    /// Instantiates one CorruptionCardController per non-DM player that has a Speech or
-    /// Interruption corruption and stores references in the tracking dictionaries.
-    /// Betrayal corruptions are intentionally omitted from the DM screen.
+    /// Instantiates one CorruptionCardController per non-DM player with a Speech or
+    /// Interruption corruption. Betrayal corruptions are omitted from the DM screen.
     /// </summary>
     private void InstantiateCorruptionCards()
     {
@@ -679,9 +616,9 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Re-parents all corruption cards for the current group.
-    ///   Active   = Speech(current group)  + Interruption(other groups)
-    ///   Inactive = Speech(other groups)   + Interruption(current group)
+    /// Re-parents corruption cards for the current group. The Active panel shows the
+    /// current group's Speech plus the other groups' Interruption cards; the Inactive
+    /// panel shows the inverse.
     /// </summary>
     private void DistributeCardsForCurrentGroup()
     {
@@ -763,10 +700,6 @@ public class DMDisplayController : MonoBehaviour
             DestroyImmediate(container.GetChild(i).gameObject);
     }
 
-    // ===================================================================
-    //  Objectives Slide  (wire each to its Button's onClick in Inspector)
-    // ===================================================================
-
     /// <summary>Slides the objective track to show the Active (centre) panel.</summary>
     public void ShowActiveObjectives()   => targetAnchoredPos = defaultAnchoredPos;
 
@@ -782,20 +715,12 @@ public class DMDisplayController : MonoBehaviour
         if (slideTrack != null) slideTrack.anchoredPosition = defaultAnchoredPos;
     }
 
-    // ===================================================================
-    //  Layout Rebuild
-    // ===================================================================
-
     private void ForceObjectiveLayoutRebuild()
     {
         if (activeObjectiveContainer   is RectTransform ar) LayoutRebuilder.ForceRebuildLayoutImmediate(ar);
         if (inactiveObjectiveContainer is RectTransform ir) LayoutRebuilder.ForceRebuildLayoutImmediate(ir);
         if (objectivesContainer != null)                     LayoutRebuilder.ForceRebuildLayoutImmediate(objectivesContainer);
     }
-
-    // ===================================================================
-    //  Helpers
-    // ===================================================================
 
     private TextMeshProUGUI FindTMP(GameObject root, string path)
     {
@@ -804,8 +729,8 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Builds a default slide-in curve with a slight overshoot and settle (cassette-snap feel).
-    /// Used when no curve is configured in the Inspector.
+    /// Builds a default slide-in curve with a slight overshoot and settle, used when
+    /// no curve is configured in the Inspector.
     /// </summary>
     private static AnimationCurve BuildDefaultBounceCurve()
     {

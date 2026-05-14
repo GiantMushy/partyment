@@ -82,8 +82,6 @@ public class CorruptionDatabase : MonoBehaviour
         return objectives;
     }
 
-    // -------------------- Parsing Helpers --------------------
-
     private static bool TryParseCorruptionType(string s, out GameManager.CorruptionType type)
     {
         switch (s.Trim())
@@ -98,10 +96,8 @@ public class CorruptionDatabase : MonoBehaviour
     private static string Get(string[] fields, int index)
         => index < fields.Length ? fields[index].Trim() : string.Empty;
 
-    // -------------------- CSV Parser --------------------
-    // Handles RFC 4180 ("" escaped quotes) and backslash-escaped quotes (\")
-    // within double-quoted fields, and multiline quoted cells.
-
+    // Handles RFC 4180 escaped quotes (""), backslash-escaped quotes (\"),
+    // and multiline quoted cells.
     private static List<string[]> ParseCSV(string text)
     {
         var rows   = new List<string[]>();

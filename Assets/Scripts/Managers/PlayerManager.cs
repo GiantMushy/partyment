@@ -9,38 +9,37 @@ public class Player
     public string name;
 
     /// <summary>
-    /// Personal running score for the CURRENT round.
-    /// Includes: +corruption completed, +stolen via accusation, −penalty from incorrect accusation,
-    /// −points lost when correctly accused. Group score is tracked separately on the Group object.
-    /// Reset to 0 by <see cref="PlayerManager.CommitRoundScores"/> at the end of each round.
+    /// Personal running score for the current round. Combines corruption completed,
+    /// stolen via accusation, penalty from incorrect accusation, and points lost when
+    /// correctly accused. Reset by <see cref="PlayerManager.CommitRoundScores"/>.
     /// </summary>
     public int score = 0;
 
     /// <summary>
-    /// Corruption earned this round via the toggle. Never decreased by accusations, so it
-    /// can be displayed as the gross "Corruption Score" bar on the Scoreboard. Reset on round commit.
+    /// Gross corruption earned this round via the toggle. Not decreased by accusations
+    /// so the Scoreboard can display it as the corruption bar. Reset on round commit.
     /// </summary>
     public int roundCorruptionScore = 0;
 
-    public int stolenScore = 0;  // Points earned by successfully accusing another player (per-round, reset on commit)
-    public int penaltyScore = 0; // Points lost from incorrect accusations (per-round, reset on commit)
+    public int stolenScore = 0;
+    public int penaltyScore = 0;
 
     /// <summary>
-    /// Sum of all *committed* prior rounds' net earnings (group + corruption + stolen − penalty − accusedLoss).
-    /// Used as the animation start point for the Scoreboard in rounds 2+.
+    /// Committed net earnings from all prior rounds. Used as the Scoreboard's
+    /// animation start point from round 2 onward.
     /// </summary>
     public int oldScore = 0;
 
-    public int group_id = -1; // -1 means unassigned
-    public int corruptionId = -1; // ID of the assigned corruption, -1 if none
-    public bool hasAccused = false; // True once this player has made an accusation this round
-    public bool isAccused = false;  // True once this player has been successfully accused this round
+    public int group_id = -1;
+    public int corruptionId = -1;
+    public bool hasAccused = false;
+    public bool isAccused = false;
 }
 
 /// <summary>
-/// One debate group. Players reference their group by <see cref="id"/>; the DM is NOT in
-/// any group. <see cref="score"/> and <see cref="votingPhasePoints"/> are per-round values —
-/// reset by <see cref="PlayerManager.CommitRoundScores"/>.
+/// A debate group. Players reference their group by <see cref="id"/>; the DM is not a
+/// member of any group. Per-round score fields are reset by
+/// <see cref="PlayerManager.CommitRoundScores"/>.
 /// </summary>
 [System.Serializable]
 public class Group
@@ -49,38 +48,32 @@ public class Group
     public string name = "";
 
     /// <summary>
-    /// Total round score for this group. Always equal to <c>voteScore + metric1Score + metric2Score</c>;
-    /// kept as a stand-alone field so existing code paths (commit, queries) need no changes.
+    /// Total round score for this group. Equals <c>voteScore + metric1Score + metric2Score</c>.
     /// </summary>
     public int score = 0;
 
-    /// <summary>Points earned this round from the group-voting phase ranking (1st/2nd/3rd place).</summary>
+    /// <summary>Points from the group-voting phase ranking (1st/2nd/3rd place).</summary>
     public int voteScore = 0;
 
-    /// <summary>Points awarded by the DM for the FIRST chosen metric this round.</summary>
+    /// <summary>Points awarded by the DM for the first chosen metric this round.</summary>
     public int metric1Score = 0;
 
-    /// <summary>Points awarded by the DM for the SECOND chosen metric this round.</summary>
+    /// <summary>Points awarded by the DM for the second chosen metric this round.</summary>
     public int metric2Score = 0;
 
-    public GameManager.Position position; // For or Against
-    public int corruptionId = -1; // ID of the assigned corruption, -1 if none
-    public int votingPhasePoints = 0; // Accumulated local vote points during the voting phase
+    public GameManager.Position position;
+    public int corruptionId = -1;
+    public int votingPhasePoints = 0;
 }
 
 /// <summary>
-/// Owns the game's <see cref="Player"/> and <see cref="Group"/> dictionaries. The DM is
-/// always the player with the lowest ID unless explicitly overridden via <see cref="dmId"/>.
-///
-/// Score model: every score field on Player and Group is per-round and zeroed by
-/// <see cref="CommitRoundScores"/> at the end of each round; the only field that
-/// accumulates across rounds is <see cref="Player.oldScore"/>. See CLAUDE.md → Scoring
-/// for the full breakdown and the helper methods that keep <c>score</c> /
-/// <c>roundCorruptionScore</c> / <c>stolenScore</c> / <c>penaltyScore</c> consistent.
-///
-/// Always mutate scores through the helper methods (<see cref="AddRoundCorruptionScore"/>,
-/// <see cref="AddStolenScore"/>, <see cref="AddPenaltyScore"/>) — bypassing them desyncs
-/// the breakdown bars on the Scoreboard.
+/// Owns the game's <see cref="Player"/> and <see cref="Group"/> dictionaries. The DM
+/// defaults to the player with the lowest ID unless overridden via <see cref="dmId"/>.
+/// Every score field on Player and Group is per-round and reset by
+/// <see cref="CommitRoundScores"/>; only <see cref="Player.oldScore"/> accumulates
+/// across rounds. Score mutations go through <see cref="AddRoundCorruptionScore"/>,
+/// <see cref="AddStolenScore"/>, and <see cref="AddPenaltyScore"/> to keep the
+/// breakdown bars on the Scoreboard in sync.
 /// </summary>
 public class PlayerManager : MonoBehaviour
 {
@@ -105,8 +98,6 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField, Tooltip("Visible representation of groups in the Inspector")]
     private List<Group> groupsList = new List<Group>();
-
-    // -------------------- Player Management --------------------
 
     public void AddPlayer(int id, string name)
     {
@@ -148,8 +139,6 @@ public class PlayerManager : MonoBehaviour
             Debug.LogWarning($"Player with ID {id} does not exist.");
         }
     }
-
-    // -------------------- Group Management --------------------
 
     public Group CreateGroup(string name = "")
     {
@@ -205,8 +194,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // -------------------- Query Functions --------------------
-
     public List<Player> GetPlayersWithGroupId(int groupId)
     {
         return players.Values.Where(p => p.group_id == groupId).ToList();
@@ -255,9 +242,7 @@ public class PlayerManager : MonoBehaviour
         return -1;
     }
 
-    // -------------------- Score Manipulation --------------------
-
-    /// <summary>Adds <paramref name="amount"/> to the player's regular score.</summary>
+    /// <summary>Adds <paramref name="amount"/> to the player's score.</summary>
     public void AddScore(int playerId, int amount)
     {
         if (!players.ContainsKey(playerId)) { Debug.LogWarning($"AddScore: Player {playerId} not found."); return; }
@@ -265,7 +250,7 @@ public class PlayerManager : MonoBehaviour
         SyncPlayersList();
     }
 
-    /// <summary>Subtracts <paramref name="amount"/> from the player's regular score (can go negative).</summary>
+    /// <summary>Subtracts <paramref name="amount"/> from the player's score; may go negative.</summary>
     public void SubtractScore(int playerId, int amount)
     {
         if (!players.ContainsKey(playerId)) { Debug.LogWarning($"SubtractScore: Player {playerId} not found."); return; }
@@ -274,8 +259,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds <paramref name="amount"/> to BOTH the player's <c>roundCorruptionScore</c> and total <c>score</c>.
-    /// Use when the player completes their corruption (toggle on).
+    /// Adds <paramref name="amount"/> to both <c>roundCorruptionScore</c> and total
+    /// <c>score</c>. Called when a player toggles their corruption on.
     /// </summary>
     public void AddRoundCorruptionScore(int playerId, int amount)
     {
@@ -286,8 +271,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Subtracts <paramref name="amount"/> from BOTH the player's <c>roundCorruptionScore</c> and total <c>score</c>.
-    /// Use when the player un-toggles their corruption (toggle off).
+    /// Subtracts <paramref name="amount"/> from both <c>roundCorruptionScore</c> and
+    /// total <c>score</c>. Called when a player toggles their corruption off.
     /// </summary>
     public void SubtractRoundCorruptionScore(int playerId, int amount)
     {
@@ -298,9 +283,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Records <paramref name="amount"/> as stolen points for <paramref name="accusingPlayerId"/> and
-    /// adds them to that player's regular score. Does NOT deduct from the accused player — call
-    /// <see cref="SubtractScore"/> separately on the accused player before calling this.
+    /// Records <paramref name="amount"/> as stolen points for the accusing player and
+    /// adds them to that player's score. Does not deduct from the accused player;
+    /// <see cref="SubtractScore"/> must be called separately on the accused player.
     /// </summary>
     public void AddStolenScore(int accusingPlayerId, int amount)
     {
@@ -322,8 +307,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Records <paramref name="amount"/> as a penalty for <paramref name="playerId"/> (incorrect accusation)
-    /// and deducts it from their score.
+    /// Records <paramref name="amount"/> as a penalty for an incorrect accusation and
+    /// deducts it from the player's score.
     /// </summary>
     public void AddPenaltyScore(int playerId, int amount)
     {
@@ -334,14 +319,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Folds the current round's earnings into each player's <c>oldScore</c> and resets all
-    /// per-round counters (player score / roundCorruptionScore / stolenScore / penaltyScore,
-    /// and each Group.score / votingPhasePoints). Call once per round, AFTER the Scoreboard
-    /// is dismissed and BEFORE the new round's setup begins.
+    /// Folds the current round's earnings into each player's <c>oldScore</c> and resets
+    /// all per-round counters on both players and groups. Called once per round, after
+    /// the Scoreboard is dismissed and before the next round's setup begins.
     /// </summary>
     public void CommitRoundScores()
     {
-        // Per-player: roll up this round's net into oldScore, then zero out per-round fields.
         foreach (var p in players.Values)
         {
             int groupScore = (p.group_id >= 0 && groups.ContainsKey(p.group_id)) ? groups[p.group_id].score : 0;
@@ -353,7 +336,6 @@ public class PlayerManager : MonoBehaviour
             p.penaltyScore         = 0;
         }
 
-        // Per-group: reset accumulator fields (including the breakdown components).
         foreach (var g in groups.Values)
         {
             g.score             = 0;
@@ -367,8 +349,6 @@ public class PlayerManager : MonoBehaviour
         SyncGroupsList();
         Debug.Log("Round scores committed to oldScore; per-round counters reset.");
     }
-
-    // -------------------- Dev Mode --------------------
 
     public void InitializeDevModePlayers()
     {
@@ -409,8 +389,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Wipes ALL score state on every player and group — both per-round counters and
-    /// committed <c>oldScore</c>. Call when starting a brand-new game.
+    /// Wipes all score state on every player and group, including the committed
+    /// <c>oldScore</c>. Called when starting a new game.
     /// </summary>
     public void ResetAllScores()
     {
@@ -435,7 +415,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("All player and group scores reset for new game.");
     }
 
-    /// <summary>Clears per-round accusation flags. Call at the start of each new round.</summary>
+    /// <summary>Clears per-round accusation flags at the start of a new round.</summary>
     public void ResetAccusations()
     {
         foreach (var player in players.Values)

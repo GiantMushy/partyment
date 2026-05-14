@@ -2,45 +2,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Attach to each vote-slot area GameObject (the region the DM drags a metric card onto).
-///
-/// Setup checklist
-/// ───────────────
-/// • The GameObject needs an Image (or any raycast-receiving Graphic) so the
-///   EventSystem detects pointer hits.
-/// • A CanvasGroup is kept for legacy compat but is no longer used for highlighting.
-/// • Set <see cref="slotIndex"/> to 1 for the first slot and 2 for the second
-///   directly in the Inspector, OR let <see cref="MetricSelectionController"/>
-///   inject it via <c>InitializeHandlers()</c>.
-/// • <see cref="controller"/> is injected automatically by the controller.
+/// Drop target attached to each vote-slot region on the metric-selection screen.
+/// Requires a raycast-receiving Graphic on the GameObject. <see cref="slotIndex"/>
+/// identifies which slot the target represents; <see cref="controller"/> is injected
+/// by <see cref="MetricSelectionController.InitializeHandlers"/>.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
 public class VoteSlotDropTarget : MonoBehaviour, IMetricDropTarget
 {
-    // ---- Inspector ----
-
     /// <summary>1 = first vote slot, 2 = second vote slot.</summary>
     [Tooltip("Which vote slot this represents (1 = first, 2 = second).")]
     public int slotIndex = 1;
 
-    // ---- Injected by MetricSelectionController ----
-
-    /// <summary>Set automatically by <see cref="MetricSelectionController.InitializeHandlers"/>.</summary>
     [HideInInspector] public MetricSelectionController controller;
 
-    // ---- Constants ----
-
     private static readonly Color SlotHoverTint = new Color(0.8f, 0.95f, 1f);
-
-    // ---- State ----
 
     private MetricDragHandler highlightedOccupant;
     private Image             highlightedPlaceholder;
     private Color             placeholderOriginalColor;
-
-    // ================================================================
-    //  IMetricDropTarget
-    // ================================================================
 
     public void OnDragHoverEnter(MetricDragHandler dragHandler)
     {
@@ -48,13 +28,13 @@ public class VoteSlotDropTarget : MonoBehaviour, IMetricDropTarget
 
         if (occupant != null && occupant != dragHandler)
         {
-            // Slot is occupied by a different card — tint it to show it will be displaced.
+            // Slot occupied by a different card; tint it to indicate displacement.
             highlightedOccupant = occupant;
             highlightedOccupant.SetDisplacedVisual(true);
         }
         else if (occupant == null)
         {
-            // Slot is empty — tint the placeholder so it lights up as a drop target.
+            // Slot empty; tint the placeholder to light it up as a drop target.
             var placeholder = controller?.GetSlotEmptyPlaceholder(slotIndex - 1);
             if (placeholder != null)
             {
@@ -82,8 +62,8 @@ public class VoteSlotDropTarget : MonoBehaviour, IMetricDropTarget
 
     public void OnMetricDropped(MetricDragHandler dragHandler)
     {
-        // OnDragHoverExit was already called by MetricDragHandler.ClearHover; call again
-        // defensively so visuals are always reset before the state change.
+        // Defensive: ClearHover already invoked this, but the second call guarantees
+        // visuals are reset before the state change.
         OnDragHoverExit();
         controller?.PlaceMetricInSlot(dragHandler, slotIndex);
     }
