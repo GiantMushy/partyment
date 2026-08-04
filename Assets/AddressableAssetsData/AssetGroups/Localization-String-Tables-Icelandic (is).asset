@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Icelandic (is)
   m_GUID: 65e37d32ef36f4e2b9d61510998806c6
   m_SerializeEntries:
+  - m_GUID: 37bf57fbf8c356d48bbb873f7e90a433
+    m_Address: Gametext_is
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-is
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 556d820fc72da4cf29deecbedcf748ac
     m_Address: GametextReal_is
     m_ReadOnly: 1
