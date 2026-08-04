@@ -5,6 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Player-name registration screen for local play. Players are added one at a time via
+/// the input field at the top of a scrollable list; each accepted name becomes a row
+/// with its own inline edit field and delete button. Names are clamped to
+/// <see cref="MaxNameLength"/> characters and the player count is bounded by
+/// <see cref="PlayerManager.maxPlayers"/>. The Next button stays disabled until at
+/// least three players are registered and no duplicate-name errors are active.
+/// </summary>
 public class StartLocalGameController : MonoBehaviour
 {
     [Header("References")]
@@ -12,6 +20,8 @@ public class StartLocalGameController : MonoBehaviour
     private PlayerManager PlayerManager => gameManager.playerManager;
     [SerializeField] private GameObject nameInputParent;
     [SerializeField] private Button nextButton;
+    [SerializeField] private GameObject instructionsDisplay;
+    [SerializeField] private GameObject errorDisplay;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject playerEntryPrefab;
@@ -19,10 +29,14 @@ public class StartLocalGameController : MonoBehaviour
     [Header("Input")]
     [SerializeField] private TMP_InputField defaultInputField;
 
+    private const int MaxNameLength = 12;
+    private const int DefaultInputSentinelId = -1;
+
     private int maxPlayers;
     private Dictionary<int, GameObject> playerEntries = new Dictionary<int, GameObject>();
     private int nextPlayerId = 0;
     private Transform scrollContent;
+    private HashSet<int> playerIdsWithDuplicateError = new HashSet<int>();
 
     private int PlayerCount => PlayerManager.players.Count;
 
@@ -30,6 +44,8 @@ public class StartLocalGameController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         scrollContent = defaultInputField.transform.parent;
+        defaultInputField.characterLimit = MaxNameLength;
+        defaultInputField.onValueChanged.AddListener(OnDefaultInputValueChanged);
         defaultInputField.onEndEdit.AddListener(OnDefaultInputEndEdit);
         maxPlayers = PlayerManager.maxPlayers;
     }
@@ -48,8 +64,6 @@ public class StartLocalGameController : MonoBehaviour
         RefreshDisplayFromPlayerManager();
     }
 
-    // -------------------- Button Logic --------------------
-
     public void Next()
     {
         Debug.Log("Assign Groups Next Button Pressed");
@@ -62,14 +76,29 @@ public class StartLocalGameController : MonoBehaviour
         gameManager.SetState(GameManager.GameState.LocalVsOnline);
     }
 
-    // -------------------- Name Input Logic --------------------
+    private void OnDefaultInputValueChanged(string value)
+    {
+        bool isDup = !string.IsNullOrWhiteSpace(value) && IsDuplicateName(ClampName(value));
+        SetDuplicateError(DefaultInputSentinelId, isDup);
+    }
 
     private void OnDefaultInputEndEdit(string inputText)
     {
-        if (string.IsNullOrWhiteSpace(inputText) || PlayerCount >= maxPlayers)
+        if (string.IsNullOrWhiteSpace(inputText))
+        {
+            SetDuplicateError(DefaultInputSentinelId, false);
+            return;
+        }
+
+        if (PlayerCount >= maxPlayers)
             return;
 
-        AddPlayer(inputText);
+        string clamped = ClampName(inputText);
+        if (IsDuplicateName(clamped))
+            return;
+
+        SetDuplicateError(DefaultInputSentinelId, false);
+        AddPlayer(clamped);
         defaultInputField.text = "";
 
         if (PlayerCount < maxPlayers)
@@ -99,7 +128,9 @@ public class StartLocalGameController : MonoBehaviour
         TMP_InputField entryInputField = entry.GetComponentInChildren<TMP_InputField>();
         if (entryInputField != null)
         {
+            entryInputField.characterLimit = MaxNameLength;
             entryInputField.text = playerName;
+            entryInputField.onValueChanged.AddListener((newText) => OnPlayerNameValueChanged(playerId, newText));
             entryInputField.onEndEdit.AddListener((newText) => OnPlayerNameEdited(playerId, newText));
         }
 
@@ -108,6 +139,12 @@ public class StartLocalGameController : MonoBehaviour
         {
             kickButton.onClick.AddListener(() => DeletePlayer(playerId));
         }
+    }
+
+    private void OnPlayerNameValueChanged(int playerId, string newText)
+    {
+        bool isDup = !string.IsNullOrWhiteSpace(newText) && IsDuplicateName(ClampName(newText), excludePlayerId: playerId);
+        SetDuplicateError(playerId, isDup);
     }
 
     private void OnPlayerNameEdited(int playerId, string newName)
@@ -121,8 +158,13 @@ public class StartLocalGameController : MonoBehaviour
             return;
         }
 
-        PlayerManager.players[playerId].name = newName;
-        Debug.Log($"Player {playerId} name updated to: {newName}");
+        string clamped = ClampName(newName);
+        if (IsDuplicateName(clamped, excludePlayerId: playerId))
+            return;
+
+        PlayerManager.players[playerId].name = clamped;
+        SetDuplicateError(playerId, false);
+        Debug.Log($"Player {playerId} name updated to: {clamped}");
     }
 
     private void DeletePlayer(int playerId)
@@ -138,6 +180,8 @@ public class StartLocalGameController : MonoBehaviour
             playerEntries.Remove(playerId);
         }
 
+        SetDuplicateError(playerId, false);
+
         if (PlayerCount < maxPlayers)
             defaultInputField.gameObject.SetActive(true);
 
@@ -150,6 +194,9 @@ public class StartLocalGameController : MonoBehaviour
         foreach (var entry in playerEntries.Values)
             Destroy(entry);
         playerEntries.Clear();
+
+        playerIdsWithDuplicateError.Clear();
+        RefreshErrorUI();
 
         if (defaultInputField != null)
             defaultInputField.gameObject.SetActive(true);
@@ -189,15 +236,53 @@ public class StartLocalGameController : MonoBehaviour
         }
     }
 
+    private bool IsDuplicateName(string name, int excludePlayerId = -1)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return false;
+        foreach (var kvp in PlayerManager.players)
+        {
+            if (kvp.Key == excludePlayerId) continue;
+            if (string.Equals(kvp.Value.name, name, System.StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        return false;
+    }
+
+    private void SetDuplicateError(int sourceId, bool hasError)
+    {
+        if (hasError)
+            playerIdsWithDuplicateError.Add(sourceId);
+        else
+            playerIdsWithDuplicateError.Remove(sourceId);
+        RefreshErrorUI();
+    }
+
+    private void RefreshErrorUI()
+    {
+        bool anyError = playerIdsWithDuplicateError.Count > 0;
+        if (instructionsDisplay != null) instructionsDisplay.SetActive(!anyError);
+        if (errorDisplay != null) errorDisplay.SetActive(anyError);
+        UpdateNextButtonState();
+    }
+
     private void UpdateNextButtonState()
     {
         if (nextButton != null)
-            nextButton.interactable = PlayerCount >= 3;
+            nextButton.interactable = PlayerCount >= 3 && playerIdsWithDuplicateError.Count == 0;
+    }
+
+    private static string ClampName(string name)
+    {
+        name = name.Trim();
+        return name.Length > MaxNameLength ? name[..MaxNameLength] : name;
     }
 
     void OnDestroy()
     {
         if (defaultInputField != null)
+        {
+            defaultInputField.onValueChanged.RemoveListener(OnDefaultInputValueChanged);
             defaultInputField.onEndEdit.RemoveListener(OnDefaultInputEndEdit);
+        }
     }
 }

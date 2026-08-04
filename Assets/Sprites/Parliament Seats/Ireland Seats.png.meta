@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 656c0f9b51e0eb34a9aeac832d1929ae
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7917103683369571939
+    second: Ireland Seats_0
+  - first:
+      213: -6712311110612048729
+    second: Ireland Seats_1
+  - first:
+      213: -8976313769773630208
+    second: Ireland Seats_2
+  - first:
+      213: -4676496365845052595
+    second: Ireland Seats_3
+  - first:
+      213: 841287020541175984
+    second: Ireland Seats_4
+  - first:
+      213: -4800583438418908737
+    second: Ireland Seats_5
+  - first:
+      213: -6816633423558074145
+    second: Ireland Seats_6
+  - first:
+      213: 7780443431734690330
+    second: Ireland Seats_7
+  - first:
+      213: -1052058551333393657
+    second: Ireland Seats_8
+  - first:
+      213: 3523191800038275545
+    second: Ireland Seats_9
+  - first:
+      213: 3834820569144750911
+    second: Ireland Seats_10
+  - first:
+      213: 4557887579507571236
+    second: Ireland Seats_11
+  - first:
+      213: 7388667069688987102
+    second: Ireland Seats_12
+  - first:
+      213: -1851791098661653557
+    second: Ireland Seats_13
+  - first:
+      213: -6910389367192628801
+    second: Ireland Seats_14
+  - first:
+      213: -5877926075349593183
+    second: Ireland Seats_15
+  - first:
+      213: 5959026582412717627
+    second: Ireland Seats_16
+  - first:
+      213: 6607364013613522254
+    second: Ireland Seats_17
+  - first:
+      213: 6425356655323294156
+    second: Ireland Seats_18
+  - first:
+      213: 5966542962381532684
+    second: Ireland Seats_19
+  - first:
+      213: 5840056079389725838
+    second: Ireland Seats_20
+  - first:
+      213: 2888072138626239792
+    second: Ireland Seats_21
+  - first:
+      213: 4619693464973256798
+    second: Ireland Seats_22
+  - first:
+      213: -7963879742348965666
+    second: Ireland Seats_23
+  - first:
+      213: -6101437560096644944
+    second: Ireland Seats_24
+  - first:
+      213: -7591040215223532046
+    second: Ireland Seats_25
+  - first:
+      213: -4947736881484043035
+    second: Ireland Seats_26
+  - first:
+      213: 484081289034288338
+    second: Ireland Seats_27
+  - first:
+      213: -8028957430711672122
+    second: Ireland Seats_28
+  - first:
+      213: 7800995350639034911
+    second: Ireland Seats_29
+  - first:
+      213: -7999915743204258040
+    second: Ireland Seats_30
+  - first:
+      213: -673210076448668669
+    second: Ireland Seats_31
+  - first:
+      213: 8924584559165642656
+    second: Ireland Seats_32
+  - first:
+      213: 3577212486844633440
+    second: Ireland Seats_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ireland Seats_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 371
+        width: 21
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99e1d6852cc02290800000000000000
+      internalID: -7917103683369571939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 371
+        width: 22
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a4af06bb9419d2a0800000000000000
+      internalID: -6712311110612048729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 371
+        width: 22
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00df1385f2abd6380800000000000000
+      internalID: -8976313769773630208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 371
+        width: 22
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d438668155fb91fb0800000000000000
+      internalID: -4676496365845052595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 371
+        width: 22
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8e08d761adcab00800000000000000
+      internalID: 841287020541175984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_5
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 371
+        width: 22
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9ea6e1cc6e06db0800000000000000
+      internalID: -4800583438418908737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 77
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd024c074047661a0800000000000000
+      internalID: -6816633423558074145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_7
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 93
+        width: 70
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12419f1410b9fb60800000000000000
+      internalID: 7780443431734690330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 113
+        width: 62
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b6cd452565661f0800000000000000
+      internalID: -1052058551333393657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_9
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 132
+        width: 54
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9b9d48644e4e030800000000000000
+      internalID: 3523191800038275545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_10
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 152
+        width: 46
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33fb396df4083530800000000000000
+      internalID: 3834820569144750911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_11
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 172
+        width: 38
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42ab6b6da9ed04f30800000000000000
+      internalID: 4557887579507571236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_12
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 192
+        width: 30
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd30749d81d98660800000000000000
+      internalID: 7388667069688987102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_13
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 167
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc3ba069ecd1d46e0800000000000000
+      internalID: -1851791098661653557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_14
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 167
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1d8dcbb7d5910a0800000000000000
+      internalID: -6910389367192628801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_15
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 191
+        width: 30
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a318c680696d6ea0800000000000000
+      internalID: -5877926075349593183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_16
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 172
+        width: 38
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ee1dbba17b2b250800000000000000
+      internalID: 5959026582412717627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 152
+        width: 46
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d1225209212bb50800000000000000
+      internalID: 6607364013613522254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_18
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 132
+        width: 54
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9acb3c5d37b2950800000000000000
+      internalID: 6425356655323294156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_19
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 112
+        width: 62
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0eabd1563b6dc250800000000000000
+      internalID: 5966542962381532684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_20
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 92
+        width: 71
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e849260ff0c0c0150800000000000000
+      internalID: 5840056079389725838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_21
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 72
+        width: 78
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d0584fe4e741820800000000000000
+      internalID: 2888072138626239792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_22
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 111
+        width: 74
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58aceeeab27c1040800000000000000
+      internalID: 4619693464973256798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 139
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed84c5b919d9a7190800000000000000
+      internalID: -7963879742348965666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_24
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 139
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0a63badd6535ba0800000000000000
+      internalID: -6101437560096644944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_25
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 111
+        width: 73
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f585efa42537a690800000000000000
+      internalID: -7591040215223532046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_26
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 27
+        width: 133
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec6b01458b165bb0800000000000000
+      internalID: -4947736881484043035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 55
+        width: 113
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc4d4b1e5dc7b600800000000000000
+      internalID: 484081289034288338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_28
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 83
+        width: 94
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2a2b981c9639090800000000000000
+      internalID: -8028957430711672122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_29
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 83
+        width: 93
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f124051a0f3b24c60800000000000000
+      internalID: 7800995350639034911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_30
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 55
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f414554079af090800000000000000
+      internalID: -7999915743204258040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_31
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 27
+        width: 133
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3044016900748a6f0800000000000000
+      internalID: -673210076448668669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_32
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 153
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a711014f5e7adb70800000000000000
+      internalID: 8924584559165642656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ireland Seats_33
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 153
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061577ccdcfc4a130800000000000000
+      internalID: 3577212486844633440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ireland Seats_0: -7917103683369571939
+      Ireland Seats_1: -6712311110612048729
+      Ireland Seats_10: 3834820569144750911
+      Ireland Seats_11: 4557887579507571236
+      Ireland Seats_12: 7388667069688987102
+      Ireland Seats_13: -1851791098661653557
+      Ireland Seats_14: -6910389367192628801
+      Ireland Seats_15: -5877926075349593183
+      Ireland Seats_16: 5959026582412717627
+      Ireland Seats_17: 6607364013613522254
+      Ireland Seats_18: 6425356655323294156
+      Ireland Seats_19: 5966542962381532684
+      Ireland Seats_2: -8976313769773630208
+      Ireland Seats_20: 5840056079389725838
+      Ireland Seats_21: 2888072138626239792
+      Ireland Seats_22: 4619693464973256798
+      Ireland Seats_23: -7963879742348965666
+      Ireland Seats_24: -6101437560096644944
+      Ireland Seats_25: -7591040215223532046
+      Ireland Seats_26: -4947736881484043035
+      Ireland Seats_27: 484081289034288338
+      Ireland Seats_28: -8028957430711672122
+      Ireland Seats_29: 7800995350639034911
+      Ireland Seats_3: -4676496365845052595
+      Ireland Seats_30: -7999915743204258040
+      Ireland Seats_31: -673210076448668669
+      Ireland Seats_32: 8924584559165642656
+      Ireland Seats_33: 3577212486844633440
+      Ireland Seats_4: 841287020541175984
+      Ireland Seats_5: -4800583438418908737
+      Ireland Seats_6: -6816633423558074145
+      Ireland Seats_7: 7780443431734690330
+      Ireland Seats_8: -1052058551333393657
+      Ireland Seats_9: 3523191800038275545
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

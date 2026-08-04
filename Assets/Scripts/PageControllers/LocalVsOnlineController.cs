@@ -1,10 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Three-button picker (Local / Online / Back) shown after Pack Selection.
+/// Routes to <see cref="GameManager.GameState.StartLocalGame"/> or
+/// <see cref="GameManager.GameState.HostVsJoin"/>.
+/// </summary>
 public class LocalVsOnlineController : MonoBehaviour
 {
     private GameManager gameManager;
 
-    // Awake is called when the script instance is being loaded
     void Start()
     {
         gameManager = GameManager.Instance;

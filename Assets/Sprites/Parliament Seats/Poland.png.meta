@@ -1,0 +1,2782 @@
+fileFormatVersion: 2
+guid: e9d02accbfcf14864ac6ef9dada6f4e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3420012292497237727
+    second: Poland_0
+  - first:
+      213: 623844927367556478
+    second: Poland_1
+  - first:
+      213: 9109887980596157874
+    second: Poland_2
+  - first:
+      213: -2300847081702763039
+    second: Poland_3
+  - first:
+      213: -4731153413317111725
+    second: Poland_4
+  - first:
+      213: 2677515395568551541
+    second: Poland_5
+  - first:
+      213: 1485509385655382442
+    second: Poland_6
+  - first:
+      213: -5316864347384412380
+    second: Poland_7
+  - first:
+      213: 52399122057418797
+    second: Poland_8
+  - first:
+      213: 4651543359890368202
+    second: Poland_9
+  - first:
+      213: -3847513223139614229
+    second: Poland_10
+  - first:
+      213: -1477662799417702735
+    second: Poland_11
+  - first:
+      213: 576112512455987264
+    second: Poland_12
+  - first:
+      213: 5705256405899881151
+    second: Poland_13
+  - first:
+      213: 7215685345475286841
+    second: Poland_14
+  - first:
+      213: -4421556353233958131
+    second: Poland_15
+  - first:
+      213: -522406162528046122
+    second: Poland_16
+  - first:
+      213: 1964448260372699639
+    second: Poland_17
+  - first:
+      213: -8819677734073996585
+    second: Poland_18
+  - first:
+      213: -4084143486972535033
+    second: Poland_19
+  - first:
+      213: -8567025702751353060
+    second: Poland_20
+  - first:
+      213: 6899619060000067917
+    second: Poland_21
+  - first:
+      213: 1261611691471044780
+    second: Poland_22
+  - first:
+      213: -4228005795373284623
+    second: Poland_23
+  - first:
+      213: -2872640439967720220
+    second: Poland_24
+  - first:
+      213: -7513108576812684193
+    second: Poland_25
+  - first:
+      213: -84474071948419988
+    second: Poland_26
+  - first:
+      213: -3638824119327219791
+    second: Poland_27
+  - first:
+      213: 3293213383007109105
+    second: Poland_28
+  - first:
+      213: -5700914887225031597
+    second: Poland_29
+  - first:
+      213: -3407669339638630527
+    second: Poland_30
+  - first:
+      213: 6477937545853422408
+    second: Poland_31
+  - first:
+      213: 978437440227659361
+    second: Poland_32
+  - first:
+      213: 1509297970053731588
+    second: Poland_33
+  - first:
+      213: -6102792387850976744
+    second: Poland_34
+  - first:
+      213: 4263490598479300269
+    second: Poland_35
+  - first:
+      213: 1847987236870709960
+    second: Poland_36
+  - first:
+      213: -107053276368694959
+    second: Poland_37
+  - first:
+      213: 7831392816925070210
+    second: Poland_38
+  - first:
+      213: 2975172182887421664
+    second: Poland_39
+  - first:
+      213: -7094794635199283609
+    second: Poland_40
+  - first:
+      213: -2218169114810089989
+    second: Poland_41
+  - first:
+      213: -7283939934116758877
+    second: Poland_42
+  - first:
+      213: 1507406398585561795
+    second: Poland_43
+  - first:
+      213: -2127897932814830649
+    second: Poland_44
+  - first:
+      213: -5419025468472424543
+    second: Poland_45
+  - first:
+      213: 6819044627029747411
+    second: Poland_46
+  - first:
+      213: 6414163917062914552
+    second: Poland_47
+  - first:
+      213: 913108990775039809
+    second: Poland_48
+  - first:
+      213: -9126845687466289657
+    second: Poland_49
+  - first:
+      213: -429730623113767658
+    second: Poland_50
+  - first:
+      213: 2685250713184205187
+    second: Poland_51
+  - first:
+      213: -111116841052950642
+    second: Poland_52
+  - first:
+      213: 8928744418549973135
+    second: Poland_53
+  - first:
+      213: -1132426060663379466
+    second: Poland_54
+  - first:
+      213: -2327102201679236045
+    second: Poland_55
+  - first:
+      213: 748903865216041547
+    second: Poland_56
+  - first:
+      213: 5949478618762480047
+    second: Poland_57
+  - first:
+      213: 6281181391903930143
+    second: Poland_58
+  - first:
+      213: -8283527193524747528
+    second: Poland_59
+  - first:
+      213: 7261538691268018068
+    second: Poland_60
+  - first:
+      213: -1337947211294361223
+    second: Poland_61
+  - first:
+      213: -3099692253465478532
+    second: Poland_62
+  - first:
+      213: -7778651873946009386
+    second: Poland_63
+  - first:
+      213: -2011462453750412318
+    second: Poland_64
+  - first:
+      213: 9030968061736719419
+    second: Poland_65
+  - first:
+      213: 1532330242357649238
+    second: Poland_66
+  - first:
+      213: -2395923188099202920
+    second: Poland_67
+  - first:
+      213: -6872594323441869204
+    second: Poland_68
+  - first:
+      213: -5635022840056980676
+    second: Poland_69
+  - first:
+      213: -8314526524321872571
+    second: Poland_70
+  - first:
+      213: 1961606465583251474
+    second: Poland_71
+  - first:
+      213: 5190191110235787482
+    second: Poland_72
+  - first:
+      213: -734299341188915733
+    second: Poland_73
+  - first:
+      213: 868722889136173484
+    second: Poland_74
+  - first:
+      213: -3596305498398785117
+    second: Poland_75
+  - first:
+      213: -3490730352924435631
+    second: Poland_76
+  - first:
+      213: -6508610839559278385
+    second: Poland_77
+  - first:
+      213: -4330128436315613332
+    second: Poland_78
+  - first:
+      213: -3126649857361872598
+    second: Poland_79
+  - first:
+      213: 7066212309755892715
+    second: Poland_80
+  - first:
+      213: -3473903464484275846
+    second: Poland_81
+  - first:
+      213: 1520005634328893534
+    second: Poland_82
+  - first:
+      213: 6288886444898679552
+    second: Poland_83
+  - first:
+      213: 6575974652358938841
+    second: Poland_84
+  - first:
+      213: 663011401238253892
+    second: Poland_85
+  - first:
+      213: -4611524731196009153
+    second: Poland_86
+  - first:
+      213: 826966095297120226
+    second: Poland_87
+  - first:
+      213: 4001088976585511901
+    second: Poland_88
+  - first:
+      213: -6059592775173048871
+    second: Poland_89
+  - first:
+      213: 7482578488486236724
+    second: Poland_90
+  - first:
+      213: -7162770214918693524
+    second: Poland_91
+  - first:
+      213: -6087518966945561033
+    second: Poland_92
+  - first:
+      213: -1448468730819863414
+    second: Poland_93
+  - first:
+      213: 2648790012694130247
+    second: Poland_94
+  - first:
+      213: -7825727042426058682
+    second: Poland_95
+  - first:
+      213: -8465836267562068374
+    second: Poland_96
+  - first:
+      213: -5050979807597088685
+    second: Poland_97
+  - first:
+      213: 1903963735956250901
+    second: Poland_98
+  - first:
+      213: 7706309743199821059
+    second: Poland_99
+  - first:
+      213: -7490170101626019517
+    second: Poland_100
+  - first:
+      213: -3183199021834739286
+    second: Poland_101
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Poland_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 473
+        width: 17
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1299b32a0fca980d0800000000000000
+      internalID: -3420012292497237727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d2caaf7a758a800800000000000000
+      internalID: 623844927367556478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bdd8032ad2dc6e70800000000000000
+      internalID: 9109887980596157874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5dc9405cfb110e0800000000000000
+      internalID: -2300847081702763039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 473
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3505b5d8901975eb0800000000000000
+      internalID: -4731153413317111725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_5
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 576c081f012782520800000000000000
+      internalID: 2677515395568551541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa17f7a6ae69d9410800000000000000
+      internalID: 1485509385655382442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 473
+        width: 19
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4278637cb04b636b0800000000000000
+      internalID: -5316864347384412380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_8
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 473
+        width: 19
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2856c059b82ab000800000000000000
+      internalID: 52399122057418797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_9
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 473
+        width: 19
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6a7977a0a9d8040800000000000000
+      internalID: 4651543359890368202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_10
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 475
+        width: 192
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1252acb13ea9ac0800000000000000
+      internalID: -3847513223139614229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_11
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 473
+        width: 19
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b606ee43894e7be0800000000000000
+      internalID: -1477662799417702735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_12
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040d8971743cef700800000000000000
+      internalID: 576112512455987264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_13
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba2f2239742d2f40800000000000000
+      internalID: 5705256405899881151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_14
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937db046793432460800000000000000
+      internalID: 7215685345475286841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_15
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0b4e135ce973a2c0800000000000000
+      internalID: -4421556353233958131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_16
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d37a0eec5a00c8f0800000000000000
+      internalID: -522406162528046122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_17
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f91623e84f134b10800000000000000
+      internalID: 1964448260372699639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_18
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 473
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dae81b54d53a9580800000000000000
+      internalID: -8819677734073996585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_19
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 473
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fd64723253257c0800000000000000
+      internalID: -4084143486972535033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 378
+        width: 17
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c174ddd638fcb1980800000000000000
+      internalID: -8567025702751353060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_21
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4191d4bafe50cf50800000000000000
+      internalID: 6899619060000067917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_22
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca08c9a2625228110800000000000000
+      internalID: 1261611691471044780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_23
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f28b7a412b1355c0800000000000000
+      internalID: -4228005795373284623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_24
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 378
+        width: 18
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec5d406db45228d0800000000000000
+      internalID: -2872640439967720220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_25
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ca3283e831cb790800000000000000
+      internalID: -7513108576812684193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_26
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c98c47743e3def0800000000000000
+      internalID: -84474071948419988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_27
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf90672ebc408dc0800000000000000
+      internalID: -3638824119327219791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_28
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff73b7af18d3bd20800000000000000
+      internalID: 3293213383007109105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_29
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35447346d1842e0b0800000000000000
+      internalID: -5700914887225031597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_30
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 453
+        width: 77
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18779da4ac685b0d0800000000000000
+      internalID: -3407669339638630527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_31
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 453
+        width: 76
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b42c950e146e950800000000000000
+      internalID: 6477937545853422408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_32
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e46bbfaab149d00800000000000000
+      internalID: 978437440227659361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_33
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4055545d18a12f410800000000000000
+      internalID: 1509297970053731588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_34
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8124f2048a68e4ba0800000000000000
+      internalID: -6102792387850976744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_35
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da683914c16fa2b30800000000000000
+      internalID: 4263490598479300269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_36
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c26223d99e55a910800000000000000
+      internalID: 1847987236870709960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_37
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1519002cc9ba38ef0800000000000000
+      internalID: -107053276368694959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_38
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2835d554642beac60800000000000000
+      internalID: 7831392816925070210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_39
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6d0a2565fe94920800000000000000
+      internalID: 2975172182887421664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_40
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 378
+        width: 19
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e799e7ed93a8d90800000000000000
+      internalID: -7094794635199283609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_41
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 378
+        width: 18
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd700441fa7731e0800000000000000
+      internalID: -2218169114810089989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_42
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 175
+        width: 79
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa30bdc83f3aea90800000000000000
+      internalID: -7283939934116758877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_43
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 186
+        width: 76
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2e7d702226be410800000000000000
+      internalID: 1507406398585561795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_44
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 197
+        width: 72
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3b84caa103872e0800000000000000
+      internalID: -2127897932814830649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_45
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 208
+        width: 68
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a708e23c01cbc4b0800000000000000
+      internalID: -5419025468472424543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_46
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 219
+        width: 65
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6e4ad95fc12ae50800000000000000
+      internalID: 6819044627029747411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_47
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 230
+        width: 62
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1c9af4910b30950800000000000000
+      internalID: 6414163917062914552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_48
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 241
+        width: 58
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1479c5c0ac30cac00800000000000000
+      internalID: 913108990775039809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_49
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 252
+        width: 54
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70614ce043ee65180800000000000000
+      internalID: -9126845687466289657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_50
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 264
+        width: 51
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615523c664a490af0800000000000000
+      internalID: -429730623113767658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_51
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 275
+        width: 47
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389753ceb4de34520800000000000000
+      internalID: 2685250713184205187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_52
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 267
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fa97062db357ef0800000000000000
+      internalID: -111116841052950642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_53
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 256
+        width: 56
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f804cedfdb549eb70800000000000000
+      internalID: 8928744418549973135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_54
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 245
+        width: 60
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9a3c76f70d840f0800000000000000
+      internalID: -1132426060663379466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_55
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 234
+        width: 64
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33431e880e874bfd0800000000000000
+      internalID: -2327102201679236045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_56
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 222
+        width: 67
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b428e19f814a46a00800000000000000
+      internalID: 748903865216041547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_57
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 212
+        width: 71
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa98e16384bc09250800000000000000
+      internalID: 5949478618762480047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_58
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 200
+        width: 74
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f173a32623d3b2750800000000000000
+      internalID: 6281181391903930143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_59
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 189
+        width: 77
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f24baec7effa0d80800000000000000
+      internalID: -8283527193524747528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_60
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 178
+        width: 81
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ff8c767fa26c460800000000000000
+      internalID: 7261538691268018068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_61
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 167
+        width: 85
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979339e9918ae6de0800000000000000
+      internalID: -1337947211294361223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_62
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 124
+        width: 103
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7af82f715eabf4d0800000000000000
+      internalID: -3099692253465478532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_63
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 142
+        width: 96
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0850e655dac0490800000000000000
+      internalID: -7778651873946009386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_64
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 159
+        width: 88
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebcb253e89d514e0800000000000000
+      internalID: -2011462453750412318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_65
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 177
+        width: 82
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3417b1aa91745d70800000000000000
+      internalID: 9030968061736719419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_66
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 194
+        width: 75
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fd05e9c3ee34510800000000000000
+      internalID: 1532330242357649238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_67
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 212
+        width: 68
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890c938fd88ffbed0800000000000000
+      internalID: -2395923188099202920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_68
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 181
+        width: 91
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e91e910e3af90a0800000000000000
+      internalID: -6872594323441869204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_69
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 181
+        width: 86
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bd03525906cc1b0800000000000000
+      internalID: -5635022840056980676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_70
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 209
+        width: 66
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5454b3aad2edc9c80800000000000000
+      internalID: -8314526524321872571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_71
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 191
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210033affa6093b10800000000000000
+      internalID: 1961606465583251474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_72
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 174
+        width: 81
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad09ef1e053470840800000000000000
+      internalID: 5190191110235787482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_73
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 156
+        width: 88
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed91a1c3ae3fc5f0800000000000000
+      internalID: -734299341188915733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_74
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 139
+        width: 95
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1763f6dd25e0c00800000000000000
+      internalID: 868722889136173484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_75
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 54
+        width: 131
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a10828043b571ec0800000000000000
+      internalID: -3596305498398785117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_76
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 72
+        width: 124
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bd34b1d3f6e8fc0800000000000000
+      internalID: -3490730352924435631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_77
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 89
+        width: 117
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0ffceece4cca5a0800000000000000
+      internalID: -6508610839559278385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_78
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 107
+        width: 110
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c671791112b48e3c0800000000000000
+      internalID: -4330128436315613332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_79
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 120
+        width: 124
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a297bea3588eb94d0800000000000000
+      internalID: -3126649857361872598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_80
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 141
+        width: 113
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be31e7648aa301260800000000000000
+      internalID: 7066212309755892715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_81
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 161
+        width: 102
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a797a6f54373acfc0800000000000000
+      internalID: -3473903464484275846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_82
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 161
+        width: 97
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5814c23215281510800000000000000
+      internalID: 1520005634328893534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_83
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 141
+        width: 108
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b74f4d6ec964750800000000000000
+      internalID: 6288886444898679552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_84
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 120
+        width: 119
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0d3d5fa1e824b50800000000000000
+      internalID: 6575974652358938841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_85
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 121
+        width: 103
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44117dc4b5d733900800000000000000
+      internalID: 663011401238253892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_86
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 104
+        width: 109
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35122c90b29000c0800000000000000
+      internalID: -4611524731196009153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_87
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 86
+        width: 116
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e70a7f3849f97b00800000000000000
+      internalID: 826966095297120226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_88
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 69
+        width: 123
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd35c1cb939b68730800000000000000
+      internalID: 4001088976585511901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_89
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 51
+        width: 131
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d57940e97008eba0800000000000000
+      internalID: -6059592775173048871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_90
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 60
+        width: 156
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432933aad7577d760800000000000000
+      internalID: 7482578488486236724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_91
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 80
+        width: 145
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6dd504807ab89c90800000000000000
+      internalID: -7162770214918693524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_92
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 100
+        width: 134
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736c1cba0c9c48ba0800000000000000
+      internalID: -6087518966945561033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_93
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 100
+        width: 130
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c98371d5106ebe0800000000000000
+      internalID: -1448468730819863414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_94
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 80
+        width: 140
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e6c3f8b7462c420800000000000000
+      internalID: 2648790012694130247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_95
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 60
+        width: 151
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648c607a7be656390800000000000000
+      internalID: -7825727042426058682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_96
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 188
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a661851c4ce438a80800000000000000
+      internalID: -8465836267562068374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_97
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 19
+        width: 177
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350318050a057e9b0800000000000000
+      internalID: -5050979807597088685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_98
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 39
+        width: 167
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511e5e22eec3c6a10800000000000000
+      internalID: 1903963735956250901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_99
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 39
+        width: 162
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d9e84b1ef42fa60800000000000000
+      internalID: 7706309743199821059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_100
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 19
+        width: 172
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34164592af19d0890800000000000000
+      internalID: -7490170101626019517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poland_101
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 0
+        width: 183
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa16b2eda5103d3d0800000000000000
+      internalID: -3183199021834739286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Poland_0: -3420012292497237727
+      Poland_1: 623844927367556478
+      Poland_10: -3847513223139614229
+      Poland_100: -7490170101626019517
+      Poland_101: -3183199021834739286
+      Poland_11: -1477662799417702735
+      Poland_12: 576112512455987264
+      Poland_13: 5705256405899881151
+      Poland_14: 7215685345475286841
+      Poland_15: -4421556353233958131
+      Poland_16: -522406162528046122
+      Poland_17: 1964448260372699639
+      Poland_18: -8819677734073996585
+      Poland_19: -4084143486972535033
+      Poland_2: 9109887980596157874
+      Poland_20: -8567025702751353060
+      Poland_21: 6899619060000067917
+      Poland_22: 1261611691471044780
+      Poland_23: -4228005795373284623
+      Poland_24: -2872640439967720220
+      Poland_25: -7513108576812684193
+      Poland_26: -84474071948419988
+      Poland_27: -3638824119327219791
+      Poland_28: 3293213383007109105
+      Poland_29: -5700914887225031597
+      Poland_3: -2300847081702763039
+      Poland_30: -3407669339638630527
+      Poland_31: 6477937545853422408
+      Poland_32: 978437440227659361
+      Poland_33: 1509297970053731588
+      Poland_34: -6102792387850976744
+      Poland_35: 4263490598479300269
+      Poland_36: 1847987236870709960
+      Poland_37: -107053276368694959
+      Poland_38: 7831392816925070210
+      Poland_39: 2975172182887421664
+      Poland_4: -4731153413317111725
+      Poland_40: -7094794635199283609
+      Poland_41: -2218169114810089989
+      Poland_42: -7283939934116758877
+      Poland_43: 1507406398585561795
+      Poland_44: -2127897932814830649
+      Poland_45: -5419025468472424543
+      Poland_46: 6819044627029747411
+      Poland_47: 6414163917062914552
+      Poland_48: 913108990775039809
+      Poland_49: -9126845687466289657
+      Poland_5: 2677515395568551541
+      Poland_50: -429730623113767658
+      Poland_51: 2685250713184205187
+      Poland_52: -111116841052950642
+      Poland_53: 8928744418549973135
+      Poland_54: -1132426060663379466
+      Poland_55: -2327102201679236045
+      Poland_56: 748903865216041547
+      Poland_57: 5949478618762480047
+      Poland_58: 6281181391903930143
+      Poland_59: -8283527193524747528
+      Poland_6: 1485509385655382442
+      Poland_60: 7261538691268018068
+      Poland_61: -1337947211294361223
+      Poland_62: -3099692253465478532
+      Poland_63: -7778651873946009386
+      Poland_64: -2011462453750412318
+      Poland_65: 9030968061736719419
+      Poland_66: 1532330242357649238
+      Poland_67: -2395923188099202920
+      Poland_68: -6872594323441869204
+      Poland_69: -5635022840056980676
+      Poland_7: -5316864347384412380
+      Poland_70: -8314526524321872571
+      Poland_71: 1961606465583251474
+      Poland_72: 5190191110235787482
+      Poland_73: -734299341188915733
+      Poland_74: 868722889136173484
+      Poland_75: -3596305498398785117
+      Poland_76: -3490730352924435631
+      Poland_77: -6508610839559278385
+      Poland_78: -4330128436315613332
+      Poland_79: -3126649857361872598
+      Poland_8: 52399122057418797
+      Poland_80: 7066212309755892715
+      Poland_81: -3473903464484275846
+      Poland_82: 1520005634328893534
+      Poland_83: 6288886444898679552
+      Poland_84: 6575974652358938841
+      Poland_85: 663011401238253892
+      Poland_86: -4611524731196009153
+      Poland_87: 826966095297120226
+      Poland_88: 4001088976585511901
+      Poland_89: -6059592775173048871
+      Poland_9: 4651543359890368202
+      Poland_90: 7482578488486236724
+      Poland_91: -7162770214918693524
+      Poland_92: -6087518966945561033
+      Poland_93: -1448468730819863414
+      Poland_94: 2648790012694130247
+      Poland_95: -7825727042426058682
+      Poland_96: -8465836267562068374
+      Poland_97: -5050979807597088685
+      Poland_98: 1903963735956250901
+      Poland_99: 7706309743199821059
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

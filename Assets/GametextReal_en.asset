@@ -1,0 +1,363 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GametextReal_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f58267f7eff4f4295ab2def66984f6fc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 106927747072
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Localized: Rulebook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Localized: Give us Feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Localized: Open Data Privacy Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Localized: Classic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Localized: Icelandic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Localized: Pop Culture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Localized: Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Localized: 18+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: Local
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: Only 1 phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: Online
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: Everyone has their own phone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: Enter the names of the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: Discussion Moderator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Generic Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: Pick a topic and announce it - or let the group decide!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: Versus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: Scenario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Comedy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: Creativity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: On Topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: Factual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: Enthusiasm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: You can choose whether or not you share this with the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516672329019392
+    m_Localized: Speech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516737768550400
+    m_Localized: Betryal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516739890868224
+    m_Localized: Interuption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823489520263168
+    m_Localized: Pts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519024050106368
+    m_Localized: Im Done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519730853244928
+    m_Localized: 'I am [name]'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520027818356736
+    m_Localized: Host
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520057857961984
+    m_Localized: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520576273936384
+    m_Localized: Room Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520889928183808
+    m_Localized: Waiting for players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10525874187399168
+    m_Localized: Enter Your Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520374725046272
+    m_Localized: 'This is the Rulebook Page
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10542488945422336
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Localized: Shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Localized: Hold or tap to reveal your Corruption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Localized: im done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Localized: Topic Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Localized: Group 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Localized: Group 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Localized: Group 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Localized: Group 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Localized: Group 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Localized: Group 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Localized: FOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Localized: AGAINST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Localized: Accusation!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Localized: 'This is where players can accuse each other of Corruption. If they
+      guess correctly, they steal the corruption points
+
+
+      Click on the player
+      that is accusing'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Localized: Incorrect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Localized: Active Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Localized: Inactive Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10888662424481792
+    m_Localized: Next Round!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10889828461965312
+    m_Localized: Your Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890083345625088
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890220713275392
+    m_Localized: Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13926200606420992
+    m_Localized: "Someone is Accusing! \nSelect the player they are accusing ONLY
+      if the guess is correct. If the guess is incorrect or not specific enough,
+      click the \u201CIncorrect\u201D Button"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952925918785536
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952998668988416
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14104880280465408
+    m_Localized: Are you sure?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105024811986944
+    m_Localized: Yes!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105977652998144
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106041444167680
+    m_Localized: Icelandic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106119298838528
+    m_Localized: German
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106168728711168
+    m_Localized: Spanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823565923704832
+    m_Localized: Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15564877014753280
+    m_Localized: Enter the names of the players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15565102735417344
+    m_Localized: Enter name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Localized: "The original mix. Broad debates and corruptions for any party!\nStart
+      here if you\u2019re not sure"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Localized: For Icelandic eyes only!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Localized: Which singer sings the best? Who's the most influentual influencer?
+      Who can reference the best movie quotes?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Localized: Get into heated debates about real-world political topics. Choose
+      your friends wisely, try not to lose them!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Localized: Naughty Naughty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15628095171059712
+    m_Localized: No duplicate names allowed!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

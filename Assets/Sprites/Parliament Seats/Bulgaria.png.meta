@@ -1,0 +1,1274 @@
+fileFormatVersion: 2
+guid: 889d1d00d8f714297ac6cd0c1fb506b5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4604486453961642417
+    second: Bulgaria_0
+  - first:
+      213: 501359525745543890
+    second: Bulgaria_1
+  - first:
+      213: -6171950861165226881
+    second: Bulgaria_2
+  - first:
+      213: -7685942147276795690
+    second: Bulgaria_3
+  - first:
+      213: 6242132373691336428
+    second: Bulgaria_4
+  - first:
+      213: 6489163557977907615
+    second: Bulgaria_5
+  - first:
+      213: 6114152625246139193
+    second: Bulgaria_6
+  - first:
+      213: 5765220030792855998
+    second: Bulgaria_7
+  - first:
+      213: 1351604530221320379
+    second: Bulgaria_8
+  - first:
+      213: -4984222861128260610
+    second: Bulgaria_9
+  - first:
+      213: 1447385798662655801
+    second: Bulgaria_10
+  - first:
+      213: 2857105898269362350
+    second: Bulgaria_11
+  - first:
+      213: -8274883295012970209
+    second: Bulgaria_12
+  - first:
+      213: 5902538792589478509
+    second: Bulgaria_13
+  - first:
+      213: 4733093064458755899
+    second: Bulgaria_14
+  - first:
+      213: -6025401764950556936
+    second: Bulgaria_15
+  - first:
+      213: -7256122569693932048
+    second: Bulgaria_16
+  - first:
+      213: -3609961852652645099
+    second: Bulgaria_17
+  - first:
+      213: -136410444850038437
+    second: Bulgaria_18
+  - first:
+      213: 1194929092333897137
+    second: Bulgaria_19
+  - first:
+      213: -8773818540942368900
+    second: Bulgaria_20
+  - first:
+      213: 2199747026589798818
+    second: Bulgaria_21
+  - first:
+      213: 4381144001268874182
+    second: Bulgaria_22
+  - first:
+      213: -2553396119140425162
+    second: Bulgaria_23
+  - first:
+      213: 9009188113411043067
+    second: Bulgaria_24
+  - first:
+      213: 3081241950170442557
+    second: Bulgaria_25
+  - first:
+      213: 6148049107973700101
+    second: Bulgaria_26
+  - first:
+      213: -8397883778525477259
+    second: Bulgaria_27
+  - first:
+      213: -2454388648953213058
+    second: Bulgaria_28
+  - first:
+      213: 8329130285132966336
+    second: Bulgaria_29
+  - first:
+      213: -1116514275647406020
+    second: Bulgaria_30
+  - first:
+      213: -5979854928771694511
+    second: Bulgaria_31
+  - first:
+      213: 7042006345846972101
+    second: Bulgaria_32
+  - first:
+      213: -1810203325270575643
+    second: Bulgaria_33
+  - first:
+      213: -2672496470459928831
+    second: Bulgaria_34
+  - first:
+      213: -533543911477481666
+    second: Bulgaria_35
+  - first:
+      213: 3056745240269390123
+    second: Bulgaria_36
+  - first:
+      213: 1513628722083560582
+    second: Bulgaria_37
+  - first:
+      213: 7657897219917938968
+    second: Bulgaria_38
+  - first:
+      213: -1448291341709262833
+    second: Bulgaria_39
+  - first:
+      213: 7149901207178355058
+    second: Bulgaria_40
+  - first:
+      213: -3978880765312961755
+    second: Bulgaria_41
+  - first:
+      213: -417239181542917086
+    second: Bulgaria_42
+  - first:
+      213: -3094865743876186081
+    second: Bulgaria_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bulgaria_0
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 253
+        width: 162
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ea48a37f39910c0800000000000000
+      internalID: -4604486453961642417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 238
+        width: 162
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da42d415df25f600800000000000000
+      internalID: 501359525745543890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 160
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7494156463d85aa0800000000000000
+      internalID: -6171950861165226881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 179
+        width: 162
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d01d53c65c065590800000000000000
+      internalID: -7685942147276795690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_4
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 179
+        width: 160
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce686d6525280a650800000000000000
+      internalID: 6242132373691336428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91eeaaffd32e0a50800000000000000
+      internalID: 6489163557977907615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 166
+        width: 162
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93371522b65d9d450800000000000000
+      internalID: 6114152625246139193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 166
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1ff53921d220050800000000000000
+      internalID: 5765220030792855998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb886acb82dd1c210800000000000000
+      internalID: 1351604530221320379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 154
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3a11127bb74dab0800000000000000
+      internalID: -4984222861128260610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 154
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93f8b3e17b5261410800000000000000
+      internalID: 1447385798662655801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 142
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea8c4084daa76a720800000000000000
+      internalID: 2857105898269362350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 142
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1120f24c75b92d80800000000000000
+      internalID: -8274883295012970209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 142
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a424542c70ae150800000000000000
+      internalID: 5902538792589478509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3fddeba0135fa140800000000000000
+      internalID: 4733093064458755899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 129
+        width: 162
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe3c1bc409716ca0800000000000000
+      internalID: -6025401764950556936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 129
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5d2baa7f21d4b90800000000000000
+      internalID: -7256122569693932048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5159de742d6d6edc0800000000000000
+      internalID: -3609961852652645099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_18
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 116
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b597f035c6f5b1ef0800000000000000
+      internalID: -136410444850038437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_19
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 116
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b58750bdad359010800000000000000
+      internalID: 1194929092333897137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7fd46fc5822d3680800000000000000
+      internalID: -8773818540942368900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_21
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 104
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a15b931442178e10800000000000000
+      internalID: 2199747026589798818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_22
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 104
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbf671c143fccc30800000000000000
+      internalID: 4381144001268874182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63226c312c3809cd0800000000000000
+      internalID: -2553396119140425162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_24
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 92
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe698e3bd0170d70800000000000000
+      internalID: 9009188113411043067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 92
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3be0f28a35c2ca20800000000000000
+      internalID: 3081241950170442557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50afd660712425550800000000000000
+      internalID: 6148049107973700101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_27
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 79
+        width: 162
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57649f38239b47b80800000000000000
+      internalID: -8397883778525477259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_28
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 79
+        width: 160
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f8466178240fdd0800000000000000
+      internalID: -2454388648953213058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c96c4d5dd3079370800000000000000
+      internalID: 8329130285132966336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_30
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 47
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30426d8e285180f0800000000000000
+      internalID: -1116514275647406020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_31
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 47
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150c13aff99430da0800000000000000
+      internalID: -5979854928771694511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce514e167b3ab160800000000000000
+      internalID: 7042006345846972101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_33
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 35
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e53402aaadd0e6e0800000000000000
+      internalID: -1810203325270575643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_34
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 35
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f20ce9e9269ead0800000000000000
+      internalID: -2672496470459928831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3fef4ca3a87898f0800000000000000
+      internalID: -533543911477481666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_36
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 23
+        width: 162
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b218f17c99dbb6a20800000000000000
+      internalID: 3056745240269390123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 23
+        width: 160
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c7e9d9d4d710510800000000000000
+      internalID: 1513628722083560582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 160
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81109afb2f0564a60800000000000000
+      internalID: 7657897219917938968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_39
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 11
+        width: 162
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f004526b2b2a6ebe0800000000000000
+      internalID: -1448291341709262833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_40
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 11
+        width: 160
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271a001244d893360800000000000000
+      internalID: 7149901207178355058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 523f2e3660d28c8c0800000000000000
+      internalID: -3978880765312961755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_42
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 162
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c72cdcc2ba53af0800000000000000
+      internalID: -417239181542917086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bulgaria_43
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 160
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f102cb4d004dc05d0800000000000000
+      internalID: -3094865743876186081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bulgaria_0: -4604486453961642417
+      Bulgaria_1: 501359525745543890
+      Bulgaria_10: 1447385798662655801
+      Bulgaria_11: 2857105898269362350
+      Bulgaria_12: -8274883295012970209
+      Bulgaria_13: 5902538792589478509
+      Bulgaria_14: 4733093064458755899
+      Bulgaria_15: -6025401764950556936
+      Bulgaria_16: -7256122569693932048
+      Bulgaria_17: -3609961852652645099
+      Bulgaria_18: -136410444850038437
+      Bulgaria_19: 1194929092333897137
+      Bulgaria_2: -6171950861165226881
+      Bulgaria_20: -8773818540942368900
+      Bulgaria_21: 2199747026589798818
+      Bulgaria_22: 4381144001268874182
+      Bulgaria_23: -2553396119140425162
+      Bulgaria_24: 9009188113411043067
+      Bulgaria_25: 3081241950170442557
+      Bulgaria_26: 6148049107973700101
+      Bulgaria_27: -8397883778525477259
+      Bulgaria_28: -2454388648953213058
+      Bulgaria_29: 8329130285132966336
+      Bulgaria_3: -7685942147276795690
+      Bulgaria_30: -1116514275647406020
+      Bulgaria_31: -5979854928771694511
+      Bulgaria_32: 7042006345846972101
+      Bulgaria_33: -1810203325270575643
+      Bulgaria_34: -2672496470459928831
+      Bulgaria_35: -533543911477481666
+      Bulgaria_36: 3056745240269390123
+      Bulgaria_37: 1513628722083560582
+      Bulgaria_38: 7657897219917938968
+      Bulgaria_39: -1448291341709262833
+      Bulgaria_4: 6242132373691336428
+      Bulgaria_40: 7149901207178355058
+      Bulgaria_41: -3978880765312961755
+      Bulgaria_42: -417239181542917086
+      Bulgaria_43: -3094865743876186081
+      Bulgaria_5: 6489163557977907615
+      Bulgaria_6: 6114152625246139193
+      Bulgaria_7: 5765220030792855998
+      Bulgaria_8: 1351604530221320379
+      Bulgaria_9: -4984222861128260610
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

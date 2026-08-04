@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Spins the GameObject around its Z axis at a constant rate.
+/// </summary>
 public class Rotate : MonoBehaviour
 {
     [SerializeField] private bool clockwise = true;

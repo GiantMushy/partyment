@@ -1,0 +1,361 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GametextReal_is
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: is
+  m_SharedData: {fileID: 11400000, guid: f58267f7eff4f4295ab2def66984f6fc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 106927747072
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Localized: Stillingar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Localized: "Lei\xF0beiningar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Localized: Senda Athugasemd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Localized: "\xD6ryggi og Pers\xF3nuvernd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Localized: "N\xFDr Leikur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Localized: "Klass\xEDskt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Localized: "\xCDsland"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Localized: Popp Menning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Localized: "P\xF3l\xEDt\xEDskt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Localized: 18+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Localized: "Sta\xF0bundinn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Localized: "A\xF0eins 1 s\xEDmi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Localized: Netleikur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Localized: "Allir hafa sinn s\xEDma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Localized: "Nafn \xE1 spilurunum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Localized: "N\xE6st"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Localized: "\xDEingstj\xF3ri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Localized: Alment Nafn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Localized: "Veldu frumvarp e\xF0a velji\xF0 saman frumvarp sem leikmenn munu
+      r\xE6\xF0a um"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Localized: "Einv\xEDgi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Localized: "A\xF0st\xE6\xF0ur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Localized: Velja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Localized: Gamanleikur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Localized: "Sk\xF6punarg\xE1fu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Localized: "EfnisVi\xF0eigandi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Localized: "Sta\xF0reyndir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Localized: "\xC1hugasemi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Localized: "\xDE\xFA getur vali\xF0 hvort \xFE\xFA deilir \xFEessu me\xF0 spilurunum
+      e\xF0a ekki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516672329019392
+    m_Localized: "R\xE6\xF0a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516737768550400
+    m_Localized: Svik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516739890868224
+    m_Localized: Trufflun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823489520263168
+    m_Localized: Stg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519024050106368
+    m_Localized: "B\xFAin!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519730853244928
+    m_Localized: "\xC9g er [nafn]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520027818356736
+    m_Localized: "H\xFDsa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520057857961984
+    m_Localized: Tengjast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520576273936384
+    m_Localized: "Lotuk\xF3\xF0i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520889928183808
+    m_Localized: "B\xED\xF0a eftir leikm\xF6nnum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10525874187399168
+    m_Localized: "Sl\xE1\xF0u inn Lotuk\xF3\xF0a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520374725046272
+    m_Localized: "H\xE9rna eru regglurnar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10542488945422336
+    m_Localized: Byrja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Localized: Stokka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Localized: "Haltu e\xF0a smelltu til a\xF0 sj\xE1 Spillinguna \xFE\xEDna\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Localized: "B\xFAin!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Localized: "Umr\xE6\xF0uefni L\xFDsing"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Localized: "H\xF3pur 6"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Localized: "H\xF3pur 5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Localized: "H\xF3pur 4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Localized: "H\xF3pur 3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Localized: "H\xF3pur 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Localized: "H\xF3pur 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Localized: "ME\xD0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Localized: "\xC1 M\xD3TI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Localized: "\xC1s\xF6kun"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Localized: "\xDEetta er \xFEar sem leikmenn geta saka\xF0 hver annan um spillingu.
+      Ef \xFEeir giska r\xE9tt, stela \xFEeir spillingar stigunum\r\n\r\nSmelltu
+      \xE1 leikmanninn sem \xE1sakar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Localized: Vitlaust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Localized: Virk Verkefni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Localized: "\xD3virk Verkefni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Localized: "Hle\xF0ur..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10888662424481792
+    m_Localized: "N\xE6sti Umfer\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10889828461965312
+    m_Localized: "\xDEitt Nafn..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890083345625088
+    m_Localized: Nafn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890220713275392
+    m_Localized: Lykill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13926200606420992
+    m_Localized: "Einhver er a\xF0 \xE1saka!\nVeldu leikmanninn sem hann \xE1sakar
+      A\xD0EINS ef \xE1giskunin er r\xE9tt. Ef \xE1giskunin er r\xF6ng e\xF0a ekki
+      n\xF3gu n\xE1kv\xE6m, smelltu \xE1 \u201CVitlaust\u201D hnappinn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952925918785536
+    m_Localized: "Tungum\xE1l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952998668988416
+    m_Localized: "Hlj\xF3\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14104880280465408
+    m_Localized: Ertu viss?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105024811986944
+    m_Localized: "J\xE1!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105977652998144
+    m_Localized: Enska
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106041444167680
+    m_Localized: "\xCDslenska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106119298838528
+    m_Localized: "\xDE\xFDska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106168728711168
+    m_Localized: "Sp\xE6nska"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823565923704832
+    m_Localized: Stig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15564877014753280
+    m_Localized: "Sl\xE1\xF0u inn n\xF6fn leikmanna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15565102735417344
+    m_Localized: "Sl\xE1\xF0u inn nafn..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Localized: "Upprunulega Safni\xF0! Almenn og \xF6rugg Umr\xE6\xF0uefni og Spillingar,
+      fullkomi\xF0 fyrir alla h\xF3pa. Byrji\xF0 h\xE9r ef \xFEetta er fyrsti leikurinn
+      :)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Localized: "Einungis fyrir okkur \xCDslendinga!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Localized: "Hva\xF0a s\xF6gnvari er s\xFA besti? Hva\xF0a \xE1hryfavaldur hefur
+      mest \xE1hryf? "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Localized: "Alv\xF6runni p\xF3lits\xEDkt efni. Passi\xF0 vel upp\xE1 hvern
+      \xFEi\xF0 spili\xF0 me\xF0!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Localized: Hush Hush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15628095171059712
+    m_Localized: "Banna\xF0 a\xF0 hafa eins n\xF6fn!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

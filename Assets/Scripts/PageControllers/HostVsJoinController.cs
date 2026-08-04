@@ -1,10 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Host-vs-Join picker for the online flow. Pressing Host generates a room code via
+/// <see cref="GameManager.HostOnlineGame"/> and advances to the host lobby; Join goes
+/// straight to the room-code input screen.
+/// </summary>
 public class HostVsJoinController : MonoBehaviour
 {
     private GameManager gameManager;
 
-    // Awake is called when the script instance is being loaded
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -12,6 +16,7 @@ public class HostVsJoinController : MonoBehaviour
     public void Host()
     {
         Debug.Log("Host Button Pressed");
+        gameManager.HostOnlineGame();
         gameManager.SetState(GameManager.GameState.HostOnlineGame);
     }
     public void Join()

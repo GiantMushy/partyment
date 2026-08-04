@@ -1,0 +1,356 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GametextReal Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: GametextReal
+  m_TableCollectionNameGuidString: f58267f7eff4f4295ab2def66984f6fc
+  m_Entries:
+  - m_Id: 106927747072
+    m_Key: Menu_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436510862340096
+    m_Key: Menu_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436594098302976
+    m_Key: Menu_rulebook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567153339592704
+    m_Key: Menu_feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567673110327296
+    m_Key: Menu_data_privacy_page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2567980913520640
+    m_Key: New_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577921242034176
+    m_Key: Pack_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2577958852358144
+    m_Key: Pack_Icelandic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578011557982208
+    m_Key: Pack_PopCulture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578079061110784
+    m_Key: Pack_Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2578120618274816
+    m_Key: Pack_18
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920950347853824
+    m_Key: Local_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2920951136382976
+    m_Key: Local_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921026268950528
+    m_Key: Online_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2921050226814976
+    m_Key: Online_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2925169553436672
+    m_Key: Name_of_players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2926184658890752
+    m_Key: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2927303892135936
+    m_Key: Discussion_moderator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928417928638464
+    m_Key: Genric_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929375169474560
+    m_Key: Choose_a_bill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2929931501957120
+    m_Key: Versus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2930716407230464
+    m_Key: Scenario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2933479123972096
+    m_Key: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943256990314496
+    m_Key: Comedy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2943549043896320
+    m_Key: Creativity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2944256077721600
+    m_Key: On_topic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946331998154752
+    m_Key: Factual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2946846815416320
+    m_Key: Enthusiasm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947211875053568
+    m_Key: Metrics_instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516672329019392
+    m_Key: Speech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516737768550400
+    m_Key: Betryal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10516739890868224
+    m_Key: Interuption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519024050106368
+    m_Key: Im_Done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10519730853244928
+    m_Key: I_am_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520027818356736
+    m_Key: Host
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520057857961984
+    m_Key: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520576273936384
+    m_Key: Room Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520889928183808
+    m_Key: Waiting for players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10525874187399168
+    m_Key: Enter your Room Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10520374725046272
+    m_Key: Rulebook Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10542488945422336
+    m_Key: 'Start '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10550890358632448
+    m_Key: Shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10556906496323584
+    m_Key: Hold or tap to reveal your Corruption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10557518394945536
+    m_Key: im done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558247130099712
+    m_Key: Topic Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558714077769728
+    m_Key: Group 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558747799973888
+    m_Key: Group 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558757828554752
+    m_Key: Group 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558795476627456
+    m_Key: Group 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558860672888832
+    m_Key: Group 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10558887289942016
+    m_Key: Group 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559150285385728
+    m_Key: For
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559172997541888
+    m_Key: Against
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559488207876096
+    m_Key: Accusation!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10559633301434368
+    m_Key: First Accusation Directions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13926200606420992
+    m_Key: Second Accusation Directions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560036592152576
+    m_Key: Incorrect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560167454437376
+    m_Key: Active Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560386296442880
+    m_Key: Inactive Objectives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10560685098659840
+    m_Key: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10888662424481792
+    m_Key: Next Round!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10889828461965312
+    m_Key: Your Name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890083345625088
+    m_Key: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10890220713275392
+    m_Key: Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952925918785536
+    m_Key: Menu_Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13952998668988416
+    m_Key: Menu_Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14104880280465408
+    m_Key: New_game_confirmation_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105024811986944
+    m_Key: New_game_confirmation_answer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14105977652998144
+    m_Key: Language_EN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106041444167680
+    m_Key: Language_IS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106119298838528
+    m_Key: Language_DE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14106168728711168
+    m_Key: Language_ES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823489520263168
+    m_Key: Points_abbreviated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14823565923704832
+    m_Key: Points_Full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15564877014753280
+    m_Key: Enter_Name_Directions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15565102735417344
+    m_Key: Enter_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589930976665600
+    m_Key: Pack_Description_Classic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589967395807232
+    m_Key: Pack_Description_Iceland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15589997452189696
+    m_Key: Pack_Description_PopCulture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590018847334400
+    m_Key: Pack_Description_Political
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15590069527109632
+    m_Key: Pack_Description_EighteenPlus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15628095171059712
+    m_Key: Name_Input_Error
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8200792849853186528
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200792849853186528
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1774960232712

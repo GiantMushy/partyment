@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 159685e6e93194999b0b9fa30f0179c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 156347501429396709
+    second: Romania_0
+  - first:
+      213: 3475937724034887242
+    second: Romania_1
+  - first:
+      213: -900649273686927880
+    second: Romania_2
+  - first:
+      213: -6861308093925768225
+    second: Romania_3
+  - first:
+      213: 3567724601816002547
+    second: Romania_4
+  - first:
+      213: -8813822059792572240
+    second: Romania_5
+  - first:
+      213: 1973258973373789824
+    second: Romania_6
+  - first:
+      213: 8320061529674735918
+    second: Romania_7
+  - first:
+      213: -236314720200395043
+    second: Romania_8
+  - first:
+      213: -5593445381112715824
+    second: Romania_9
+  - first:
+      213: -2946415454275638564
+    second: Romania_10
+  - first:
+      213: -8144818274984734543
+    second: Romania_11
+  - first:
+      213: 4746837316422336101
+    second: Romania_12
+  - first:
+      213: -4491197378372097563
+    second: Romania_13
+  - first:
+      213: 1313911088238070282
+    second: Romania_14
+  - first:
+      213: 8208630135972516150
+    second: Romania_15
+  - first:
+      213: -3678142320636785213
+    second: Romania_16
+  - first:
+      213: -3385846851085141572
+    second: Romania_17
+  - first:
+      213: 7228946351814641673
+    second: Romania_18
+  - first:
+      213: 5325092793444249178
+    second: Romania_19
+  - first:
+      213: 5647420129282427208
+    second: Romania_20
+  - first:
+      213: 3238958240968633188
+    second: Romania_21
+  - first:
+      213: 617801168703124339
+    second: Romania_22
+  - first:
+      213: 703114861470785659
+    second: Romania_23
+  - first:
+      213: -2573462433165954216
+    second: Romania_24
+  - first:
+      213: 1968713946024767238
+    second: Romania_25
+  - first:
+      213: -7320408125806808584
+    second: Romania_26
+  - first:
+      213: -5095715078628041630
+    second: Romania_27
+  - first:
+      213: -5075440785298728198
+    second: Romania_28
+  - first:
+      213: -3677218775888903045
+    second: Romania_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Romania_0
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 422
+        width: 57
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4183469357b2200800000000000000
+      internalID: 156347501429396709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 422
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4eaa7691f20d3030800000000000000
+      internalID: 3475937724034887242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_2
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 422
+        width: 55
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f55da6e1404083f0800000000000000
+      internalID: -900649273686927880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 406
+        width: 57
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3ca0f24acb7c0a0800000000000000
+      internalID: -6861308093925768225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_4
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 406
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff2aab6f9a138130800000000000000
+      internalID: 3567724601816002547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_5
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 406
+        width: 55
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0ef84c8830fa580800000000000000
+      internalID: -8813822059792572240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 326
+        width: 204
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086fbcdd49c626b10800000000000000
+      internalID: 1973258973373789824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 342
+        width: 184
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21e7a131ebc67370800000000000000
+      internalID: 8320061529674735918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_8
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 358
+        width: 163
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd67247930178bcf0800000000000000
+      internalID: -236314720200395043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_9
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 280
+        width: 271
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d52a3caf071062b0800000000000000
+      internalID: -5593445381112715824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_10
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 296
+        width: 249
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdaed2f41ca3c17d0800000000000000
+      internalID: -2946415454275638564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 311
+        width: 227
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0dc679eeac7fe80800000000000000
+      internalID: -8144818274984734543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_12
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 220
+        width: 358
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56efbe3b36720e140800000000000000
+      internalID: 4746837316422336101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_13
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 235
+        width: 336
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e927fd97cf0ca1c0800000000000000
+      internalID: -4491197378372097563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_14
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 250
+        width: 314
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a80e06c23fb3210800000000000000
+      internalID: 1313911088238070282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_15
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 265
+        width: 293
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63155331e99eae170800000000000000
+      internalID: 8208630135972516150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_16
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 150
+        width: 450
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd0d190c0d94fcc0800000000000000
+      internalID: -3678142320636785213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_17
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 165
+        width: 430
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9f1395a3e0301d0800000000000000
+      internalID: -3385846851085141572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_18
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 189
+        width: 400
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90884480860625460800000000000000
+      internalID: 7228946351814641673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_19
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 204
+        width: 379
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5eac3d9ea786e940800000000000000
+      internalID: 5325092793444249178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_20
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 77
+        width: 552
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849054fafaaaf5e40800000000000000
+      internalID: 5647420129282427208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_21
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 92
+        width: 532
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b62430c5713fc20800000000000000
+      internalID: 3238958240968633188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_22
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 106
+        width: 512
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373fe52c3eed29800800000000000000
+      internalID: 617801168703124339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_23
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 121
+        width: 491
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70a342cd37f1c900800000000000000
+      internalID: 703114861470785659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_24
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 136
+        width: 470
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853b4544d89394cd0800000000000000
+      internalID: -2573462433165954216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 658
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fe92937e6425b10800000000000000
+      internalID: 1968713946024767238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_26
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 16
+        width: 637
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1f662489fa86a90800000000000000
+      internalID: -7320408125806808584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_27
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 33
+        width: 614
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c16cd52226849b0800000000000000
+      internalID: -5095715078628041630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 594
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa5db12f796099b0800000000000000
+      internalID: -5075440785298728198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Romania_29
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 63
+        width: 573
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74cebd8105e7fcc0800000000000000
+      internalID: -3677218775888903045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Romania_0: 156347501429396709
+      Romania_1: 3475937724034887242
+      Romania_10: -2946415454275638564
+      Romania_11: -8144818274984734543
+      Romania_12: 4746837316422336101
+      Romania_13: -4491197378372097563
+      Romania_14: 1313911088238070282
+      Romania_15: 8208630135972516150
+      Romania_16: -3678142320636785213
+      Romania_17: -3385846851085141572
+      Romania_18: 7228946351814641673
+      Romania_19: 5325092793444249178
+      Romania_2: -900649273686927880
+      Romania_20: 5647420129282427208
+      Romania_21: 3238958240968633188
+      Romania_22: 617801168703124339
+      Romania_23: 703114861470785659
+      Romania_24: -2573462433165954216
+      Romania_25: 1968713946024767238
+      Romania_26: -7320408125806808584
+      Romania_27: -5095715078628041630
+      Romania_28: -5075440785298728198
+      Romania_29: -3677218775888903045
+      Romania_3: -6861308093925768225
+      Romania_4: 3567724601816002547
+      Romania_5: -8813822059792572240
+      Romania_6: 1973258973373789824
+      Romania_7: 8320061529674735918
+      Romania_8: -236314720200395043
+      Romania_9: -5593445381112715824
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

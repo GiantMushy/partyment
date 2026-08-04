@@ -1,0 +1,1066 @@
+fileFormatVersion: 2
+guid: 02f2dba0f809a47a892632507560de25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3348122366736346296
+    second: Finland_0
+  - first:
+      213: -3558934642847677041
+    second: Finland_1
+  - first:
+      213: 3163268577617551456
+    second: Finland_2
+  - first:
+      213: -3195232191806973131
+    second: Finland_3
+  - first:
+      213: -187690031958574577
+    second: Finland_4
+  - first:
+      213: 3101969972377951188
+    second: Finland_5
+  - first:
+      213: 2583384044547788874
+    second: Finland_6
+  - first:
+      213: -2628240030299888477
+    second: Finland_7
+  - first:
+      213: -5676321980931043183
+    second: Finland_8
+  - first:
+      213: 8406572566154202236
+    second: Finland_9
+  - first:
+      213: -6858059624551246916
+    second: Finland_10
+  - first:
+      213: 5339571690400319053
+    second: Finland_11
+  - first:
+      213: 1319430763928218655
+    second: Finland_12
+  - first:
+      213: -6422098228402136985
+    second: Finland_13
+  - first:
+      213: -1388601589244407659
+    second: Finland_14
+  - first:
+      213: -2274856953656967385
+    second: Finland_15
+  - first:
+      213: -3759723794219720377
+    second: Finland_16
+  - first:
+      213: 8567784498368959014
+    second: Finland_17
+  - first:
+      213: 6233140345980657560
+    second: Finland_18
+  - first:
+      213: -4408085668086808243
+    second: Finland_19
+  - first:
+      213: 1459329955143580110
+    second: Finland_20
+  - first:
+      213: 5996514643222886945
+    second: Finland_21
+  - first:
+      213: -2868055523697485526
+    second: Finland_22
+  - first:
+      213: 2126838890972406072
+    second: Finland_23
+  - first:
+      213: -8970741538224703355
+    second: Finland_24
+  - first:
+      213: -8129212104979212714
+    second: Finland_25
+  - first:
+      213: -8548693935076774893
+    second: Finland_26
+  - first:
+      213: -1214783366325954616
+    second: Finland_27
+  - first:
+      213: -3279918827349574313
+    second: Finland_28
+  - first:
+      213: 7972357396990248035
+    second: Finland_29
+  - first:
+      213: -8618851076597399795
+    second: Finland_30
+  - first:
+      213: 4568311026446637465
+    second: Finland_31
+  - first:
+      213: -9075861313156202924
+    second: Finland_32
+  - first:
+      213: -4659641054522072633
+    second: Finland_33
+  - first:
+      213: 3939007568735819253
+    second: Finland_34
+  - first:
+      213: -8869756632629176490
+    second: Finland_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Finland_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 208
+        width: 172
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843d32252741981d0800000000000000
+      internalID: -3348122366736346296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 198
+        width: 153
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f858b326ccf1c9ec0800000000000000
+      internalID: -3558934642847677041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 165
+        width: 81
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060ac0af20036eb20800000000000000
+      internalID: 3163268577617551456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_3
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 211
+        width: 173
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bd378204148a3d0800000000000000
+      internalID: -3195232191806973131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 202
+        width: 153
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a3a3d09e0356df0800000000000000
+      internalID: -187690031958574577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_5
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 168
+        width: 72
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db148341496c0b20800000000000000
+      internalID: 3101969972377951188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 82
+        width: 122
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40dea5e9160ad320800000000000000
+      internalID: 2583384044547788874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_7
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 103
+        width: 118
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a463811e9d968bd0800000000000000
+      internalID: -2628240030299888477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 123
+        width: 110
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1901dd79b37a931b0800000000000000
+      internalID: -5676321980931043183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 144
+        width: 88
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c4a2085352aa470800000000000000
+      internalID: 8406572566154202236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_10
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 131
+        width: 61
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb39c266b1743d0a0800000000000000
+      internalID: -6858059624551246916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 153
+        width: 53
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d460b038928f91a40800000000000000
+      internalID: 5339571690400319053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_12
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 153
+        width: 61
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ce9a50a4f8f4210800000000000000
+      internalID: 1319430763928218655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_13
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 131
+        width: 68
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768dc6fdfaf10e6a0800000000000000
+      internalID: -6422098228402136985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_14
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 147
+        width: 79
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5905b823632babce0800000000000000
+      internalID: -1388601589244407659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_15
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 126
+        width: 100
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ff27247a51e60e0800000000000000
+      internalID: -2274856953656967385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_16
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 106
+        width: 109
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74123f70127c2dbc0800000000000000
+      internalID: -3759723794219720377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_17
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 85
+        width: 113
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62251617b92e6e670800000000000000
+      internalID: 8567784498368959014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 128
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f155dbe10908650800000000000000
+      internalID: 6233140345980657560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_19
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 40
+        width: 111
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41023e907553d2c0800000000000000
+      internalID: -4408085668086808243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_20
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 87
+        width: 76
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec97b62ccd4904410800000000000000
+      internalID: 1459329955143580110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 109
+        width: 68
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a7abf0c46e73350800000000000000
+      internalID: 5996514643222886945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_22
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 109
+        width: 76
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a291ae162be9238d0800000000000000
+      internalID: -2868055523697485526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_23
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 87
+        width: 83
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83165eee3bc048d10800000000000000
+      internalID: 2126838890972406072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_24
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 64
+        width: 120
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588764a9916818380800000000000000
+      internalID: -8970741538224703355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 43
+        width: 103
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65698e239ac3f2f80800000000000000
+      internalID: -8129212104979212714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 20
+        width: 77
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c6632b820fc5980800000000000000
+      internalID: -8548693935076774893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_27
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 43
+        width: 91
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7961be6f8342fe0800000000000000
+      internalID: -1214783366325954616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_28
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 65
+        width: 83
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d76bb44336b72d0800000000000000
+      internalID: -3279918827349574313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_29
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 65
+        width: 91
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364cf0e20d083ae60800000000000000
+      internalID: 7972357396990248035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_30
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 43
+        width: 98
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f3b674c90b36880800000000000000
+      internalID: -8618851076597399795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_31
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 23
+        width: 67
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9991ad2bca6e56f30800000000000000
+      internalID: 4568311026446637465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_32
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 106
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e3d9eb8301c0280800000000000000
+      internalID: -9075861313156202924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 21
+        width: 98
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1a2641621a55fb0800000000000000
+      internalID: -4659641054522072633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_34
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 21
+        width: 106
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5d216938a2aa630800000000000000
+      internalID: 3939007568735819253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finland_35
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 113
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65719fb265b48e480800000000000000
+      internalID: -8869756632629176490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Finland_0: -3348122366736346296
+      Finland_1: -3558934642847677041
+      Finland_10: -6858059624551246916
+      Finland_11: 5339571690400319053
+      Finland_12: 1319430763928218655
+      Finland_13: -6422098228402136985
+      Finland_14: -1388601589244407659
+      Finland_15: -2274856953656967385
+      Finland_16: -3759723794219720377
+      Finland_17: 8567784498368959014
+      Finland_18: 6233140345980657560
+      Finland_19: -4408085668086808243
+      Finland_2: 3163268577617551456
+      Finland_20: 1459329955143580110
+      Finland_21: 5996514643222886945
+      Finland_22: -2868055523697485526
+      Finland_23: 2126838890972406072
+      Finland_24: -8970741538224703355
+      Finland_25: -8129212104979212714
+      Finland_26: -8548693935076774893
+      Finland_27: -1214783366325954616
+      Finland_28: -3279918827349574313
+      Finland_29: 7972357396990248035
+      Finland_3: -3195232191806973131
+      Finland_30: -8618851076597399795
+      Finland_31: 4568311026446637465
+      Finland_32: -9075861313156202924
+      Finland_33: -4659641054522072633
+      Finland_34: 3939007568735819253
+      Finland_35: -8869756632629176490
+      Finland_4: -187690031958574577
+      Finland_5: 3101969972377951188
+      Finland_6: 2583384044547788874
+      Finland_7: -2628240030299888477
+      Finland_8: -5676321980931043183
+      Finland_9: 8406572566154202236
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

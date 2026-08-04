@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-Shared
-  m_GUID: dc2f9db1cdd8d8a439b37964f864394c
+  m_GUID: f3df25d6b27194312a841755674b75c8
   m_SerializeEntries:
-  - m_GUID: 71ec90485182ac74eaaec99ec052da16
-    m_Address: Assets/Languages/Gametext Shared Data.asset
+  - m_GUID: f58267f7eff4f4295ab2def66984f6fc
+    m_Address: Assets/GametextReal Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
-  m_Settings: {fileID: 11400000, guid: 42054c34fbdd3aa4ea78bad3b49d8737, type: 2}
+  m_Settings: {fileID: 11400000, guid: fbe27798f70734dc084b88b53b1651bc, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 959f2d72057fe424ab4162b1d28b45d0, type: 2}
-    - {fileID: 11400000, guid: 8c087bdb6159c464e888d9b185fba689, type: 2}
+    - {fileID: 11400000, guid: 83c031494c9b942a995021840479e6e0, type: 2}
+    - {fileID: 11400000, guid: 09d024affd4df40b1a1440dc05fd5a00, type: 2}

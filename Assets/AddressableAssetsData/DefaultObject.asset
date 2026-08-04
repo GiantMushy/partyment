@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
   m_Name: DefaultObject
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject
-  m_AddressableAssetSettingsGuid: 42054c34fbdd3aa4ea78bad3b49d8737
+  m_AddressableAssetSettingsGuid: fbe27798f70734dc084b88b53b1651bc
