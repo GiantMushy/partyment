@@ -95,10 +95,7 @@ public class AssignGroupsController : MonoBehaviour
     {
         CommitGroupAssignments();
         gameManager.corruptionManager.AssignCorruptionsToPlayers(PlayerManager.players, dmId);
-        gameManager.PlayTransition("Game Is Starting!", () =>
-        {
-            gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);
-        });
+        gameManager.StartMutex(PlayerManager.players[dmId], GameManager.GameState.TopicSelection);
     }
 
     public void Back()

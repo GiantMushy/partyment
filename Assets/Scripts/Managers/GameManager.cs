@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Dev Values")]
     public bool developmentMode = true;
-    [SerializeField, Tooltip("Dictates the starting state of the game when development mode is ON")] private GameState startingState = GameState.LoadingScreen;
+    [SerializeField, Tooltip("Dictates the starting state of the game when development mode is ON")] private GameState startingState = GameState.PackSelection;
     public enum Language { English, Icelandic }
     public Language selectedLanguage = Language.English;
     public enum GameState
     {
         // Global States
-        None, LoadingScreen, PackSelection, Settings, Rulebook,
+        None, PackSelection, Settings, Rulebook,
         // Local Game States
         LocalVsOnline, StartLocalGame, AssignGroups, TopicSelection, MetricSelection, AssignPositions, PlayerMutex, CorruptionDisplay, DMDisplay, Voting, Scoreboard,
         // Online Game States
@@ -71,10 +71,8 @@ public class GameManager : MonoBehaviour
     private List<Group> votingGroupOrder = new List<Group>();
     private int votingGroupIndex = 0;
     [HideInInspector] public bool isDMMetricVoting = false;
-    [SerializeField] private float fakeLoadingTime = 3f;
 
     [Header("State References")]
-    public GameObject loadingScreen;
     public GameObject menuPopup;
     public GameObject settings;
     public GameObject rulebook;
@@ -119,7 +117,6 @@ public class GameManager : MonoBehaviour
     {
         stateDictionary = new Dictionary<GameState, GameObject>
         {
-            { GameState.LoadingScreen, loadingScreen },
             { GameState.Settings, settings },
             { GameState.Rulebook, rulebook },
             { GameState.PackSelection, packSelection },
@@ -154,7 +151,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Development Mode: OFF");
-            StartCoroutine(LoadingSequence());
+            SetState(GameState.PackSelection);
         }
     }
 
@@ -297,13 +294,6 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayerGroup(int id, int newGroupId)
     {
         playerManager.UpdatePlayerGroup(id, newGroupId);
-    }
-    
-    public IEnumerator LoadingSequence(GameState nextState = GameState.PackSelection)
-    {
-        SetState(GameState.LoadingScreen);
-        yield return new WaitForSeconds(fakeLoadingTime);
-        SetState(nextState);
     }
 
     public void StartMutex(Player player, GameState nextState)

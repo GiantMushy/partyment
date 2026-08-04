@@ -15,7 +15,7 @@ public class TransitionController : MonoBehaviour
     [SerializeField] private CanvasGroup transitionCanvasGroup;
     [SerializeField] private TextMeshProUGUI transitionToText;
     [SerializeField] private float fadeDuration = 0.5f;
-    [SerializeField] private float holdDuration = 1f;
+    [SerializeField] private float holdDuration = 0.5f;
 
     private Action midTransitionAction;
 

@@ -13,7 +13,7 @@ The project uses **Universal Render Pipeline (URP)**, **TextMeshPro**, and **Uni
 This is a Unity project — all building, running, and testing is done through the **Unity Editor** (version 6000.3.1f1). There are no CLI build or test commands.
 
 - Open the project in Unity Hub and load `MainScene.unity` (or `BjarkiMainScene.unity` for the alternate dev scene).
-- Enable **Development Mode** by setting `GameManager.developmentMode = true` in the Inspector. This skips the loading screen and starts in `startingState`.
+- Enable **Development Mode** by setting `GameManager.developmentMode = true` in the Inspector. This seeds dev-mode players and starts in `startingState` instead of Pack Selection.
 - Populate `PlayerManager.devModePlayerNames` with **more than 3 names** — `InitializeDevModePlayers()` silently does nothing with 3 or fewer.
 - The starting state can be set via `GameManager.startingState` in the Inspector to jump directly to any screen for testing.
 
