@@ -416,6 +416,15 @@ public class GameManager : MonoBehaviour
         votingGroupIndex = 0;
         isDMMetricVoting = false;
 
+        // With only two teams a group-voting round is pointless — each group would just
+        // vote for itself — so skip it and go straight to the DM's metric vote. No
+        // FinalizeGroupVoting here: no votes were cast, so no vote-rank points are owed.
+        if (votingGroupOrder.Count <= 2)
+        {
+            StartDMMetricVote();
+            return;
+        }
+
         if (votingGroupOrder.Count > 0)
         {
             StartMutex(votingGroupOrder[0].name, "We are ", GameState.Voting);
@@ -437,12 +446,18 @@ public class GameManager : MonoBehaviour
         else
         {
             voting.GetComponent<VotingController>().FinalizeGroupVoting();
-
-            isDMMetricVoting = true;
-            int dmId = playerManager.dmId;
-            Player dm = playerManager.players[dmId];
-            StartMutex(dm.name, "I am ", GameState.Voting);
+            StartDMMetricVote();
         }
+    }
+
+    /// <summary>
+    /// Enters the DM's metric-voting phase with a PlayerMutex handoff to the DM.
+    /// </summary>
+    private void StartDMMetricVote()
+    {
+        isDMMetricVoting = true;
+        Player dm = playerManager.players[playerManager.dmId];
+        StartMutex(dm.name, "I am ", GameState.Voting);
     }
 
     private IEnumerator ApplySelectedLanguageLocale()
