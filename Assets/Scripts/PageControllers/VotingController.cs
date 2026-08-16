@@ -79,6 +79,10 @@ public class VotingController : MonoBehaviour
     private GameObject[] allGroupButtons;
     private List<Group> activeGroups = new List<Group>();
 
+    /// <summary>The group currently casting votes. Excluded from its own ballot so a group
+    /// cannot vote for itself. Null during DM metric voting.</summary>
+    private Group currentVotingGroup;
+
     /// <summary>
     /// slotOccupants[0..2] = handler in vote slot 1/2/3. null = empty.
     /// During DM voting only slots 0 and 1 are used.
@@ -118,14 +122,16 @@ public class VotingController : MonoBehaviour
         };
     }
 
-    public void PrepareForGroupVoting()
+    public void PrepareForGroupVoting(Group votingGroup)
     {
         currentPhase = VotingPhase.GroupVoting;
+        currentVotingGroup = votingGroup;
     }
 
     public void PrepareForDMMetricVoting()
     {
         currentPhase = VotingPhase.DMMetricVoting;
+        currentVotingGroup = null;
     }
 
     /// <summary>
@@ -178,6 +184,11 @@ public class VotingController : MonoBehaviour
         activeGroups = PlayerManager.groups.Values
             .OrderBy(g => g.id)
             .ToList();
+
+        // A group cannot vote for itself, so drop it from its own list of choices.
+        if (currentPhase == VotingPhase.GroupVoting && currentVotingGroup != null)
+            activeGroups.RemoveAll(g => g.id == currentVotingGroup.id);
+
         int groupCount = activeGroups.Count;
 
         for (int i = 0; i < allGroupButtons.Length; i++)

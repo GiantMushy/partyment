@@ -331,7 +331,8 @@ public class GameManager : MonoBehaviour
                 if (isDMMetricVoting)
                     votingCtrl.PrepareForDMMetricVoting();
                 else
-                    votingCtrl.PrepareForGroupVoting();
+                    // Pass the voting group so it can be excluded from its own ballot.
+                    votingCtrl.PrepareForGroupVoting(votingGroupOrder[votingGroupIndex]);
                 break;
             case GameState.TopicSelection:
                 break;
