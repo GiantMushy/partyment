@@ -76,6 +76,17 @@ public class ScoreboardController : MonoBehaviour
     [SerializeField] private string stolenPointsLabel  = "Stolen Points";
     [SerializeField] private string penaltiesLabel     = "Penalties";
 
+    [Header("Victory (final scoreboard only)")]
+    [Tooltip("Crown/trophy icon per player slot (index 0..6). Shown only on the winner's column when the game is over.")]
+    [SerializeField] private List<GameObject> winnerCrownDisplays = new List<GameObject>(7);
+    [Tooltip("CanvasGroup wrapping each player column (index 0..6). Losing columns are faded to Loser Dim Alpha when the game is over.")]
+    [SerializeField] private List<CanvasGroup> playerColumnGroups = new List<CanvasGroup>(7);
+    [Tooltip("Alpha applied to non-winner columns on the final scoreboard.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float loserDimAlpha = 0.45f;
+    [Tooltip("Victory header shown in the Point Type label once the game is over. {0} = winner's name.")]
+    [SerializeField] private string winnerLabelFormat = "{0} Wins!";
+
     /// <summary>One row of resolved score data per visible player slot.</summary>
     private class PlayerRow
     {
@@ -235,6 +246,12 @@ public class ScoreboardController : MonoBehaviour
             // Old-score bar is visible from Round 2 onward.
             bool oldActive = active && (gameManager != null && gameManager.currentRound > 1);
             SetActiveSafe(oldScoreDisplays, i, oldActive);
+
+            // Clear any victory treatment from a previous scoreboard; it is re-applied at
+            // the end of the animation only when the game is actually over.
+            SetActiveSafe(winnerCrownDisplays, i, false);
+            if (i < playerColumnGroups.Count && playerColumnGroups[i] != null)
+                playerColumnGroups[i].alpha = 1f;
         }
 
         if (pointTypeDisplay != null) pointTypeDisplay.text = string.Empty;
@@ -369,7 +386,59 @@ public class ScoreboardController : MonoBehaviour
         }
         ApplyAllBarsAndCounters();
 
+        // On the final scoreboard, reveal the winner once all the points have landed.
+        if (IsGameOver())
+            ShowVictory();
+
         animationRoutine = null;
+    }
+
+    /// <summary>
+    /// True on the last scoreboard of the game. Tied to the final round, which is the
+    /// game's only implemented end condition. If a "first to <see cref="maxScore"/> ends
+    /// the game early" flow is added to GameManager, OR that in here so victory shows then
+    /// too — kept out for now so the header/crown never contradict a "Next Round" button.
+    /// </summary>
+    private bool IsGameOver()
+    {
+        if (gameManager == null) return false;
+        return gameManager.currentRound >= gameManager.totalRounds;
+    }
+
+    /// <summary>Row index of the player with the highest final total, or -1 if none.</summary>
+    private int GetWinnerRowIndex()
+    {
+        int best = -1;
+        int bestScore = int.MinValue;
+        for (int i = 0; i < rows.Count; i++)
+        {
+            if (rows[i].actualTotal > bestScore)
+            {
+                bestScore = rows[i].actualTotal;
+                best = i;
+            }
+        }
+        return best;
+    }
+
+    /// <summary>
+    /// Applies the end-of-game treatment: rewrites the phase label to "{winner} Wins!",
+    /// shows the winner's crown, and dims the losing columns.
+    /// </summary>
+    private void ShowVictory()
+    {
+        int winner = GetWinnerRowIndex();
+        if (winner < 0) return;
+
+        if (pointTypeDisplay != null && rows[winner].player != null)
+            pointTypeDisplay.text = string.Format(winnerLabelFormat, rows[winner].player.name);
+
+        for (int i = 0; i < rows.Count; i++)
+        {
+            SetActiveSafe(winnerCrownDisplays, i, i == winner);
+            if (i < playerColumnGroups.Count && playerColumnGroups[i] != null)
+                playerColumnGroups[i].alpha = (i == winner) ? 1f : loserDimAlpha;
+        }
     }
 
     private enum BarTarget { Group, Corruption }
