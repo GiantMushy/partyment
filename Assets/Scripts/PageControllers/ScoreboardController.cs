@@ -86,6 +86,10 @@ public class ScoreboardController : MonoBehaviour
     [SerializeField] private float loserDimAlpha = 0.45f;
     [Tooltip("Victory header shown in the Point Type label once the game is over. {0} = winner's name.")]
     [SerializeField] private string winnerLabelFormat = "{0} Wins!";
+    [Tooltip("Vertical bob distance of the leader's crown, in pixels. Kept small for a faint float.")]
+    [SerializeField] private float crownBobAmplitude = 6f;
+    [Tooltip("Bob speed of the leader's crown, in radians per second.")]
+    [SerializeField] private float crownBobSpeed = 2.5f;
 
     /// <summary>One row of resolved score data per visible player slot.</summary>
     private class PlayerRow
@@ -104,6 +108,13 @@ public class ScoreboardController : MonoBehaviour
 
     private readonly List<PlayerRow> rows = new List<PlayerRow>();
     private Coroutine animationRoutine;
+
+    // Crown bob: the leader's crown floats around its authored position. Base positions are
+    // captured once so the bob always oscillates around the designer-set offset, not a
+    // mid-bob value left over from a previous scoreboard.
+    private Coroutine crownBobRoutine;
+    private Vector2[] crownBasePos;
+    private bool      crownBasesCaptured;
 
     private float[] animOldVals;
     private float[] animGroupVals;
@@ -139,6 +150,7 @@ public class ScoreboardController : MonoBehaviour
             StopCoroutine(animationRoutine);
             animationRoutine = null;
         }
+        StopCrownBob();
         for (int i = 0; i < scoreIncrementerDisplays.Count; i++)
             if (scoreIncrementerDisplays[i] != null)
                 scoreIncrementerDisplays[i].gameObject.SetActive(false);
@@ -219,6 +231,10 @@ public class ScoreboardController : MonoBehaviour
                 accusedLoss  = accusedLoss,
             });
         }
+
+        // Stop any bob from the previous scoreboard and restore crowns to their base
+        // position before this build re-hides them.
+        StopCrownBob();
 
         int n = rows.Count;
         animOldVals          = new float[n];
@@ -386,27 +402,20 @@ public class ScoreboardController : MonoBehaviour
         }
         ApplyAllBarsAndCounters();
 
-        // On the final scoreboard, reveal the winner once all the points have landed.
-        if (IsGameOver())
+        // Crown the current leader on every scoreboard so players can see who is ahead,
+        // not only who has won.
+        ShowLeaderCrown();
+
+        // The rest of the victory treatment (winner header + dimmed losers) only lands
+        // once the game is actually over.
+        if (gameManager != null && gameManager.IsGameOver())
             ShowVictory();
 
         animationRoutine = null;
     }
 
-    /// <summary>
-    /// True on the last scoreboard of the game. Tied to the final round, which is the
-    /// game's only implemented end condition. If a "first to <see cref="maxScore"/> ends
-    /// the game early" flow is added to GameManager, OR that in here so victory shows then
-    /// too — kept out for now so the header/crown never contradict a "Next Round" button.
-    /// </summary>
-    private bool IsGameOver()
-    {
-        if (gameManager == null) return false;
-        return gameManager.currentRound >= gameManager.totalRounds;
-    }
-
     /// <summary>Row index of the player with the highest final total, or -1 if none.</summary>
-    private int GetWinnerRowIndex()
+    private int GetLeadingRowIndex()
     {
         int best = -1;
         int bestScore = int.MinValue;
@@ -422,12 +431,27 @@ public class ScoreboardController : MonoBehaviour
     }
 
     /// <summary>
-    /// Applies the end-of-game treatment: rewrites the phase label to "{winner} Wins!",
-    /// shows the winner's crown, and dims the losing columns.
+    /// Shows the crown on the current leader (and only the leader) and starts the bob, so
+    /// the scoreboard indicates who is ahead every round, not just who has won.
+    /// </summary>
+    private void ShowLeaderCrown()
+    {
+        CaptureCrownBasesOnce();
+
+        int leader = GetLeadingRowIndex();
+        for (int i = 0; i < winnerCrownDisplays.Count; i++)
+            SetActiveSafe(winnerCrownDisplays, i, i == leader);
+
+        if (leader >= 0) StartCrownBob();
+    }
+
+    /// <summary>
+    /// End-of-game treatment applied on top of the leader crown: rewrites the phase label
+    /// to "{winner} Wins!" and dims the losing columns.
     /// </summary>
     private void ShowVictory()
     {
-        int winner = GetWinnerRowIndex();
+        int winner = GetLeadingRowIndex();
         if (winner < 0) return;
 
         if (pointTypeDisplay != null && rows[winner].player != null)
@@ -435,9 +459,70 @@ public class ScoreboardController : MonoBehaviour
 
         for (int i = 0; i < rows.Count; i++)
         {
-            SetActiveSafe(winnerCrownDisplays, i, i == winner);
             if (i < playerColumnGroups.Count && playerColumnGroups[i] != null)
                 playerColumnGroups[i].alpha = (i == winner) ? 1f : loserDimAlpha;
+        }
+    }
+
+    /// <summary>
+    /// Records each crown's authored anchored position once, so the bob always oscillates
+    /// around the designer-set offset rather than drifting off a previous bob frame.
+    /// </summary>
+    private void CaptureCrownBasesOnce()
+    {
+        if (crownBasesCaptured) return;
+        crownBasePos = new Vector2[winnerCrownDisplays.Count];
+        for (int i = 0; i < winnerCrownDisplays.Count; i++)
+        {
+            var rt = winnerCrownDisplays[i] != null
+                ? winnerCrownDisplays[i].GetComponent<RectTransform>() : null;
+            crownBasePos[i] = rt != null ? rt.anchoredPosition : Vector2.zero;
+        }
+        crownBasesCaptured = true;
+    }
+
+    private void StartCrownBob()
+    {
+        if (crownBobRoutine != null) StopCoroutine(crownBobRoutine);
+        crownBobRoutine = StartCoroutine(CrownBobRoutine());
+    }
+
+    /// <summary>Stops the bob and returns every crown to its captured base position.</summary>
+    private void StopCrownBob()
+    {
+        if (crownBobRoutine != null)
+        {
+            StopCoroutine(crownBobRoutine);
+            crownBobRoutine = null;
+        }
+        if (crownBasePos == null) return;
+        for (int i = 0; i < winnerCrownDisplays.Count && i < crownBasePos.Length; i++)
+        {
+            var rt = winnerCrownDisplays[i] != null
+                ? winnerCrownDisplays[i].GetComponent<RectTransform>() : null;
+            if (rt != null) rt.anchoredPosition = crownBasePos[i];
+        }
+    }
+
+    /// <summary>Floats every active crown up and down around its captured base position.</summary>
+    private IEnumerator CrownBobRoutine()
+    {
+        float t = 0f;
+        while (true)
+        {
+            t += Time.unscaledDeltaTime;
+            float offset = Mathf.Sin(t * crownBobSpeed) * crownBobAmplitude;
+            for (int i = 0; i < winnerCrownDisplays.Count; i++)
+            {
+                var go = winnerCrownDisplays[i];
+                if (go == null || !go.activeSelf) continue;
+                var rt = go.GetComponent<RectTransform>();
+                if (rt == null) continue;
+                Vector2 basePos = (crownBasePos != null && i < crownBasePos.Length)
+                    ? crownBasePos[i] : rt.anchoredPosition;
+                rt.anchoredPosition = new Vector2(basePos.x, basePos.y + offset);
+            }
+            yield return null;
         }
     }
 
@@ -691,24 +776,21 @@ public class ScoreboardController : MonoBehaviour
     {
         if (gameManager == null) return;
         if (roundButtonText == null) return;
-        if (gameManager.currentRound < gameManager.totalRounds)
-            roundButtonText.text = "Next Round";
-        else if (gameManager.currentRound == gameManager.totalRounds)
-            roundButtonText.text = "Finish Game";
-        else
-            roundButtonText.text = "New Game";
+        // Game over (final round reached OR a player hit the win threshold) turns the
+        // advance button into a restart; otherwise it moves to the next round.
+        roundButtonText.text = gameManager.IsGameOver() ? "New Game" : "Next Round";
     }
 
     public void OnRoundButtonClicked()
     {
-        if (gameManager.currentRound < gameManager.totalRounds)
+        if (!gameManager.IsGameOver())
         {
             gameManager.PlayTransition($"Round {gameManager.currentRound + 1}", () =>
             {
                 gameManager.StartNextRound();
             });
         }
-        else if (gameManager.currentRound == gameManager.totalRounds)
+        else
         {
             gameManager.PlayTransition("Starting New Game!", () =>
             {

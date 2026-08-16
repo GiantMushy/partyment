@@ -350,6 +350,32 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Round scores committed to oldScore; per-round counters reset.");
     }
 
+    /// <summary>
+    /// A player's running total for the whole game right now, including the current
+    /// (not-yet-committed) round: committed <see cref="Player.oldScore"/> + their group's
+    /// round score + their personal round net. Matches the value the Scoreboard animates to.
+    /// </summary>
+    public int GetPlayerGameTotal(Player p)
+    {
+        if (p == null) return 0;
+        int groupScore = (p.group_id >= 0 && groups.ContainsKey(p.group_id)) ? groups[p.group_id].score : 0;
+        return p.oldScore + groupScore + p.score;
+    }
+
+    /// <summary>
+    /// True when any non-DM player has reached <paramref name="threshold"/> points this
+    /// game (counting the current round). Drives the "first to N ends the game" condition.
+    /// </summary>
+    public bool HasAnyPlayerReachedScore(int threshold)
+    {
+        foreach (var p in players.Values)
+        {
+            if (p.id == dmId) continue;
+            if (GetPlayerGameTotal(p) >= threshold) return true;
+        }
+        return false;
+    }
+
     public void InitializeDevModePlayers()
     {
         if (devModePlayerNames.Count > 3)

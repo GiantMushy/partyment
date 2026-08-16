@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("Game Rounds")]
     [SerializeField, Tooltip("Number of rounds per game")] public int totalRounds = 3;
+    [SerializeField, Tooltip("A player reaching this total ends the game immediately, in addition to the round limit.")]
+    public int winScoreThreshold = 500;
     [HideInInspector] public int currentRound = 1;
 
     public static GameManager Instance { get; private set; }
@@ -335,6 +337,18 @@ public class GameManager : MonoBehaviour
                 break;
         }
         SetState(nextState);
+    }
+
+    /// <summary>
+    /// True when the game should end after the current scoreboard: the final round has
+    /// been reached, or a player has hit <see cref="winScoreThreshold"/> (counting the
+    /// current, not-yet-committed round). The Scoreboard uses this to show the victor and
+    /// to turn its advance button into "New Game".
+    /// </summary>
+    public bool IsGameOver()
+    {
+        if (currentRound >= totalRounds) return true;
+        return playerManager != null && playerManager.HasAnyPlayerReachedScore(winScoreThreshold);
     }
 
     /// <summary>
