@@ -59,8 +59,13 @@ public class AssignPositionsController : MonoBehaviour
 
     private void DisplayGroups()
     {
-        foreach (Transform child in groupDisplayParent.transform)
-            Destroy(child.gameObject);
+        // DestroyImmediate (not Destroy) so the old cards are gone synchronously. Deferred
+        // Destroy leaves stale cards alive as siblings during this frame's layout pass,
+        // which drives the nested ContentSizeFitters into a collapsed ("squished") state on
+        // re-entry (back-and-forth navigation, round 2+). See RebuildLayout below.
+        Transform parent = groupDisplayParent.transform;
+        for (int i = parent.childCount - 1; i >= 0; i--)
+            DestroyImmediate(parent.GetChild(i).gameObject);
 
         foreach (var group in PlayerManager.groups.Values)
         {
@@ -70,6 +75,28 @@ public class AssignPositionsController : MonoBehaviour
             foreach (var player in PlayerManager.GetPlayersWithGroupId(group.id))
                 CreateNameCard(player, container.transform);
         }
+
+        RebuildLayout();
+    }
+
+    /// <summary>
+    /// Forces the nested layout to resolve deterministically. Each group card fits its
+    /// players via its own ContentSizeFitter, and the parent list stacks the cards using
+    /// their resolved heights — so the cards must be rebuilt first (inner), then the list
+    /// (outer). Doing this explicitly avoids the intermittent one-frame collapse that
+    /// Unity's automatic rebuild leaves behind for nested ContentSizeFitters, which is the
+    /// mobile "squished after round 1" case that can't be reliably reproduced in the Editor.
+    /// </summary>
+    private void RebuildLayout()
+    {
+        foreach (Transform child in groupDisplayParent.transform)
+        {
+            if (child is RectTransform cardRect)
+                LayoutRebuilder.ForceRebuildLayoutImmediate(cardRect);
+        }
+
+        if (groupDisplayParent.transform is RectTransform parentRect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect);
     }
 
     private void SetupGroupContainer(GameObject container, Group group)
