@@ -11,12 +11,11 @@ using UnityEngine.UI;
 /// stacked bars (bottom to top): old score, group score, and corruption stacked with
 /// stolen points. A top-of-screen phase label and per-player score-incrementer text
 /// flash the points being added or removed in each animation phase. The bar container
-/// has a fixed pixel height and the pixels-per-point ratio scales dynamically: the
-/// ceiling starts at <see cref="initialMaxScore"/> and steps up by
-/// <see cref="maxScoreStep"/> when any player's total exceeds it. Marker spacing on
-/// the background layout is updated each frame so labels stay aligned. The animation
-/// runs through six phases: init, group votes, metric 1, metric 2, corruptions,
-/// stolen points, and penalties.
+/// has a fixed pixel height mapped to a fixed <see cref="maxScore"/> (the game's victory
+/// threshold): bars never scale past it, so a player who reaches or exceeds
+/// <see cref="maxScore"/> has their stack pinned at the top mark while the total counter
+/// keeps climbing to break ties. The animation runs through six phases: init, group
+/// votes, metric 1, metric 2, corruptions, stolen points, and penalties.
 /// </summary>
 public class ScoreboardController : MonoBehaviour
 {
@@ -54,11 +53,9 @@ public class ScoreboardController : MonoBehaviour
     [Header("Round UI")]
     [SerializeField] private TMP_Text roundButtonText;
 
-    [Header("Dynamic Scaling")]
-    [Tooltip("Initial max-score the bars represent in Round 1.")]
-    [SerializeField] private int   initialMaxScore   = 300;
-    [Tooltip("How much the max-score grows when exceeded.")]
-    [SerializeField] private int   maxScoreStep      = 200;
+    [Header("Scale")]
+    [Tooltip("Score represented by the full bar height, and the game's victory threshold. Bars never scale past this; a player who exceeds it stays pinned at the top mark while their total counter keeps climbing.")]
+    [SerializeField] private int   maxScore = 500;
     [Tooltip("Container height in pixels. If 0, auto-detected from the first assigned group bar's parent.")]
     [SerializeField] private float barContainerHeight = 0f;
 
@@ -96,7 +93,6 @@ public class ScoreboardController : MonoBehaviour
 
     private readonly List<PlayerRow> rows = new List<PlayerRow>();
     private Coroutine animationRoutine;
-    private int currentMaxScore;
 
     private float[] animOldVals;
     private float[] animGroupVals;
@@ -265,7 +261,6 @@ public class ScoreboardController : MonoBehaviour
     private IEnumerator RunScoreboardAnimation()
     {
         // Init phase: pre-fill old score, all other bars at 0, total = oldScore.
-        currentMaxScore = initialMaxScore;
         for (int i = 0; i < rows.Count; i++)
         {
             animOldVals[i]         = rows[i].oldScore;
@@ -277,7 +272,6 @@ public class ScoreboardController : MonoBehaviour
         }
         SetPointType(string.Empty);
         HideAllIncrementers();
-        RecomputeMaxScore();
         UpdateBackgroundSpacing();
         ApplyAllBarsAndCounters();
 
@@ -382,8 +376,7 @@ public class ScoreboardController : MonoBehaviour
 
     /// <summary>
     /// Lerps each row's selected bar from its current value up by <paramref name="delta"/>[i]
-    /// over <paramref name="duration"/> seconds, ticking the total counter and rescaling
-    /// the background markers in step.
+    /// over <paramref name="duration"/> seconds, ticking the total counter in step.
     /// </summary>
     private IEnumerator AnimateAddToBar(BarTarget target, int[] delta, float duration)
     {
@@ -405,8 +398,6 @@ public class ScoreboardController : MonoBehaviour
                 else                           animCorrVals[i]  = v;
                 RecomputeRowDisplayedTotal(i);
             }
-            RecomputeMaxScore();
-            UpdateBackgroundSpacing();
             ApplyAllBarsAndCounters();
             yield return null;
         }
@@ -418,8 +409,6 @@ public class ScoreboardController : MonoBehaviour
             else                           animCorrVals[i]  = v;
             RecomputeRowDisplayedTotal(i);
         }
-        RecomputeMaxScore();
-        UpdateBackgroundSpacing();
         ApplyAllBarsAndCounters();
     }
 
@@ -454,8 +443,6 @@ public class ScoreboardController : MonoBehaviour
                 ApplyDeductionCascade(i, deductions[i] * eased, startGroup[i], startCorr[i], startOld[i]);
                 RecomputeRowDisplayedTotal(i);
             }
-            RecomputeMaxScore();
-            UpdateBackgroundSpacing();
             ApplyAllBarsAndCounters();
             yield return null;
         }
@@ -466,8 +453,6 @@ public class ScoreboardController : MonoBehaviour
             ApplyDeductionCascade(i, deductions[i], startGroup[i], startCorr[i], startOld[i]);
             RecomputeRowDisplayedTotal(i);
         }
-        RecomputeMaxScore();
-        UpdateBackgroundSpacing();
         ApplyAllBarsAndCounters();
     }
 
@@ -556,54 +541,61 @@ public class ScoreboardController : MonoBehaviour
         return metrics[index].ToString();
     }
 
-    /// <summary>
-    /// Recomputes <see cref="currentMaxScore"/>, stepping up in
-    /// <see cref="maxScoreStep"/> increments until the largest displayed total fits
-    /// under the ceiling. Never shrinks, so the bars do not visually rebound.
-    /// </summary>
-    private void RecomputeMaxScore()
-    {
-        int peak = 0;
-        for (int i = 0; i < rows.Count; i++)
-        {
-            int displayed = Mathf.RoundToInt(
-                animOldVals[i] + animGroupVals[i] + animCorrVals[i] + animStolenVals[i]);
-            if (displayed > peak) peak = displayed;
-        }
-
-        while (peak > currentMaxScore)
-            currentMaxScore += maxScoreStep;
-    }
-
-    /// <summary>Pixels per score-point at the current scale.</summary>
+    /// <summary>Pixels per score-point at the fixed <see cref="maxScore"/> scale.</summary>
     private float PixelsPerPoint =>
-        currentMaxScore <= 0 ? 0f : barContainerHeight / currentMaxScore;
+        maxScore <= 0 ? 0f : barContainerHeight / maxScore;
 
     /// <summary>
-    /// Rescales the scoreboard background's VerticalLayoutGroup so each marker line
-    /// sits at its labelled point value under the current pixels-per-point ratio.
+    /// Sets the scoreboard background's VerticalLayoutGroup spacing so each marker line
+    /// sits at its labelled point value. The scale is fixed, so this is computed once.
     /// </summary>
     private void UpdateBackgroundSpacing()
     {
         if (scoreboardBackground == null) return;
-        if (currentMaxScore <= 0) return;
+        if (maxScore <= 0) return;
         float pxPerStep = markerStepValue * PixelsPerPoint;
         scoreboardBackground.spacing = Mathf.Max(0f, pxPerStep - markerLineHeight);
     }
 
+    /// <summary>
+    /// Pushes every row's animated values to the bars and total counters. The stacked
+    /// bars (old → group → corruption) are clamped cumulatively to
+    /// <see cref="barContainerHeight"/> — the pixel height of <see cref="maxScore"/>
+    /// points — so a player past the threshold pins at the top mark. The numeric total
+    /// counter is unclamped and keeps climbing, which is what breaks ties above the cap.
+    /// </summary>
     private void ApplyAllBarsAndCounters()
     {
         float ppp = PixelsPerPoint;
         for (int i = 0; i < rows.Count; i++)
         {
-            ApplyBarHeight(oldScoreDisplays,        i, animOldVals[i]    * ppp);
-            ApplyBarHeight(groupScoreDisplays,      i, animGroupVals[i]  * ppp);
-            ApplyBarHeight(corruptionScoreDisplays, i, animCorrVals[i]   * ppp);
-            ApplyBarHeight(stolenScoreDisplays,     i, animStolenVals[i] * ppp);
+            // Fill bottom-to-top out of a shared pixel budget so the visible stack never
+            // exceeds the container (the maxScore mark), even when the real total does.
+            float budget = barContainerHeight;
+            float oldH    = ClampBar(animOldVals[i]    * ppp, ref budget);
+            float groupH  = ClampBar(animGroupVals[i]  * ppp, ref budget);
+            float corrH   = ClampBar(animCorrVals[i]   * ppp, ref budget);
+            float stolenH = ClampBar(animStolenVals[i] * ppp, ref budget);
+
+            ApplyBarHeight(oldScoreDisplays,        i, oldH);
+            ApplyBarHeight(groupScoreDisplays,      i, groupH);
+            ApplyBarHeight(corruptionScoreDisplays, i, corrH);
+            ApplyBarHeight(stolenScoreDisplays,     i, stolenH);
 
             if (i < totalScoreDisplays.Count && totalScoreDisplays[i] != null)
                 totalScoreDisplays[i].text = animDisplayedTotals[i].ToString();
         }
+    }
+
+    /// <summary>
+    /// Returns the drawable height for one stacked segment, capped at the remaining
+    /// <paramref name="budget"/> pixels, and subtracts what it took from the budget.
+    /// </summary>
+    private static float ClampBar(float desired, ref float budget)
+    {
+        float h = Mathf.Clamp(desired, 0f, Mathf.Max(0f, budget));
+        budget -= h;
+        return h;
     }
 
     private static void ApplyBarHeight(List<GameObject> list, int idx, float height)
