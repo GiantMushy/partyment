@@ -303,14 +303,29 @@ public class AssignGroupsController : MonoBehaviour
         ForceLayoutRebuild();
     }
 
-    private void ForceLayoutRebuild()
+    /// <summary>
+    /// Rebuilds the group layout. Fresh builds (screen entry, randomize) reset the scroll
+    /// to the top; in-place edits such as moving a card between groups pass
+    /// <paramref name="resetScroll"/> = false so the view stays where the player left it.
+    /// </summary>
+    private void ForceLayoutRebuild(bool resetScroll = true)
     {
+        Vector2 preservedContentPos = Vector2.zero;
+        if (!resetScroll && scrollRect != null && scrollRect.content != null)
+            preservedContentPos = scrollRect.content.anchoredPosition;
+
         if (groupsParent is RectTransform groupsRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(groupsRect);
         if (groupsParent.parent is RectTransform contentRect)
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
+
         if (scrollRect != null)
-            scrollRect.verticalNormalizedPosition = 1f;
+        {
+            if (resetScroll)
+                scrollRect.verticalNormalizedPosition = 1f;
+            else if (scrollRect.content != null)
+                scrollRect.content.anchoredPosition = preservedContentPos;
+        }
     }
 
     /// <summary>
@@ -705,7 +720,7 @@ public class AssignGroupsController : MonoBehaviour
             EnsurePlaceholderIfEmpty(groupContainers[0].transform);
 
         RefreshButtons();
-        ForceLayoutRebuild();
+        ForceLayoutRebuild(resetScroll: false);
     }
 
     private void ApplyHighlight(Image img)
