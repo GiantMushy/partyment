@@ -58,9 +58,9 @@ public class DMDisplayController : MonoBehaviour
     [SerializeField] private RectTransform objectivesContainer;
     [Tooltip("Inner RectTransform that slides horizontally between the Accusation, Active, and Inactive panels.")]
     [SerializeField] private RectTransform slideTrack;
-    [Tooltip("Active panel: Speech for the current group plus Interruption for the others.")]
+    [Tooltip("Active panel: Speech and Betrayal for the current group plus Interruption for the others.")]
     [SerializeField] private Transform activeObjectiveContainer;
-    [Tooltip("Inactive panel: Speech for the other groups plus Interruption for the current group.")]
+    [Tooltip("Inactive panel: Speech and Betrayal for the other groups plus Interruption for the current group.")]
     [SerializeField] private Transform inactiveObjectiveContainer;
     [SerializeField] private GameObject corruptionPrefab;
     [SerializeField] private GameObject noCorruptionsPrefab;
@@ -83,6 +83,7 @@ public class DMDisplayController : MonoBehaviour
 
     private Dictionary<int, List<GameObject>> speechCardsByGroupId       = new Dictionary<int, List<GameObject>>();
     private Dictionary<int, List<GameObject>> interruptionCardsByGroupId = new Dictionary<int, List<GameObject>>();
+    private Dictionary<int, List<GameObject>> betrayalCardsByGroupId     = new Dictionary<int, List<GameObject>>();
     private List<GameObject> allInstantiatedCards = new List<GameObject>();
     private GameObject noCorruptionsCardInstance;
 
@@ -539,8 +540,9 @@ public class DMDisplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Instantiates one CorruptionCardController per non-DM player with a Speech or
-    /// Interruption corruption. Betrayal corruptions are omitted from the DM screen.
+    /// Instantiates one CorruptionCardController per non-DM player with a Speech,
+    /// Interruption, or Betrayal corruption. Betrayal cards are treated like Speech
+    /// (active during the betrayer's own group turn) so the DM can toggle them to score.
     /// </summary>
     private void InstantiateCorruptionCards()
     {
@@ -580,6 +582,16 @@ public class DMDisplayController : MonoBehaviour
                     if (!interruptionCardsByGroupId.ContainsKey(player.group_id))
                         interruptionCardsByGroupId[player.group_id] = new List<GameObject>();
                     interruptionCardsByGroupId[player.group_id].Add(card);
+                    cardsCreated++;
+                    break;
+                }
+                case GameManager.CorruptionType.Betrayal:
+                {
+                    GameObject card = CreateCorruptionCard(player);
+                    if (card == null) break;
+                    if (!betrayalCardsByGroupId.ContainsKey(player.group_id))
+                        betrayalCardsByGroupId[player.group_id] = new List<GameObject>();
+                    betrayalCardsByGroupId[player.group_id].Add(card);
                     cardsCreated++;
                     break;
                 }
@@ -632,6 +644,15 @@ public class DMDisplayController : MonoBehaviour
                 card.transform.SetParent(target, false);
         }
 
+        // Betrayal is performed during the betrayer's own group turn, so it is active for
+        // the current group, exactly like Speech.
+        foreach (var kvp in betrayalCardsByGroupId)
+        {
+            Transform target = kvp.Key == currentGroupId ? activeObjectiveContainer : inactiveObjectiveContainer;
+            foreach (var card in kvp.Value)
+                card.transform.SetParent(target, false);
+        }
+
         foreach (var kvp in interruptionCardsByGroupId)
         {
             Transform target = kvp.Key == currentGroupId ? inactiveObjectiveContainer : activeObjectiveContainer;
@@ -644,26 +665,36 @@ public class DMDisplayController : MonoBehaviour
         RefreshNoCorruptionsCard();
     }
 
-    /// <summary>Reorders children so Speech cards always precede Interruption cards within a container.</summary>
+    /// <summary>Reorders children so cards read Speech, then Betrayal, then Interruption within a container.</summary>
     private void EnforceCardOrder(Transform container)
     {
-        var speechSet = new HashSet<GameObject>();
-        foreach (var list in speechCardsByGroupId.Values)
-            foreach (var c in list)
-                if (c != null) speechSet.Add(c);
+        var speechSet   = BuildCardSet(speechCardsByGroupId);
+        var betrayalSet = BuildCardSet(betrayalCardsByGroupId);
 
         var speechCards       = new List<Transform>();
+        var betrayalCards     = new List<Transform>();
         var interruptionCards = new List<Transform>();
 
         foreach (Transform child in container)
         {
-            if (speechSet.Contains(child.gameObject)) speechCards.Add(child);
-            else interruptionCards.Add(child);
+            if      (speechSet.Contains(child.gameObject))   speechCards.Add(child);
+            else if (betrayalSet.Contains(child.gameObject)) betrayalCards.Add(child);
+            else                                             interruptionCards.Add(child);
         }
 
         int idx = 0;
         foreach (var card in speechCards)       card.SetSiblingIndex(idx++);
-        foreach (var card in interruptionCards)  card.SetSiblingIndex(idx++);
+        foreach (var card in betrayalCards)     card.SetSiblingIndex(idx++);
+        foreach (var card in interruptionCards) card.SetSiblingIndex(idx++);
+    }
+
+    private static HashSet<GameObject> BuildCardSet(Dictionary<int, List<GameObject>> cardsByGroupId)
+    {
+        var set = new HashSet<GameObject>();
+        foreach (var list in cardsByGroupId.Values)
+            foreach (var c in list)
+                if (c != null) set.Add(c);
+        return set;
     }
 
     private void RefreshNoCorruptionsCard()
@@ -682,6 +713,7 @@ public class DMDisplayController : MonoBehaviour
         allInstantiatedCards.Clear();
         speechCardsByGroupId.Clear();
         interruptionCardsByGroupId.Clear();
+        betrayalCardsByGroupId.Clear();
 
         if (noCorruptionsCardInstance != null)
         {
