@@ -247,16 +247,21 @@ public class GameManager : MonoBehaviour
         saveStateForMenu = GameState.None;
     }
 
+    // External links opened from the side menu. Both leave the app and open the
+    // device's default browser.
+    private const string FeedbackUrl    = "https://giantmushy.github.io/AngryPuffinGamesSite/";
+    private const string DataPrivacyUrl = "https://doc-hosting.flycricket.io/state-your-case-privacy-policy/32dfcf16-2c06-4560-8818-8cb83c3af5cc/privacy";
+
     public void OpenFeedbackForm()
     {
-        Debug.Log("Opening Feedback Form");
-        //Application.OpenURL("https://forms.gle/partyment-feedback");
+        Debug.Log("Opening Angry Puffin Games site");
+        Application.OpenURL(FeedbackUrl);
     }
 
     public void OpenDataPrivacyPage()
     {
         Debug.Log("Opening Data Privacy Page");
-        //Application.OpenURL("https://partyment.com/privacy");
+        Application.OpenURL(DataPrivacyUrl);
     }
 
     public void ButtonNotImplemented()
