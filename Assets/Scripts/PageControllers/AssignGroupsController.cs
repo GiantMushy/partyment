@@ -135,6 +135,87 @@ public class AssignGroupsController : MonoBehaviour
     }
 
     /// <summary>
+    /// Picks a random DM and randomly distributes the remaining players into groups of
+    /// two — an odd player out lands in a single group of three. Never produces fewer
+    /// than two debate groups, so with 3–4 players at least one group is a solo.
+    /// </summary>
+    public void ShuffleRandomly()
+    {
+        ClearScreen();
+
+        // Unlike Randomize (which keeps the lowest-ID DM), this reselects the DM at random.
+        var allIds = PlayerManager.players.Keys.ToList();
+        dmId = allIds[Random.Range(0, allIds.Count)];
+
+        var nonDMPlayers = GetShuffledNonDMPlayers(dmId);
+
+        // One group per pair; an odd count folds the leftover into a group of three.
+        // Floor keeps groups at 2–3, and the Max(2, …) guarantees the two-team minimum.
+        numberOfGroups = Mathf.Max(2, nonDMPlayers.Count / 2);
+
+        GameObject dmContainer = SetupDMContainer();
+        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
+
+        var distributed = DistributePlayersIntoGroups(nonDMPlayers, numberOfGroups);
+        numberOfGroups = distributed.Count;
+        for (int g = 0; g < distributed.Count; g++)
+        {
+            GameObject container = CreateGroupContainer(g + 1);
+            foreach (var player in distributed[g])
+                CreateNameCard(player, container.transform, draggable: true);
+        }
+
+        CreateGhostGroupContainer();
+        RefreshButtons();
+        ForceLayoutRebuild();
+    }
+
+    /// <summary>
+    /// Places every non-DM player on their own solo team. The current DM is preserved
+    /// rather than reselected.
+    /// </summary>
+    public void EveryoneSolo()
+    {
+        int currentDmId = GetCurrentDmId();
+
+        ClearScreen();
+        dmId = currentDmId;
+
+        var nonDMPlayers = GetOrderedNonDMPlayers(dmId);
+        numberOfGroups = nonDMPlayers.Count;
+
+        GameObject dmContainer = SetupDMContainer();
+        CreateNameCard(PlayerManager.players[dmId], dmContainer.transform, draggable: true);
+
+        for (int i = 0; i < nonDMPlayers.Count; i++)
+        {
+            GameObject container = CreateGroupContainer(i + 1);
+            CreateNameCard(nonDMPlayers[i], container.transform, draggable: true);
+        }
+
+        CreateGhostGroupContainer();
+        RefreshButtons();
+        ForceLayoutRebuild();
+    }
+
+    /// <summary>
+    /// Reads the player ID currently occupying the DM container, falling back to the
+    /// cached <c>dmId</c> (or the lowest player ID) when the container can't be read.
+    /// The user may have dragged a different player into the DM slot, so the field alone
+    /// is not authoritative.
+    /// </summary>
+    private int GetCurrentDmId()
+    {
+        if (groupContainers.Count > 0)
+        {
+            var dmCard = GetPlayerCardInContainer(groupContainers[0].transform);
+            if (dmCard != null && cardToPlayerId.TryGetValue(dmCard, out int id))
+                return id;
+        }
+        return PlayerManager.players.ContainsKey(dmId) ? dmId : PlayerManager.players.Keys.Min();
+    }
+
+    /// <summary>
     /// Clears the initialization flag so the next OnEnable performs a fresh build.
     /// Invoked by <see cref="GameManager.NewGame"/>.
     /// </summary>
