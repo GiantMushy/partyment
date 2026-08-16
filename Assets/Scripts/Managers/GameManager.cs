@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour
         playerManager.ResetPlayerGroups();
         currentRound = 1;
         assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
+        topicSelection.GetComponent<TopicSelectionController>().ResetForNewGame();
 
         SetState(GameState.PackSelection);
     }

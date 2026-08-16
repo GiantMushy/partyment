@@ -41,6 +41,10 @@ public class TopicSelectionController : MonoBehaviour
     private bool versusSelected = true;
     private int shufflesRemaining;
 
+    // The round number topics were last loaded for. Guards against re-shuffling when the
+    // screen is re-entered via the MetricSelection "Back" button. -1 forces a fresh load.
+    private int loadedForRound = -1;
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -62,11 +66,28 @@ public class TopicSelectionController : MonoBehaviour
 
         GameManager.OnLanguageChanged += RefreshUI;
 
-        shufflesRemaining = startingNumOfShuffles;
-        versusSelected    = true;
+        // Only shuffle a fresh topic on a genuinely new round (or new game). Re-entering
+        // this screen via MetricSelection's "Back" button must preserve the chosen topic.
+        if (loadedForRound != gameManager.currentRound)
+        {
+            shufflesRemaining = startingNumOfShuffles;
+            versusSelected    = true;
 
-        LoadRandomTopics();
+            LoadRandomTopics();
+            loadedForRound = gameManager.currentRound;
+        }
+
         RefreshUI();
+    }
+
+    /// <summary>
+    /// Forces the next entry to this screen to load a fresh topic. Called by
+    /// <see cref="GameManager.NewGame"/> so a new game always re-shuffles, even when the
+    /// previous game ended on the same round number.
+    /// </summary>
+    public void ResetForNewGame()
+    {
+        loadedForRound = -1;
     }
 
     void OnDisable()
