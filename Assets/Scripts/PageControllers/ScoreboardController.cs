@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -61,13 +62,15 @@ public class ScoreboardController : MonoBehaviour
 
     [Header("Animation")]
     [Tooltip("Seconds for ONE earn phase (group-votes, metric1, metric2, corruption, or stolen) to lerp its bar.")]
-    [SerializeField] private float perPhaseDuration = 0.7f;
+    [SerializeField] private float perPhaseDuration = 1.4f;
     [Tooltip("Seconds for the 'penalty' phase to deduct points from the group bar.")]
-    [SerializeField] private float deductDuration = 0.8f;
+    [SerializeField] private float deductDuration = 1.6f;
     [Tooltip("Pause between phases (during which the Score Incrementer is reset to '+0').")]
-    [SerializeField] private float interPhaseDelay = 0.35f;
+    [SerializeField] private float interPhaseDelay = 0.6f;
     [Tooltip("Brief pause after the old-score init before phase ① starts.")]
-    [SerializeField] private float initialHoldDelay = 0.25f;
+    [SerializeField] private float initialHoldDelay = 0.4f;
+    [Tooltip("Animation speed multiplier applied while the player holds a finger (or mouse button) anywhere on the screen.")]
+    [SerializeField] private float holdFastForwardMultiplier = 4f;
 
     [Header("Phase Labels (override per-language strings here if desired)")]
     [SerializeField] private string groupVotesLabel    = "Group Votes";
@@ -309,7 +312,7 @@ public class ScoreboardController : MonoBehaviour
         ApplyAllBarsAndCounters();
 
         if (initialHoldDelay > 0f)
-            yield return new WaitForSecondsRealtime(initialHoldDelay);
+            yield return WaitAnimTime(initialHoldDelay);
 
         int n = rows.Count;
         int[] voteDelta    = new int[n];
@@ -332,7 +335,7 @@ public class ScoreboardController : MonoBehaviour
             SetPointType(groupVotesLabel);
             SetIncrementersForPhase(voteDelta, isDeduction: false);
             yield return AnimateAddToBar(BarTarget.Group, voteDelta, perPhaseDuration);
-            yield return new WaitForSecondsRealtime(interPhaseDelay);
+            yield return WaitAnimTime(interPhaseDelay);
             HideAllIncrementers();
         }
 
@@ -342,7 +345,7 @@ public class ScoreboardController : MonoBehaviour
             SetPointType(string.Format(metricLabelFormat, GetSelectedMetricName(0)));
             SetIncrementersForPhase(metric1Delta, isDeduction: false);
             yield return AnimateAddToBar(BarTarget.Group, metric1Delta, perPhaseDuration);
-            yield return new WaitForSecondsRealtime(interPhaseDelay);
+            yield return WaitAnimTime(interPhaseDelay);
             HideAllIncrementers();
         }
 
@@ -352,7 +355,7 @@ public class ScoreboardController : MonoBehaviour
             SetPointType(string.Format(metricLabelFormat, GetSelectedMetricName(1)));
             SetIncrementersForPhase(metric2Delta, isDeduction: false);
             yield return AnimateAddToBar(BarTarget.Group, metric2Delta, perPhaseDuration);
-            yield return new WaitForSecondsRealtime(interPhaseDelay);
+            yield return WaitAnimTime(interPhaseDelay);
             HideAllIncrementers();
         }
 
@@ -362,7 +365,7 @@ public class ScoreboardController : MonoBehaviour
             SetPointType(corruptionsLabel);
             SetIncrementersForPhase(corrDelta, isDeduction: false);
             yield return AnimateAddToBar(BarTarget.Corruption, corrDelta, perPhaseDuration);
-            yield return new WaitForSecondsRealtime(interPhaseDelay);
+            yield return WaitAnimTime(interPhaseDelay);
             HideAllIncrementers();
         }
 
@@ -372,7 +375,7 @@ public class ScoreboardController : MonoBehaviour
             SetPointType(stolenPointsLabel);
             SetIncrementersForPhase(stolenDelta, isDeduction: false);
             yield return AnimateAddToBar(BarTarget.Corruption, stolenDelta, perPhaseDuration);
-            yield return new WaitForSecondsRealtime(interPhaseDelay);
+            yield return WaitAnimTime(interPhaseDelay);
             HideAllIncrementers();
         }
 
@@ -526,6 +529,33 @@ public class ScoreboardController : MonoBehaviour
         }
     }
 
+    /// <summary>True while a finger or the left mouse button is held anywhere on screen.</summary>
+    private static bool IsPointerHeld
+    {
+        get
+        {
+            var touchscreen = Touchscreen.current;
+            if (touchscreen != null && touchscreen.primaryTouch.press.isPressed) return true;
+            var mouse = Mouse.current;
+            return mouse != null && mouse.leftButton.isPressed;
+        }
+    }
+
+    /// <summary>Frame delta for the score animation; runs faster while the player holds the screen.</summary>
+    private float AnimDeltaTime =>
+        Time.unscaledDeltaTime * (IsPointerHeld ? holdFastForwardMultiplier : 1f);
+
+    /// <summary>Waits for <paramref name="seconds"/> of animation time, honouring the hold-to-fast-forward multiplier.</summary>
+    private IEnumerator WaitAnimTime(float seconds)
+    {
+        float t = 0f;
+        while (t < seconds)
+        {
+            t += AnimDeltaTime;
+            yield return null;
+        }
+    }
+
     private enum BarTarget { Group, Corruption }
 
     /// <summary>
@@ -542,7 +572,7 @@ public class ScoreboardController : MonoBehaviour
         float t = 0f;
         while (t < duration)
         {
-            t += Time.unscaledDeltaTime;
+            t += AnimDeltaTime;
             float u = Mathf.Clamp01(t / duration);
             float eased = EaseOutCubic(u);
             for (int i = 0; i < n; i++)
@@ -588,7 +618,7 @@ public class ScoreboardController : MonoBehaviour
         float t = 0f;
         while (t < duration)
         {
-            t += Time.unscaledDeltaTime;
+            t += AnimDeltaTime;
             float u = Mathf.Clamp01(t / duration);
             float eased = EaseInOutCubic(u);
             for (int i = 0; i < n; i++)
