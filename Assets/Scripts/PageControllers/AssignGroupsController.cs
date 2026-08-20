@@ -468,6 +468,15 @@ public class AssignGroupsController : MonoBehaviour
         if (inputField != null) inputField.text = name;
     }
 
+    /// <summary>True when the user typed a custom (non-whitespace) name for this container.</summary>
+    private bool HasTypedName(GameObject container)
+    {
+        var inputField = container.transform
+            .Find("Group Name Container/InputField (TMP)")
+            ?.GetComponent<TMP_InputField>();
+        return inputField != null && !string.IsNullOrWhiteSpace(inputField.text);
+    }
+
     /// <summary>
     /// Returns the typed text if non-empty, otherwise the placeholder text. This is
     /// the value committed to PlayerManager as the group name.
@@ -900,15 +909,22 @@ public class AssignGroupsController : MonoBehaviour
 
         for (int i = 1; i < groupContainers.Count; i++)
         {
-            string groupName = GetContainerEffectiveName(groupContainers[i]);
-            var group = PlayerManager.CreateGroup(groupName);
-
+            var memberIds = new List<int>();
             foreach (Transform child in groupContainers[i].transform)
             {
                 var rt = child.GetComponent<RectTransform>();
                 if (rt != null && cardToPlayerId.TryGetValue(rt, out int playerId))
-                    PlayerManager.UpdatePlayerGroup(playerId, group.id);
+                    memberIds.Add(playerId);
             }
+
+            // A one-player group with no typed name is named after its only member.
+            string groupName = memberIds.Count == 1 && !HasTypedName(groupContainers[i])
+                ? PlayerManager.players[memberIds[0]].name
+                : GetContainerEffectiveName(groupContainers[i]);
+
+            var group = PlayerManager.CreateGroup(groupName);
+            foreach (int playerId in memberIds)
+                PlayerManager.UpdatePlayerGroup(playerId, group.id);
         }
     }
 
