@@ -115,11 +115,15 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         {
             if (descriptionText != null)
                 descriptionText.text = GetLocalizedDescription(obj);
+            if (typeText != null)
+                typeText.text = GetLocalizedTypeName(obj.type);
         }
         else
         {
             if (descriptionText != null)
                 descriptionText.text = GetCivilianText();
+            if (typeText != null)
+                typeText.text = GetLocalizedTypeName(GameManager.CorruptionType.Civilian);
         }
     }
 
@@ -303,7 +307,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
             pointsText.text = $"{objective.points}";
 
         if (typeText != null)
-            typeText.text = objective.type.ToString();
+            typeText.text = GetLocalizedTypeName(objective.type);
 
         Color textColor = GetTextColorForType(objective.type);
         if (descriptionText != null)  descriptionText.color  = textColor;
@@ -318,6 +322,19 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
             && !string.IsNullOrEmpty(obj.descriptionIs))
             return obj.descriptionIs;
         return obj.description;
+    }
+
+    private string GetLocalizedTypeName(GameManager.CorruptionType type)
+    {
+        bool isIcelandic = gameManager != null
+            && gameManager.selectedLanguage == GameManager.Language.Icelandic;
+        return type switch
+        {
+            GameManager.CorruptionType.Speech       => isIcelandic ? "Ræða" : "Speech",
+            GameManager.CorruptionType.Interruption => isIcelandic ? "Frammíkall" : "Interruption",
+            GameManager.CorruptionType.Betrayal     => isIcelandic ? "Svik" : "Betrayal",
+            _                                       => isIcelandic ? "Borgari" : "Civilian",
+        };
     }
 
     private string GetCivilianText()
@@ -350,7 +367,7 @@ public class CorruptionDisplayController : MonoBehaviour, IPointerDownHandler, I
         if (pointsStringObject != null) pointsStringObject.SetActive(false);
 
         if (typeText != null)
-            typeText.text = "Civilian";
+            typeText.text = GetLocalizedTypeName(GameManager.CorruptionType.Civilian);
 
         Color textColor = GetTextColorForType(GameManager.CorruptionType.Civilian);
         if (descriptionText != null) descriptionText.color = textColor;

@@ -356,6 +356,10 @@ MonoBehaviour:
     m_Localized: "Banna\xF0 a\xF0 hafa eins n\xF6fn!"
     m_Metadata:
       m_Items: []
+  - m_Id: 15700000000000001
+    m_Localized: "R\xE9tt"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

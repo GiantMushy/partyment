@@ -5,15 +5,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Accusation sub-panel on the DMDisplay page. A non-DM player selects their own
-/// button to declare an accusation, then either selects another player to accuse or
-/// the Incorrect button to abort. Each non-DM player may accuse once per round, gated
-/// by <c>Player.hasAccused</c>. A correct accusation transfers points equal to the
-/// accused player's <c>Corruption.points</c> via <see cref="PlayerManager.AddStolenScore"/>;
-/// an incorrect accusation costs <see cref="incorrectPenalty"/> points via
-/// <see cref="PlayerManager.AddPenaltyScore"/>. The default and player-selected
-/// descriptions each own a separate LocalizeStringEvent and are toggled active rather
-/// than overwritten so localization stays consistent.
+/// Accusation sub-panel on the DMDisplay page. Three-step flow: the DM selects the
+/// accusing player's button, then the button of the player being accused, and finally
+/// resolves the accusation with the Correct or Incorrect button. Each non-DM player
+/// may accuse once per round, gated by <c>Player.hasAccused</c>. A correct accusation
+/// transfers points equal to the accused player's <c>Corruption.points</c> via
+/// <see cref="PlayerManager.AddStolenScore"/>; an incorrect accusation costs
+/// <see cref="incorrectPenalty"/> points via <see cref="PlayerManager.AddPenaltyScore"/>.
+/// The default description owns a LocalizeStringEvent; the player-selected description
+/// is written from code because it embeds player names.
 /// </summary>
 public class AccusationController : MonoBehaviour
 {
@@ -31,11 +31,15 @@ public class AccusationController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI headerText;
     [Tooltip("Description shown in the Default state. Owns its own LocalizeStringEvent.")]
     [SerializeField] private GameObject defaultDescription;
-    [Tooltip("Description shown in the PlayerSelected state. Owns its own LocalizeStringEvent.")]
+    [Tooltip("Description shown in the PlayerSelected/TargetSelected states. Text is written from code (embeds player names).")]
     [SerializeField] private GameObject playerSelectedDescription;
     [SerializeField] private Button          incorrectButton;
-    /// <summary>Cached CanvasGroup on incorrectButton. Used to hide the button without SetActive, which would dirty the layout.</summary>
+    [SerializeField] private Button          correctButton;
+    /// <summary>Cached CanvasGroups on the accept buttons. Used to hide the buttons without SetActive, which would dirty the layout.</summary>
     private CanvasGroup incorrectButtonGroup;
+    private CanvasGroup correctButtonGroup;
+    /// <summary>Cached TMP text on playerSelectedDescription.</summary>
+    private TextMeshProUGUI playerSelectedText;
 
     [Header("Player Buttons (assign Player1 → Player8 in order)")]
     [SerializeField] private PlayerButtonUI[] playerButtons = new PlayerButtonUI[8];
@@ -52,7 +56,7 @@ public class AccusationController : MonoBehaviour
     private PlayerManager          PlayerManager          => gameManager.playerManager;
     private CorruptionManager CorruptionManager => gameManager.corruptionManager;
 
-    private enum AccusationState { Default, PlayerSelected }
+    private enum AccusationState { Default, PlayerSelected, TargetSelected }
     private AccusationState currentState = AccusationState.Default;
 
     private int[]    buttonPlayerIds;
@@ -60,6 +64,8 @@ public class AccusationController : MonoBehaviour
     private Sprite[] originalIcons;
     /// <summary>Index into playerButtons of the currently selected accusing player, or -1.</summary>
     private int selectedButtonIndex = -1;
+    /// <summary>Index into playerButtons of the player being accused, or -1.</summary>
+    private int targetButtonIndex = -1;
 
     private void Awake()
     {
@@ -69,7 +75,13 @@ public class AccusationController : MonoBehaviour
     private void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
+        GameManager.OnLanguageChanged += UpdateStateDescription;
         InitializePanel();
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnLanguageChanged -= UpdateStateDescription;
     }
 
     private void InitializePanel()
@@ -126,27 +138,60 @@ public class AccusationController : MonoBehaviour
 
             incorrectButton.onClick.RemoveAllListeners();
             incorrectButton.onClick.AddListener(OnIncorrectButtonClicked);
-            HideIncorrectButton();
         }
 
-        ShowDefaultDescription();
+        if (correctButton != null)
+        {
+            correctButtonGroup = correctButton.GetComponent<CanvasGroup>();
+            if (correctButtonGroup == null)
+                correctButtonGroup = correctButton.gameObject.AddComponent<CanvasGroup>();
+
+            correctButton.onClick.RemoveAllListeners();
+            correctButton.onClick.AddListener(OnCorrectButtonClicked);
+        }
+
+        HideAcceptanceButtons();
+
+        if (playerSelectedDescription != null)
+            playerSelectedText = playerSelectedDescription.GetComponent<TextMeshProUGUI>();
 
         currentState        = AccusationState.Default;
         selectedButtonIndex = -1;
+        targetButtonIndex   = -1;
+
+        UpdateStateDescription();
     }
 
-    /// <summary>Activates the Default-state description and hides the PlayerSelected one.</summary>
-    private void ShowDefaultDescription()
+    /// <summary>
+    /// Shows the description matching the current state. The Default state uses the
+    /// localized static description; the other states write the text here because it
+    /// embeds player names.
+    /// </summary>
+    private void UpdateStateDescription()
     {
-        if (defaultDescription        != null) defaultDescription.SetActive(true);
-        if (playerSelectedDescription != null) playerSelectedDescription.SetActive(false);
-    }
+        bool isDefault = currentState == AccusationState.Default;
+        if (defaultDescription        != null) defaultDescription.SetActive(isDefault);
+        if (playerSelectedDescription != null) playerSelectedDescription.SetActive(!isDefault);
 
-    /// <summary>Activates the PlayerSelected-state description and hides the Default one.</summary>
-    private void ShowPlayerSelectedDescription()
-    {
-        if (defaultDescription        != null) defaultDescription.SetActive(false);
-        if (playerSelectedDescription != null) playerSelectedDescription.SetActive(true);
+        if (isDefault || playerSelectedText == null || selectedButtonIndex < 0) return;
+
+        bool isIcelandic = gameManager != null
+            && gameManager.selectedLanguage == GameManager.Language.Icelandic;
+        string accuserName = PlayerManager.players[buttonPlayerIds[selectedButtonIndex]].name;
+
+        if (currentState == AccusationState.PlayerSelected)
+        {
+            playerSelectedText.text = isIcelandic
+                ? $"Smelltu á leikmanninn sem {accuserName} er að ásaka!"
+                : $"Click on the player that {accuserName} is accusing!";
+        }
+        else
+        {
+            string targetName = PlayerManager.players[buttonPlayerIds[targetButtonIndex]].name;
+            playerSelectedText.text = isIcelandic
+                ? $"{accuserName} ásakar {targetName}!\nVar ágiskunin rétt?"
+                : $"{accuserName} is accusing {targetName}!\nWas the guess correct?";
+        }
     }
 
     private void OnPlayerButtonClicked(int buttonIndex)
@@ -163,14 +208,29 @@ public class AccusationController : MonoBehaviour
                 if (buttonIndex == selectedButtonIndex)
                     CancelAccusation();
                 else
-                    ResolveCorrectAccusation(selectedButtonIndex, buttonIndex);
+                    EnterTargetSelected(buttonIndex);
+                break;
+
+            case AccusationState.TargetSelected:
+                if (buttonIndex == selectedButtonIndex)
+                    CancelAccusation();
+                else if (buttonIndex == targetButtonIndex)
+                    DeselectTarget();
+                else
+                    EnterTargetSelected(buttonIndex);
                 break;
         }
     }
 
+    private void OnCorrectButtonClicked()
+    {
+        if (currentState != AccusationState.TargetSelected) return;
+        ResolveCorrectAccusation(selectedButtonIndex, targetButtonIndex);
+    }
+
     private void OnIncorrectButtonClicked()
     {
-        if (currentState != AccusationState.PlayerSelected) return;
+        if (currentState != AccusationState.TargetSelected) return;
         ResolveIncorrectAccusation(selectedButtonIndex);
     }
 
@@ -178,8 +238,6 @@ public class AccusationController : MonoBehaviour
     {
         currentState        = AccusationState.PlayerSelected;
         selectedButtonIndex = accusingButtonIndex;
-
-        ShowPlayerSelectedDescription();
 
         for (int i = 0; i < playerButtons.Length; i++)
         {
@@ -195,15 +253,58 @@ public class AccusationController : MonoBehaviour
             if (ui.iconImage != null && pointIcon != null)
                 ui.iconImage.sprite = pointIcon;
 
-            // Players without an active corruption cannot be correctly accused, so
-            // their button is disabled as a target.
-            int pid = buttonPlayerIds[i];
-            bool hasCorruption = PlayerManager.players.ContainsKey(pid)
-                              && PlayerManager.players[pid].corruptionId >= 0;
-            ui.button.interactable = hasCorruption;
+            // Every other player is a valid target — accusing someone without a
+            // corruption is simply an incorrect accusation, resolved by the buttons.
+            ui.button.interactable = true;
         }
 
-        ShowIncorrectButton();
+        UpdateStateDescription();
+    }
+
+    /// <summary>
+    /// Marks a player as the one being accused: only their button keeps the crossfire
+    /// tint, and the Correct/Incorrect buttons appear. Correct is disabled when the
+    /// target has no active corruption — such an accusation can only be incorrect.
+    /// </summary>
+    private void EnterTargetSelected(int accusedButtonIndex)
+    {
+        currentState      = AccusationState.TargetSelected;
+        targetButtonIndex = accusedButtonIndex;
+
+        for (int i = 0; i < playerButtons.Length; i++)
+        {
+            if (i == selectedButtonIndex) continue;
+            if (buttonPlayerIds[i] < 0)   continue;
+
+            var ui = playerButtons[i];
+            if (!ui.button.gameObject.activeSelf) continue;
+
+            GetAnimator(ui).SetBool("InCrossfire", i == accusedButtonIndex);
+        }
+
+        UpdateStateDescription();
+        ShowAcceptanceButtons();
+    }
+
+    /// <summary>Backs out of the target choice, returning to the PlayerSelected state.</summary>
+    private void DeselectTarget()
+    {
+        currentState      = AccusationState.PlayerSelected;
+        targetButtonIndex = -1;
+
+        for (int i = 0; i < playerButtons.Length; i++)
+        {
+            if (i == selectedButtonIndex) continue;
+            if (buttonPlayerIds[i] < 0)   continue;
+
+            var ui = playerButtons[i];
+            if (!ui.button.gameObject.activeSelf) continue;
+
+            GetAnimator(ui).SetBool("InCrossfire", true);
+        }
+
+        UpdateStateDescription();
+        HideAcceptanceButtons();
     }
 
     private void CancelAccusation()
@@ -261,15 +362,15 @@ public class AccusationController : MonoBehaviour
     /// <summary>Restores all button visuals and resets controller state to Default.</summary>
     private void FinishAndReturnToDefault()
     {
-        currentState = AccusationState.Default;
+        currentState        = AccusationState.Default;
+        selectedButtonIndex = -1;
+        targetButtonIndex   = -1;
 
-        ShowDefaultDescription();
+        UpdateStateDescription();
 
         RestoreAllButtons();
 
-        HideIncorrectButton();
-
-        selectedButtonIndex = -1;
+        HideAcceptanceButtons();
     }
 
     private void RestoreAllButtons()
@@ -294,24 +395,39 @@ public class AccusationController : MonoBehaviour
 
     private Animator GetAnimator(PlayerButtonUI ui) => ui.button.GetComponent<Animator>();
 
-    // CanvasGroup is used instead of SetActive so the Incorrect button stays in the
-    // VerticalLayoutGroup and never dirties the parent HorizontalLayoutGroup.
+    // CanvasGroups are used instead of SetActive so the accept buttons stay in the
+    // layout and never dirty the parent HorizontalLayoutGroup.
 
-    private void ShowIncorrectButton()
+    /// <summary>
+    /// Reveals both accept buttons. Correct is disabled (and dimmed) when the selected
+    /// target has no active corruption, since that accusation can only be incorrect.
+    /// </summary>
+    private void ShowAcceptanceButtons()
     {
-        if (incorrectButtonGroup == null) return;
-        incorrectButtonGroup.alpha          = 1f;
-        incorrectButtonGroup.interactable   = true;
-        incorrectButtonGroup.blocksRaycasts = true;
+        SetButtonGroupVisible(incorrectButtonGroup, true);
+        SetButtonGroupVisible(correctButtonGroup, true);
+
+        bool targetHasCorruption = targetButtonIndex >= 0
+            && PlayerManager.players.ContainsKey(buttonPlayerIds[targetButtonIndex])
+            && PlayerManager.players[buttonPlayerIds[targetButtonIndex]].corruptionId >= 0;
+
+        if (correctButton != null) correctButton.interactable = targetHasCorruption;
+        if (correctButtonGroup != null && !targetHasCorruption)
+            correctButtonGroup.alpha = 0.55f;
     }
 
-    private void HideIncorrectButton()
+    private void HideAcceptanceButtons()
     {
-        if (incorrectButtonGroup == null) return;
-        incorrectButtonGroup.alpha          = 0f;
-        incorrectButtonGroup.interactable   = false;
-        incorrectButtonGroup.blocksRaycasts = false;
+        SetButtonGroupVisible(incorrectButtonGroup, false);
+        SetButtonGroupVisible(correctButtonGroup, false);
     }
 
+    private static void SetButtonGroupVisible(CanvasGroup group, bool visible)
+    {
+        if (group == null) return;
+        group.alpha          = visible ? 1f : 0f;
+        group.interactable   = visible;
+        group.blocksRaycasts = visible;
+    }
 }
 
