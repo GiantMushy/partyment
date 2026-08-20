@@ -1239,7 +1239,7 @@ MonoBehaviour:
   completedToggle: {fileID: 7155034205190900080}
   stolenPointsDisplay: {fileID: 6706500803023075840}
   cardDimGroup: {fileID: 8602051586176602556}
-  stolenDimAlpha: 0.5
+  stolenDimAlpha: 0.55
   speechFrame: {fileID: 21300000, guid: ef5b48e5d5351470fa2b2ddaf50f7c32, type: 3}
   interruptionFrame: {fileID: 21300000, guid: 4778bf01efc1546119b2b22441a9f3e5, type: 3}
   betrayalFrame: {fileID: 21300000, guid: 3608efa8b38304ed8ac3fc232ea219f4, type: 3}
