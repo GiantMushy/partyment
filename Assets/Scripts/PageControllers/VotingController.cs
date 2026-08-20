@@ -556,6 +556,11 @@ public class VotingController : MonoBehaviour
         }
         else
         {
+            // With only two teams the group-voting round is skipped (see
+            // GameManager.StartVotingSequence), leaving metric awards as the only
+            // guaranteed group points — double them to compensate.
+            int awardedPoints = PlayerManager.groups.Count <= 2 ? metricPoints * 2 : metricPoints;
+
             // Slot 0 maps to metric1Score, slot 1 to metric2Score.
             for (int i = 0; i < maxSelections; i++)
             {
@@ -567,9 +572,9 @@ public class VotingController : MonoBehaviour
                     if (PlayerManager.groups.ContainsKey(groupId))
                     {
                         var g = PlayerManager.groups[groupId];
-                        if (i == 0) g.metric1Score += metricPoints;
-                        else        g.metric2Score += metricPoints;
-                        g.score += metricPoints;
+                        if (i == 0) g.metric1Score += awardedPoints;
+                        else        g.metric2Score += awardedPoints;
+                        g.score += awardedPoints;
                     }
                 }
             }
