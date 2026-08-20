@@ -324,7 +324,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15564877014753280
-    m_Localized: Enter the names of the players
+    m_Localized: "Enter the names of the players\nMin: 3     Max: 8"
     m_Metadata:
       m_Items: []
   - m_Id: 15565102735417344

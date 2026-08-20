@@ -321,7 +321,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15564877014753280
-    m_Localized: "Sl\xE1\xF0u inn n\xF6fn leikmanna"
+    m_Localized: "Sl\xE1\xF0u inn n\xF6fn leikmanna\nMin: 3     Max: 8"
     m_Metadata:
       m_Items: []
   - m_Id: 15565102735417344
