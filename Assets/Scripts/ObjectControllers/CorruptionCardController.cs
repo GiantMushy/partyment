@@ -18,6 +18,15 @@ public class CorruptionCardController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Toggle completedToggle;
 
+    [Header("Stolen State")]
+    [Tooltip("Overlay shown when this objective's points have been stolen via a correct accusation.")]
+    [SerializeField] private GameObject stolenPointsDisplay;
+    [Tooltip("CanvasGroup on the card root, used to dim the card behind the Stolen Points overlay.")]
+    [SerializeField] private CanvasGroup cardDimGroup;
+    [Tooltip("Card alpha while dimmed in the stolen state.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float stolenDimAlpha = 0.45f;
+
     [Header("Type specific Sprites")]
     [SerializeField] private Sprite speechFrame;
     [SerializeField] private Sprite interruptionFrame;
@@ -32,6 +41,8 @@ public class CorruptionCardController : MonoBehaviour
     [SerializeField] private Color speechBackgroundColor = new Color(0.3764706f, 0.9843137f, 0.5529412f, 1f);
     [SerializeField] private Color interruptionBorderColor = new Color(0.23921569f, 0f, 0.65098039f, 1f);
     [SerializeField] private Color interruptionBackgroundColor = new Color(0.5333333f, 0.32549020f, 0.93725490f, 1f);
+    [SerializeField] private Color betrayalBorderColor = new Color(0.54901963f, 0.047058824f, 0.047058824f, 1f);
+    [SerializeField] private Color betrayalBackgroundColor = new Color(0.9490196f, 0.41960785f, 0.41960785f, 1f);
 
     void Start()
     {
@@ -69,6 +80,7 @@ public class CorruptionCardController : MonoBehaviour
         if (!completedToggle.interactable) return;
 
         completedToggle.interactable = false;
+        ApplyStolenVisuals();
 
         // Syncs the UI when the toggle was still visually on. The accusation handler
         // has already reversed the score and cleared objective.completeted.
@@ -77,6 +89,28 @@ public class CorruptionCardController : MonoBehaviour
             completedToggle.SetIsOnWithoutNotify(false);
             if (objective != null) objective.completeted = false;
         }
+    }
+
+    /// <summary>Shows the Stolen Points overlay and dims the card behind it.</summary>
+    private void ApplyStolenVisuals()
+    {
+        if (stolenPointsDisplay != null)
+        {
+            stolenPointsDisplay.SetActive(true);
+            var label = stolenPointsDisplay.GetComponent<TextMeshProUGUI>();
+            if (label != null)
+                label.text = gameManager != null && gameManager.selectedLanguage == GameManager.Language.Icelandic
+                    ? "Stolin stig"
+                    : "Stolen Points";
+        }
+        if (cardDimGroup != null) cardDimGroup.alpha = stolenDimAlpha;
+    }
+
+    /// <summary>Hides the Stolen Points overlay and restores full card brightness.</summary>
+    private void ResetStolenVisuals()
+    {
+        if (stolenPointsDisplay != null) stolenPointsDisplay.SetActive(false);
+        if (cardDimGroup != null) cardDimGroup.alpha = 1f;
     }
 
     public void Initialize(int playerId)
@@ -98,7 +132,12 @@ public class CorruptionCardController : MonoBehaviour
         {
             completedToggle.SetIsOnWithoutNotify(false);
             completedToggle.onValueChanged.AddListener(_ => ToggleComplete());
+            completedToggle.interactable = !player.isAccused;
         }
+
+        // Cards can be (re)initialized after the accusation already happened.
+        if (player.isAccused) ApplyStolenVisuals();
+        else                  ResetStolenVisuals();
     }
 
     private void SetValues()
@@ -115,10 +154,10 @@ public class CorruptionCardController : MonoBehaviour
         if (nameText != null) nameText.text = player.name;
         else Debug.LogError("CorruptionCardController: nameText is not assigned in prefab!");
 
+        // pointsText deliberately keeps its prefab default (white) for every type.
         Color textColor = GetTextColorForType(objective.type);
         if (typeText != null)        typeText.color        = textColor;
         if (descriptionText != null) descriptionText.color = textColor;
-        if (pointsText != null)      pointsText.color      = textColor;
         if (nameText != null)        nameText.color        = textColor;
     }
 
@@ -152,6 +191,7 @@ public class CorruptionCardController : MonoBehaviour
             case GameManager.CorruptionType.Betrayal:
                 if (betrayalFrame != null) img.sprite = betrayalFrame;
                 else Debug.LogWarning("CorruptionCardController: betrayalFrame sprite not assigned in prefab!");
+                SetToggleColors(betrayalBorderColor, betrayalBackgroundColor);
                 break;
         }
     }
