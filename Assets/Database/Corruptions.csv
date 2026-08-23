@@ -1,54 +1,99 @@
 Properties,,,,,,English,,,Íslenska,,
 id,Ready 4 Publish,Requires Teammate,points,Pack,Type,Title,Description,Short Description,Title,Description,Short Description
-1,FALSE,FALSE,40,PopCulture,Speech,Nickelback Fan,"Reference ""Nickelback"" at any point during your speech",Mention Nickelback,Nickelback aðdáandi, Vísaðu í Nickelback í ræðunni þinni,Vísaðu í Nickelback
-2,TRUE,FALSE,120,General,Speech,Conspiracy Theorist,Work a conspiracy theory into your argument as if it were a proven fact,Use a conspiracy theory,Samsæriskenning ,Reyndu að læða samsæriskenningu inn í ræðuna þína eins og það sé sannleikur,Vísaðu í samsæriskenningu
-3,FALSE,FALSE,40,PopCulture,Speech,Movie Buff,Quote a famous movie line during your speech,Quote a movie,Kvikmynda-áhugamaður,Vitnaðu í fræga kvikmyndalínu í ræðunni þinni,Vitnaðu í kvikmynd
-4,TRUE,FALSE,100,General,Speech,Poet Laureate,Rhyme at least two sentences in a row,Rhyme two sentences,Verðlaunaskáld,Reyndu að ríma amk. tvær setningar í röð,Rímdu tvær setningar í röð 
-5,FALSE,FALSE,60,PopCulture,Speech,Name Dropper,Mention a celebrity by name as if you personally know them,Name drop a celebrity,Nafnadropari,Nefndu þekktan einstakling eins og þú þekkir þau persónulega.,Nefndu einhvern frægan
-6,TRUE,FALSE,60,General,Speech,Statistician,Make up a completely fake statistic and present it with total confidence,Fake a statistic,Tölfræðimaður,Spunaðu falska tölfræði og notaðu hana í ræðunni þinni eins og hún sé staðreynd.,Falsaðu tölfræði
-7,TRUE,FALSE,60,General,Speech,Context matters,Confidently use a word or phrase in a completly incorrect context,Use a word incorrectly ,Samhengi,Notaðu frasa eða orðatiltæki í röngu samhengi með miklu sjálfstrausti.,Vísaðu í óviðeigandi samhengi
-8,FALSE,FALSE,40,PopCulture,Speech,Belieber,Reference a Justin Bieber lyric in your speech,Reference a Bieber lyric,Bieberji,Vísaðu í lagatexta eftir Justin Bieber,Vísaðu út í Bieber
-9,TRUE,FALSE,80,General,Speech,The Countdown,"Say ""1"", ""2"", ""3"", ""4"" & ""5"" at some point during your speech. Does not have to be in order",Say 1 through 5,Niðurtalningin,"Segðu “1”, “2”, “3”, “4” & “5” í ræðunni þinni. Tölurnar þurfa ekki að vera í röð.",Teldu frá 1 upp í 5
-10,TRUE,FALSE,120,General,Speech,Animal farm,"Make a dog, cat, duck, and cow noise at least once for each during your speech",Make 4 animal noises,Sveitasæla,"Gefðu frá þér hunda-, katta-, anda- og svínahljóð í ræðunni (að minnsta kosti einu sinni hvert).",Gerðu 4 dýra hljóð
-11,TRUE,FALSE,40,General,Speech,Mr. Freeze,Completely freeze for at least 5 seconds,Long dramatic pause,Frost á flóni,Frosnaðu gjörsamlega í 5 sekúndur,Taktu dramatíska pásu
-12,TRUE,FALSE,80,General,Speech,Catchphrase King,"Say the phrase ""and that's a fact"" at least three times",Say catchphrase 3x ,Slagorða kóngurinn,"Segðu frasan, ""og það er dagsatt"" amk. þrisvar sinnum",Segðu frasa 3x
-13,FALSE,FALSE,80,Icelandic,Speech,Iceguys Superfan,Reference Iceguys during your speech,Reference Iceguys,Iceguys ofuraðdáandi,Vísaðu í Iceguys í ræðunni þinni.,Vísaðu í Iceguys
-14,TRUE,FALSE,140,General,Interruption,Slow Clap Starter,Start a group clap,Start a group clap,Hæg Klapp byrjandi,Byrjaðu á hóp klapp á meðan ræða anstæðingur fer með ræðuna sína,Byrja á hóp klapp
-15,TRUE,FALSE,100,General,Interruption,Fact Chacker,"Loudly say ""Actually..."" and correct your teammate during your speech","Interrupt with ""Actually...""",staðreyndaskoðun,"Segðu ""Tæknilega séð"" og leiðréttu hópfélaga þinn","Truflaðu með ""reyndar.."""
-16,TRUE,FALSE,120,General,Interruption,Standing Ovation,Stand up and applaud enthusiastically at the end of another team's speech,Applaud inappropriately,Standandi lófaklapp,Stattu upp og klappaðu ákaft á óviðeigandi tíma í miðri ræðu anstæðings,Klappaðu á óviðeigandi tíma
-17,TRUE,FALSE,100,General,Interruption,Phone a Friend,Pretend to receive an important phone call during someone else's arguement,Fake a phone call,Hringdu í vin,Láttu eins og þú sért að fá mikilvægt símtal á meðan einhver annar er að flytja ræðuna sína,Falsaðu símtal
-18,TRUE,FALSE,80,General,Interruption,Heckler,Boo or thumbs-down another group's arguement ,Boo an argument,Hroki,Búaðu eða gefðu þumal niður á annan hóps ræðu,Búa á ræðu annan manns
-19,TRUE,FALSE,100,General,Interruption,Sneeze Attack,"Have a loud, dramatic fake sneezing fit during someone else's key argument",Fake sneeze fit,Hnerr áras,Hnerraðu ítrekað á óeðlilega háværan hátt á meðan einhver annar flytur ræðu,Gervi hnerraðu
-20,TRUE,FALSE,120,General,Interruption,Echo Chamber,"Repeat the last word of someone else's sentence loudly, at least twice during the round",Echo someone's words,Bergmálshólf,"Enturtaktu seinustu orðs einhverns mjög hátt, amk. tvisvar sinnum í gegnum umferðina",Endurtaktu einhvern
-21,TRUE,FALSE,100,General,Interruption,Question Time,Interrupt someone's speech to ask them a completely unrelated question,Ask an unrelated question,Spurningartími,Gríptu fram í ræðu einhvers til þess að spyrja viðkomandi að spurningu sem kemur ræðunni ekkert við,Spurðu ótengda spurningu
-22,TRUE,FALSE,150,General,Interruption,Stand up Act,Have someone stand up during your speech,Get someone to stand up,Uppistandsatriði,Fáðu einhvern til að  standa upp á meðan þú heldur ræðuna þína,Fáðu einhvern til að standa
-23,TRUE,FALSE,80,General,Interruption,Opening Yawn,Yawn loudly at the moment someone else starts their speech,Yawn at speech start,Byrja á að geispa,Geispaðu hátt nákvæmlega þegar einhver annar byrjar ræðuna sína,Geispaðu í byrjun ræðu
-24,TRUE,FALSE,80,General,Interruption,Five Claps,Clap 5 times,Clap 5 times,5 klöpp,Klappaðu 5 sinnum,Klappaðu 5 sinnum
-25,TRUE,FALSE,200,General,Betrayal,Double Agent,"Sabotage your group's speech so that it gets zero votes this round
-",Sabotage your group,Gagnnjósnari,Skemmdu ræðu hóps þíns svo að þið fáið 0 stig í þessari umferð,Skemmdu fyrir hópinn þinn
-26,TRUE,FALSE,180,General,Betrayal,Devil's Advocate,"Secretly argue FOR the opposing side during your own group's speech
+1,TRUE,FALSE,120,General,Speech,Conspiracy Theorist,Work a conspiracy theory into your speech as if it were a proven fact,Use a conspiracy theory,Samsæriskenning ,Reyndu að læða samsæriskenningu inn í ræðuna þína eins og það sé sannleikur,Vísaðu í samsæriskenningu
+2,TRUE,FALSE,100,General,Speech,Poet Laureate,Rhyme at least two sentences in a row during your speech,Rhyme two sentences,Verðlaunaskáld,Reyndu að ríma amk. tvær setningar í röð,Rímdu tvær setningar í röð 
+3,TRUE,FALSE,60,General,Speech,Statistician,Make up a completely fake statistic and present it with total confidence during your speech,Fake a statistic,Tölfræðimaður,Spunaðu falska tölfræði og notaðu hana í ræðunni þinni eins og hún sé staðreynd.,Falsaðu tölfræði
+4,TRUE,FALSE,60,General,Speech,Context matters,Confidently use a word or phrase in a completely incorrect context during your argument,Use a word incorrectly ,Samhengi,Notaðu frasa eða orðatiltæki í röngu samhengi með miklu sjálfstrausti.,Vísaðu í óviðeigandi samhengi
+5,TRUE,FALSE,80,General,Speech,The Countdown,"Say the numbers ""1"", ""2"", ""3"", ""4"" & ""5"" individualy at some point during your speech. It does not have to be in order",Say 1 through 5,Niðurtalningin,"Segðu “1”, “2”, “3”, “4” & “5” í ræðunni þinni. Tölurnar þurfa ekki að vera í röð.",Teldu frá 1 upp í 5
+6,TRUE,FALSE,100,General,Speech,Animal farm,Make a dog and a cat noise at least once for each during your speech,Make 2 animal noises,Sveitasæla,"Gefðu frá þér hunda-, katta-, anda- og svínahljóð í ræðunni (að minnsta kosti einu sinni hvert).",Gerðu 2 dýra hljóð
+7,TRUE,FALSE,40,General,Speech,Mr. Freeze,"Completely freeze for at least 5 seconds, during your speech",Long dramatic pause,Frost á flóni,Frosnaðu gjörsamlega í 5 sekúndur,Taktu dramatíska pásu
+8,TRUE,FALSE,80,General,Speech,Catchphrase King,"Say the phrase ""and that's a fact"" at least three times during your speech",Say catchphrase 3x ,Slagorða kóngurinn,"Segðu frasan, ""og það er dagsatt"" amk. þrisvar sinnum",Segðu frasa 3x
+9,TRUE,FALSE,120,General,Speech,Pay attention,"Tell someone during your speech to pay attention, as if they weren't in the first place.",Tell someone to pay attention to your speech,Fylgstu með,Segðu einhverjum að fylgjast með eins og viðkomandi hafi ekki verið að hlusta.,Segðu einhverjum að fylgjast með ræðunni þinni
+10,TRUE,FALSE,40,General,Speech,Times running out,Ask the DM how much time you have left at least 2 times during your speech,Ask the DM how much debate time you have left,Þú ert á tímaþróun,Láttu eins og þú sért stressaður með umræðu tímann og spurðu Þingstjóran hversu mikinn tíma þú átt eftir í ræðunni þinni.,Spurðu ÞS hversu mikinn umræðu tíma þú átt eftir
+11,TRUE,FALSE,60,General,Speech,Power Pointer,Occasionaly point to a very informative non-existant slideshow during your speech,Pretend to host a slideshow,,"Á öðru hverju leyti, bentu á ímyndunar kynningu á meðan þú heldur ræðuna þína",Vertu með gervi kynningu
+12,TRUE,FALSE,80,General,Speech,The Bookender,Clap at the start of your speech and at the end,clap at the start and end,,Klappaðu í byrju ræðu og aftur á endanum,Klappaðu í byrjun og aftur á endanum
+13,TRUE,FALSE,80,General,Speech,"Who, me?",Use another player as an example during your arguement,Use another player as an example,"Hver, ég?",Taktu einhvern í leiknum sem dæmi fyrir þín rök.,Taktu einhvern til dæmis
+14,TRUE,FALSE,80,General,Speech,So sophisticated,Refer to any philosopher during your speech,Refer to a philosopher,Svo háþróuð/aður,Vitnaðu í einhvern heimspeking,Vísaðu út í heimspeking
+15,TRUE,FALSE,60,General,Speech,Toon fever,Quote a cartoon during your speech,Quote a cartoon ,,Vitnaðu í teiknimynd á meðan ræðu þinni stendur,Vitnaðu í teiknimynd
+16,TRUE,FALSE,60,General,Speech,A bit bored tbh...,"Yawn in the middle of your own speech, & make it last for at least 4 seconds",Yawn for 4 sec,,Geispaðu í amk. 4 sekúndur í miðri ræðu þinni,Geispaðu í 4 sek
+17,TRUE,FALSE,80,General,Speech,Sorry,Forgive someone in the middle of your speech as if you might have accidentally offended them,"Forgive someone for ""accidentally"" offending them",,Biddu einhvern fyrirgefningar í miðri ræðu þinni fyrir að hafa mögulega móðga einhvern,"Biddu afsökun fyrir að móðga einhvern ""óvart"""
+18,TRUE,FALSE,80,General,Speech,Order!,"Refer to the DM as ""Your Honor"" at least 2x during your speech","Call DM ""Your Honor""",,"Talaðu við Dómaran sem ""Hæðst virti dómari""","Talaðu um Dómaran sem ""Hæðst virti dómari"""
+19,TRUE,FALSE,100,General,Speech,Bi-lingual,Switch languages mid-sentance during your speech,Switch languages mid-sentance ,,Skiptu um tungumál í miðri setningu á meðan ræðan þín stendur,Skiptu um tungumál í miðri setningu
+20,TRUE,FALSE,80,General,Speech,Phone call,Take a fake phonecall (using your hand as a phone) during your speech,Make a phone call,,"Þóstu að tala í símtal með höndina þína, á meðan ræðan þín stendur",Talaðu í gervi símtal
+21,TRUE,FALSE,150,General,Speech,Stand up Act,Have someone stand up during your speech,Get someone to stand up,Uppistandsatriði,Fáðu einhvern til að  standa upp á meðan þú heldur ræðuna þína,Fáðu einhvern til að standa
+,FALSE,FALSE,,,,,Pronounce 1 word in your arguement incredibly wrong and use it at least 3 times in your speech,,,,
+22,TRUE,FALSE,120,General,Interruption,Slow Clap Starter,Start a group clap,Start a group clap,Hæg Klapp byrjandi,Byrjaðu á hóp klapp á meðan ræða anstæðingur fer með ræðuna sína,Byrja á hóp klapp
+23,TRUE,FALSE,60,General,Interruption,Fact Chacker,"Loudly say ""Actually..."" during another speech","Interrupt with ""Actually...""",staðreyndaskoðun,"Segðu ""Tæknilega séð"" og leiðréttu hópfélaga þinn","Truflaðu með ""reyndar.."""
+24,TRUE,FALSE,80,General,Interruption,Standing Ovation,Stand up and applaud enthusiastically at the end of another team's speech,Applaud inappropriately,Standandi lófaklapp,Stattu upp og klappaðu ákaft á óviðeigandi tíma í miðri ræðu anstæðings,Klappaðu á óviðeigandi tíma
+25,TRUE,FALSE,80,General,Interruption,Phone a Friend,Pretend to receive an important phone call during someone else's arguement,Fake a phone call,Hringdu í vin,Láttu eins og þú sért að fá mikilvægt símtal á meðan einhver annar er að flytja ræðuna sína,Falsaðu símtal
+26,TRUE,FALSE,80,General,Interruption,Heckler,Boo and thumbs-down another group's arguement ,Boo an argument,Hroki,Búaðu eða gefðu þumal niður á annan hóps ræðu,Búa á ræðu annan manns
+27,TRUE,FALSE,100,General,Interruption,Sneeze Attack,"Have a loud, dramatic fake sneezing fit during someone else's key argument",Fake sneeze fit,Hnerr áras,Hnerraðu ítrekað á óeðlilega háværan hátt á meðan einhver annar flytur ræðu,Gervi hnerraðu
+28,TRUE,FALSE,120,General,Interruption,Echo Chamber,"Repeat the last word of someone else's sentence loudly, at least twice during another groups argument",Echo someone's words,Bergmálshólf,"Enturtaktu seinustu orðs einhverns mjög hátt, amk. tvisvar sinnum í gegnum umferðina",Endurtaktu einhvern
+29,TRUE,FALSE,80,General,Interruption,Opening Yawn,Yawn loudly at the moment someone else starts their speech,Yawn at speech start,Byrja á að geispa,Geispaðu hátt nákvæmlega þegar einhver annar byrjar ræðuna sína,Geispaðu í byrjun ræðu
+30,TRUE,FALSE,100,General,Interruption,Five Claps,Clap 5 indivdual times while you are not giving a speech,Clap 5 times,5 klöpp,Klappaðu 5 sinnum,Klappaðu 5 sinnum
+31,TRUE,FALSE,80,General,Interruption,Please repeat again?,Ask another player to repeat themselves during their speech,Ask a player to repeat themselves,Í allt öðrum heimi,Truflaðu einhvern í miðri ræðu með því að þykjast að þú varst ekki að fylgjast með og heyrðir ekki.,Þóstu að þú varst ekki að fylgjast með
+32,TRUE,FALSE,100,General,Interruption,What was that?,Pretend like you heard something strange and ask someone/everyone if they heard it too.,Pretend like you heard something,Heyrðuð þið þetta?,Láttu eins og þú heyrðir eitthvað og spurðu hvort að þau heyrðu það líka.,Þóstu eins og þú heyrðir eitthvað skrýtið
+33,FALSE,FALSE,,General,Interruption,,,,,,
+34,FALSE,FALSE,,General,Interruption,,,,,,
+35,FALSE,FALSE,,General,Interruption,,,,,,
+36,FALSE,FALSE,,General,Interruption,,,,,,
+37,FALSE,FALSE,,General,Interruption,,,,,,
+38,FALSE,FALSE,,General,Interruption,,,,,,
+39,FALSE,FALSE,,General,Interruption,,,,,,
+40,FALSE,FALSE,,General,Interruption,,,,,,
+41,TRUE,FALSE,140,General,Betrayal,Devil's Advocate,"Secretly argue FOR the opposing side during your own group's speech
 ",Argue for the other side,Færa rök á móti,Leynilega mældu með málstað andstæðinga þinna,Mældu með andstæðingnum
-27,TRUE,FALSE,160,General,Betrayal,The Fumble,Deliberately forget your group's main argument mid-speech and improvise something terrible,Forget your argument,Algjör álfur,"Gleymdu viljandi hvaða rök þú og hópurinn þinn voru að flytja í miðri ræðu og reyndu að spuna rök eftir á, á verri hátt",Gleymdu ræðunni þinni
-28,TRUE,FALSE,160,General,Betrayal,Credit Stealer,Take credit for an idea that came from another group's speech. The points are void if the original group calls you out on it,Steal a argument idea from another group,Hugmyndarþjófur,Taktu heiðurinn af hugmynd sem kom fram í ræðu annars hóps. Stigin falla niður ef hópurinn sem þú tókst hugmyndina frá bendir á það,Steldu ræðu hugmynd frá öðrum hóp
-29,TRUE,TRUE,160,General,Betrayal,Confidence Killer,"Subtly undermine your teammate by saying \""Well, they tried\"" after they speak",Undermine your teammate,Sjálfstraust rústari,"Reyndu að gera lítið úr liðsfélaga þínum á lúmskan hátt með því að segja „Jæja, þau reyndu allavega“ eftir að þau klára ræðuna sína",Gerðu lítið út úr liðsfélaga
-30,TRUE,FALSE,160,General,Betrayal,Wrong Side,"Start your part of the speech by accidentally arguing for the wrong side before \""correcting\"" yourself",Argue the wrong side first,Vitlaust lið,Byrjaðu á ræðuna þína með því að óvart rökræða fyrir málstað andstæðings þíns,Rökræddu fyrir andstæðings hliðina
-31,TRUE,TRUE,180,General,Betrayal,Contradiction Machine,Contradict something your teammate just said and insist you're both on the same page,Contradict your teammate,Mótsögn,Andmæltu einhverju sem liðsfélagi þinn segir,Andmæltu liðsfélaga
-32,TRUE,FALSE,160,General,Betrayal,TMI,"Derail your group's speech with an overly personal and irrelevant anecdote
+42,TRUE,FALSE,140,General,Betrayal,The Fumble,Deliberately forget your group's main argument mid-speech and improvise something terrible,Forget your argument,Algjör álfur,"Gleymdu viljandi hvaða rök þú og hópurinn þinn voru að flytja í miðri ræðu og reyndu að spuna rök eftir á, á verri hátt",Gleymdu ræðunni þinni
+43,TRUE,FALSE,160,General,Betrayal,Credit Stealer,Take credit for an idea that came from another group's speech.,Steal a argument idea from another group,Hugmyndarþjófur,Taktu heiðurinn af hugmynd sem kom fram í ræðu annars hóps. ,Steldu ræðu hugmynd frá öðrum hóp
+44,TRUE,TRUE,160,General,Betrayal,Confidence Killer,"Subtly undermine your teammate by saying \""Well, they tried\"" after they speak",Undermine your teammate,Sjálfstraust rústari,"Reyndu að gera lítið úr liðsfélaga þínum á lúmskan hátt með því að segja „Jæja, þau reyndu allavega“ eftir að þau klára ræðuna sína",Gerðu lítið út úr liðsfélaga
+45,TRUE,FALSE,160,General,Betrayal,Wrong Side,"Start your part of the speech by accidentally arguing for the wrong side before \""correcting\"" yourself",Argue the wrong side first,Vitlaust lið,Byrjaðu á ræðuna þína með því að óvart rökræða fyrir málstað andstæðings þíns,Rökræddu fyrir andstæðings hliðina
+46,TRUE,TRUE,180,General,Betrayal,Contradiction Machine,Contradict something your teammate just said and insist you're both on the same page,Contradict your teammate,Mótsögn,Andmæltu einhverju sem liðsfélagi þinn segir,Andmæltu liðsfélaga
+47,TRUE,FALSE,160,General,Betrayal,TMI,"Derail your group's speech with an overly personal and completely irrelevant story
 ",Tell an irrelevant story,Of opinskár,Truflaðu flæði ræðu hópsins með óþarflega persónulegri og óspennandi sögu,Talaðu um ótengda sögu
-33,TRUE,FALSE,120,General,Betrayal,Apology Tour,"Apologize to the opposing side mid-speech and say they actually make a good point
+48,TRUE,FALSE,120,General,Betrayal,Apology Tour,"Apologize to the opposing side mid-speech and say they actually make a good point
 ",Apologize to opponents,Fyrirgefandi,"Biddu andstæðing þinn afsökunar í miðri ræðu og segðu að þau hafi verið með mjög góða, jafnvel betri, punkta.",Biddust afsökunar til andstæðingshóp
-34,FALSE,FALSE,40,EighteenPlus,Speech,Potty mouth,"Swear after almost every sentence in your speech, almost like it's uncontrollable.",Swear way too much,Kjaftfor,"Blótaðu eftir nánast hverja einustu setningu í ræðunni þinni, eins og þú sért með kæk",Blótaðu alltof mikið
-35,TRUE,FALSE,140,General,Interruption,Not paying attention,Interrupt someone's speech by pretending you weren't paying attention and didn't hear what they said.,Pretend you weren't paying attention,Í allt öðrum heimi,Truflaðu einhvern í miðri ræðu með því að þykjast að þú varst ekki að fylgjast með og heyrðir ekki.,Þóstu að þú varst ekki að fylgjast með
-36,TRUE,TRUE,160,General,Betrayal,Should've went before we started,"Tell your partner that they ""got this"" and go to the bathroom. If alone ask the Discussion Moderator to pause your speech and go to the bathroom by telling them ""It can't wait"".",Go to the bathroom in the middle of your groups speech,Hefðir átt að fara á klóið áður en við byrjuðum,"Segðu hópfélaga þínum að ""hann sé með'etta"" og farðu á klósettið.",Farðu á klósettið í miðri ræðu
-37,TRUE,FALSE,60,General,Speech,Sportacus,Compare your point to some sport to illustrate your argument on the topic.,Comparre your speech with sports,Íþróttaálfur,Notaðu íþróttarviðlíkingu,Berðu saman punktin þinn við íþróttir
-38,TRUE,FALSE,180,General,Interruption,Bless you.,Pretend to blow your nose into your hands in the middle of someone else's speech.,Pretend to blow your nose,Blessi þig.,Láttu eins og þú snítir þér í lófann á meðan andstæðingur fer með ræðuna sína,Þóstu að snýta þér
-39,FALSE,FALSE,40,General,Betrayal,Bet you're fun at parties...,Pretend to be uninterested in the topic during your speech.,Pretend to be uninterested during your speech.,Hlýtur að vera gaman að hanga með þér...,Láttu eins og þú hafir engan áhuga á því sem er verið að rökræða,Þóstu að hafa engan áhuga á efninu.
-40,TRUE,FALSE,120,General,Speech,Pay attention,"Tell someone during your speech to pay attention, as if they weren't in the first place.",Tell someone to pay attention to your speech,Fylgstu með,"Segðu einhverjum að fylgjast með, eins og viðkomandi hafi ekki verið að hlusta.",Segðu einhverjum að fylgjast með ræðunni þinni
-41,FALSE,FALSE,60,General,Speech,Giggly,Laugh or snicker at an inappropriate time during your're groups speech,Laugh/snicker during your speech,Trúða hlátur,Farðu að hlæja eða flissa á meðan þú ferð með ræðuna þína.,Farðu að hlæja/hláturmilda í miðri ræðu
-42,TRUE,FALSE,120,General,Interruption,What was that?,Pretend like you heard something strange and ask someone/everyone if they heard it too.,Pretend like you heard something,Heyrðuð þið þetta?,Láttu eins og þú heyrðir eitthvað og spurðu hvort að þau heyrðu það líka.,Þóstu eins og þú heyrðir eitthvað skrýtið
-43,TRUE,FALSE,40,General,Speech,Times running out,Pretend to be stressed about the debate time and ask the discussion moderator at some point how much time you have left in your speech.,Ask the DM how much debate time you have left,Þú ert á tímaþróun,Láttu eins og þú sért stressaður með umræðu tímann og spurðu Þingstjóran hversu mikinn tíma þú hefur eftir í ræðunni þinni.,Spurpu ÞS hversu mikinn umræðu tíma þú átt eftir
-44,TRUE,FALSE,60,General,Interruption,Yummy in my tummy,"Pretend that you are hungry and whisper to someone, that if they're starting to get hungry during another team's speech.",Pretend to be hungry,Orðinn svo svangur,Hvíslaðu að manneskju við hliðina á þér og spurðu hvort viðkomandi sé orðinn svangur á meðan á annarri ræðu stendur.,Þóstu að vera svangur
-45,TRUE,TRUE,120,General,Betrayal,Meanie,"Say to your partner during their speech ""no..just no, let me do it"" and then proceed to take over their arguement",Interrupt your partner and take over their speech,Kvikindislegur,"Segðu við félaga þinn ""nei..bara nei, leyfðu mér bara að ústkýra"" og tatku yfir ræðuna þeirra. Ef einn í hóp, skíttu þá út kubb",Gríptu fram í félaga þinn og taktu yfir mál hans/hennar
-46,TRUE,FALSE,80,General,Speech,"Who, me?",Take someone during your game as an example for your arguement,Take someone for example,"Hver, ég?",Taktu einhvern í leiknum sem dæmi fyrir þín rök.,Taktu einhvern til dæmis
-47,TRUE,FALSE,80,General,Speech,So sophisticated,Refer to a philosopher,Refer to a philosopher,Svo háþróuð/aður,Vitnaðu í heimspeking,Vísaðu út í heimspeking
-48,TRUE,FALSE,120,General,Interruption,"Wait, what?",Interrupt someones speech by comparing it to something absurd,Compare someones speech to something absurd,"Bíddu, ha?",Truflaðu umræðu einhvers með því að bera það saman við eitthvað fáránlegt,Berðu saman umræðu einhvers við eitthvað fáránlegt
+,TRUE,TRUE,160,General,Betrayal,Should've went before we started,"Tell your partner that they ""got this"" and then go to the bathroom during your speech",Go to the bathroom in the middle of your groups speech,Hefðir átt að fara á klóið áður en við byrjuðum,"Segðu hópfélaga þínum að ""hann sé með'etta"" og farðu á klósettið.",Farðu á klósettið í miðri ræðu
+,TRUE,TRUE,120,General,Betrayal,Meanie,"Say to your partner during their speech ""no..just no, let me do it"" and then proceed to take over their arguement",Interrupt your partner and take over their speech,Kvikindislegur,"Segðu við félaga þinn ""nei..bara nei, leyfðu mér bara að ústkýra"" og tatku yfir ræðuna þeirra. Ef einn í hóp, skíttu þá út kubb",Gríptu fram í félaga þinn og taktu yfir mál hans/hennar
+,FALSE,FALSE,,,Type,,,,,,
+,FALSE,FALSE,,,Interruption,You done yet?,Repeatedly tap your foot on the ground like you're impatiently waiting for 10 seconds,Repeatedly tap your foot for 10 sec,,,
+,FALSE,FALSE,,,Interruption,A bit chilly in here,Sniff very loudly at least 3 times during someones speech like you have a cold,Sniff loudly 3 times,,,
+,FALSE,FALSE,,,Interruption,Counting the seconds,Count with your fingers beginning of someones speech until the end of their speech,Count with fingers until timer runs out,,,
+,FALSE,FALSE,,,Interruption,I swear I had it on me,"Pretend you cant find something(phone, wallet, etc.) by patting and checking all of your pockets",Check your pockets for your belongings,,,
+,FALSE,FALSE,,,Speech,Toon fever,Quote a cartoon character,Quote a cartoon character,,,
+,FALSE,FALSE,,,Speech,A bit bored tbh...,"Yawn in the middle of your own speech, & make it last for at least 4 seconds",Yawn for 4 sec,,,
+,FALSE,FALSE,,,Speech,Sorry,Forgive someone in the middle of your speech as if you might have accidentally offended them during a point you were making,"Forgive someone for ""accidentally"" offending them",,,
+,FALSE,FALSE,,,Speech,Order!,Use judge courtroom terms to make your points,Use courtroom terms in your speech,,,
+,FALSE,FALSE,,,Speech,Bi-lingual,"""Accidentally"" speak in a different language for a quick point/words during your speech",Speak in a different language for a point/words,,,
+,FALSE,FALSE,,,Speech,Is it hot in here?,Wipe your forehead at least 3 times during your speech as if you were sweating,Wipe forehead 3 times,,,
+,FALSE,FALSE,,,,,,,,,
+,FALSE,FALSE,,,,,,,,,
+,FALSE,FALSE,,,,,,,,,
+,FALSE,FALSE,,,,,,,,,
+,FALSE,FALSE,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,FALSE,FALSE,40,PopCulture,Speech,Nickelback Fan,"Reference ""Nickelback"" at any point during your speech",Mention Nickelback,Nickelback aðdáandi, Vísaðu í Nickelback í ræðunni þinni,Vísaðu í Nickelback
+,FALSE,FALSE,40,PopCulture,Speech,Movie Buff,Quote a famous movie line during your speech,Quote a movie,Kvikmynda-áhugamaður,Vitnaðu í fræga kvikmyndalínu í ræðunni þinni,Vitnaðu í kvikmynd
+,FALSE,FALSE,60,PopCulture,Speech,Name Dropper,Mention a celebrity by name as if you personally know them,Name drop a celebrity,Nafnadropari,Nefndu þekktan einstakling eins og þú þekkir þau persónulega.,Nefndu einhvern frægan
+,FALSE,FALSE,40,PopCulture,Speech,Belieber,Reference a Justin Bieber lyric in your speech,Reference a Bieber lyric,Bieberji,Vísaðu í lagatexta eftir Justin Bieber,Vísaðu út í Bieber
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,FALSE,FALSE,80,Icelandic,Speech,Iceguys Superfan,Reference Iceguys during your speech,Reference Iceguys,Iceguys ofuraðdáandi,Vísaðu í Iceguys í ræðunni þinni.,Vísaðu í Iceguys
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,FALSE,FALSE,40,EighteenPlus,Speech,Potty mouth,"Swear after almost every sentence in your speech, almost like it's uncontrollable.",Swear way too much,Kjaftfor,"Blótaðu eftir nánast hverja einustu setningu í ræðunni þinni, eins og þú sért með kæk",Blótaðu alltof mikið
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,FALSE,FALSE,40,General,Betrayal,Bet you're fun at parties...,Pretend to be uninterested in the topic during your speech.,Pretend to be uninterested during your speech.,Hlýtur að vera gaman að hanga með þér...,Láttu eins og þú hafir engan áhuga á því sem er verið að rökræða,Þóstu að hafa engan áhuga á efninu.
+,FALSE,FALSE,60,General,Speech,Giggly,Laugh or snicker at an inappropriate time during your're groups speech,Laugh/snicker during your speech,Trúða hlátur,Farðu að hlæja eða flissa á meðan þú ferð með ræðuna þína.,Farðu að hlæja/hláturmilda í miðri ræðu

@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 80fff1d3335b34e5398b651f197f9219
+guid: d16963cdd6ad744a7970c52515605fe0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 695587645389319031
-    second: "Re\u0301ttu si\u0301man til_0"
+      213: 3636112353742104215
+    second: "R\xE9ttu s\xEDmann til_0"
   - first:
-      213: 7118967132550740395
-    second: "Re\u0301ttu si\u0301man til_1"
+      213: -8130378476201886263
+    second: "R\xE9ttu s\xEDmann til_1"
   - first:
-      213: 212137705367117636
-    second: "Re\u0301ttu si\u0301man til_2"
+      213: 7179066503844123147
+    second: "R\xE9ttu s\xEDmann til_2"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,6 +103,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Re\u0301ttu si\u0301man til_0"
+      name: "R\xE9ttu s\xEDmann til_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -134,19 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77ba491374937a900800000000000000
-      internalID: 695587645389319031
+      spriteID: 7962538bbe0167230800000000000000
+      internalID: 3636112353742104215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Re\u0301ttu si\u0301man til_1"
+      name: "R\xE9ttu s\xEDmann til_1"
       rect:
         serializedVersion: 2
         x: 589
         y: 239
-        width: 621
+        width: 751
         height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,17 +169,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba93e5f93e6abc260800000000000000
-      internalID: 7118967132550740395
+      spriteID: 9cd318c3ad71b2f80800000000000000
+      internalID: -8130378476201886263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Re\u0301ttu si\u0301man til_2"
+      name: "R\xE9ttu s\xEDmann til_2"
       rect:
         serializedVersion: 2
-        x: 492
+        x: 557
         y: 0
         width: 228
         height: 217
@@ -178,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44f9fdb7e1aa1f200800000000000000
-      internalID: 212137705367117636
+      spriteID: b02d88ce2fa21a360800000000000000
+      internalID: 7179066503844123147
       vertices: []
       indices: 
       edges: []
@@ -198,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Re\u0301ttu si\u0301man til_0": 695587645389319031
-      "Re\u0301ttu si\u0301man til_1": 7118967132550740395
-      "Re\u0301ttu si\u0301man til_2": 212137705367117636
+      "R\xE9ttu s\xEDmann til_0": 3636112353742104215
+      "R\xE9ttu s\xEDmann til_1": -8130378476201886263
+      "R\xE9ttu s\xEDmann til_2": 7179066503844123147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
