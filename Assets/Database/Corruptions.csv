@@ -21,7 +21,6 @@ id,Ready 4 Publish,Requires Teammate,points,Pack,Type,Title,Description,Short De
 19,TRUE,FALSE,100,General,Speech,Bi-lingual,Switch languages mid-sentance during your speech,Switch languages mid-sentance ,,Skiptu um tungumál í miðri setningu á meðan ræðan þín stendur,Skiptu um tungumál í miðri setningu
 20,TRUE,FALSE,80,General,Speech,Phone call,Take a fake phonecall (using your hand as a phone) during your speech,Make a phone call,,"Þóstu að tala í símtal með höndina þína, á meðan ræðan þín stendur",Talaðu í gervi símtal
 21,TRUE,FALSE,150,General,Speech,Stand up Act,Have someone stand up during your speech,Get someone to stand up,Uppistandsatriði,Fáðu einhvern til að  standa upp á meðan þú heldur ræðuna þína,Fáðu einhvern til að standa
-,FALSE,FALSE,,,,,Pronounce 1 word in your arguement incredibly wrong and use it at least 3 times in your speech,,,,
 22,TRUE,FALSE,120,General,Interruption,Slow Clap Starter,Start a group clap,Start a group clap,Hæg Klapp byrjandi,Byrjaðu á hóp klapp á meðan ræða anstæðingur fer með ræðuna sína,Byrja á hóp klapp
 23,TRUE,FALSE,60,General,Interruption,Fact Chacker,"Loudly say ""Actually..."" during another speech","Interrupt with ""Actually...""",staðreyndaskoðun,"Segðu ""Tæknilega séð"" og leiðréttu hópfélaga þinn","Truflaðu með ""reyndar.."""
 24,TRUE,FALSE,80,General,Interruption,Standing Ovation,Stand up and applaud enthusiastically at the end of another team's speech,Applaud inappropriately,Standandi lófaklapp,Stattu upp og klappaðu ákaft á óviðeigandi tíma í miðri ræðu anstæðings,Klappaðu á óviðeigandi tíma
@@ -33,14 +32,6 @@ id,Ready 4 Publish,Requires Teammate,points,Pack,Type,Title,Description,Short De
 30,TRUE,FALSE,100,General,Interruption,Five Claps,Clap 5 indivdual times while you are not giving a speech,Clap 5 times,5 klöpp,Klappaðu 5 sinnum,Klappaðu 5 sinnum
 31,TRUE,FALSE,80,General,Interruption,Please repeat again?,Ask another player to repeat themselves during their speech,Ask a player to repeat themselves,Í allt öðrum heimi,Truflaðu einhvern í miðri ræðu með því að þykjast að þú varst ekki að fylgjast með og heyrðir ekki.,Þóstu að þú varst ekki að fylgjast með
 32,TRUE,FALSE,100,General,Interruption,What was that?,Pretend like you heard something strange and ask someone/everyone if they heard it too.,Pretend like you heard something,Heyrðuð þið þetta?,Láttu eins og þú heyrðir eitthvað og spurðu hvort að þau heyrðu það líka.,Þóstu eins og þú heyrðir eitthvað skrýtið
-33,FALSE,FALSE,,General,Interruption,,,,,,
-34,FALSE,FALSE,,General,Interruption,,,,,,
-35,FALSE,FALSE,,General,Interruption,,,,,,
-36,FALSE,FALSE,,General,Interruption,,,,,,
-37,FALSE,FALSE,,General,Interruption,,,,,,
-38,FALSE,FALSE,,General,Interruption,,,,,,
-39,FALSE,FALSE,,General,Interruption,,,,,,
-40,FALSE,FALSE,,General,Interruption,,,,,,
 41,TRUE,FALSE,140,General,Betrayal,Devil's Advocate,"Secretly argue FOR the opposing side during your own group's speech
 ",Argue for the other side,Færa rök á móti,Leynilega mældu með málstað andstæðinga þinna,Mældu með andstæðingnum
 42,TRUE,FALSE,140,General,Betrayal,The Fumble,Deliberately forget your group's main argument mid-speech and improvise something terrible,Forget your argument,Algjör álfur,"Gleymdu viljandi hvaða rök þú og hópurinn þinn voru að flytja í miðri ræðu og reyndu að spuna rök eftir á, á verri hátt",Gleymdu ræðunni þinni
@@ -54,46 +45,3 @@ id,Ready 4 Publish,Requires Teammate,points,Pack,Type,Title,Description,Short De
 ",Apologize to opponents,Fyrirgefandi,"Biddu andstæðing þinn afsökunar í miðri ræðu og segðu að þau hafi verið með mjög góða, jafnvel betri, punkta.",Biddust afsökunar til andstæðingshóp
 ,TRUE,TRUE,160,General,Betrayal,Should've went before we started,"Tell your partner that they ""got this"" and then go to the bathroom during your speech",Go to the bathroom in the middle of your groups speech,Hefðir átt að fara á klóið áður en við byrjuðum,"Segðu hópfélaga þínum að ""hann sé með'etta"" og farðu á klósettið.",Farðu á klósettið í miðri ræðu
 ,TRUE,TRUE,120,General,Betrayal,Meanie,"Say to your partner during their speech ""no..just no, let me do it"" and then proceed to take over their arguement",Interrupt your partner and take over their speech,Kvikindislegur,"Segðu við félaga þinn ""nei..bara nei, leyfðu mér bara að ústkýra"" og tatku yfir ræðuna þeirra. Ef einn í hóp, skíttu þá út kubb",Gríptu fram í félaga þinn og taktu yfir mál hans/hennar
-,FALSE,FALSE,,,Type,,,,,,
-,FALSE,FALSE,,,Interruption,You done yet?,Repeatedly tap your foot on the ground like you're impatiently waiting for 10 seconds,Repeatedly tap your foot for 10 sec,,,
-,FALSE,FALSE,,,Interruption,A bit chilly in here,Sniff very loudly at least 3 times during someones speech like you have a cold,Sniff loudly 3 times,,,
-,FALSE,FALSE,,,Interruption,Counting the seconds,Count with your fingers beginning of someones speech until the end of their speech,Count with fingers until timer runs out,,,
-,FALSE,FALSE,,,Interruption,I swear I had it on me,"Pretend you cant find something(phone, wallet, etc.) by patting and checking all of your pockets",Check your pockets for your belongings,,,
-,FALSE,FALSE,,,Speech,Toon fever,Quote a cartoon character,Quote a cartoon character,,,
-,FALSE,FALSE,,,Speech,A bit bored tbh...,"Yawn in the middle of your own speech, & make it last for at least 4 seconds",Yawn for 4 sec,,,
-,FALSE,FALSE,,,Speech,Sorry,Forgive someone in the middle of your speech as if you might have accidentally offended them during a point you were making,"Forgive someone for ""accidentally"" offending them",,,
-,FALSE,FALSE,,,Speech,Order!,Use judge courtroom terms to make your points,Use courtroom terms in your speech,,,
-,FALSE,FALSE,,,Speech,Bi-lingual,"""Accidentally"" speak in a different language for a quick point/words during your speech",Speak in a different language for a point/words,,,
-,FALSE,FALSE,,,Speech,Is it hot in here?,Wipe your forehead at least 3 times during your speech as if you were sweating,Wipe forehead 3 times,,,
-,FALSE,FALSE,,,,,,,,,
-,FALSE,FALSE,,,,,,,,,
-,FALSE,FALSE,,,,,,,,,
-,FALSE,FALSE,,,,,,,,,
-,FALSE,FALSE,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,FALSE,FALSE,40,PopCulture,Speech,Nickelback Fan,"Reference ""Nickelback"" at any point during your speech",Mention Nickelback,Nickelback aðdáandi, Vísaðu í Nickelback í ræðunni þinni,Vísaðu í Nickelback
-,FALSE,FALSE,40,PopCulture,Speech,Movie Buff,Quote a famous movie line during your speech,Quote a movie,Kvikmynda-áhugamaður,Vitnaðu í fræga kvikmyndalínu í ræðunni þinni,Vitnaðu í kvikmynd
-,FALSE,FALSE,60,PopCulture,Speech,Name Dropper,Mention a celebrity by name as if you personally know them,Name drop a celebrity,Nafnadropari,Nefndu þekktan einstakling eins og þú þekkir þau persónulega.,Nefndu einhvern frægan
-,FALSE,FALSE,40,PopCulture,Speech,Belieber,Reference a Justin Bieber lyric in your speech,Reference a Bieber lyric,Bieberji,Vísaðu í lagatexta eftir Justin Bieber,Vísaðu út í Bieber
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,FALSE,FALSE,80,Icelandic,Speech,Iceguys Superfan,Reference Iceguys during your speech,Reference Iceguys,Iceguys ofuraðdáandi,Vísaðu í Iceguys í ræðunni þinni.,Vísaðu í Iceguys
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,FALSE,FALSE,40,EighteenPlus,Speech,Potty mouth,"Swear after almost every sentence in your speech, almost like it's uncontrollable.",Swear way too much,Kjaftfor,"Blótaðu eftir nánast hverja einustu setningu í ræðunni þinni, eins og þú sért með kæk",Blótaðu alltof mikið
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,FALSE,FALSE,40,General,Betrayal,Bet you're fun at parties...,Pretend to be uninterested in the topic during your speech.,Pretend to be uninterested during your speech.,Hlýtur að vera gaman að hanga með þér...,Láttu eins og þú hafir engan áhuga á því sem er verið að rökræða,Þóstu að hafa engan áhuga á efninu.
-,FALSE,FALSE,60,General,Speech,Giggly,Laugh or snicker at an inappropriate time during your're groups speech,Laugh/snicker during your speech,Trúða hlátur,Farðu að hlæja eða flissa á meðan þú ferð með ræðuna þína.,Farðu að hlæja/hláturmilda í miðri ræðu

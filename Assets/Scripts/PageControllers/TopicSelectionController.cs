@@ -58,8 +58,11 @@ public class TopicSelectionController : MonoBehaviour
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
-        if (gameManager == null || gameManager.topicManager == null)
+        if (gameManager == null || gameManager.topicManager == null || !gameManager.IsInitialized)
         {
+            // Fires at scene load when this panel was left active in the editor. Nothing is
+            // set up yet (no pack, no players), so loading a topic here would cache a wrong
+            // one for round 1 and suppress the real load. Bail out and wait for the real entry.
             Debug.LogWarning("TopicSelectionController.OnEnable: GameManager not ready, skipping.");
             return;
         }
@@ -73,8 +76,10 @@ public class TopicSelectionController : MonoBehaviour
             shufflesRemaining = startingNumOfShuffles;
             versusSelected    = true;
 
-            LoadRandomTopics();
-            loadedForRound = gameManager.currentRound;
+            // Only mark the round as loaded if topics actually came back — otherwise the
+            // failure would be cached and every later entry this round would stay empty.
+            if (LoadRandomTopics())
+                loadedForRound = gameManager.currentRound;
         }
 
         RefreshUI();
@@ -95,7 +100,12 @@ public class TopicSelectionController : MonoBehaviour
         GameManager.OnLanguageChanged -= RefreshUI;
     }
 
-    private void LoadRandomTopics()
+    /// <summary>
+    /// Pulls a fresh Versus and Scenario topic for the current pack and seriousness level.
+    /// Returns false when neither could be found, so the caller can retry on the next entry
+    /// instead of caching an empty screen for the rest of the round.
+    /// </summary>
+    private bool LoadRandomTopics()
     {
         var tm = gameManager.topicManager;
         tm.LoadTopicsFromPack();
@@ -105,6 +115,7 @@ public class TopicSelectionController : MonoBehaviour
         scenarioTopic = tm.GetRandomScenarioTopic(seriousness);
 
         Debug.Log($"TopicSelection — Versus: {versusTopic?.description}, Scenario: {scenarioTopic?.description}");
+        return versusTopic != null || scenarioTopic != null;
     }
 
     private void RefreshUI()

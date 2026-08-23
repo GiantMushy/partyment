@@ -24,6 +24,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int currentRound = 1;
 
     public static GameManager Instance { get; private set; }
+
+    /// <summary>
+    /// True once <see cref="Start"/> has built the state dictionary and deactivated every
+    /// panel. Panel controllers check this to ignore the stray <c>OnEnable</c> that fires at
+    /// scene load for any panel left active in the editor — at that point no pack, round or
+    /// player data exists yet, so initialising against it produces garbage state.
+    /// </summary>
+    public bool IsInitialized { get; private set; }
     public PlayerManager playerManager;
     public TopicManager topicManager;
     public CorruptionManager corruptionManager;
@@ -143,6 +151,7 @@ public class GameManager : MonoBehaviour
         };
         
         DisableAllStates();
+        IsInitialized = true;
         StartCoroutine(ApplySelectedLanguageLocale());
         if (developmentMode)
         {

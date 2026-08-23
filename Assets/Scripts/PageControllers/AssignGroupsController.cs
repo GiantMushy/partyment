@@ -77,7 +77,10 @@ public class AssignGroupsController : MonoBehaviour
     void OnEnable()
     {
         if (gameManager == null) gameManager = GameManager.Instance;
-        if (gameManager == null || gameManager.playerManager == null) return;
+        // IsInitialized guards against the OnEnable that fires at scene load when this
+        // panel is left active in the editor — there are no players yet, and building then
+        // would latch hasBeenInitialized on an empty screen.
+        if (gameManager == null || gameManager.playerManager == null || !gameManager.IsInitialized) return;
 
         if (!hasBeenInitialized)
         {

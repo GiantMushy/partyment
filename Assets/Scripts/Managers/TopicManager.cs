@@ -42,7 +42,11 @@ public class TopicManager : MonoBehaviour
     public Topic currentTopic;
     public List<Topic> seenTopics = new List<Topic>();
 
-    void Start()
+    // Set once the CSV has been parsed, so a caller that runs before Awake (or before this
+    // component's Start) can force the load instead of filtering an empty list.
+    private bool topicsLoaded;
+
+    void Awake()
     {
         LoadTopics();
     }
@@ -50,11 +54,14 @@ public class TopicManager : MonoBehaviour
     public void LoadTopics()
     {
         allTopics = topicDatabase.LoadTopics();
+        topicsLoaded = true;
         Debug.Log($"TopicManager: Loaded {allTopics.Count} topics.");
     }
 
     public void LoadTopicsFromPack()
     {
+        if (!topicsLoaded) LoadTopics();
+
         var pack = GameManager.selectedPack;
         currentPackTopics = allTopics.Where(b => b.pack == pack).ToList();
         Debug.Log($"Loaded {currentPackTopics.Count} topics for pack {pack}");
