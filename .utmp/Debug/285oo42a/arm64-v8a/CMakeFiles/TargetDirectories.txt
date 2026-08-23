@@ -1,0 +1,8 @@
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+/Users/totomcfrodo/Documents/GitHub/partyment/.utmp/Debug/285oo42a/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

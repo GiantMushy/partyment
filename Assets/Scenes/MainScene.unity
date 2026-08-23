@@ -16775,6 +16775,7 @@ MonoBehaviour:
   deductDuration: 0.8
   interPhaseDelay: 0.35
   initialHoldDelay: 0.25
+  holdFastForwardMultiplier: 4
   groupVotesLabel: Group Votes
   metricLabelFormat: Points for {0}
   corruptionsLabel: Corruptions
