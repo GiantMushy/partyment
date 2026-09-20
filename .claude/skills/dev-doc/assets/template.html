@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+  TaskList template for Partyament development docs.
+  Fill in every {{PLACEHOLDER}} and replace the example tasks/groups with real ones.
+  Keep this file self-contained (no external assets) so it opens straight from disk.
+  Conventions:
+    - File name:        TaskList_XX.html   (XX = 01, 02, ... iterating across all docs)
+    - Task local id:    Task_YY            (YY = 01, 02, ... within THIS doc)
+    - Task global ref:  Task_XX_YY         (XX = this doc's number)
+    - Group local id:   Group_Z            (Z = A, B, C, ... = implementation order)
+    - Group global ref: Group_XX_Z
+    - data-status values (task): planned | in_progress | completed | blocked
+    - data-status values (group/doc): planned | in_progress | completed
+-->
+<html lang="en" data-doc-status="planned">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskList_XX — {{SHORT THEME}}</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#1c2128; --muted:#6a737d; --line:#e2e6ea;
+    --accent:#2f6fed; --accent-soft:#e8f0ff;
+    --s-plan:#8a94a6; --s-prog:#c9861a; --s-done:#2f9e5b; --s-block:#d1495b;
+    --sc-s:#2f9e5b; --sc-m:#c9861a; --sc-l:#d1495b;
+    --shadow:0 1px 2px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.05);
+    --radius:12px; --mono:ui-monospace,"Cascadia Code","Consolas",monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0f1216; --panel:#171b21; --ink:#e6e9ee; --muted:#9aa4b2; --line:#262c34;
+      --accent:#5b8cff; --accent-soft:#1b2740;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    padding:32px 16px 96px}
+  .wrap{max-width:1040px;margin:0 auto}
+  header.doc{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+  header.doc h1{font-size:26px;margin:0;letter-spacing:-.01em}
+  header.doc .id{font-family:var(--mono);color:var(--muted);font-size:14px}
+  .meta{color:var(--muted);font-size:13px;margin:2px 0 22px}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:20px 22px;margin:18px 0}
+  section h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    margin:0 0 14px}
+  p.lead{margin:0;color:var(--ink)}
+
+  /* badges */
+  .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;
+    line-height:1.5;white-space:nowrap}
+  .st-planned{background:color-mix(in srgb,var(--s-plan) 18%,transparent);color:var(--s-plan)}
+  .st-in_progress{background:color-mix(in srgb,var(--s-prog) 20%,transparent);color:var(--s-prog)}
+  .st-completed{background:color-mix(in srgb,var(--s-done) 20%,transparent);color:var(--s-done)}
+  .st-blocked{background:color-mix(in srgb,var(--s-block) 20%,transparent);color:var(--s-block)}
+  .sc-S{color:var(--sc-s)} .sc-M{color:var(--sc-m)} .sc-L{color:var(--sc-l)}
+  .df-Easy{color:var(--sc-s)} .df-Medium{color:var(--sc-m)} .df-Hard{color:var(--sc-l)}
+
+  /* legend + controls */
+  .legend{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:12.5px;margin-top:4px}
+  .legend b{color:var(--ink);font-weight:600}
+  .controls{display:flex;gap:8px;margin:0 0 10px}
+  .controls button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);
+    color:var(--muted);padding:4px 10px;border-radius:8px;cursor:pointer}
+  .controls button:hover{color:var(--ink);border-color:var(--accent)}
+
+  /* task grid */
+  table{width:100%;border-collapse:collapse}
+  thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
+  tbody td{padding:10px;border-bottom:1px solid var(--line);vertical-align:middle}
+  tr.task-row{cursor:pointer}
+  tr.task-row:hover{background:var(--accent-soft)}
+  td.toggle{width:34px;text-align:center;color:var(--muted)}
+  td.toggle .arrow{display:inline-block;transition:transform .15s ease}
+  tr.task-row[aria-expanded="true"] .arrow{transform:rotate(90deg);color:var(--accent)}
+  td.tid{font-family:var(--mono);font-size:13px;white-space:nowrap}
+  td.title{font-weight:600}
+  td.center{text-align:center;white-space:nowrap}
+  tr.detail-row>td{padding:0;border-bottom:1px solid var(--line);background:transparent}
+  tr.detail-row[hidden]{display:none}
+  .detail{padding:4px 18px 20px 44px}
+  .detail h4{margin:16px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+  .detail h4:first-child{margin-top:8px}
+  .detail p{margin:0 0 6px}
+  .detail code,.detail .file{font-family:var(--mono);font-size:12.5px;background:var(--accent-soft);
+    padding:1px 5px;border-radius:5px}
+  .detail ul{margin:4px 0 0;padding-left:20px}
+
+  /* groups */
+  .group{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0;background:transparent}
+  .group.next{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+  .group h3{margin:0 0 2px;font-size:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .group h3 .gid{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .group .rationale{color:var(--muted);font-size:13px;margin:2px 0 10px}
+  .group .tasks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .smoketest{background:var(--accent-soft);border-radius:8px;padding:10px 14px}
+  .smoketest b{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+  .smoketest ul{margin:6px 0 0;padding-left:20px}
+  .smoketest li{margin:2px 0}
+  footer{color:var(--muted);font-size:12px;text-align:center;margin-top:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="doc">
+    <h1>{{Human title}}</h1>
+    <span class="id">TaskList_XX</span>
+    <span class="badge st-planned">Planned</span>
+  </header>
+  <div class="meta">Created {{YYYY-MM-DD}} · Updated {{YYYY-MM-DD}}</div>
+
+  <section>
+    <h2>Overview</h2>
+    <p class="lead">{{1–3 sentences: what this batch of ideas is about and the intended outcome.}}</p>
+    <div class="legend">
+      <span><b>Scope</b> S = small · M = medium · L = large</span>
+      <span><b>Difficulty</b> Easy · Medium · Hard</span>
+      <span><b>Status</b> Planned · In&nbsp;Progress · Completed · Blocked</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tasks</h2>
+    <div class="controls">
+      <button data-action="expand">Expand all</button>
+      <button data-action="collapse">Collapse all</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th></th><th>Task</th><th>Title</th><th class="center">Scope</th>
+            <th class="center">Difficulty</th><th class="center">Depends on</th><th class="center">Status</th></tr>
+      </thead>
+      <tbody>
+
+        <!-- ===== EXAMPLE TASK (duplicate this pair per task) ===== -->
+        <tr class="task-row" aria-expanded="false">
+          <td class="toggle"><span class="arrow">▶</span></td>
+          <td class="tid">Task_01</td>
+          <td class="title">{{Short task title}}</td>
+          <td class="center sc-M">M</td>
+          <td class="center df-Medium">Medium</td>
+          <td class="center">—</td>
+          <td class="center"><span class="badge st-planned">Planned</span></td>
+        </tr>
+        <tr class="detail-row" hidden>
+          <td colspan="7"><div class="detail">
+            <h4>UX</h4>
+            <p>{{What the player sees / does and how it should feel. Plain, non-technical.}}</p>
+            <h4>Technical</h4>
+            <p>{{What actually changes.}} Files: <span class="file">Assets/Scripts/…</span>,
+               <span class="file">MainScene.unity</span>.</p>
+            <ul>
+              <li>{{Concrete change 1}}</li>
+              <li>{{Concrete change 2}}</li>
+            </ul>
+          </div></td>
+        </tr>
+
+        <tr class="task-row" aria-expanded="false">
+          <td class="toggle"><span class="arrow">▶</span></td>
+          <td class="tid">Task_02</td>
+          <td class="title">{{Short task title}}</td>
+          <td class="center sc-S">S</td>
+          <td class="center df-Easy">Easy</td>
+          <td class="center">Task_01</td>
+          <td class="center"><span class="badge st-planned">Planned</span></td>
+        </tr>
+        <tr class="detail-row" hidden>
+          <td colspan="7"><div class="detail">
+            <h4>UX</h4><p>{{…}}</p>
+            <h4>Technical</h4><p>Depends on Task_01. Files: <span class="file">…</span>.</p>
+            <ul><li>{{…}}</li></ul>
+          </div></td>
+        </tr>
+        <!-- ===== /EXAMPLE TASK ===== -->
+
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Implementation groups (in order)</h2>
+    <p class="lead" style="margin-bottom:6px;color:var(--muted)">Groups run top-to-bottom; dependencies are satisfied by earlier groups. Each is one implementation run.</p>
+
+    <!-- Mark the group to be done next with class="group next" -->
+    <div class="group next">
+      <h3>Group A <span class="gid">Group_XX_A</span> <span class="badge st-planned">Planned</span></h3>
+      <div class="rationale">{{Why these belong together — shared scope / same files / done efficiently in one pass.}}</div>
+      <div class="tasks"><span class="chip">Task_01</span><span class="chip">Task_02</span></div>
+      <div class="smoketest">
+        <b>Smoketest after this group</b>
+        <ul>
+          <li>{{One thing to click/verify — very brief}}</li>
+          <li>{{Another quick check}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>Group B <span class="gid">Group_XX_B</span> <span class="badge st-planned">Planned</span></h3>
+      <div class="rationale">{{…}}</div>
+      <div class="tasks"><span class="chip">Task_03</span></div>
+      <div class="smoketest">
+        <b>Smoketest after this group</b>
+        <ul><li>{{…}}</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>Partyament development doc · generated by the <code>dev-doc</code> skill</footer>
+</div>
+
+<script>
+  document.querySelectorAll('tr.task-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      var open = row.getAttribute('aria-expanded') === 'true';
+      row.setAttribute('aria-expanded', String(!open));
+      var detail = row.nextElementSibling;
+      if (detail && detail.classList.contains('detail-row')) detail.hidden = open;
+    });
+  });
+  document.querySelectorAll('.controls button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var expand = btn.dataset.action === 'expand';
+      document.querySelectorAll('tr.task-row').forEach(function(row){
+        row.setAttribute('aria-expanded', String(expand));
+        var d = row.nextElementSibling;
+        if (d && d.classList.contains('detail-row')) d.hidden = !expand;
+      });
+    });
+  });
+</script>
+</body>
+</html>
