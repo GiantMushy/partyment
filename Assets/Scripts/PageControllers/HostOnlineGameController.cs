@@ -64,7 +64,7 @@ public class HostOnlineGameController : MonoBehaviour
         playerNames.Clear();
         nextPlayerId = 0;
         gameManager.StopHostingOnlineGame();
-        gameManager.SetState(GameManager.GameState.HostVsJoin);
+        gameManager.SetState(GameManager.GameState.PackSelection);
     }
 
     public void AddPlayer(string playerName)

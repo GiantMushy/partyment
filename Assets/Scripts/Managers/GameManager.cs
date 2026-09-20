@@ -70,6 +70,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameState currentState = GameState.None;
     [HideInInspector] public bool menuOpen;
 
+    // Local vs Online choice made on the LocalVsOnline screen. Drives where Pack Selection
+    // continues to (local player setup vs the online host lobby); see ContinueAfterPackSelection.
+    public enum GameMode { Local, OnlineHost, OnlineJoin }
+    [HideInInspector] public GameMode currentGameMode = GameMode.Local;
+
     // Networking Variables
     private string currentRoomCode;
 
@@ -162,7 +167,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Development Mode: OFF");
-            SetState(GameState.PackSelection);
+            SetState(GameState.LocalVsOnline);
         }
     }
 
@@ -237,7 +242,28 @@ public class GameManager : MonoBehaviour
         assignGroups.GetComponent<AssignGroupsController>().ResetInitialization();
         topicSelection.GetComponent<TopicSelectionController>().ResetForNewGame();
 
+        // A new game always starts local: the player re-picks a pack, then goes straight
+        // into local player setup (see ContinueAfterPackSelection).
+        currentGameMode = GameMode.Local;
         SetState(GameState.PackSelection);
+    }
+
+    /// <summary>
+    /// Advances out of Pack Selection once a pack has been chosen. Local play continues to
+    /// the player-registration screen; hosting an online game spins up the room and opens
+    /// the host lobby. (Joining never reaches Pack Selection, so it isn't handled here.)
+    /// </summary>
+    public void ContinueAfterPackSelection()
+    {
+        if (currentGameMode == GameMode.OnlineHost)
+        {
+            HostOnlineGame();
+            SetState(GameState.HostOnlineGame);
+        }
+        else
+        {
+            SetState(GameState.StartLocalGame);
+        }
     }
 
     public void OpenSettings()

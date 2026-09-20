@@ -73,7 +73,7 @@ public class StartLocalGameController : MonoBehaviour
     public void Back()
     {
         Debug.Log("Start Local Game Back Button Pressed");
-        gameManager.SetState(GameManager.GameState.LocalVsOnline);
+        gameManager.SetState(GameManager.GameState.PackSelection);
     }
 
     private void OnDefaultInputValueChanged(string value)

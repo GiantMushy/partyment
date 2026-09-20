@@ -1,9 +1,10 @@
 using UnityEngine;
 
 /// <summary>
-/// Three-button picker (Local / Online / Back) shown after Pack Selection.
-/// Routes to <see cref="GameManager.GameState.StartLocalGame"/> or
-/// <see cref="GameManager.GameState.HostVsJoin"/>.
+/// The game's first screen: pick Local or Online. Local sets
+/// <see cref="GameManager.GameMode.Local"/> and heads to Pack Selection; Online goes to the
+/// Host-vs-Join picker. This is the root screen, so its Back button is hidden — <see cref="Back"/>
+/// is kept only so any stale scene wiring resolves.
 /// </summary>
 public class LocalVsOnlineController : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class LocalVsOnlineController : MonoBehaviour
     public void Local()
     {
         Debug.Log("Local Button Pressed");
-        gameManager.SetState(GameManager.GameState.StartLocalGame);
+        gameManager.currentGameMode = GameManager.GameMode.Local;
+        gameManager.SetState(GameManager.GameState.PackSelection);
     }
     public void Online()
     {
