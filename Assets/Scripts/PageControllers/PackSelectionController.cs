@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// First real screen of the game. Presents pack options as a horizontal swipe
-/// carousel. Cards are pre-placed in the scene and assigned to <see cref="cards"/> in
+/// Pack picker, shown after the Local/Online (and, when hosting, Host/Join) choice.
+/// Presents pack options as a horizontal swipe carousel. Cards are pre-placed in the scene and assigned to <see cref="cards"/> in
 /// carousel order; each card's pack type and background colour drive the game logic
 /// and screen tint. The carousel position is a single float <see cref="displayIndex"/>:
 /// dragging sets it directly, releasing seeds a damped spring that pulls it toward
@@ -291,6 +291,17 @@ public class PackSelectionController : MonoBehaviour,
         var pack = cards[packIndex].packType;
         gameManager.SetPack(pack);
         TopicManager.LoadTopicsFromPack();
-        gameManager.SetState(GameManager.GameState.LocalVsOnline);
+        gameManager.ContinueAfterPackSelection();
+    }
+
+    /// <summary>
+    /// Returns to the screen that led here: the Host-vs-Join picker when hosting online,
+    /// otherwise the Local-vs-Online screen.
+    /// </summary>
+    public void Back()
+    {
+        gameManager.SetState(gameManager.currentGameMode == GameManager.GameMode.OnlineHost
+            ? GameManager.GameState.HostVsJoin
+            : GameManager.GameState.LocalVsOnline);
     }
 }
